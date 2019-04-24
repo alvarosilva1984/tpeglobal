@@ -1,0 +1,77 @@
+<div class="backdrop" [ngStyle]="{'display': display}"></div>
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display': display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form [formGroup]="anuncioForm" (ngSubmit)="onSubmit()" autocomplete="off">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal_titulo">Novo anuncio</h5>
+                    <button type="button" id="modal_fechar" class="close" data-dismiss="modal" aria-label="Close" (click)="onClose()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label style="font-size: 11px; float: right;">* Campos obrigatórios</label>
+                    <br/>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-8">
+                            <label>Titulo *</label>
+                            <input type="text" class="form-control" id="anuncio_titulo" placeholder="Digite o titulo do anuncio" formControlName="titulo">
+
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-10">
+                            <label>Mensagem *</label>
+                            <input type="text" class="form-control" id="anuncio_mensagem" placeholder="Digite a mensagem do anuncio" formControlName="mensagem">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="submit" [disabled]="validMyForm()" class="btn btn-primary">Salvar</button>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="form-group col-md-4">
+            <button type="button" class="btn btn-primary" (click)="onNewanuncio()" [disabled]="auth">Novo anuncio +</button>
+        </div>
+
+        <form>
+
+        </form>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Mensagem</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let anuncio of anuncios; let j = index">
+                    <th scope="row">{{j + 1}}</th>
+                    <td>{{anuncio.titulo}}</td>
+                    <td>{{anuncio.mensagem}}</td>
+                    <td>
+                        <button type="button" class="btn btn-success btn-sm" (click)="onAvisar(j)" [disabled]="auth || anuncio.avisado">
+                            <i class="fa fa-paper-plane-o" aria-hidden="true"></i> Avisar</button>
+                        <button type="button" class="btn btn-warning btn-sm" (click)="onEdit(j)" [disabled]="auth">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button>
+                        <button type="button" class="btn btn-danger btn-sm" (click)="onDelete(j)" [disabled]="auth">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i> Excluir</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,235 @@
+<div class="container">
+  <div class="row">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+      <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true" (click)="onChangeDisponiblidade()">Dados</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" role="tab" aria-controls="profile" aria-selected="false" (click)="onChangeDisponiblidade()">Disponibilidade</a>
+      </li>
+
+    </ul>
+  </div>
+</div>
+
+<div *ngIf="showDisponibilidade" class="container">
+
+
+     
+      <!--       <ul class="list-inline">
+        <li>
+          <span class="node-link" (click)="onChangeDisponiblidade()">Perfil</span>
+        </li>
+      </ul> -->
+      <!--ABAS-->
+
+      <br>
+      
+
+          <div class="row">
+              <div class="col-md-4">
+          <button type="button" id="anterior" (click)="anteriorDia($event)" class="btn btn-default"><i class="fas fa-angle-left"></i></button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" id="proximo" (click)="proximoDia($event)" class="btn btn-default"><i class="fas fa-angle-right"></i></button>
+        </div>
+        </div>
+         <div class="row">
+          <div class="col-md-3">
+          <select [(ngModel)]="dayselect" class="form-control" (change)="horasExistentes()" id="dayselected">
+              <option>Segunda-feira</option>
+              <option>Terça-feira</option>
+              <option>Quarta-feira</option>
+              <option>Quinta-feira</option>
+              <option>Sexta-feira</option>
+              <option>Sábado</option>
+              <option>Domingo</option>
+            </select>
+          </div>
+         
+        
+        </div>
+       
+        <div class="row">
+        <div class="col-md-6">
+          <br>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Horários</th>
+                <th class="center" scope="col">Seleção</th>
+                <th class="center" scope="col">Vezes/Mês</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let hora of horas; let h = index">
+                <th *ngIf="hora.vagas > 0" scope="row">{{ hora.hora }}</th>
+                <td class="center" *ngIf="hora.vagas > 0" >
+                  <input class="inputhora" type="checkbox" (change)="changed($event.target.checked,hora)" [checked]="valorCheck(hora)" [disabled]="inputCheckCondition()">
+                </td>
+                <td class="center" *ngIf="((dayselect == 'Domingo' || dayselect == 'Sábado') && (hora.vagas > 0))" >
+                  <!-- <input id="{{ 'input' + dayselect }}" type="number" min="1" max="5" style="width: 2em;"  (change)="vezesFds($event.target.value, hora.code)" value="valueInput()" [disabled]="!valorCheck(hora)"> -->
+                  <input type="number" min="1" max="5" style="width: 2em;" (change)="vezesFds($event.target.value, hora.code)" [value]="valueInput(hora.code)"
+                    [disabled]="inputCondition(hora)" >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      </div>
+
+
+      <div class="row">
+        <div class="form-group col-md-6">
+
+
+          <button class="btn btn-primary" type="button" (click)="onSubmit()" [disabled]="inputCheckCondition()" [hidden]="changemode">
+            <i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</button>
+
+          <button id="btnenabled" class="btn btn-warning" (click)="doConfig()" type="button" [hidden]="!changemode">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button>
+
+          <button name="cancel" id="btncancel" class="btn btn-danger" (click)="doConfig()" type="button" [hidden]="changemode">
+            <i class="fas fa-times"></i> Cancelar</button>
+        </div>
+      </div>
+
+
+   
+ 
+
+</div>
+
+
+
+
+<div *ngIf="!showDisponibilidade" class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <!--     <ul class="list-inline">
+        <li>
+          <span class="node-link" (click)="onChangeDisponiblidade()">Disponibilidade</span>
+        </li>
+      </ul> -->
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()" autocomplete="off">
+
+        <div class="col-md-3">
+          <div class="form-group">
+
+            <label for="firstName">Nome</label>
+            <input type="text" id="firstName" class="form-control" formControlName="firstName">
+
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="lastName">Sobrenome</label>
+            <input type="text" id="lastName" class="form-control" formControlName="lastName">
+          </div>
+        </div>
+
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input align="right" type="email" id="email" class="form-control" formControlName="email" autocomplete="false">
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="circuito">Circuito</label>
+            <input type="text" id="circuito" class="form-control" formControlName="circuito">
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="congregation">Congregação</label>
+            <input type="text" formControlName="congregation" id="congregation" class="form-control">
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="sex">Sexo</label>
+            <select type="text" id="sex" class="form-control" formControlName="sex">
+              <option> </option>
+              <option value="M">Masculino</option>
+              <option value="F">Feminino</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="privilege">Privilégio</label>
+            <select type="text" id="privilege" class="form-control" formControlName="privilege" ng-model="privilege">
+              <option> </option>
+              <option value="PU">Publicador(a)</option>
+              <option value="PI">Pioneiro(a)</option>
+              <option value="S">Servo</option>
+              <option value="A">Ancião</option>
+              <option value="PS">Pioneiro e Servo</option>
+              <option value="PA">Pioneiro e Ancião</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="datebirth">Data de Nascimento</label>
+            <input [(ngModel)]="mybirth" name="mybirth" type="date" id="datebirth" class="form-control" formControlName="datebirth" (change)="responsableNeed()">
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div *ngIf="responsableNeed()" class="form-group">
+            <label for="responsable">Responsável</label>
+            <input type="text" formControlName="responsable" id="responsable" class="form-control">
+          </div>
+        </div>
+
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="mobilephone">Telefone Celular</label>
+            <input type="number" id="mobilephone" class="form-control" formControlName="mobilephone" pattern=".{11,11}">
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="phone">Telefone Residencial</label>
+            <input type="number" id="phone" class="form-control" formControlName="phone" pattern=".{0,10}">
+          </div>
+        </div>
+
+
+
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="eldermail">Email para notificação </label>
+            <input type="email" id="eldermail" class="form-control" formControlName="eldermail">
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="conjuge">Companheiro(a)</label>
+            <input type="text" formControlName="conjuge" id="conjuge" class="form-control">
+          </div>
+        </div>
+
+
+      </form>
+
+    </div>
+  </div>
+</div>

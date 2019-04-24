@@ -1,0 +1,36 @@
+<div class="col-md-12 col-md-offset-1">
+        <h2><span class="badge badge-primary">Escala</span></h2>
+        <br>
+    
+        <button type="button" id="anterior" (click)="anteriorDia($event)" class="btn btn-default"> < </button>
+                        <button type="button" id="proximo" (click)="proximoDia($event)" class="btn btn-default"> > </button>
+                        <label for="dia">DATA</label>
+                        <input name="dia" id="dia" type="date" [(ngModel)]="dia" (change)="onChange()"> {{ diasemana }}
+                        <br>
+                        <br>
+
+                        <div *ngFor="let hora of horas; let h = index">
+                                <div *ngIf="hora.vagas > 0">
+                        <h3>{{hora.hora}}</h3>
+                        <div class="row">     
+                        <div *ngFor="let ponto of pontos_hora[h]; let i = index">    
+                        <div class="col-md-4">  
+                        <div class="panel panel-default" >
+                                        
+                                        <div class="panel-heading" ><strong>Ponto({{i + 1}}): {{ponto.name}}</strong></div>
+                                        <div class="panel-body">
+                                                        <div *ngFor="let pub of ponto.pubs; let j = index" class="alert alert-success" role="alert">
+                                                                P {{ j + 1 }}:
+                                                                 <span  [style.color]="getStyle(pub?.sex)" *ngIf="pub">{{ pub?.firstName }} {{ pub?.lastName}}         </span>
+                                                                        I:  <span [style.color]="getStyle(pub?.sex)" *ngIf="pub">{{ getAge(pub?.datebirth) || ' ' }}  </span>
+                                                                        Cong: <span  [style.color]="getStyle(pub?.sex)" *ngIf="pub">{{ identifyCongregation(pub?.congregation) || ' ' }} </span> 
+
+                                                                </div> 
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+             

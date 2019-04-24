@@ -1,0 +1,266 @@
+<div class="row">
+  <div *ngIf="criarForm()" class="col-md-1">
+    <button id="btnnew" class="btn btn-secondary" (click)="goCadastro()">Cadastro</button>
+  </div>
+  <div *ngIf="!criarForm()" class="col-md-1">
+    <button id="btnchange" class="btn btn-secondary" (click)="goCadastro()">Novo</button>
+  </div>
+  <div *ngIf="!criarForm()" class="col-md-1">
+    <button id="btnenabled" class="btn btn-warning" (click)="doEnabled()">
+      <span class="glyphicon glyphicon-edit"></span>Editar</button>
+  </div>
+</div>
+
+<div *ngIf="!criarForm()" class="row">
+  <div class="col-md-1">
+    <h4>Filtro:</h4>
+  </div>
+  <hr>
+</div>
+
+<div *ngIf="!criarForm()" class="row">
+  <div class="col-md-3">
+    <button type="button" id="useranterior" (click)="anteriorUser($event)" class="btn btn-default">
+      < </button>
+        <button type="button" id="userproximo" (click)="proximoUser($event)" class="btn btn-default"> > </button>
+  </div>
+</div>
+
+
+  <div *ngIf="!criarForm()" class="row" >
+    <div class="col-md-3">
+      <label for="userselected">Publicador </label>
+      <select [(ngModel)]="userselected" class="form-control" (change)="setValuesToForm()" id="userselected">
+        <option> </option>
+        <option *ngFor="let user of userall" [ngValue]="user">{{user?.firstName}} {{user?.lastName}}</option>
+      </select>
+    </div>
+
+
+    <div class="col-md-3" >
+      <label for="circselected">Circuito </label>
+      <select [(ngModel)]="circselected" class="form-control" (change)="onCirc()" id="circselected">
+        <option> </option>
+        <option *ngFor="let circ of circall" [ngValue]="circ">{{circ?.nome}}</option>
+      </select>
+    </div>
+
+    <div class="col-md-3">
+      <label for="congselected">Congregação </label>
+      <select [(ngModel)]="congselected" class="form-control" (change)="onCong()" id="congselected">
+        <option> </option>
+        <option *ngFor="let cong of congall" [ngValue]="cong">{{cong?.nome}}</option>
+      </select>
+    </div>
+  </div>
+
+
+  <div *ngIf="!criarForm()" class="row">
+    <div class="col-md-12">
+      <hr>
+    </div>
+  </div>
+
+
+
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()" autocomplete="off">
+  
+    
+        <div class="col-md-3">
+          <div class="form-group">
+
+            <label for="firstName">Nome</label>
+            <input type="text" id="firstName" class="form-control" formControlName="firstName">
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="lastName">Sobrenome</label>
+            <input type="text" id="lastName" class="form-control" formControlName="lastName">
+          </div>
+        </div>
+
+
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input align="right" type="email" id="email" class="form-control" formControlName="email" autocomplete="false">
+          </div>
+        </div>
+  
+
+    
+        <div class="col-md-3">
+          <div *ngIf="userSelected()" class="form-group">
+            <label for="password">Senha</label>
+            <span> (mínimo de 6 caracteres)</span>
+            <input name="password" align="right" type="password" id="password" class="form-control" formControlName="password" pattern=".{6,}"
+              required title="deve ter 6 caracteres no mínimo" autocomplete="false">
+          </div>
+        </div>
+      
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="circuito">Circuito</label>
+            <select [(ngModel)]="circuito" id="circuito" class="form-control" formControlName="circuito" (change)="changeCongregation()">
+              <option> </option>
+              <option *ngFor="let circuito of circuitos" [ngValue]="circuito">{{circuito?.nome}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="congregation">Congregação</label>
+            <select [(ngModel)]="congregation" formControlName="congregation" id="congregation" class="form-control" (change)="changeResponsableAndConjuge()">
+              <option> </option>
+              <option *ngFor="let congregation of congregations" [ngValue]="congregation">{{congregation?.nome}}</option>
+            </select>
+          </div>
+        </div>
+      
+
+  
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="sex">Sexo</label>
+            <select type="text" [(ngModel)]="sex" id="sex" class="form-control" formControlName="sex" (change)="changeResponsableAndConjuge()">
+              <option> </option>
+              <option value="M">Masculino</option>
+              <option value="F">Feminino</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="privilege">Privilégio</label>
+            <select type="text" id="privilege" class="form-control" formControlName="privilege" ng-model="privilege">
+              <option> </option>
+              <option value="PU">Publicador(a)</option>
+              <option value="PI">Pioneiro(a)</option>
+              <option value="S">Servo</option>
+              <option value="A">Ancião</option>
+              <option value="PS">Pioneiro e Servo</option>
+              <option value="PA">Pioneiro e Ancião</option>
+            </select>
+          </div>
+        </div> 
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="datebirth">Data de Nascimento</label>
+            <input [(ngModel)]="mybirth" name="mybirth" type="date" id="datebirth" class="form-control" formControlName="datebirth" (change)="responsableNeed()">
+          </div>
+        </div>
+    
+
+     
+        <div class="col-md-3">
+          <div *ngIf="responsableNeed()" class="form-group">
+            <label for="responsable">Responsável</label>
+            <select [(ngModel)]="responsable" formControlName="responsable" id="responsable" class="form-control">
+              <option> </option>
+              <option *ngFor="let responsable of responsables" [ngValue]="responsable">{{responsable?.firstName}} {{responsable?.lastName}}</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="mobilephone">Telefone Celular</label>
+            <input type="number" id="mobilephone" class="form-control" formControlName="mobilephone" pattern=".{11,11}">
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="phone">Telefone Residencial</label>
+            <input type="number" id="phone" class="form-control" formControlName="phone" pattern=".{0,10}">
+          </div>
+        </div>
+   
+
+    
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="eldermail">Email para notificação </label>
+            <input type="email" id="eldermail" class="form-control" formControlName="eldermail">
+          </div>
+        </div>
+     
+
+     
+        <div class="col-md-3">
+          <div *ngIf="existConjuge()" class="form-group">
+            <label for="conjuge">Companheiro(a)</label>
+            <select [(ngModel)]="conjuge" formControlName="conjuge" id="conjuge" class="form-control">
+              <option> </option>
+              <option *ngFor="let conjuge of conjuges" [ngValue]="conjuge">{{conjuge?.firstName}} {{conjuge?.lastName}}</option>
+            </select>
+          </div>
+        </div>
+   
+
+    <div class="row">
+      <div *ngIf="criarForm()" class="col-md-3">
+        <br>
+        <button class="btn btn-primary" type="submit" [disabled]="!myForm.valid">Criar</button>
+      </div>
+
+      <div *ngIf="!criarForm()" class="col-md-3">
+        <br>
+        <button class="btn btn-primary" type="submit" [disabled]="validMyForm()">Salvar</button>
+      </div>
+    </div>
+  
+
+  </form>
+
+
+  <div class="row">
+    <div class="col-md-3">
+      <h4>Disponibilidade</h4>
+
+      <br>
+
+
+      <button type="button" id="anterior" (click)="anteriorDia($event)" class="btn btn-default">
+        < </button>
+          <button type="button" id="proximo" (click)="proximoDia($event)" class="btn btn-default"> > </button>
+          <select [(ngModel)]="dayselect" class="form-control" (change)="horasExistentes()" id="dayselected">
+            <option>Segunda-feira</option>
+            <option>Terça-feira</option>
+            <option>Quarta-feira</option>
+            <option>Quinta-feira</option>
+            <option>Sexta-feira</option>
+            <option>Sábado</option>
+            <option>Domingo</option>
+          </select>
+
+          <table class="table table-condensed">
+            <thead>
+              <tr>
+                <th scope="col">Horários</th>
+                <th scope="col">Seleção</th>
+                <th scope="col">Vezes/Mês</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let hora of horas; let h = index">
+                <th *ngIf="hora.vagas > 0" scope="row">{{ hora.hora }}</th>
+                <td *ngIf="hora.vagas > 0">
+                  <input class="inputhora" type="checkbox" (change)="changed($event.target.checked,hora)" [checked]="valorCheck(hora)" [disabled]="inputCheckCondition()">
+                </td>
+                <td *ngIf="((dayselect == 'Domingo' || dayselect == 'Sábado') && (hora.vagas > 0))">
+                  <!-- <input id="{{ 'input' + dayselect }}" type="number" min="1" max="5" style="width: 2em;"  (change)="vezesFds($event.target.value, hora.code)" value="valueInput()" [disabled]="!valorCheck(hora)"> -->
+                  <input type="number" min="1" max="5" style="width: 2em;" (change)="vezesFds($event.target.value, hora.code)" [value]="valueInput(hora.code)"
+                    [disabled]="inputCondition(hora)">
+                </td>
+              </tr>
+            </tbody>
+          </table>

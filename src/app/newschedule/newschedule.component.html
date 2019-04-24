@@ -1,0 +1,139 @@
+<div class="backdrop" [ngStyle]="{'display': display}"></div>
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display': display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" aria-label="Close" (click)="onClose()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Telegrams Enviados {{telegramreport.length}}</h4>
+            </div>
+            <div class="modal-body">
+                <p *ngFor="let tele of telegramreport">{{ tele.user.firstName }} {{ tele.user.lastName }} dia {{ tele.dia}} horário: {{ tele.hora }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" (click)="onClose()">Fechar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="backdrop" [ngStyle]="{'display': displaymail}"></div>
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display': displaymail}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" aria-label="Close" (click)="onClosemail()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Emails Enviados {{emailreport.length}}</h4>
+            </div>
+            <div class="modal-body">
+                <p *ngFor="let mail of emailreport">{{ mail.user.firstName }} {{ mail.user.lastName }} dia {{ mail.dia}} horário: {{ mail.hora }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" (click)="onClosemail()">Fechar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <br>
+    <br>
+    <h3>Período Vigente</h3>
+    <button type="button" id="anterior" (click)="nextValidity($event)" class="btn btn-default">
+      < </button>
+        <button type="button" id="proximo" (click)="beforeValidity($event)" class="btn btn-default"> > </button>
+        <span class="badge badge-success">De</span>
+        <span class="badge badge-success"> {{ datainicio }}</span>
+        <span class="badge badge-success">até</span>
+        <span class="badge badge-success"> {{ datafim }}</span>
+        <div *ngIf="isAuthenticated()">
+        <button type="button" class="btn btn-primary" (click)="sendEmail()" style="float: right;" [disabled]="!allowdelete" [hidden]="!allowdelete">Email</button>
+        <button type="button" class="btn btn-success" (click)="sendTelegram()" style="float: right;" [disabled]="!allowdelete" [hidden]="!allowdelete">Telegram</button>
+        <button type="button" class="btn btn-primary" (click)="salvaEscala()" style="float: right;" [disabled]="verifyallowsave()">Salvar Escala</button>
+        <button type="button" class="btn btn-danger" (click)="deletaEscala()" style="float: right;" [disabled]="!allowdelete">Del</button>
+        </div>
+  </div>
+</div>
+
+<div *ngIf="isAuthenticated()" class="row">
+  <div class="col-md-4 col-md-offset-1">
+    <br>
+    <button type="button" class="btn btn-primary" (click)="geraEscala()" [disabled]="!allowsave">Gerar Escala</button>
+    <br>
+    <li style="color:Black" *ngIf="showNow">
+      Pontos Vazios
+      <span class="label label-primary" style="font-size:16px;">
+        {{ reportvoid }}</span>
+    </li>
+    <hr>
+    <br>
+  </div>
+</div>
+
+
+<div *ngIf="showNow" class="row">
+  <div class="col-md-12 col-md-offset-1">
+    <div *ngFor="let esc of escala">
+      <div class="alert alert-secondary" role="alert">
+      <span class="label label-info" style="font-size:17px;"><b>{{esc.dia}}</b></span>
+      <span class="label label-warning" style="font-size:14px;"><b>{{esc.diasemana}}</b></span>
+      </div>
+      <br>
+      <ul *ngFor="let hr of esc.hora; let h = index">
+        <br>
+        <li style="background-color:Azure; color:Black">
+          <b>{{ hr.hora }}</b>
+          <span style="float:right;font-size:11px;">{{esc.dia}}/{{esc.diasemana}}</span>
+        </li>
+        <ul *ngFor="let pont of esc.pontos[h]">
+          <li style="color:Black">
+            <b>{{ pont.name }}</b>
+          </li>
+          <ul>
+            <table style="width:100%">
+              <tr *ngFor="let pub of pont.pubs">
+                <td width="5%" *ngIf="(!allowsave) && pub?.sim == false && pub?.nao == false"><div class="led-yellow"></div></td>
+                <td width="5%" *ngIf="allowsave && pub?.sim == false && pub?.nao == false"><div class="led-yellow-static"></div></td>
+                <td width="5%" *ngIf="pub?.sim == true && pub?.nao == false"><div class="led-green"></div></td>
+                <td width="5%" *ngIf="pub?.sim == false && pub?.nao == true"><div class="led-red"></div></td>
+                <td width="5%" *ngIf="pub?.sim == true && pub?.nao == true"><div class="led-green"></div></td>
+                <td *ngIf="pub.firstName != undefined" [style.color]="getStyle(pub?.sex)" width="30%">{{ pub?.firstName }} {{ pub?.lastName}}</td>
+                
+                <td *ngIf="pub.firstName != undefined" width="4%">{{ getAge(pub?.datebirth) || ' '}}</td>
+                <td *ngIf="pub.firstName != undefined" width="9%">{{ pub?.congregation.circuit || ' ' }}</td> 
+                <td *ngIf="pub.firstName != undefined" width="20%">{{ pub?.congregation.nome }}</td>
+                <td *ngIf="pub.firstName != undefined" width="12%">{{ pub?.mobilephone || pub?.phone }}</td>
+                <td *ngIf="pub.firstName != undefined" >{{ pub?.email }}</td>
+                <td *ngIf="pub.firstName != undefined" width="5%">
+                  <p class="bg-success text-white" style="font-size:12px; text-align: center;" *ngIf="pub.tipoesc == 'A' "><b>{{ pub?.tipoesc }}</b></p>
+                  <p class="bg-light text-dark" style="font-size:12px; text-align: center;" *ngIf="pub.tipoesc == 'E' "><b>{{ pub?.tipoesc }}</b></p>
+                  <p class="bg-primary text-white" style="font-size:12px; text-align: center;" *ngIf="pub.tipoesc == 'S' "><b>{{ pub?.tipoesc }}</b></p>
+                </td>
+                <td *ngIf="pub.firstName != undefined" width="5%"> </td> 
+              </tr>
+            </table>
+          </ul>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showNow" class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <br>
+    <br>
+    <h3>Designações por período:</h3>
+    <br>
+    <div *ngFor="let final of finalreport">
+      <li style="color:Black">
+        <span class="label label-primary" style="font-size:12px;" *ngIf="final.count > 0">
+          {{ final.count }}</span>
+        <span class="label label-danger" style="font-size:12px;" *ngIf="final.count == 0">
+          {{ final.count }}</span>
+        <b>{{ final.nome }} {{ final.sobrenome }}</b>
+      </li>
+    </div>
+  </div>
+</div>
+

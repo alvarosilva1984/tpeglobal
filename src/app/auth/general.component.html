@@ -1,0 +1,223 @@
+<div class="col-md-8 col-md-offset-1">
+    <button id="btnchange" class="btn btn-warning" (click)="doEnabled()">
+        <span class="glyphicon glyphicon-edit"></span>Modificar</button>
+        <label>Selecione um usuário.</label>
+        <select [(ngModel)]="userselected" (change)="selectmyuser(userselected)"> 
+                <option *ngFor="let user of usersall" [ngValue]="user">{{user.firstName}} {{user.lastName}}</option>
+            </select>
+
+        <form class="form-inline">
+        <form [formGroup]="perfilForm" (ngSubmit)="onSubmit()">
+           
+            <div class="form-group">
+                <label for="lastday">Última vez:</label>
+                <input type="date" id="lastday" class="form-control" formControlName="lastday">
+            </div>
+            <div class="form-group">
+                <label for="firstName">Nome:</label>
+                <input type="text" class="form-control" id="firstName" formControlName="firstName">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Sobrenome:</label>
+                <input type="text" class="form-control" id="lastName" formControlName="lastName">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" formControlName="email">
+            </div>
+            <!--    <div class="form-group">
+                <label for="password">Senha:</label>
+                <input type="password" class="form-control" id="password" formControlName="password">
+            </div> -->
+
+            <div class="form-group">
+                <label for="congregation">Congregação:</label>
+                <select type="text" class="form-control" id="congregation" formControlName="congregation">
+                    <option value="Alto Itamaraty">Alto Itamaraty</option>
+                    <option value="Alzira Franco">Alzira Franco</option>
+                    <option value="Bangu">Bangu</option>
+                    <option value="Dos Alpes">Dos Alpes</option>
+                    <option value="Espanhola">Espanhola</option>
+                    <option value="Evangelista">Evangelista</option>
+                    <option value="Fenícia">Fenícia</option>
+                    <option value="Jardim Rina">Jardim Rina</option>
+                    <option value="Língua de Sinais">Língua de Sinais</option>
+                    <option value="Maravilhas">Maravilhas</option>
+                    <option value="Matarazzo">Matarazzo</option>
+                    <option value="Nova Capuava">Nova Capuava</option>
+                    <option value="Nova Zelândia">Nova Zelândia</option>
+                    <option value="Parque Erasmo">Parque Erasmo</option>
+                    <option value="Parque Novo Oratório">Parque Novo Oratório</option>
+                    <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+                    <option value="Vila Lucinda">Vila Lucinda</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="mobilephone">Telefone Celular:</label>
+                <input type="number" class="form-control" id="mobilephone" formControlName="mobilephone" pattern=".{11,11}">
+            </div>
+            <div class="form-group">
+                <label for="phone">Telefone Residencial:</label>
+                <input type="number" id="phone" class="form-control" formControlName="phone" pattern=".{10,10}">
+            </div>
+            <div class="form-group">
+                <label for="datebirth">Data de Nascimento:</label>
+                <input type="date" id="datebirth" class="form-control" formControlName="datebirth">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="sex">Sexo:</label>
+                <select type="text" id="sex" class="form-control" formControlName="sex">
+                    <option value="M">Masculino</option>
+                    <option value="F">Feminino</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="privilege">O irmão(a) é:</label>
+                <select type="text" id="privilege" class="form-control" formControlName="privilege">
+                    <option value="PU">Publicador(a)</option>
+                    <option value="PI">Pioneiro(a)</option>
+                    <option value="S">Servo</option>
+                    <option value="A">Ancião</option>
+                    <option value="PS">Pioneiro e Servo</option>
+                    <option value="PA">Pioneiro e Ancião</option>
+                </select>
+            </div>
+            <br>
+            <br>
+            <div class="form-group">
+                <p for="available">Tem disponibilidade para trabalhar com varões?(lembrando que serão designadas 2 irmãs e 1 varão).</p>
+                <input type="checkbox" value="sim" name="available" class="available" formControlName="available"> SIM
+            </div>
+            <br>
+            <br>
+            <div class="form-group">
+                <label for="elder">Nome do Ancião:</label>
+                <input type="text" id="elder" class="form-control" formControlName="elder">
+            </div>
+            <div class="form-group">
+                <label for="eldermail">Email do Ancião:</label>
+                <input type="email" id="eldermail" class="form-control" formControlName="eldermail">
+            </div>
+            <br>
+            <br>
+            <div>
+                <p>Marque sua disponibilidade para cada um dos horários e dias</p>
+                <br>
+                <table id="example" class="display" cellspacing="0" width="100%">
+                    <thead>
+
+                        <tr id="main">
+                            <th>Horários</th>
+                            <th>Segunda</th>
+                            <th>Terça</th>
+                            <th>Quarta</th>
+                            <th>Quinta</th>
+                            <th>Sexta</th>
+                            <th>Sábado</th>
+                            <th>Domingo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>9h00 - 12h00</td>
+                            <td>
+                                <input formControlName="se1" type="checkbox">
+                            </td>
+                            <td>
+                                <input formControlName="te1" type="checkbox">
+                            </td>
+                            <td>
+                                <input formControlName="qa1" type="checkbox">
+                            </td>
+                            <td>
+                                <input formControlName="qi1" type="checkbox">
+                            </td>
+                            <td>
+                                <input formControlName="sx1" type="checkbox">
+                            </td>
+                            <td>
+                                <input formControlName="sa1" type="checkbox">
+                            </td>
+                            <td>
+                                <input formControlName="do1" type="checkbox">
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td>12h00 - 15h00</td>
+                            <td>
+                                <input formControlName="se2" type="checkbox">
+                            </td>
+                            <td>
+                                <input formControlName="te2" type="checkbox">
+                            </td>
+                            <td>
+                                <input formControlName="qa2" type="checkbox">
+                            </td>
+                            <td>
+                                <input formControlName="qi2" type="checkbox">
+                            </td>
+                            <td>
+                                <input formControlName="sx2" type="checkbox">
+                            </td>
+                            <td>
+                                <input formControlName="sa2" type="checkbox">
+                            </td>
+                            <td>
+                                <input formControlName="do2" type="checkbox">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>15h00 - 18h00</td>
+                            <td>
+                                <input formControlName="se3" type="checkbox">
+                            </td>
+                            <td>
+                                <input formControlName="te3" type="checkbox">
+                            </td>
+                            <td>
+                                <input formControlName="qa3" type="checkbox">
+                            </td>
+                            <td>
+                                <input formControlName="qi3" type="checkbox">
+                            </td>
+                            <td>
+                                <input formControlName="sx3" type="checkbox">
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>19h00 - 21h30</td>
+                            <td>
+                                <input formControlName="se4" type="checkbox">
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <input formControlName="sx4" type="checkbox">
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <br>
+            <div class="form-group">
+                <p>OBS.: Caso haja algum irmão com situação especial de diponibilidade de horário (escala de trabalho por exemplo) informe aqui.</p>
+                <input type="text" id="special" class="form-control" formControlName="special">
+            </div>  
+            <br> 
+            <br> 
+            <button id="btnsalvarperfil" class="btn btn-success" type="submit" [disabled]="!perfilForm.valid">
+                <span class="glyphicon glyphicon-save"></span>Salvar</button>
+
+        </form>
+
+    </form>
+</div>

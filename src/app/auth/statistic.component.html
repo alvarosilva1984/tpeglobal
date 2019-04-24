@@ -1,0 +1,355 @@
+<div *ngIf="!showNow" >
+  <h4>Carregando informações...</h4>
+</div>
+<div *ngIf="showNow" class="container">
+
+  <div class="table table-responsive">
+
+    <h2 class="text-primary">Geral</h2>
+    <br>
+
+    <div class="row">
+      <div class="form-group col-md-4">
+
+        <table class="table table-responsive table-hover" id="dataTables">
+          <thead style="background-color:LightSkyBlue">
+            <tr>
+              <th></th>
+              <th>Total</th>
+              <th>Porcentagem</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <b>Varões</b>
+              </td>
+              <td class="center">
+                <b>
+                  <span class="text-danger">{{ totalman }}</span>
+                </b>
+              </td>
+              <td class="center">
+                <b>
+                  <span class="text-danger">{{ (totalman/totalpub * 100).toFixed(1)}}%</span>
+                </b>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Irmãs</b>
+              </td>
+              <td class="center">
+                <b>
+                  <span class="text-danger">{{ totalwoman }}</span>
+                </b>
+              </td>
+              <td class="center">
+                <b>
+                  <span class="text-danger">{{ (totalwoman/totalpub * 100).toFixed(1)}}%</span>
+                </b>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Publicadores</b>
+              </td>
+              <td class="center">
+                <b>
+                  <span class="text-danger">{{ totalpub }}</span>
+                </b>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="form-group col-md-4">
+        <table width="100%" class="table table-responsive table-hover" id="dataTables2">
+          <thead style="background-color:LightSkyBlue">
+            <tr>
+              <th></th>
+              <th>Média</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <b>Idade</b>
+              </td>
+              <td class="center">
+                <b>
+                  <span class="text-danger">{{ (mediaidade).toFixed(1) }}</span>
+                </b>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Publicador mais velho</b>
+              </td>
+              <td class="center">
+                <b>
+                  <span class="text-danger">{{ maisvelho }}</span>
+                </b>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Publicador mais novo</b>
+              </td>
+              <td class="center">
+                <b>
+                  <span class="text-danger">{{ maisnovo }}</span>
+                </b>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br>
+      <div class="form-group col-md-4">
+        <table width="100%" class="table table-responsive table-hover" id="dataTables3">
+          <thead style="background-color:LightSkyBlue">
+            <tr>
+              <th></th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <b>Circuitos</b>
+              </td>
+              <td class="center">
+                <b>
+                  <span class="text-danger">{{ countcirc }}</span>
+                </b>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Congregações</b>
+              </td>
+              <td class="center">
+                <b>
+                  <span class="text-danger">{{ countcong }}</span>
+                </b>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <br>
+    <h2 class="text-primary">Publicadores por Circuito / Congregação </h2>
+    <div class="row">
+      <div *ngFor="let cc of circcong">
+        <br>
+        <br>
+        <div class="form-group col-md-4">
+          <table>
+            <tbody>
+              <tr>
+                <td style="white-space:nowrap;">
+                  <b>Circuito: </b>
+                  <span class="text-danger">
+                    <b>{{ encontraCircuito(cc.circ )}}</b>
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table>
+            <thead style="background-color:LightSkyBlue">
+              <th>Congregação</th>
+              <th>Publicadores</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let c of cc.cong">
+                <td>
+                  <b>{{ encontraCongregacao(c) }}</b>
+                </td>
+                <td class="center">
+                  <b>
+                    <span class="text-danger">{{ countCong(c) }}</span>
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Total</b>
+                </td>
+                <td class="center">
+                  <b>
+                    <span class="text-danger">{{ cc.countcirc }}</span>
+                  </b>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <h2 class="text-primary">Publicadores por dia / Vagas disponíveis </h2>
+    <br>
+    <div class="row">
+      <div class="form-group col-md-6">
+
+
+
+        <table class="table table-responsive table-hover">
+          <thead style="background-color:LightSkyBlue">
+            <th>Dias da Semana</th>
+            <th>Vagas Disponíveis</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <b>Segunda-feira</b>
+              </td>
+              <td class="center">
+                <b>
+                  <span class="text-danger">{{ segunda}}/{{totalsegunda}}</span>
+                </b>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Terça-feira</b>
+              </td>
+              <td class="center">
+                <b>
+                  <span class="text-danger">{{ terca}}/{{totalterca}}</span>
+                </b>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Quarta-feira</b>
+              </td>
+              <td class="center">
+                <b>
+                  <span class="text-danger">{{ quarta}}/{{totalquarta}}</span>
+                </b>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Quinta-feira</b>
+              </td>
+              <td class="center">
+                <b>
+                  <span class="text-danger">{{ quinta}}/{{totalquinta}}</span>
+                </b>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Sexta-feira</b>
+              </td>
+              <td class="center">
+                <b>
+                  <span class="text-danger">{{ sexta}}/{{totalsexta}}</span>
+                </b>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Sábado</b>
+              </td>
+              <td class="center">
+                <b>
+                  <span class="text-danger">{{ sabado}}/{{totalsabado}}</span>
+                </b>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Domingo</b>
+              </td>
+              <td class="center">
+                <b>
+                  <span class="text-danger">{{ domingo}}/{{totaldomingo}}</span>
+                </b>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="form-group col-md-6">
+        <table class="table table-responsive table-hover">
+          <thead style="background-color:LightSkyBlue">
+            <th>
+              <b>Publicadores sem disponibilidade</b>
+            </th>
+            <th>Qtd</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of semdispoarray">
+              <td>
+                <b>
+                  <span class="text"> {{ user.firstName}}{{ user.lastName}}</span>
+                </b>
+              </td>
+              <td class="center">
+                <b>
+                  <span class="text-danger">1</span>
+                </b>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Total</b>
+              </td>
+              <td class="center">
+                <b>
+                  <span class="text-danger">{{ semdispo }}</span>
+                </b>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <br>
+    <br>
+
+    <h2 class="text-primary">Publicadores por horário / Vagas disponíveis </h2>
+    <br>
+    <div class="row">
+
+      <div *ngFor="let semanadia of diasdasemana; let i = index" class="form-group col-md-4">
+
+        <table class="table table-responsive table-hover">
+          <thead style="background-color:LightSkyBlue">
+            <tr>
+              <th scope="col">Horário</th>
+              <th scope="col">
+                <b>{{ semanadia }}</b>
+              </th>
+            </tr>
+            <tr>
+
+            </tr>
+          </thead>
+          <tbody *ngIf="horasExistentes(semanadia)">
+            <tr *ngFor="let hora of horas; let h = index">
+              <th *ngIf="hora.vagas > 0" scope="row">
+                <b>{{ hora.hora }}</b>
+              </th>
+              <td *ngIf="hora.vagas > 0" class="center">
+                <b>
+                  <span class="text-danger">{{countUser(hora.code,semanadia)}}/{{hora.vagas}}</span>
+                </b>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>

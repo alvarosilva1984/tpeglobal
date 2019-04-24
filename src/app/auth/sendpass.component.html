@@ -1,0 +1,15 @@
+<div class="col-md-6 col-md-offset-1"> 
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <br>
+            <h3>Esqueceu sua senha?</h3>
+            <br>
+            <span>Digite seu e-mail cadastrado e click em enviar, você receberá uma nova senha em sua caixa de mensagens</span>
+            <br>
+            <br>
+            <label for="email">Email</label>
+            <input type="email" id="email" class="form-control" formControlName="email">
+        </div>
+        <button id="btnsalvarperfil" class="btn btn-primary" type="submit" [disabled]="!myForm.valid">Enviar</button>
+    </form>
+</div>

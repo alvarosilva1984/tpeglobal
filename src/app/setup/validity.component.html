@@ -1,0 +1,78 @@
+<div class="backdrop" [ngStyle]="{'display': display}"></div>
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display': display}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form [formGroup]="validityForm" (ngSubmit)="onSubmit()" autocomplete="off">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal_titulo">Nova vigência</h5>
+          <button type="button" id="modal_fechar" class="close" data-dismiss="modal" aria-label="Close" (click)="onClose()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <label style="font-size: 11px; float: right;">* Campos obrigatórios</label>
+          <br/>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Início *</label>
+              <input name="begin" type="date" id="begin" class="form-control" formControlName="begin">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label>Fim *</label>
+              <input name="end" type="date" id="end" class="form-control" formControlName="end">
+
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+
+          <button type="submit" [disabled]="validMyForm()" class="btn btn-primary">Salvar</button>
+
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="form-group col-md-4">
+      <button type="button" class="btn btn-primary" (click)="onNewvalidity()" [disabled]="auth">Nova vigência +</button>
+    </div>
+
+    <form>
+    </form>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Início</th>
+          <th scope="col">Fim</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let validity of validities; let j = index">
+          <th scope="row">{{j + 1}}</th>
+          <td>{{dateString(validity.begin)}}</td>
+          <td>{{dateString(validity.end)}}</td>
+          <td ><label class="switch">
+            <input type="checkbox" [checked]="validities[j].status" (click)="onChangeStatus($event, $event.target.checked,j)" [disabled]="auth">
+            <span class="slider round"></span>
+          </label>
+          </td>
+          <td>
+            <button type="button" class="btn btn-warning btn-sm" (click)="onEdit(j)" [disabled]="auth">
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button>
+            <button type="button" class="btn btn-danger btn-sm" (click)="onDelete(j)" [disabled]="auth">
+              <i class="fa fa-trash-o" aria-hidden="true"></i> Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

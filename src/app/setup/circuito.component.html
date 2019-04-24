@@ -1,0 +1,66 @@
+<div class="backdrop" [ngStyle]="{'display': display}"></div>
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display': display}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form [formGroup]="circuitoForm" (ngSubmit)="onSubmit()" autocomplete="off">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal_titulo">Novo Circuito</h5>
+          <button type="button" id="modal_fechar" class="close" data-dismiss="modal" aria-label="Close" (click)="onClose()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <label style="font-size: 11px; float: right;">* Campos obrigatórios</label>
+          <br/>
+
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label>Nome *</label>
+              <input type="text" class="form-control" id="circuito_nome" placeholder="Digite o nome do circuito" formControlName="nome">
+
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+
+          <button type="submit" [disabled]="validMyForm()" class="btn btn-primary">Salvar</button>
+
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="form-group col-md-4">
+      <button type="button" class="btn btn-primary" (click)="onNewCircuito()" [disabled]="auth">Novo circuito +</button>
+    </div>
+
+    <form>
+
+    </form>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let circuito of circuitos; let j = index">
+          <th scope="row">{{j + 1}}</th>
+          <td>{{circuito.nome}}</td>
+          <td>
+            <button type="button" class="btn btn-warning btn-sm" (click)="onEdit(j)" [disabled]="auth">
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button>
+            <button type="button" class="btn btn-danger btn-sm" (click)="onDelete(j)" [disabled]="auth">
+              <i class="fa fa-trash-o" aria-hidden="true"></i> Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

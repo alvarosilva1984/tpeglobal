@@ -1,0 +1,291 @@
+<!-- <div class="row">
+  <div class="col-md-4 col-md-offset-1">
+    <br>
+    <br>
+    <form [formGroup]="pontoForm" (ngSubmit)="onSubmit()">
+      <h2>Pontos</h2>
+      <div class="form-group">
+        <label for="name">Nome do ponto:</label>
+        <input type="text" id="name" class="form-control" formControlName="name">
+      </div>
+      <div class="form-group">
+        <label for="npubs">Número de Publicadores:</label>
+        <input type="number" id="npubs" class="form-control" formControlName="npubs">
+      </div>
+
+
+      <button id="btnCreate" class="btn btn-primary" type="submit" [disabled]="!pontoForm.valid">Criar Ponto</button>
+    </form>
+  </div>
+
+
+
+  <div class="col-md-4">
+    <br>
+    <br>
+    <div *ngFor="let ponto of pontos; let i = index" class="alert alert-info">
+
+      <a>
+          <i class="fa fa-trash-o" aria-hidden="true" style="color:blue" (click)="Delete(i)"></i>
+      </a>
+      <span style="color:black">Ponto({{i + 1}}): </span>
+      <span style="color:Sienna">{{ponto.name}} </span>
+      <span style="color:black">Publicadores: </span>
+      <span style="color:Sienna">{{ ponto.npubs }}</span>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+<!-- 
+
+
+
+<div class="row">
+  <div class="col-md-4 col-md-offset-1">
+    <br>
+    <br>
+    <br>
+    <form [formGroup]="horaForm" (ngSubmit)="onSubmit2()">
+      <h2>Horários</h2>
+      <div class="form-group">
+        <label for="hora">Nome do horário:</label>
+        <input type="text" id="hora" pattern=".{11,11}" class="form-control" formControlName="hora">
+      </div>
+      <div class="form-group">
+        <label for="hora">Código:</label>
+        <input type="text" id="code" pattern=".{3,3}" class="form-control" formControlName="code">
+      </div>
+
+      <button id="btnCreate2" class="btn btn-primary" type="submit" [disabled]="!horaForm.valid">Criar Hora</button>
+    </form>
+  </div>
+  <div class="col-md-3">
+    <br>
+    <br>
+    <br>
+    <div *ngFor="let hora of horas; let j = index" class="alert alert-info">
+
+      <a>
+          <i class="fa fa-trash-o" aria-hidden="true" style="color:blue" (click)="Delete2(j)"></i>
+      </a>
+      <span style="color:black">Horário({{j+1}}): </span>
+      <span style="color:Sienna">{{ hora.hora }}</span>
+      <span style="color:black">Cód: </span>
+      <span style="color:Sienna">{{ hora.code }}</span>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-1">
+    <br>
+    <br>
+    <br>
+    <h2>Dia X Ponto X Horário</h2>
+    <div class="col-md-4">
+      <br>
+      <button type="button" id="anterior" (click)="anteriorDia($event)" class="btn btn-default">
+        < </button>
+          <button type="button" id="proximo" (click)="proximoDia($event)" class="btn btn-default"> > </button>
+          <select [(ngModel)]="dayselect" class="form-control">
+            <option>Segunda-feira</option>
+            <option>Terça-feira</option>
+            <option>Quarta-feira</option>
+            <option>Quinta-feira</option>
+            <option>Sexta-feira</option>
+            <option>Sábado</option>
+            <option>Domingo</option>
+            <option>Feriado</option>
+          </select>
+    </div>
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th>Ponto/Horário</th>
+          <th *ngFor="let hora of horas; let h = index">{{hora.hora}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ponto of pontos; let p = index">
+          <td>{{ponto.name}}</td>
+          <td *ngFor="let hora of horas; let ph = index">
+            <input type="checkbox" (click)="changed($event.target.checked,ponto,hora)" [checked]="valorCheck(ponto,hora)">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button id="btnCreate3" class="btn btn-primary" (click)="salvarConfig()">Salvar Config</button>
+  </div>
+</div>
+
+<!-- <div class="row">
+  <div class="col-md-4 col-md-offset-1">
+    <br>
+    <br>
+    <br>
+    <form [formGroup]="feriadoForm" (ngSubmit)="onSubmit3()">
+      <h2>Feriados</h2>
+      <div class="form-group">
+        <label for="feriado">Nome do Feriado:</label>
+        <input type="text" id="feriado" pattern=".{3,20}" class="form-control" formControlName="feriado">
+      </div>
+      <div class="form-group">
+        <label for="data">Data:</label>
+        <input type="date" id="dia" name="dia" [ngModel]="dia" class="form-control" formControlName="data">
+      </div>
+
+      <button id="btnCreate4" class="btn btn-primary" type="submit" [disabled]="!feriadoForm.valid">Criar Feriado</button>
+    </form>
+  </div>
+  <div class="col-md-4">
+    <br>
+    <br>
+    <br>
+    <div *ngFor="let feriado of feriados; let j = index" class="alert alert-info">
+
+      <a>
+          <i class="fa fa-trash-o" aria-hidden="true" style="color:blue" (click)="Delete3(j)"></i>
+      </a>
+      <span style="color:black">Feriado({{j+1}}): </span>
+      <span style="color:Sienna">{{ feriado.feriado }}</span>
+      <span style="color:black">Data: </span>
+      <span style="color:Sienna">{{ feriado.datashow }}</span>
+    </div>
+  </div>
+
+
+</div> -->
+
+<!-- <div class="row">
+  <div class="col-md-4 col-md-offset-1">
+    <br>
+    <br>
+    <br>
+    <form [formGroup]="circuitoForm" (ngSubmit)="onSubmit4()">
+      <h2>Circuitos</h2>
+      <div class="form-group">
+        <label for="circuito">Nome do circuito:</label>
+        <input type="text" id="nome" pattern=".{3,20}" class="form-control" formControlName="nome">
+      </div>
+
+      <button id="btnCreate5" class="btn btn-primary" type="submit" [disabled]="!circuitoForm.valid">Criar Circuito</button>
+    </form>
+  </div>
+  <div class="col-md-4">
+    <br>
+    <br>
+    <br>
+
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-action active">Circuitos</li>
+      <li class="list-group-item list-group-item-dark" *ngFor="let circuito of circuitos; let j = index">
+        <span style="color:black">Circuito({{j+1}}): </span>
+        <span style="color:Sienna">{{ circuit.nome }}</span>
+        <a>
+            <i class="fa fa-trash-o" aria-hidden="true" style="color:blue"  (click)="Delete4(j)"></i>
+        </a>
+      </li>
+    </ul>
+
+
+  </div>
+</div> -->
+
+<!-- <div class="row">
+  <div class="col-md-4 col-md-offset-1">
+    <br>
+    <br>
+    <br>
+
+
+    <form [formGroup]="congregationForm" (ngSubmit)="onSubmit5()">
+
+      <h2>Congregações</h2>
+      <div class="form-group">
+        <label for="circuit">Circuito:</label>
+        <select [(ngModel)]="mycircuit" formControlName="circuit" id="circuit" class="form-control">
+          <option value=" "></option>
+          <option *ngFor="let circuito of circuitos" [ngValue]="circuito">{{circuito.nome}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="congregation">Nome da Congregação:</label>
+        <input type="text" id="nome" class="form-control" formControlName="nome">
+      </div>
+
+
+
+
+      <button id="btnCreate6" class="btn btn-primary" type="submit" [disabled]="!congregationForm.valid">Criar Congregação</button>
+    </form>
+  </div>
+  <div class="col-md-4">
+    <br>
+    <br>
+    <br>
+
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-action active">Congregações</li>
+      <li class="list-group-item list-group-item-dark" *ngFor="let congregation of congregations; let j = index">
+        <span style="color:black">Circ: </span>
+        <span style="color:Sienna">{{congregation.circuit}}</span>
+        <span style="color:black">Cong({{j+1}}): </span>
+        <span style="color:Sienna">{{congregation.nome}}</span>
+
+        <a>
+            <i class="fa fa-trash-o" aria-hidden="true" style="color:blue" (click)="Delete5(j)"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div> -->
+
+<!-- <div class="row">
+  <div class="col-md-4 col-md-offset-1">
+    <br>
+    <br>
+    <br>
+
+
+    <form [formGroup]="validityForm" (ngSubmit)="onSubmit6()">
+
+      <h2>Vigência</h2>
+      <div class="form-group">
+        <label for="begin">Início:</label>
+        <input [(ngModel)]="begin" name="begin" type="date" id="begin" class="form-control" formControlName="begin">
+    </div>
+    <div class="form-group">
+      <label for="end">Fim:</label>
+      <input [(ngModel)]="end" name="end" type="date" id="end" class="form-control" formControlName="end">
+  </div>
+
+
+
+
+      <button id="btnCreate7" class="btn btn-primary" type="submit" [disabled]="!validityForm.valid">Criar Vigência</button>
+    </form>
+  </div>
+  <div class="col-md-4">
+    <br>
+    <br>
+    <br>
+
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-action active">Vigências</li>
+      <li class="list-group-item list-group-item-dark" *ngFor="let validity of validities; let j = index">
+        <span style="color:black">Início: </span>
+        <span style="color:Sienna">{{dateString(validity.begin)}}</span>
+        <span style="color:black">Fim: </span>
+        <span style="color:Sienna">{{dateString(validity.end)}}</span>
+
+        <a>
+            <i class="fa fa-trash-o" aria-hidden="true" style="color:blue"  (click)="Delete6(j)"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div> -->

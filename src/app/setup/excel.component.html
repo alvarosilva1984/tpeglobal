@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="form-row">
+      <div class="form-group">
+
+        <button type="button" id="anterior" (click)="anteriorDia($event)" class="btn btn-default">
+          < </button>
+            <button type="button" id="proximo" (click)="proximoDia($event)" class="btn btn-default"> > </button>
+      </div>
+      <div class="form-group">
+        <select [(ngModel)]="dayselect" class="form-control">
+          <option>Segunda-feira</option>
+          <option>Terça-feira</option>
+          <option>Quarta-feira</option>
+          <option>Quinta-feira</option>
+          <option>Sexta-feira</option>
+          <option>Sábado</option>
+          <option>Domingo</option>
+          <option>Feriado</option>
+        </select>
+      </div>
+      <div class="form-group col-md-3">
+        <button id="btnCreate3" class="btn btn-primary" (click)="salvarConfig()" [disabled]="auth">Salvar </button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Ponto/Horário</th>
+          <th *ngFor="let hora of horas; let h = index">{{hora.hora}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ponto of pontos; let p = index">
+          <td>{{ponto.name}}</td>
+          <td *ngFor="let hora of horas; let ph = index">
+            <input type="checkbox" (click)="changed($event.target.checked,ponto,hora)" [checked]="valorCheck(ponto,hora)" [disabled]="auth">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

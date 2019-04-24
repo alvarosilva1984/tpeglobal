@@ -1,0 +1,116 @@
+<div *ngIf="msgdefault" class="container">
+  <br>
+  <h4>Você não possui designações no momento.</h4>
+</div>
+<div *ngIf="showNow" class="container">
+  <div class="col-md-12">
+
+
+    <div class="table-responsive" *ngFor="let esc of escala">
+      <div class="card-body">
+        <div class="alert alert-secondary" role="alert">
+          <span class="label label-info" style="font-size:15px;">
+            <b>Dia: </b>{{ esc.dia }}</span>
+          <span class="label label-warning" style="font-size:15px;">
+            <b> {{ esc.diasemana }}</b>
+          </span>
+          <br>
+          <span class="label label-warning" style="font-size:15px;">
+            <b>Ponto: </b>{{esc.ponto}}
+          </span>
+        </div>
+        <table class="table">
+
+          <thead>
+            <tr>
+              <th class="text-center">Horário</th>
+              <th class="text-center">Status</th>
+              <th style="vertical-align: middle !important; text-align: left;">Nome</th>
+              <th style="vertical-align: middle !important; text-align: left;">Circuito</th>
+              <th style="vertical-align: middle !important; text-align: left;">Congregação</th>
+              <th style="vertical-align: middle !important; text-align: left;">Telefone</th>
+              <th style="vertical-align: middle !important; text-align: left;">Email</th>
+            </tr>
+
+          </thead>
+          <tbody *ngFor="let item of esc.grupo; let i = index">
+
+
+
+            <tr *ngFor="let pub of item.ponto.pubs; let h = index">
+
+              <td *ngIf="h == 0" [attr.rowspan]="item.ponto.pubs.length" style="vertical-align: middle !important; text-align: center;">{{item.hora.hora}}</td>
+
+              <td *ngIf="pub?.sim == false && pub?.nao == false" style="vertical-align: middle !important; text-align: center;">
+                <div class="led-yellow"></div>
+              </td>
+              <td *ngIf="pub?.sim == true && pub?.nao == false" style="vertical-align: middle !important; text-align: center;">
+                <div class="led-green"></div>
+              </td>
+              <td *ngIf="pub?.sim == false && pub?.nao == true" style="vertical-align: middle !important; text-align: center;">
+                <div class="led-red"></div>
+              </td>
+              <td *ngIf="pub?.sim == true && pub?.nao == true" style="vertical-align: middle !important; text-align: center;">
+                <div class="led-green"></div>
+              </td>
+              <td [style.color]="getStyle(pub?.sex)" style="vertical-align: middle !important; text-align: left;">{{ pub?.firstName }} {{ pub?.lastName}} </td>
+              <td style="vertical-align: middle !important; text-align: left;">{{ pub?.congregation.circuit }}</td>
+              <td style="vertical-align: middle !important; text-align: left;">{{ pub?.congregation.nome }}</td>
+              <td style="vertical-align: middle !important; text-align: left;">{{ pub?.mobilephone || pub?.phone }}</td>
+              <td style="vertical-align: middle !important; text-align: left;">{{ pub?.email }}</td>
+            </tr>
+
+
+          </tbody>
+
+        </table>
+        <!-- <div *ngIf="existPerfil(pont)"> -->
+        <div>
+          <button class="btn btn-success" (click)="responseYes(esc,esc.grupo)" [hidden]="esc.type">Sim</button>
+          <button class="btn btn-danger" (click)="responseNot(esc,esc.grupo)"  [hidden]="esc.type">Não</button>
+        </div>
+        <br>
+        <br>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!--           <span class="label label-info" style="font-size:15px;">{{esc.dia}}</span>
+          <span class="label label-warning" style="font-size:12px;">{{esc.diasemana}}</span>
+          <br>
+          <ul *ngFor="let hr of esc.hora; let h = index">
+            <br>
+            <li style="background-color:Azure; color:Black" ><b>{{ hr.hora }}</b><span style="float:right;font-size:11px;">{{esc.dia}}/{{esc.diasemana}}</span></li>
+            <br> -->
+<!-- <ul *ngFor="let pont of esc.ponto">
+              <li style="color:Black"><b>{{ pont.name }}</b></li>
+              <br>
+              <ul>
+                  <table>
+                      <tr>
+                        <th>Status</th>
+                        <th>Nome</th>
+                        <th>Circuito</th>
+                        <th>Congregação</th>
+                        <th>Telefone</th>
+                      </tr>
+                      <tr *ngFor="let pub of pont.pubs">
+                        <td  *ngIf="pub?.sim == false && pub?.nao == false"><div class="led-yellow"></div></td>
+                        <td  *ngIf="pub?.sim == true && pub?.nao == false"><div class="led-green"></div></td>
+                        <td  *ngIf="pub?.sim == false && pub?.nao == true"><div class="led-red"></div></td>
+                        <td  *ngIf="pub?.sim == true && pub?.nao == true"><div class="led-green"></div></td>
+                        <td [style.color]="getStyle(pub?.sex)">{{ pub?.firstName }} {{ pub?.lastName}} </td>
+                        <td>{{ pub?.congregation.circuit }}</td>
+                        <td>{{ pub?.congregation.nome }}</td>
+                        <td>{{ pub?.mobilephone }}</td>
+                      </tr>
+                    </table>
+                    <div *ngIf="existPerfil(pont)">
+                    <button class="btn btn-success" (click)="responseYes(esc,pont)">Sim</button>
+                    <button class="btn btn-danger" (click)="responseNot(esc,pont)">Não</button>
+                  </div>
+                </ul>
+                <br>
+            </ul> -->
+<!-- </ul>   -->

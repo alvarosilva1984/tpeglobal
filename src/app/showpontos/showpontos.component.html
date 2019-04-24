@@ -1,0 +1,76 @@
+<div class="container">
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" *ngFor="let point of pontos;let i = index" [attr.data-slide-to]="i" ngClass="i == 0 ? 'active' : ''"></li>
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div *ngFor="let point of pontos; let k = index" [ngClass]="k == 0 ? 'carousel-item active' : 'carousel-item'" style="background-image: url('http://placehold.it/1080x400')">
+        <img src="/assets/img/{{point.fileimg}}" alt="Event Image" id="foto">
+        <div class="carousel-caption">
+          <h3 style="font-size: 5.0vh" class="mycaption" >{{point.name}}</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+      <span style="color:black" class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+      <span style="color:black" class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<div class="container">
+
+  <h1 class="my-4">Pontos TPE</h1>
+
+
+  <div class="row">
+
+
+    <div class="col-md-4" *ngFor="let point of pontos; let k = index">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="myleft">{{point.name}}</h4>
+        </div>
+        <div class="card-body">
+
+          <p class="myleft">
+            <b>Endereço: </b>{{ point.address }}</p>
+          <p class="myleft">{{point.obs}}</p>
+        </div>
+
+        <div class="card-footer">
+          <button id="visualizar" class="btn btn-primary" href="#myCarousel" [attr.data-slide-to]="k" (click)="onTop()">Visualizar</button>
+        </div>
+      </div>
+      <br>
+    </div>
+
+  </div>
+
+
+
+
+  <hr>
+
+
+  <div class="row mb-4">
+    <div class="col-md-8">
+      <p>"Estas boas novas do Reino serão pregadas em toda a terra habitada" - Mateus 24:14</p>
+    </div>
+    <div class="col-md-4">
+      <a class="btn btn-lg btn-secondary btn-block" (click)="onTop()">Voltar ao topo</a>
+    </div>
+  </div>
+
+
+
+</div>
