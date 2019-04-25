@@ -237,7 +237,7 @@ router.post('/:date', function (req, res, next) {
                   {
                     filename: 'tpelogo.png',
                     //path: __dirname + '/pictures/tpelogo.png',
-                    path: reqPath  + `/public/assets/img/tpelogo.png`,
+                    path: reqPath  + `/angular/assets/img/tpelogo.png`,
                     cid: 'jwlogo@logo' // should be as unique as possible
                   },
 
@@ -245,7 +245,7 @@ router.post('/:date', function (req, res, next) {
 
                   {
                     filename: 'img_ponto.jpeg',
-                    path: reqPath  + `/public/assets/img/${escala[i].pontos[p][u].fileimg}`,
+                    path: reqPath  + `/angular/assets/img/${escala[i].pontos[p][u].fileimg}`,
                     cid: 'img_ponto@logo' // should be as unique as possible
                   }
                 ],

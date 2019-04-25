@@ -31,7 +31,7 @@ console.log(reqPath);
 
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
-    cb(null, reqPath + "/public/assets/img/");
+    cb(null, reqPath + "/angular/assets/img/");
   },
   filename: function(req, file, cb) {
     cb(null, file.fieldname + "-" + Date.now() + ".jpeg");
