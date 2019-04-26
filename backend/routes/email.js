@@ -102,7 +102,7 @@ Circ: *${j.congregation.circuit}*\n`
                   let question = `\nQuem gostaria de substituir?`;
                   text = text + complement + question;
                   let textsub = '@' + req.query.qs1 + '%' + req.query.qs2 + '$' + req.query.qs3;
-                  telegram.bot.sendMessage(-1001237612416, text, {
+                  telegram.bot.sendMessage(process.env.GROUPTELEGRAM, text, {
                     parse_mode: 'Markdown',
                     reply_markup: {
                       inline_keyboard: [[
@@ -237,7 +237,7 @@ router.post('/:date', function (req, res, next) {
                   {
                     filename: 'tpelogo.png',
                     //path: __dirname + '/pictures/tpelogo.png',
-                    path: reqPath  + `/angular/assets/img/tpelogo.png`,
+                    path: reqPath  + `angular/assets/img/tpelogo.png`,
                     cid: 'jwlogo@logo' // should be as unique as possible
                   },
 
@@ -245,7 +245,7 @@ router.post('/:date', function (req, res, next) {
 
                   {
                     filename: 'img_ponto.jpeg',
-                    path: reqPath  + `/angular/assets/img/${escala[i].pontos[p][u].fileimg}`,
+                    path: reqPath  + `angular/assets/img/${escala[i].pontos[p][u].fileimg}`,
                     cid: 'img_ponto@logo' // should be as unique as possible
                   }
                 ],
@@ -371,6 +371,7 @@ function emailtext(pub, ponto, escala, hash1, hash2) {
     emailpronto = emailpronto + `<tr>
                         <td style="background-color:${estilolinha[x]}" rowspan="${corpoemail[x].ponto.pubs.length}" align="center">${corpoemail[x].hora.hora}</td>`;
     for (let z = 0; z < corpoemail[x].ponto.pubs.length; z++) {
+      if(!corpoemail[x].ponto.pubs[z].congregation) continue;
       let corlinha = estilolinha[x];
       if (corpoemail[x].ponto.pubs[z].userId == pub.userId) corlinha = "#ffffff";
       if(z != 0)emailpronto = emailpronto + '<tr>';

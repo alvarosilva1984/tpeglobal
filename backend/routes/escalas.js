@@ -577,7 +577,7 @@ Circ: *${j.congregation.circuit}*\n`;
                       console.log(textsub);
                       console.log(userFriend);
                       try {
-                        telegram.bot.sendMessage(-1001237612416, text, {
+                        telegram.bot.sendMessage(process.env.GROUPTELEGRAM, text, {
                           parse_mode: "Markdown",
                           reply_markup: {
                             inline_keyboard: [

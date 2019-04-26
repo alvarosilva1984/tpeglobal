@@ -51,7 +51,7 @@ try{
               bot.sendMessage(chatId, resp, { parse_mode: "Markdown" });
           })
 
-    
+
 
 })
   }
@@ -316,12 +316,18 @@ Companheiro: `;
               let complement = "";
 
               userFriend.map(j => {
+                try{
+                if(j.congregation.nome){
                 complement =
                   complement +
                   `*${j.firstName} ${j.lastName}*
 Tel: *${j.mobilephone}*
 Cong: *${j.congregation.nome}*
 Circ: *${j.congregation.circuit}*\n`;
+                }
+              }catch(e){
+                console.log(e)
+              }
               });
 
               let question = `\nPor favor confirmar sua designação no sistema do TPE`;
@@ -557,7 +563,7 @@ Circ: *${j.congregation.circuit}*\n`;
 
                       console.log("marca 4");
                       try {
-                      bot.sendMessage(-1001237612416, text, {
+                      bot.sendMessage(process.env.GROUPTELEGRAM, text, {
                         parse_mode: "Markdown",
                         reply_markup: {
                           inline_keyboard: [
