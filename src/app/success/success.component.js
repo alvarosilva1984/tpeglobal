@@ -1,10 +1,13 @@
-import { Component } from "@angular/core";
+import {Component} from "@angular/core";
+
 export class SuccessComponent {
 }
+
 SuccessComponent.decorators = [
-    { type: Component, args: [{
-                selector: 'app-success',
-                template: `
+  {
+    type: Component, args: [{
+      selector: 'app-success',
+      template: `
     
             <div class="col-md-5 col-md-offset-2">
              <h2 class="text-success bg-dark">Você foi cadastrado com sucesso!</h2>
@@ -13,5 +16,6 @@ SuccessComponent.decorators = [
             </h3>
              </div>
     `
-            },] },
+    },]
+  },
 ];

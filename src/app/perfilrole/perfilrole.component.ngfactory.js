@@ -3,108 +3,313 @@
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */ 
+ */
 import * as i0 from "./perfilrole.component.css.shim.ngstyle";
 import * as i1 from "@angular/core";
 import * as i2 from "@angular/forms";
 import * as i3 from "@angular/common";
 import * as i4 from "./perfilrole.component";
 import * as i5 from "../auth/auth.service";
+
 var styles_PerfilroleComponent = [i0.styles];
-var RenderType_PerfilroleComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_PerfilroleComponent, data: {} });
-export { RenderType_PerfilroleComponent as RenderType_PerfilroleComponent };
-function View_PerfilroleComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 20, "div", [["class", "form-row"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                        "])), (_l()(), i1.ɵeld(2, 0, null, null, 17, "div", [["class", "form-group col-md-8"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                            "])), (_l()(), i1.ɵeld(4, 0, null, null, 1, "label", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Senha *"])), (_l()(), i1.ɵted(-1, null, ["\n                            "])), (_l()(), i1.ɵeld(7, 0, null, null, 1, "span", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" (m\u00EDnimo de 6 caracteres)"])), (_l()(), i1.ɵted(-1, null, ["\n                            "])), (_l()(), i1.ɵeld(10, 0, null, null, 8, "input", [["autocomplete", "false"], ["class", "form-control"], ["formControlName", "senha"], ["id", "perfilrole_senha"], ["name", "senha"], ["pattern", ".{6,}"], ["required", ""], ["title", "deve ter 6 caracteres no m\u00EDnimo"], ["type", "password"]], [[1, "required", 0], [1, "pattern", 0], [2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "input"], [null, "blur"], [null, "compositionstart"], [null, "compositionend"]], function (_v, en, $event) { var ad = true; if (("input" === en)) {
-        var pd_0 = (i1.ɵnov(_v, 11)._handleInput($event.target.value) !== false);
-        ad = (pd_0 && ad);
-    } if (("blur" === en)) {
-        var pd_1 = (i1.ɵnov(_v, 11).onTouched() !== false);
-        ad = (pd_1 && ad);
-    } if (("compositionstart" === en)) {
-        var pd_2 = (i1.ɵnov(_v, 11)._compositionStart() !== false);
-        ad = (pd_2 && ad);
-    } if (("compositionend" === en)) {
-        var pd_3 = (i1.ɵnov(_v, 11)._compositionEnd($event.target.value) !== false);
-        ad = (pd_3 && ad);
-    } return ad; }, null, null)), i1.ɵdid(11, 16384, null, 0, i2.DefaultValueAccessor, [i1.Renderer2, i1.ElementRef, [2, i2.COMPOSITION_BUFFER_MODE]], null, null), i1.ɵdid(12, 16384, null, 0, i2.RequiredValidator, [], { required: [0, "required"] }, null), i1.ɵdid(13, 540672, null, 0, i2.PatternValidator, [], { pattern: [0, "pattern"] }, null), i1.ɵprd(1024, null, i2.NG_VALIDATORS, function (p0_0, p1_0) { return [p0_0, p1_0]; }, [i2.RequiredValidator, i2.PatternValidator]), i1.ɵprd(1024, null, i2.NG_VALUE_ACCESSOR, function (p0_0) { return [p0_0]; }, [i2.DefaultValueAccessor]), i1.ɵdid(16, 671744, null, 0, i2.FormControlName, [[3, i2.ControlContainer], [2, i2.NG_VALIDATORS], [8, null], [2, i2.NG_VALUE_ACCESSOR]], { name: [0, "name"] }, null), i1.ɵprd(2048, null, i2.NgControl, null, [i2.FormControlName]), i1.ɵdid(18, 16384, null, 0, i2.NgControlStatus, [i2.NgControl], null, null), (_l()(), i1.ɵted(-1, null, ["\n                        "])), (_l()(), i1.ɵted(-1, null, ["\n                    "]))], function (_ck, _v) { var currVal_9 = ""; _ck(_v, 12, 0, currVal_9); var currVal_10 = ".{6,}"; _ck(_v, 13, 0, currVal_10); var currVal_11 = "senha"; _ck(_v, 16, 0, currVal_11); }, function (_ck, _v) { var currVal_0 = (i1.ɵnov(_v, 12).required ? "" : null); var currVal_1 = (i1.ɵnov(_v, 13).pattern ? i1.ɵnov(_v, 13).pattern : null); var currVal_2 = i1.ɵnov(_v, 18).ngClassUntouched; var currVal_3 = i1.ɵnov(_v, 18).ngClassTouched; var currVal_4 = i1.ɵnov(_v, 18).ngClassPristine; var currVal_5 = i1.ɵnov(_v, 18).ngClassDirty; var currVal_6 = i1.ɵnov(_v, 18).ngClassValid; var currVal_7 = i1.ɵnov(_v, 18).ngClassInvalid; var currVal_8 = i1.ɵnov(_v, 18).ngClassPending; _ck(_v, 10, 0, currVal_0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6, currVal_7, currVal_8); }); }
-function View_PerfilroleComponent_3(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["CTC"]))], null, null); }
-function View_PerfilroleComponent_4(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Superintendente/Logistica"]))], null, null); }
-function View_PerfilroleComponent_2(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 26, "tr", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵeld(2, 0, null, null, 1, "th", [["scope", "row"]], null, null, null, null, null)), (_l()(), i1.ɵted(3, null, ["", ""])), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵeld(5, 0, null, null, 1, "td", [], null, null, null, null, null)), (_l()(), i1.ɵted(6, null, ["", ""])), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_PerfilroleComponent_3)), i1.ɵdid(9, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_PerfilroleComponent_4)), i1.ɵdid(12, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵeld(14, 0, null, null, 11, "td", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                        "])), (_l()(), i1.ɵeld(16, 0, null, null, 3, "button", [["class", "btn btn-warning btn-sm"], ["type", "button"]], [[8, "disabled", 0]], [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
-        var pd_0 = (_co.onEdit(_v.context.index) !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                            "])), (_l()(), i1.ɵeld(18, 0, null, null, 0, "i", [["aria-hidden", "true"], ["class", "fa fa-pencil-square-o"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" Editar"])), (_l()(), i1.ɵted(-1, null, ["\n                        "])), (_l()(), i1.ɵeld(21, 0, null, null, 3, "button", [["class", "btn btn-danger btn-sm"], ["type", "button"]], [[8, "disabled", 0]], [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
-        var pd_0 = (_co.onDelete(_v.context.index) !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                            "])), (_l()(), i1.ɵeld(23, 0, null, null, 0, "i", [["aria-hidden", "true"], ["class", "fa fa-trash-o"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" Excluir"])), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵted(-1, null, ["\n                "]))], function (_ck, _v) { var currVal_2 = (_v.context.$implicit.role == "ctc"); _ck(_v, 9, 0, currVal_2); var currVal_3 = (_v.context.$implicit.role == "gold"); _ck(_v, 12, 0, currVal_3); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = (_v.context.index + 1); _ck(_v, 3, 0, currVal_0); var currVal_1 = _v.context.$implicit.email; _ck(_v, 6, 0, currVal_1); var currVal_4 = _co.auth; _ck(_v, 16, 0, currVal_4); var currVal_5 = _co.auth; _ck(_v, 21, 0, currVal_5); }); }
-export function View_PerfilroleComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "div", [["class", "backdrop"]], null, null, null, null, null)), i1.ɵdid(1, 278528, null, 0, i3.NgStyle, [i1.KeyValueDiffers, i1.ElementRef, i1.Renderer2], { ngStyle: [0, "ngStyle"] }, null), i1.ɵpod(2, { "display": 0 }), (_l()(), i1.ɵted(-1, null, ["\n"])), (_l()(), i1.ɵeld(4, 0, null, null, 94, "div", [["class", "modal"], ["role", "dialog"], ["tabindex", "-1"]], null, null, null, null, null)), i1.ɵdid(5, 278528, null, 0, i3.NgStyle, [i1.KeyValueDiffers, i1.ElementRef, i1.Renderer2], { ngStyle: [0, "ngStyle"] }, null), i1.ɵpod(6, { "display": 0 }), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(8, 0, null, null, 89, "div", [["class", "modal-dialog"], ["role", "document"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(10, 0, null, null, 86, "div", [["class", "modal-content"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵeld(12, 0, null, null, 83, "form", [["autocomplete", "off"], ["novalidate", ""]], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "ngSubmit"], [null, "submit"], [null, "reset"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("submit" === en)) {
-        var pd_0 = (i1.ɵnov(_v, 14).onSubmit($event) !== false);
-        ad = (pd_0 && ad);
-    } if (("reset" === en)) {
-        var pd_1 = (i1.ɵnov(_v, 14).onReset() !== false);
-        ad = (pd_1 && ad);
-    } if (("ngSubmit" === en)) {
-        var pd_2 = (_co.onSubmit() !== false);
-        ad = (pd_2 && ad);
-    } return ad; }, null, null)), i1.ɵdid(13, 16384, null, 0, i2.ɵbf, [], null, null), i1.ɵdid(14, 540672, null, 0, i2.FormGroupDirective, [[8, null], [8, null]], { form: [0, "form"] }, { ngSubmit: "ngSubmit" }), i1.ɵprd(2048, null, i2.ControlContainer, null, [i2.FormGroupDirective]), i1.ɵdid(16, 16384, null, 0, i2.NgControlStatusGroup, [i2.ControlContainer], null, null), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵeld(18, 0, null, null, 10, "div", [["class", "modal-header"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵeld(20, 0, null, null, 1, "h5", [["class", "modal-title"], ["id", "modal_titulo"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Novo perfil"])), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵeld(23, 0, null, null, 4, "button", [["aria-label", "Close"], ["class", "close"], ["data-dismiss", "modal"], ["id", "modal_fechar"], ["type", "button"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
-        var pd_0 = (_co.onClose() !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                        "])), (_l()(), i1.ɵeld(25, 0, null, null, 1, "span", [["aria-hidden", "true"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\u00D7"])), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵeld(30, 0, null, null, 58, "div", [["class", "modal-body"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵeld(32, 0, null, null, 1, "label", [["style", "font-size: 11px; float: right;"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["* Campos obrigat\u00F3rios"])), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵeld(35, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n\n                    "])), (_l()(), i1.ɵeld(37, 0, null, null, 14, "div", [["class", "form-row"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                        "])), (_l()(), i1.ɵeld(39, 0, null, null, 11, "div", [["class", "form-group col-md-8"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                            "])), (_l()(), i1.ɵeld(41, 0, null, null, 1, "label", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Email *"])), (_l()(), i1.ɵted(-1, null, ["\n                            "])), (_l()(), i1.ɵeld(44, 0, null, null, 5, "input", [["class", "form-control"], ["formControlName", "email"], ["id", "perfilrole_email"], ["placeholder", "Digite o email"], ["type", "email"]], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "input"], [null, "blur"], [null, "compositionstart"], [null, "compositionend"]], function (_v, en, $event) { var ad = true; if (("input" === en)) {
-        var pd_0 = (i1.ɵnov(_v, 45)._handleInput($event.target.value) !== false);
-        ad = (pd_0 && ad);
-    } if (("blur" === en)) {
-        var pd_1 = (i1.ɵnov(_v, 45).onTouched() !== false);
-        ad = (pd_1 && ad);
-    } if (("compositionstart" === en)) {
-        var pd_2 = (i1.ɵnov(_v, 45)._compositionStart() !== false);
-        ad = (pd_2 && ad);
-    } if (("compositionend" === en)) {
-        var pd_3 = (i1.ɵnov(_v, 45)._compositionEnd($event.target.value) !== false);
-        ad = (pd_3 && ad);
-    } return ad; }, null, null)), i1.ɵdid(45, 16384, null, 0, i2.DefaultValueAccessor, [i1.Renderer2, i1.ElementRef, [2, i2.COMPOSITION_BUFFER_MODE]], null, null), i1.ɵprd(1024, null, i2.NG_VALUE_ACCESSOR, function (p0_0) { return [p0_0]; }, [i2.DefaultValueAccessor]), i1.ɵdid(47, 671744, null, 0, i2.FormControlName, [[3, i2.ControlContainer], [8, null], [8, null], [2, i2.NG_VALUE_ACCESSOR]], { name: [0, "name"] }, null), i1.ɵprd(2048, null, i2.NgControl, null, [i2.FormControlName]), i1.ɵdid(49, 16384, null, 0, i2.NgControlStatus, [i2.NgControl], null, null), (_l()(), i1.ɵted(-1, null, ["\n\n                        "])), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵted(-1, null, ["\n\n                    "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_PerfilroleComponent_1)), i1.ɵdid(54, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n\n                    "])), (_l()(), i1.ɵeld(56, 0, null, null, 31, "div", [["class", "form-row"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                            "])), (_l()(), i1.ɵeld(58, 0, null, null, 28, "div", [["class", "form-group col-md-8"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                                "])), (_l()(), i1.ɵeld(60, 0, null, null, 1, "label", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Fun\u00E7\u00E3o *"])), (_l()(), i1.ɵted(-1, null, ["\n                                "])), (_l()(), i1.ɵeld(63, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                                "])), (_l()(), i1.ɵeld(65, 0, null, null, 9, "label", [["class", "md-check"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["CTC\n                                "])), (_l()(), i1.ɵeld(67, 0, null, null, 6, "input", [["class", "form-control"], ["formControlName", "role"], ["id", "perfilrole_role1"], ["type", "radio"], ["value", "ctc"]], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "input"], [null, "blur"], [null, "compositionstart"], [null, "compositionend"], [null, "change"]], function (_v, en, $event) { var ad = true; if (("input" === en)) {
-        var pd_0 = (i1.ɵnov(_v, 68)._handleInput($event.target.value) !== false);
-        ad = (pd_0 && ad);
-    } if (("blur" === en)) {
-        var pd_1 = (i1.ɵnov(_v, 68).onTouched() !== false);
-        ad = (pd_1 && ad);
-    } if (("compositionstart" === en)) {
-        var pd_2 = (i1.ɵnov(_v, 68)._compositionStart() !== false);
-        ad = (pd_2 && ad);
-    } if (("compositionend" === en)) {
-        var pd_3 = (i1.ɵnov(_v, 68)._compositionEnd($event.target.value) !== false);
-        ad = (pd_3 && ad);
-    } if (("change" === en)) {
-        var pd_4 = (i1.ɵnov(_v, 69).onChange() !== false);
-        ad = (pd_4 && ad);
-    } if (("blur" === en)) {
-        var pd_5 = (i1.ɵnov(_v, 69).onTouched() !== false);
-        ad = (pd_5 && ad);
-    } return ad; }, null, null)), i1.ɵdid(68, 16384, null, 0, i2.DefaultValueAccessor, [i1.Renderer2, i1.ElementRef, [2, i2.COMPOSITION_BUFFER_MODE]], null, null), i1.ɵdid(69, 212992, null, 0, i2.RadioControlValueAccessor, [i1.Renderer2, i1.ElementRef, i2.ɵi, i1.Injector], { formControlName: [0, "formControlName"], value: [1, "value"] }, null), i1.ɵprd(1024, null, i2.NG_VALUE_ACCESSOR, function (p0_0, p1_0) { return [p0_0, p1_0]; }, [i2.DefaultValueAccessor, i2.RadioControlValueAccessor]), i1.ɵdid(71, 671744, null, 0, i2.FormControlName, [[3, i2.ControlContainer], [8, null], [8, null], [2, i2.NG_VALUE_ACCESSOR]], { name: [0, "name"] }, null), i1.ɵprd(2048, null, i2.NgControl, null, [i2.FormControlName]), i1.ɵdid(73, 16384, null, 0, i2.NgControlStatus, [i2.NgControl], null, null), (_l()(), i1.ɵted(-1, null, ["\n                                "])), (_l()(), i1.ɵted(-1, null, ["\n                                "])), (_l()(), i1.ɵeld(76, 0, null, null, 9, "label", [["class", "md-check"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Superintendente/Logistica\n                                "])), (_l()(), i1.ɵeld(78, 0, null, null, 6, "input", [["class", "form-control"], ["formControlName", "role"], ["id", "perfilrole_role2"], ["type", "radio"], ["value", "gold"]], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "input"], [null, "blur"], [null, "compositionstart"], [null, "compositionend"], [null, "change"]], function (_v, en, $event) { var ad = true; if (("input" === en)) {
-        var pd_0 = (i1.ɵnov(_v, 79)._handleInput($event.target.value) !== false);
-        ad = (pd_0 && ad);
-    } if (("blur" === en)) {
-        var pd_1 = (i1.ɵnov(_v, 79).onTouched() !== false);
-        ad = (pd_1 && ad);
-    } if (("compositionstart" === en)) {
-        var pd_2 = (i1.ɵnov(_v, 79)._compositionStart() !== false);
-        ad = (pd_2 && ad);
-    } if (("compositionend" === en)) {
-        var pd_3 = (i1.ɵnov(_v, 79)._compositionEnd($event.target.value) !== false);
-        ad = (pd_3 && ad);
-    } if (("change" === en)) {
-        var pd_4 = (i1.ɵnov(_v, 80).onChange() !== false);
-        ad = (pd_4 && ad);
-    } if (("blur" === en)) {
-        var pd_5 = (i1.ɵnov(_v, 80).onTouched() !== false);
-        ad = (pd_5 && ad);
-    } return ad; }, null, null)), i1.ɵdid(79, 16384, null, 0, i2.DefaultValueAccessor, [i1.Renderer2, i1.ElementRef, [2, i2.COMPOSITION_BUFFER_MODE]], null, null), i1.ɵdid(80, 212992, null, 0, i2.RadioControlValueAccessor, [i1.Renderer2, i1.ElementRef, i2.ɵi, i1.Injector], { formControlName: [0, "formControlName"], value: [1, "value"] }, null), i1.ɵprd(1024, null, i2.NG_VALUE_ACCESSOR, function (p0_0, p1_0) { return [p0_0, p1_0]; }, [i2.DefaultValueAccessor, i2.RadioControlValueAccessor]), i1.ɵdid(82, 671744, null, 0, i2.FormControlName, [[3, i2.ControlContainer], [8, null], [8, null], [2, i2.NG_VALUE_ACCESSOR]], { name: [0, "name"] }, null), i1.ɵprd(2048, null, i2.NgControl, null, [i2.FormControlName]), i1.ɵdid(84, 16384, null, 0, i2.NgControlStatus, [i2.NgControl], null, null), (_l()(), i1.ɵted(-1, null, ["\n                                "])), (_l()(), i1.ɵted(-1, null, ["\n                            "])), (_l()(), i1.ɵted(-1, null, ["\n                        "])), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵeld(90, 0, null, null, 4, "div", [["class", "modal-footer"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n\n                    "])), (_l()(), i1.ɵeld(92, 0, null, null, 1, "button", [["class", "btn btn-primary"], ["type", "submit"]], [[8, "disabled", 0]], null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Salvar"])), (_l()(), i1.ɵted(-1, null, ["\n\n                "])), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵted(-1, null, ["\n\n        "])), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵted(-1, null, ["\n"])), (_l()(), i1.ɵted(-1, null, ["\n\n\n"])), (_l()(), i1.ɵeld(100, 0, null, null, 41, "div", [["class", "container"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(102, 0, null, null, 38, "div", [["class", "row"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(104, 0, null, null, 4, "div", [["class", "form-group col-md-4"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵeld(106, 0, null, null, 1, "button", [["class", "btn btn-primary"], ["type", "button"]], [[8, "disabled", 0]], [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
-        var pd_0 = (_co.onNewperfilrole() !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["Novo perfilrole +"])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵted(-1, null, ["\n\n        "])), (_l()(), i1.ɵeld(110, 0, null, null, 5, "form", [["novalidate", ""]], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "submit"], [null, "reset"]], function (_v, en, $event) { var ad = true; if (("submit" === en)) {
-        var pd_0 = (i1.ɵnov(_v, 112).onSubmit($event) !== false);
-        ad = (pd_0 && ad);
-    } if (("reset" === en)) {
-        var pd_1 = (i1.ɵnov(_v, 112).onReset() !== false);
-        ad = (pd_1 && ad);
-    } return ad; }, null, null)), i1.ɵdid(111, 16384, null, 0, i2.ɵbf, [], null, null), i1.ɵdid(112, 4210688, null, 0, i2.NgForm, [[8, null], [8, null]], null, null), i1.ɵprd(2048, null, i2.ControlContainer, null, [i2.NgForm]), i1.ɵdid(114, 16384, null, 0, i2.NgControlStatusGroup, [i2.ControlContainer], null, null), (_l()(), i1.ɵted(-1, null, ["\n\n        "])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(117, 0, null, null, 22, "table", [["class", "table table-striped"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵeld(119, 0, null, null, 13, "thead", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵeld(121, 0, null, null, 10, "tr", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵeld(123, 0, null, null, 1, "th", [["scope", "col"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["#"])), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵeld(126, 0, null, null, 1, "th", [["scope", "col"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Email"])), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵeld(129, 0, null, null, 1, "th", [["scope", "col"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Perfil"])), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵeld(134, 0, null, null, 4, "tbody", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_PerfilroleComponent_2)), i1.ɵdid(137, 802816, null, 0, i3.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵted(-1, null, ["\n"]))], function (_ck, _v) { var _co = _v.component; var currVal_0 = _ck(_v, 2, 0, _co.display); _ck(_v, 1, 0, currVal_0); var currVal_1 = _ck(_v, 6, 0, _co.display); _ck(_v, 5, 0, currVal_1); var currVal_9 = _co.perfilroleForm; _ck(_v, 14, 0, currVal_9); var currVal_17 = "email"; _ck(_v, 47, 0, currVal_17); var currVal_18 = !_co.edit; _ck(_v, 54, 0, currVal_18); var currVal_26 = "role"; var currVal_27 = "ctc"; _ck(_v, 69, 0, currVal_26, currVal_27); var currVal_28 = "role"; _ck(_v, 71, 0, currVal_28); var currVal_36 = "role"; var currVal_37 = "gold"; _ck(_v, 80, 0, currVal_36, currVal_37); var currVal_38 = "role"; _ck(_v, 82, 0, currVal_38); var currVal_48 = _co.perfilroles; _ck(_v, 137, 0, currVal_48); }, function (_ck, _v) { var _co = _v.component; var currVal_2 = i1.ɵnov(_v, 16).ngClassUntouched; var currVal_3 = i1.ɵnov(_v, 16).ngClassTouched; var currVal_4 = i1.ɵnov(_v, 16).ngClassPristine; var currVal_5 = i1.ɵnov(_v, 16).ngClassDirty; var currVal_6 = i1.ɵnov(_v, 16).ngClassValid; var currVal_7 = i1.ɵnov(_v, 16).ngClassInvalid; var currVal_8 = i1.ɵnov(_v, 16).ngClassPending; _ck(_v, 12, 0, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6, currVal_7, currVal_8); var currVal_10 = i1.ɵnov(_v, 49).ngClassUntouched; var currVal_11 = i1.ɵnov(_v, 49).ngClassTouched; var currVal_12 = i1.ɵnov(_v, 49).ngClassPristine; var currVal_13 = i1.ɵnov(_v, 49).ngClassDirty; var currVal_14 = i1.ɵnov(_v, 49).ngClassValid; var currVal_15 = i1.ɵnov(_v, 49).ngClassInvalid; var currVal_16 = i1.ɵnov(_v, 49).ngClassPending; _ck(_v, 44, 0, currVal_10, currVal_11, currVal_12, currVal_13, currVal_14, currVal_15, currVal_16); var currVal_19 = i1.ɵnov(_v, 73).ngClassUntouched; var currVal_20 = i1.ɵnov(_v, 73).ngClassTouched; var currVal_21 = i1.ɵnov(_v, 73).ngClassPristine; var currVal_22 = i1.ɵnov(_v, 73).ngClassDirty; var currVal_23 = i1.ɵnov(_v, 73).ngClassValid; var currVal_24 = i1.ɵnov(_v, 73).ngClassInvalid; var currVal_25 = i1.ɵnov(_v, 73).ngClassPending; _ck(_v, 67, 0, currVal_19, currVal_20, currVal_21, currVal_22, currVal_23, currVal_24, currVal_25); var currVal_29 = i1.ɵnov(_v, 84).ngClassUntouched; var currVal_30 = i1.ɵnov(_v, 84).ngClassTouched; var currVal_31 = i1.ɵnov(_v, 84).ngClassPristine; var currVal_32 = i1.ɵnov(_v, 84).ngClassDirty; var currVal_33 = i1.ɵnov(_v, 84).ngClassValid; var currVal_34 = i1.ɵnov(_v, 84).ngClassInvalid; var currVal_35 = i1.ɵnov(_v, 84).ngClassPending; _ck(_v, 78, 0, currVal_29, currVal_30, currVal_31, currVal_32, currVal_33, currVal_34, currVal_35); var currVal_39 = _co.validMyForm(); _ck(_v, 92, 0, currVal_39); var currVal_40 = _co.auth; _ck(_v, 106, 0, currVal_40); var currVal_41 = i1.ɵnov(_v, 114).ngClassUntouched; var currVal_42 = i1.ɵnov(_v, 114).ngClassTouched; var currVal_43 = i1.ɵnov(_v, 114).ngClassPristine; var currVal_44 = i1.ɵnov(_v, 114).ngClassDirty; var currVal_45 = i1.ɵnov(_v, 114).ngClassValid; var currVal_46 = i1.ɵnov(_v, 114).ngClassInvalid; var currVal_47 = i1.ɵnov(_v, 114).ngClassPending; _ck(_v, 110, 0, currVal_41, currVal_42, currVal_43, currVal_44, currVal_45, currVal_46, currVal_47); }); }
-export function View_PerfilroleComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-perfilrole", [], null, null, null, View_PerfilroleComponent_0, RenderType_PerfilroleComponent)), i1.ɵdid(1, 114688, null, 0, i4.PerfilroleComponent, [i5.AuthService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+var RenderType_PerfilroleComponent = i1.ɵcrt({encapsulation: 0, styles: styles_PerfilroleComponent, data: {}});
+export {RenderType_PerfilroleComponent as RenderType_PerfilroleComponent};
+
+function View_PerfilroleComponent_1(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 20, "div", [["class", "form-row"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                        "])), (_l()(), i1.ɵeld(2, 0, null, null, 17, "div", [["class", "form-group col-md-8"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                            "])), (_l()(), i1.ɵeld(4, 0, null, null, 1, "label", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Senha *"])), (_l()(), i1.ɵted(-1, null, ["\n                            "])), (_l()(), i1.ɵeld(7, 0, null, null, 1, "span", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" (m\u00EDnimo de 6 caracteres)"])), (_l()(), i1.ɵted(-1, null, ["\n                            "])), (_l()(), i1.ɵeld(10, 0, null, null, 8, "input", [["autocomplete", "false"], ["class", "form-control"], ["formControlName", "senha"], ["id", "perfilrole_senha"], ["name", "senha"], ["pattern", ".{6,}"], ["required", ""], ["title", "deve ter 6 caracteres no m\u00EDnimo"], ["type", "password"]], [[1, "required", 0], [1, "pattern", 0], [2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "input"], [null, "blur"], [null, "compositionstart"], [null, "compositionend"]], function (_v, en, $event) {
+    var ad = true;
+    if (("input" === en)) {
+      var pd_0 = (i1.ɵnov(_v, 11)._handleInput($event.target.value) !== false);
+      ad = (pd_0 && ad);
+    }
+    if (("blur" === en)) {
+      var pd_1 = (i1.ɵnov(_v, 11).onTouched() !== false);
+      ad = (pd_1 && ad);
+    }
+    if (("compositionstart" === en)) {
+      var pd_2 = (i1.ɵnov(_v, 11)._compositionStart() !== false);
+      ad = (pd_2 && ad);
+    }
+    if (("compositionend" === en)) {
+      var pd_3 = (i1.ɵnov(_v, 11)._compositionEnd($event.target.value) !== false);
+      ad = (pd_3 && ad);
+    }
+    return ad;
+  }, null, null)), i1.ɵdid(11, 16384, null, 0, i2.DefaultValueAccessor, [i1.Renderer2, i1.ElementRef, [2, i2.COMPOSITION_BUFFER_MODE]], null, null), i1.ɵdid(12, 16384, null, 0, i2.RequiredValidator, [], {required: [0, "required"]}, null), i1.ɵdid(13, 540672, null, 0, i2.PatternValidator, [], {pattern: [0, "pattern"]}, null), i1.ɵprd(1024, null, i2.NG_VALIDATORS, function (p0_0, p1_0) {
+    return [p0_0, p1_0];
+  }, [i2.RequiredValidator, i2.PatternValidator]), i1.ɵprd(1024, null, i2.NG_VALUE_ACCESSOR, function (p0_0) {
+    return [p0_0];
+  }, [i2.DefaultValueAccessor]), i1.ɵdid(16, 671744, null, 0, i2.FormControlName, [[3, i2.ControlContainer], [2, i2.NG_VALIDATORS], [8, null], [2, i2.NG_VALUE_ACCESSOR]], {name: [0, "name"]}, null), i1.ɵprd(2048, null, i2.NgControl, null, [i2.FormControlName]), i1.ɵdid(18, 16384, null, 0, i2.NgControlStatus, [i2.NgControl], null, null), (_l()(), i1.ɵted(-1, null, ["\n                        "])), (_l()(), i1.ɵted(-1, null, ["\n                    "]))], function (_ck, _v) {
+    var currVal_9 = "";
+    _ck(_v, 12, 0, currVal_9);
+    var currVal_10 = ".{6,}";
+    _ck(_v, 13, 0, currVal_10);
+    var currVal_11 = "senha";
+    _ck(_v, 16, 0, currVal_11);
+  }, function (_ck, _v) {
+    var currVal_0 = (i1.ɵnov(_v, 12).required ? "" : null);
+    var currVal_1 = (i1.ɵnov(_v, 13).pattern ? i1.ɵnov(_v, 13).pattern : null);
+    var currVal_2 = i1.ɵnov(_v, 18).ngClassUntouched;
+    var currVal_3 = i1.ɵnov(_v, 18).ngClassTouched;
+    var currVal_4 = i1.ɵnov(_v, 18).ngClassPristine;
+    var currVal_5 = i1.ɵnov(_v, 18).ngClassDirty;
+    var currVal_6 = i1.ɵnov(_v, 18).ngClassValid;
+    var currVal_7 = i1.ɵnov(_v, 18).ngClassInvalid;
+    var currVal_8 = i1.ɵnov(_v, 18).ngClassPending;
+    _ck(_v, 10, 0, currVal_0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6, currVal_7, currVal_8);
+  });
+}
+
+function View_PerfilroleComponent_3(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["CTC"]))], null, null);
+}
+
+function View_PerfilroleComponent_4(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Superintendente/Logistica"]))], null, null);
+}
+
+function View_PerfilroleComponent_2(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 26, "tr", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵeld(2, 0, null, null, 1, "th", [["scope", "row"]], null, null, null, null, null)), (_l()(), i1.ɵted(3, null, ["", ""])), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵeld(5, 0, null, null, 1, "td", [], null, null, null, null, null)), (_l()(), i1.ɵted(6, null, ["", ""])), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_PerfilroleComponent_3)), i1.ɵdid(9, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_PerfilroleComponent_4)), i1.ɵdid(12, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵeld(14, 0, null, null, 11, "td", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                        "])), (_l()(), i1.ɵeld(16, 0, null, null, 3, "button", [["class", "btn btn-warning btn-sm"], ["type", "button"]], [[8, "disabled", 0]], [[null, "click"]], function (_v, en, $event) {
+    var ad = true;
+    var _co = _v.component;
+    if (("click" === en)) {
+      var pd_0 = (_co.onEdit(_v.context.index) !== false);
+      ad = (pd_0 && ad);
+    }
+    return ad;
+  }, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                            "])), (_l()(), i1.ɵeld(18, 0, null, null, 0, "i", [["aria-hidden", "true"], ["class", "fa fa-pencil-square-o"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" Editar"])), (_l()(), i1.ɵted(-1, null, ["\n                        "])), (_l()(), i1.ɵeld(21, 0, null, null, 3, "button", [["class", "btn btn-danger btn-sm"], ["type", "button"]], [[8, "disabled", 0]], [[null, "click"]], function (_v, en, $event) {
+    var ad = true;
+    var _co = _v.component;
+    if (("click" === en)) {
+      var pd_0 = (_co.onDelete(_v.context.index) !== false);
+      ad = (pd_0 && ad);
+    }
+    return ad;
+  }, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                            "])), (_l()(), i1.ɵeld(23, 0, null, null, 0, "i", [["aria-hidden", "true"], ["class", "fa fa-trash-o"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" Excluir"])), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵted(-1, null, ["\n                "]))], function (_ck, _v) {
+    var currVal_2 = (_v.context.$implicit.role == "ctc");
+    _ck(_v, 9, 0, currVal_2);
+    var currVal_3 = (_v.context.$implicit.role == "gold");
+    _ck(_v, 12, 0, currVal_3);
+  }, function (_ck, _v) {
+    var _co = _v.component;
+    var currVal_0 = (_v.context.index + 1);
+    _ck(_v, 3, 0, currVal_0);
+    var currVal_1 = _v.context.$implicit.email;
+    _ck(_v, 6, 0, currVal_1);
+    var currVal_4 = _co.auth;
+    _ck(_v, 16, 0, currVal_4);
+    var currVal_5 = _co.auth;
+    _ck(_v, 21, 0, currVal_5);
+  });
+}
+
+export function View_PerfilroleComponent_0(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "div", [["class", "backdrop"]], null, null, null, null, null)), i1.ɵdid(1, 278528, null, 0, i3.NgStyle, [i1.KeyValueDiffers, i1.ElementRef, i1.Renderer2], {ngStyle: [0, "ngStyle"]}, null), i1.ɵpod(2, {"display": 0}), (_l()(), i1.ɵted(-1, null, ["\n"])), (_l()(), i1.ɵeld(4, 0, null, null, 94, "div", [["class", "modal"], ["role", "dialog"], ["tabindex", "-1"]], null, null, null, null, null)), i1.ɵdid(5, 278528, null, 0, i3.NgStyle, [i1.KeyValueDiffers, i1.ElementRef, i1.Renderer2], {ngStyle: [0, "ngStyle"]}, null), i1.ɵpod(6, {"display": 0}), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(8, 0, null, null, 89, "div", [["class", "modal-dialog"], ["role", "document"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(10, 0, null, null, 86, "div", [["class", "modal-content"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵeld(12, 0, null, null, 83, "form", [["autocomplete", "off"], ["novalidate", ""]], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "ngSubmit"], [null, "submit"], [null, "reset"]], function (_v, en, $event) {
+    var ad = true;
+    var _co = _v.component;
+    if (("submit" === en)) {
+      var pd_0 = (i1.ɵnov(_v, 14).onSubmit($event) !== false);
+      ad = (pd_0 && ad);
+    }
+    if (("reset" === en)) {
+      var pd_1 = (i1.ɵnov(_v, 14).onReset() !== false);
+      ad = (pd_1 && ad);
+    }
+    if (("ngSubmit" === en)) {
+      var pd_2 = (_co.onSubmit() !== false);
+      ad = (pd_2 && ad);
+    }
+    return ad;
+  }, null, null)), i1.ɵdid(13, 16384, null, 0, i2.ɵbf, [], null, null), i1.ɵdid(14, 540672, null, 0, i2.FormGroupDirective, [[8, null], [8, null]], {form: [0, "form"]}, {ngSubmit: "ngSubmit"}), i1.ɵprd(2048, null, i2.ControlContainer, null, [i2.FormGroupDirective]), i1.ɵdid(16, 16384, null, 0, i2.NgControlStatusGroup, [i2.ControlContainer], null, null), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵeld(18, 0, null, null, 10, "div", [["class", "modal-header"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵeld(20, 0, null, null, 1, "h5", [["class", "modal-title"], ["id", "modal_titulo"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Novo perfil"])), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵeld(23, 0, null, null, 4, "button", [["aria-label", "Close"], ["class", "close"], ["data-dismiss", "modal"], ["id", "modal_fechar"], ["type", "button"]], null, [[null, "click"]], function (_v, en, $event) {
+    var ad = true;
+    var _co = _v.component;
+    if (("click" === en)) {
+      var pd_0 = (_co.onClose() !== false);
+      ad = (pd_0 && ad);
+    }
+    return ad;
+  }, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                        "])), (_l()(), i1.ɵeld(25, 0, null, null, 1, "span", [["aria-hidden", "true"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\u00D7"])), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵeld(30, 0, null, null, 58, "div", [["class", "modal-body"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵeld(32, 0, null, null, 1, "label", [["style", "font-size: 11px; float: right;"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["* Campos obrigat\u00F3rios"])), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵeld(35, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n\n                    "])), (_l()(), i1.ɵeld(37, 0, null, null, 14, "div", [["class", "form-row"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                        "])), (_l()(), i1.ɵeld(39, 0, null, null, 11, "div", [["class", "form-group col-md-8"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                            "])), (_l()(), i1.ɵeld(41, 0, null, null, 1, "label", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Email *"])), (_l()(), i1.ɵted(-1, null, ["\n                            "])), (_l()(), i1.ɵeld(44, 0, null, null, 5, "input", [["class", "form-control"], ["formControlName", "email"], ["id", "perfilrole_email"], ["placeholder", "Digite o email"], ["type", "email"]], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "input"], [null, "blur"], [null, "compositionstart"], [null, "compositionend"]], function (_v, en, $event) {
+    var ad = true;
+    if (("input" === en)) {
+      var pd_0 = (i1.ɵnov(_v, 45)._handleInput($event.target.value) !== false);
+      ad = (pd_0 && ad);
+    }
+    if (("blur" === en)) {
+      var pd_1 = (i1.ɵnov(_v, 45).onTouched() !== false);
+      ad = (pd_1 && ad);
+    }
+    if (("compositionstart" === en)) {
+      var pd_2 = (i1.ɵnov(_v, 45)._compositionStart() !== false);
+      ad = (pd_2 && ad);
+    }
+    if (("compositionend" === en)) {
+      var pd_3 = (i1.ɵnov(_v, 45)._compositionEnd($event.target.value) !== false);
+      ad = (pd_3 && ad);
+    }
+    return ad;
+  }, null, null)), i1.ɵdid(45, 16384, null, 0, i2.DefaultValueAccessor, [i1.Renderer2, i1.ElementRef, [2, i2.COMPOSITION_BUFFER_MODE]], null, null), i1.ɵprd(1024, null, i2.NG_VALUE_ACCESSOR, function (p0_0) {
+    return [p0_0];
+  }, [i2.DefaultValueAccessor]), i1.ɵdid(47, 671744, null, 0, i2.FormControlName, [[3, i2.ControlContainer], [8, null], [8, null], [2, i2.NG_VALUE_ACCESSOR]], {name: [0, "name"]}, null), i1.ɵprd(2048, null, i2.NgControl, null, [i2.FormControlName]), i1.ɵdid(49, 16384, null, 0, i2.NgControlStatus, [i2.NgControl], null, null), (_l()(), i1.ɵted(-1, null, ["\n\n                        "])), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵted(-1, null, ["\n\n                    "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_PerfilroleComponent_1)), i1.ɵdid(54, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n\n                    "])), (_l()(), i1.ɵeld(56, 0, null, null, 31, "div", [["class", "form-row"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                            "])), (_l()(), i1.ɵeld(58, 0, null, null, 28, "div", [["class", "form-group col-md-8"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                                "])), (_l()(), i1.ɵeld(60, 0, null, null, 1, "label", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Fun\u00E7\u00E3o *"])), (_l()(), i1.ɵted(-1, null, ["\n                                "])), (_l()(), i1.ɵeld(63, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                                "])), (_l()(), i1.ɵeld(65, 0, null, null, 9, "label", [["class", "md-check"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["CTC\n                                "])), (_l()(), i1.ɵeld(67, 0, null, null, 6, "input", [["class", "form-control"], ["formControlName", "role"], ["id", "perfilrole_role1"], ["type", "radio"], ["value", "ctc"]], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "input"], [null, "blur"], [null, "compositionstart"], [null, "compositionend"], [null, "change"]], function (_v, en, $event) {
+    var ad = true;
+    if (("input" === en)) {
+      var pd_0 = (i1.ɵnov(_v, 68)._handleInput($event.target.value) !== false);
+      ad = (pd_0 && ad);
+    }
+    if (("blur" === en)) {
+      var pd_1 = (i1.ɵnov(_v, 68).onTouched() !== false);
+      ad = (pd_1 && ad);
+    }
+    if (("compositionstart" === en)) {
+      var pd_2 = (i1.ɵnov(_v, 68)._compositionStart() !== false);
+      ad = (pd_2 && ad);
+    }
+    if (("compositionend" === en)) {
+      var pd_3 = (i1.ɵnov(_v, 68)._compositionEnd($event.target.value) !== false);
+      ad = (pd_3 && ad);
+    }
+    if (("change" === en)) {
+      var pd_4 = (i1.ɵnov(_v, 69).onChange() !== false);
+      ad = (pd_4 && ad);
+    }
+    if (("blur" === en)) {
+      var pd_5 = (i1.ɵnov(_v, 69).onTouched() !== false);
+      ad = (pd_5 && ad);
+    }
+    return ad;
+  }, null, null)), i1.ɵdid(68, 16384, null, 0, i2.DefaultValueAccessor, [i1.Renderer2, i1.ElementRef, [2, i2.COMPOSITION_BUFFER_MODE]], null, null), i1.ɵdid(69, 212992, null, 0, i2.RadioControlValueAccessor, [i1.Renderer2, i1.ElementRef, i2.ɵi, i1.Injector], {
+    formControlName: [0, "formControlName"],
+    value: [1, "value"]
+  }, null), i1.ɵprd(1024, null, i2.NG_VALUE_ACCESSOR, function (p0_0, p1_0) {
+    return [p0_0, p1_0];
+  }, [i2.DefaultValueAccessor, i2.RadioControlValueAccessor]), i1.ɵdid(71, 671744, null, 0, i2.FormControlName, [[3, i2.ControlContainer], [8, null], [8, null], [2, i2.NG_VALUE_ACCESSOR]], {name: [0, "name"]}, null), i1.ɵprd(2048, null, i2.NgControl, null, [i2.FormControlName]), i1.ɵdid(73, 16384, null, 0, i2.NgControlStatus, [i2.NgControl], null, null), (_l()(), i1.ɵted(-1, null, ["\n                                "])), (_l()(), i1.ɵted(-1, null, ["\n                                "])), (_l()(), i1.ɵeld(76, 0, null, null, 9, "label", [["class", "md-check"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Superintendente/Logistica\n                                "])), (_l()(), i1.ɵeld(78, 0, null, null, 6, "input", [["class", "form-control"], ["formControlName", "role"], ["id", "perfilrole_role2"], ["type", "radio"], ["value", "gold"]], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "input"], [null, "blur"], [null, "compositionstart"], [null, "compositionend"], [null, "change"]], function (_v, en, $event) {
+    var ad = true;
+    if (("input" === en)) {
+      var pd_0 = (i1.ɵnov(_v, 79)._handleInput($event.target.value) !== false);
+      ad = (pd_0 && ad);
+    }
+    if (("blur" === en)) {
+      var pd_1 = (i1.ɵnov(_v, 79).onTouched() !== false);
+      ad = (pd_1 && ad);
+    }
+    if (("compositionstart" === en)) {
+      var pd_2 = (i1.ɵnov(_v, 79)._compositionStart() !== false);
+      ad = (pd_2 && ad);
+    }
+    if (("compositionend" === en)) {
+      var pd_3 = (i1.ɵnov(_v, 79)._compositionEnd($event.target.value) !== false);
+      ad = (pd_3 && ad);
+    }
+    if (("change" === en)) {
+      var pd_4 = (i1.ɵnov(_v, 80).onChange() !== false);
+      ad = (pd_4 && ad);
+    }
+    if (("blur" === en)) {
+      var pd_5 = (i1.ɵnov(_v, 80).onTouched() !== false);
+      ad = (pd_5 && ad);
+    }
+    return ad;
+  }, null, null)), i1.ɵdid(79, 16384, null, 0, i2.DefaultValueAccessor, [i1.Renderer2, i1.ElementRef, [2, i2.COMPOSITION_BUFFER_MODE]], null, null), i1.ɵdid(80, 212992, null, 0, i2.RadioControlValueAccessor, [i1.Renderer2, i1.ElementRef, i2.ɵi, i1.Injector], {
+    formControlName: [0, "formControlName"],
+    value: [1, "value"]
+  }, null), i1.ɵprd(1024, null, i2.NG_VALUE_ACCESSOR, function (p0_0, p1_0) {
+    return [p0_0, p1_0];
+  }, [i2.DefaultValueAccessor, i2.RadioControlValueAccessor]), i1.ɵdid(82, 671744, null, 0, i2.FormControlName, [[3, i2.ControlContainer], [8, null], [8, null], [2, i2.NG_VALUE_ACCESSOR]], {name: [0, "name"]}, null), i1.ɵprd(2048, null, i2.NgControl, null, [i2.FormControlName]), i1.ɵdid(84, 16384, null, 0, i2.NgControlStatus, [i2.NgControl], null, null), (_l()(), i1.ɵted(-1, null, ["\n                                "])), (_l()(), i1.ɵted(-1, null, ["\n                            "])), (_l()(), i1.ɵted(-1, null, ["\n                        "])), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵeld(90, 0, null, null, 4, "div", [["class", "modal-footer"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n\n                    "])), (_l()(), i1.ɵeld(92, 0, null, null, 1, "button", [["class", "btn btn-primary"], ["type", "submit"]], [[8, "disabled", 0]], null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Salvar"])), (_l()(), i1.ɵted(-1, null, ["\n\n                "])), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵted(-1, null, ["\n\n        "])), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵted(-1, null, ["\n"])), (_l()(), i1.ɵted(-1, null, ["\n\n\n"])), (_l()(), i1.ɵeld(100, 0, null, null, 41, "div", [["class", "container"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(102, 0, null, null, 38, "div", [["class", "row"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(104, 0, null, null, 4, "div", [["class", "form-group col-md-4"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵeld(106, 0, null, null, 1, "button", [["class", "btn btn-primary"], ["type", "button"]], [[8, "disabled", 0]], [[null, "click"]], function (_v, en, $event) {
+    var ad = true;
+    var _co = _v.component;
+    if (("click" === en)) {
+      var pd_0 = (_co.onNewperfilrole() !== false);
+      ad = (pd_0 && ad);
+    }
+    return ad;
+  }, null, null)), (_l()(), i1.ɵted(-1, null, ["Novo perfilrole +"])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵted(-1, null, ["\n\n        "])), (_l()(), i1.ɵeld(110, 0, null, null, 5, "form", [["novalidate", ""]], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "submit"], [null, "reset"]], function (_v, en, $event) {
+    var ad = true;
+    if (("submit" === en)) {
+      var pd_0 = (i1.ɵnov(_v, 112).onSubmit($event) !== false);
+      ad = (pd_0 && ad);
+    }
+    if (("reset" === en)) {
+      var pd_1 = (i1.ɵnov(_v, 112).onReset() !== false);
+      ad = (pd_1 && ad);
+    }
+    return ad;
+  }, null, null)), i1.ɵdid(111, 16384, null, 0, i2.ɵbf, [], null, null), i1.ɵdid(112, 4210688, null, 0, i2.NgForm, [[8, null], [8, null]], null, null), i1.ɵprd(2048, null, i2.ControlContainer, null, [i2.NgForm]), i1.ɵdid(114, 16384, null, 0, i2.NgControlStatusGroup, [i2.ControlContainer], null, null), (_l()(), i1.ɵted(-1, null, ["\n\n        "])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(117, 0, null, null, 22, "table", [["class", "table table-striped"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵeld(119, 0, null, null, 13, "thead", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵeld(121, 0, null, null, 10, "tr", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵeld(123, 0, null, null, 1, "th", [["scope", "col"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["#"])), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵeld(126, 0, null, null, 1, "th", [["scope", "col"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Email"])), (_l()(), i1.ɵted(-1, null, ["\n                    "])), (_l()(), i1.ɵeld(129, 0, null, null, 1, "th", [["scope", "col"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Perfil"])), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵeld(134, 0, null, null, 4, "tbody", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_PerfilroleComponent_2)), i1.ɵdid(137, 802816, null, 0, i3.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], {ngForOf: [0, "ngForOf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵted(-1, null, ["\n"]))], function (_ck, _v) {
+    var _co = _v.component;
+    var currVal_0 = _ck(_v, 2, 0, _co.display);
+    _ck(_v, 1, 0, currVal_0);
+    var currVal_1 = _ck(_v, 6, 0, _co.display);
+    _ck(_v, 5, 0, currVal_1);
+    var currVal_9 = _co.perfilroleForm;
+    _ck(_v, 14, 0, currVal_9);
+    var currVal_17 = "email";
+    _ck(_v, 47, 0, currVal_17);
+    var currVal_18 = !_co.edit;
+    _ck(_v, 54, 0, currVal_18);
+    var currVal_26 = "role";
+    var currVal_27 = "ctc";
+    _ck(_v, 69, 0, currVal_26, currVal_27);
+    var currVal_28 = "role";
+    _ck(_v, 71, 0, currVal_28);
+    var currVal_36 = "role";
+    var currVal_37 = "gold";
+    _ck(_v, 80, 0, currVal_36, currVal_37);
+    var currVal_38 = "role";
+    _ck(_v, 82, 0, currVal_38);
+    var currVal_48 = _co.perfilroles;
+    _ck(_v, 137, 0, currVal_48);
+  }, function (_ck, _v) {
+    var _co = _v.component;
+    var currVal_2 = i1.ɵnov(_v, 16).ngClassUntouched;
+    var currVal_3 = i1.ɵnov(_v, 16).ngClassTouched;
+    var currVal_4 = i1.ɵnov(_v, 16).ngClassPristine;
+    var currVal_5 = i1.ɵnov(_v, 16).ngClassDirty;
+    var currVal_6 = i1.ɵnov(_v, 16).ngClassValid;
+    var currVal_7 = i1.ɵnov(_v, 16).ngClassInvalid;
+    var currVal_8 = i1.ɵnov(_v, 16).ngClassPending;
+    _ck(_v, 12, 0, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6, currVal_7, currVal_8);
+    var currVal_10 = i1.ɵnov(_v, 49).ngClassUntouched;
+    var currVal_11 = i1.ɵnov(_v, 49).ngClassTouched;
+    var currVal_12 = i1.ɵnov(_v, 49).ngClassPristine;
+    var currVal_13 = i1.ɵnov(_v, 49).ngClassDirty;
+    var currVal_14 = i1.ɵnov(_v, 49).ngClassValid;
+    var currVal_15 = i1.ɵnov(_v, 49).ngClassInvalid;
+    var currVal_16 = i1.ɵnov(_v, 49).ngClassPending;
+    _ck(_v, 44, 0, currVal_10, currVal_11, currVal_12, currVal_13, currVal_14, currVal_15, currVal_16);
+    var currVal_19 = i1.ɵnov(_v, 73).ngClassUntouched;
+    var currVal_20 = i1.ɵnov(_v, 73).ngClassTouched;
+    var currVal_21 = i1.ɵnov(_v, 73).ngClassPristine;
+    var currVal_22 = i1.ɵnov(_v, 73).ngClassDirty;
+    var currVal_23 = i1.ɵnov(_v, 73).ngClassValid;
+    var currVal_24 = i1.ɵnov(_v, 73).ngClassInvalid;
+    var currVal_25 = i1.ɵnov(_v, 73).ngClassPending;
+    _ck(_v, 67, 0, currVal_19, currVal_20, currVal_21, currVal_22, currVal_23, currVal_24, currVal_25);
+    var currVal_29 = i1.ɵnov(_v, 84).ngClassUntouched;
+    var currVal_30 = i1.ɵnov(_v, 84).ngClassTouched;
+    var currVal_31 = i1.ɵnov(_v, 84).ngClassPristine;
+    var currVal_32 = i1.ɵnov(_v, 84).ngClassDirty;
+    var currVal_33 = i1.ɵnov(_v, 84).ngClassValid;
+    var currVal_34 = i1.ɵnov(_v, 84).ngClassInvalid;
+    var currVal_35 = i1.ɵnov(_v, 84).ngClassPending;
+    _ck(_v, 78, 0, currVal_29, currVal_30, currVal_31, currVal_32, currVal_33, currVal_34, currVal_35);
+    var currVal_39 = _co.validMyForm();
+    _ck(_v, 92, 0, currVal_39);
+    var currVal_40 = _co.auth;
+    _ck(_v, 106, 0, currVal_40);
+    var currVal_41 = i1.ɵnov(_v, 114).ngClassUntouched;
+    var currVal_42 = i1.ɵnov(_v, 114).ngClassTouched;
+    var currVal_43 = i1.ɵnov(_v, 114).ngClassPristine;
+    var currVal_44 = i1.ɵnov(_v, 114).ngClassDirty;
+    var currVal_45 = i1.ɵnov(_v, 114).ngClassValid;
+    var currVal_46 = i1.ɵnov(_v, 114).ngClassInvalid;
+    var currVal_47 = i1.ɵnov(_v, 114).ngClassPending;
+    _ck(_v, 110, 0, currVal_41, currVal_42, currVal_43, currVal_44, currVal_45, currVal_46, currVal_47);
+  });
+}
+
+export function View_PerfilroleComponent_Host_0(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-perfilrole", [], null, null, null, View_PerfilroleComponent_0, RenderType_PerfilroleComponent)), i1.ɵdid(1, 114688, null, 0, i4.PerfilroleComponent, [i5.AuthService], null, null)], function (_ck, _v) {
+    _ck(_v, 1, 0);
+  }, null);
+}
+
 var PerfilroleComponentNgFactory = i1.ɵccf("app-perfilrole", i4.PerfilroleComponent, View_PerfilroleComponent_Host_0, {}, {}, []);
-export { PerfilroleComponentNgFactory as PerfilroleComponentNgFactory };
+export {PerfilroleComponentNgFactory as PerfilroleComponentNgFactory};

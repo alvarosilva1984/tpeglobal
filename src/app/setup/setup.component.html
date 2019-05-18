@@ -37,9 +37,7 @@
 </div> -->
 
 
-
-
-<!-- 
+<!--
 
 
 
@@ -89,33 +87,34 @@
     <div class="col-md-4">
       <br>
       <button type="button" id="anterior" (click)="anteriorDia($event)" class="btn btn-default">
-        < </button>
-          <button type="button" id="proximo" (click)="proximoDia($event)" class="btn btn-default"> > </button>
-          <select [(ngModel)]="dayselect" class="form-control">
-            <option>Segunda-feira</option>
-            <option>Terça-feira</option>
-            <option>Quarta-feira</option>
-            <option>Quinta-feira</option>
-            <option>Sexta-feira</option>
-            <option>Sábado</option>
-            <option>Domingo</option>
-            <option>Feriado</option>
-          </select>
+        <
+      </button>
+      <button type="button" id="proximo" (click)="proximoDia($event)" class="btn btn-default"> ></button>
+      <select [(ngModel)]="dayselect" class="form-control">
+        <option>Segunda-feira</option>
+        <option>Terça-feira</option>
+        <option>Quarta-feira</option>
+        <option>Quinta-feira</option>
+        <option>Sexta-feira</option>
+        <option>Sábado</option>
+        <option>Domingo</option>
+        <option>Feriado</option>
+      </select>
     </div>
     <table class="table table-condensed">
       <thead>
-        <tr>
-          <th>Ponto/Horário</th>
-          <th *ngFor="let hora of horas; let h = index">{{hora.hora}}</th>
-        </tr>
+      <tr>
+        <th>Ponto/Horário</th>
+        <th *ngFor="let hora of horas; let h = index">{{hora.hora}}</th>
+      </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let ponto of pontos; let p = index">
-          <td>{{ponto.name}}</td>
-          <td *ngFor="let hora of horas; let ph = index">
-            <input type="checkbox" (click)="changed($event.target.checked,ponto,hora)" [checked]="valorCheck(ponto,hora)">
-          </td>
-        </tr>
+      <tr *ngFor="let ponto of pontos; let p = index">
+        <td>{{ponto.name}}</td>
+        <td *ngFor="let hora of horas; let ph = index">
+          <input type="checkbox" (click)="changed($event.target.checked,ponto,hora)" [checked]="valorCheck(ponto,hora)">
+        </td>
+      </tr>
       </tbody>
     </table>
     <button id="btnCreate3" class="btn btn-primary" (click)="salvarConfig()">Salvar Config</button>

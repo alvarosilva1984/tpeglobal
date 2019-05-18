@@ -1,1 +1,34 @@
-{"moduleName":null,"summaries":[{"symbol":{"__symbol":0,"members":[]},"metadata":{"__symbolic":"class","members":{"__ctor__":[{"__symbolic":"constructor","parameters":[null,null,null,null]}]}}}],"symbols":[{"__symbol":0,"name":"Anuncio","filePath":"./anuncio.model"}]}
+{
+  "moduleName": null,
+  "summaries": [
+    {
+      "symbol": {
+        "__symbol": 0,
+        "members": []
+      },
+      "metadata": {
+        "__symbolic": "class",
+        "members": {
+          "__ctor__": [
+            {
+              "__symbolic": "constructor",
+              "parameters": [
+                null,
+                null,
+                null,
+                null
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "symbols": [
+    {
+      "__symbol": 0,
+      "name": "Anuncio",
+      "filePath": "./anuncio.model"
+    }
+  ]
+}

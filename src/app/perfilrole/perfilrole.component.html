@@ -1,91 +1,97 @@
 <div class="backdrop" [ngStyle]="{'display': display}"></div>
 <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display': display}">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <form [formGroup]="perfilroleForm" (ngSubmit)="onSubmit()" autocomplete="off">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modal_titulo">Novo perfil</h5>
-                    <button type="button" id="modal_fechar" class="close" data-dismiss="modal" aria-label="Close" (click)="onClose()">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <label style="font-size: 11px; float: right;">* Campos obrigatórios</label>
-                    <br/>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form [formGroup]="perfilroleForm" (ngSubmit)="onSubmit()" autocomplete="off">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal_titulo">Novo perfil</h5>
+          <button type="button" id="modal_fechar" class="close" data-dismiss="modal" aria-label="Close"
+                  (click)="onClose()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <label style="font-size: 11px; float: right;">* Campos obrigatórios</label>
+          <br/>
 
-                    <div class="form-row">
-                        <div class="form-group col-md-8">
-                            <label>Email *</label>
-                            <input type="email" class="form-control" id="perfilrole_email" placeholder="Digite o email" formControlName="email">
+          <div class="form-row">
+            <div class="form-group col-md-8">
+              <label>Email *</label>
+              <input type="email" class="form-control" id="perfilrole_email" placeholder="Digite o email"
+                     formControlName="email">
 
-                        </div>
-                    </div>
+            </div>
+          </div>
 
-                    <div *ngIf="!this.edit" class="form-row">
-                        <div class="form-group col-md-8">
-                            <label>Senha *</label>
-                            <span> (mínimo de 6 caracteres)</span>
-                            <input name="senha" type="password" id="perfilrole_senha" class="form-control" formControlName="senha" pattern=".{6,}"
-                              required title="deve ter 6 caracteres no mínimo" autocomplete="false">
-                        </div>
-                    </div>
+          <div *ngIf="!this.edit" class="form-row">
+            <div class="form-group col-md-8">
+              <label>Senha *</label>
+              <span> (mínimo de 6 caracteres)</span>
+              <input name="senha" type="password" id="perfilrole_senha" class="form-control" formControlName="senha"
+                     pattern=".{6,}"
+                     required title="deve ter 6 caracteres no mínimo" autocomplete="false">
+            </div>
+          </div>
 
-                    <div class="form-row">
-                            <div class="form-group col-md-8">
-                                <label>Função *</label>
-                                <br>
-                                <label class="md-check">CTC
-                                <input type="radio" value="ctc" class="form-control" id="perfilrole_role1"  formControlName="role">
-                                </label>
-                                <label class="md-check">Superintendente/Logistica
-                                <input type="radio" value="gold" class="form-control" id="perfilrole_role2"  formControlName="role">
-                                </label>
-                            </div>
-                        </div>
-                </div>
-                <div class="modal-footer">
+          <div class="form-row">
+            <div class="form-group col-md-8">
+              <label>Função *</label>
+              <br>
+              <label class="md-check">CTC
+                <input type="radio" value="ctc" class="form-control" id="perfilrole_role1" formControlName="role">
+              </label>
+              <label class="md-check">Superintendente/Logistica
+                <input type="radio" value="gold" class="form-control" id="perfilrole_role2" formControlName="role">
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
 
-                    <button type="submit" [disabled]="validMyForm()" class="btn btn-primary">Salvar</button>
-
-                </div>
-            </form>
+          <button type="submit" [disabled]="validMyForm()" class="btn btn-primary">Salvar</button>
 
         </div>
+      </form>
+
     </div>
+  </div>
 </div>
 
 
 <div class="container">
-    <div class="row">
-        <div class="form-group col-md-4">
-            <button type="button" class="btn btn-primary" (click)="onNewperfilrole()" [disabled]="auth">Novo perfilrole +</button>
-        </div>
-
-        <form>
-
-        </form>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Perfil</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let perfilrole of perfilroles; let j = index">
-                    <th scope="row">{{j + 1}}</th>
-                    <td>{{perfilrole.email}}</td>
-                    <td *ngIf="perfilrole.role == 'ctc'">CTC</td>
-                    <td *ngIf="perfilrole.role == 'gold'">Superintendente/Logistica</td>
-                    <td>
-                        <button type="button" class="btn btn-warning btn-sm" (click)="onEdit(j)" [disabled]="auth">
-                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button>
-                        <button type="button" class="btn btn-danger btn-sm" (click)="onDelete(j)" [disabled]="auth">
-                            <i class="fa fa-trash-o" aria-hidden="true"></i> Excluir</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <button type="button" class="btn btn-primary" (click)="onNewperfilrole()" [disabled]="auth">Novo perfilrole +
+      </button>
     </div>
+
+    <form>
+
+    </form>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Email</th>
+        <th scope="col">Perfil</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let perfilrole of perfilroles; let j = index">
+        <th scope="row">{{j + 1}}</th>
+        <td>{{perfilrole.email}}</td>
+        <td *ngIf="perfilrole.role == 'ctc'">CTC</td>
+        <td *ngIf="perfilrole.role == 'gold'">Superintendente/Logistica</td>
+        <td>
+          <button type="button" class="btn btn-warning btn-sm" (click)="onEdit(j)" [disabled]="auth">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar
+          </button>
+          <button type="button" class="btn btn-danger btn-sm" (click)="onDelete(j)" [disabled]="auth">
+            <i class="fa fa-trash-o" aria-hidden="true"></i> Excluir
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

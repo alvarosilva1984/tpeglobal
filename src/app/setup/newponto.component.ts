@@ -1,20 +1,20 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { AuthService } from "../auth/auth.service";
-import { Ponto } from "./ponto.model";
-import "moment/locale/pt-br";
-import * as moment from "moment";
+import {Component, OnInit} from '@angular/core';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {AuthService} from '../auth/auth.service';
+import {Ponto} from './ponto.model';
+import 'moment/locale/pt-br';
+import * as moment from 'moment';
 
 @Component({
-  selector: "app-newponto",
-  templateUrl: "./newponto.component.html",
-  styleUrls: ["./newponto.component.css"]
+  selector: 'app-newponto',
+  templateUrl: './newponto.component.html',
+  styleUrls: ['./newponto.component.css']
 })
 export class NewpontoComponent implements OnInit {
   pontoForm: FormGroup;
   pontos: Ponto[] = [];
   today = moment();
-  display = "none";
+  display = 'none';
   showNow = false;
   auth = true;
 
@@ -23,8 +23,8 @@ export class NewpontoComponent implements OnInit {
   selectedFile: File;
 
 
-
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) {
+  }
 
   ngOnInit() {
 
@@ -56,7 +56,7 @@ export class NewpontoComponent implements OnInit {
       const ponto = new Ponto(
         this.pontoForm.value.name,
         this.pontoForm.value.npubs,
-        moment.utc(this.today).format("YYYY-MM-DD"),
+        moment.utc(this.today).format('YYYY-MM-DD'),
         null,
         null,
         null,
@@ -76,7 +76,7 @@ export class NewpontoComponent implements OnInit {
               console.log(data);
               this.authService.getpontos().subscribe((pontos: Ponto[]) => {
                 this.pontos = pontos;
-                console.log("examine", pontos);
+                console.log('examine', pontos);
               });
             },
             error => console.error(error)
@@ -104,7 +104,7 @@ export class NewpontoComponent implements OnInit {
                   console.log(data);
                   this.authService.getpontos().subscribe((pontos: Ponto[]) => {
                     this.pontos = pontos;
-                    console.log("examine", pontos);
+                    console.log('examine', pontos);
                   });
                 },
                 error => console.error(error)
@@ -133,7 +133,7 @@ export class NewpontoComponent implements OnInit {
   }
 
   onDelete(i) {
-    console.log("atencao");
+    console.log('atencao');
     console.log(this.pontos[i]);
     const myponto = new Ponto(
       this.pontos[i].name,
@@ -159,14 +159,14 @@ export class NewpontoComponent implements OnInit {
       fileimg: null
     });
 
-    
+
     this.edit = true;
     this.pontoindex = i;
-    this.display = "block";
+    this.display = 'block';
   }
 
   onClose() {
-    this.display = "none";
+    this.display = 'none';
   }
 
   validMyForm() {
@@ -179,10 +179,10 @@ export class NewpontoComponent implements OnInit {
 
     this.pontoForm.reset();
     this.edit = false;
-    this.display = "block";
+    this.display = 'block';
   }
 
-  onAuth(){
-    if(this.authService.isAuthenticated())this.auth = false;
+  onAuth() {
+    if (this.authService.isAuthenticated()) this.auth = false;
   }
 }

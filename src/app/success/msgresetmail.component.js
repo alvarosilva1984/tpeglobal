@@ -1,10 +1,13 @@
-import { Component } from "@angular/core";
+import {Component} from "@angular/core";
+
 export class MsgresetmailComponent {
 }
+
 MsgresetmailComponent.decorators = [
-    { type: Component, args: [{
-                selector: 'app-msgresetmail',
-                template: `
+  {
+    type: Component, args: [{
+      selector: 'app-msgresetmail',
+      template: `
     
             <div class="col-md-5 col-md-offset-2">
              <h2 class="text-success bg-dark">Sua senha foi resetada!</h2>
@@ -12,5 +15,6 @@ MsgresetmailComponent.decorators = [
             </h3>
              </div>
     `
-            },] },
+    },]
+  },
 ];

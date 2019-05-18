@@ -1,6 +1,7 @@
 export class Telegram {
-    constructor(public message: string,
-                public id: number,     
-            ) {}
+  constructor(public message: string,
+              public id: number,
+  ) {
+  }
 
 }

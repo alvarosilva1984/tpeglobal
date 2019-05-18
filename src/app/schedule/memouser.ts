@@ -1,10 +1,12 @@
-import{ User } from '../auth/user.model';
+import {User} from '../auth/user.model';
+
 export class Memouser {
 
-    constructor(
+  constructor(
     public day: string,
     public id: string,
     public userId: string,
     public user: User
-    ){}
-      }
+  ) {
+  }
+}

@@ -22,43 +22,48 @@
         <table class="table">
 
           <thead>
-            <tr>
-              <th class="text-center">Horário</th>
-              <th class="text-center">Status</th>
-              <th style="vertical-align: middle !important; text-align: left;">Nome</th>
-              <th style="vertical-align: middle !important; text-align: left;">Circuito</th>
-              <th style="vertical-align: middle !important; text-align: left;">Congregação</th>
-              <th style="vertical-align: middle !important; text-align: left;">Telefone</th>
-              <th style="vertical-align: middle !important; text-align: left;">Email</th>
-            </tr>
+          <tr>
+            <th class="text-center">Horário</th>
+            <th class="text-center">Status</th>
+            <th style="vertical-align: middle !important; text-align: left;">Nome</th>
+            <th style="vertical-align: middle !important; text-align: left;">Circuito</th>
+            <th style="vertical-align: middle !important; text-align: left;">Congregação</th>
+            <th style="vertical-align: middle !important; text-align: left;">Telefone</th>
+            <th style="vertical-align: middle !important; text-align: left;">Email</th>
+          </tr>
 
           </thead>
           <tbody *ngFor="let item of esc.grupo; let i = index">
 
 
+          <tr *ngFor="let pub of item.ponto.pubs; let h = index">
 
-            <tr *ngFor="let pub of item.ponto.pubs; let h = index">
+            <td *ngIf="h == 0" [attr.rowspan]="item.ponto.pubs.length"
+                style="vertical-align: middle !important; text-align: center;">{{item.hora.hora}}</td>
 
-              <td *ngIf="h == 0" [attr.rowspan]="item.ponto.pubs.length" style="vertical-align: middle !important; text-align: center;">{{item.hora.hora}}</td>
-
-              <td *ngIf="pub?.sim == false && pub?.nao == false" style="vertical-align: middle !important; text-align: center;">
-                <div class="led-yellow"></div>
-              </td>
-              <td *ngIf="pub?.sim == true && pub?.nao == false" style="vertical-align: middle !important; text-align: center;">
-                <div class="led-green"></div>
-              </td>
-              <td *ngIf="pub?.sim == false && pub?.nao == true" style="vertical-align: middle !important; text-align: center;">
-                <div class="led-red"></div>
-              </td>
-              <td *ngIf="pub?.sim == true && pub?.nao == true" style="vertical-align: middle !important; text-align: center;">
-                <div class="led-green"></div>
-              </td>
-              <td [style.color]="getStyle(pub?.sex)" style="vertical-align: middle !important; text-align: left;">{{ pub?.firstName }} {{ pub?.lastName}} </td>
-              <td style="vertical-align: middle !important; text-align: left;">{{ pub?.congregation.circuit }}</td>
-              <td style="vertical-align: middle !important; text-align: left;">{{ pub?.congregation.nome }}</td>
-              <td style="vertical-align: middle !important; text-align: left;">{{ pub?.mobilephone || pub?.phone }}</td>
-              <td style="vertical-align: middle !important; text-align: left;">{{ pub?.email }}</td>
-            </tr>
+            <td *ngIf="pub?.sim == false && pub?.nao == false"
+                style="vertical-align: middle !important; text-align: center;">
+              <div class="led-yellow"></div>
+            </td>
+            <td *ngIf="pub?.sim == true && pub?.nao == false"
+                style="vertical-align: middle !important; text-align: center;">
+              <div class="led-green"></div>
+            </td>
+            <td *ngIf="pub?.sim == false && pub?.nao == true"
+                style="vertical-align: middle !important; text-align: center;">
+              <div class="led-red"></div>
+            </td>
+            <td *ngIf="pub?.sim == true && pub?.nao == true"
+                style="vertical-align: middle !important; text-align: center;">
+              <div class="led-green"></div>
+            </td>
+            <td [style.color]="getStyle(pub?.sex)"
+                style="vertical-align: middle !important; text-align: left;">{{ pub?.firstName }} {{ pub?.lastName}} </td>
+            <td style="vertical-align: middle !important; text-align: left;">{{ pub?.congregation.circuit }}</td>
+            <td style="vertical-align: middle !important; text-align: left;">{{ pub?.congregation.nome }}</td>
+            <td style="vertical-align: middle !important; text-align: left;">{{ pub?.mobilephone || pub?.phone }}</td>
+            <td style="vertical-align: middle !important; text-align: left;">{{ pub?.email }}</td>
+          </tr>
 
 
           </tbody>
@@ -67,7 +72,7 @@
         <!-- <div *ngIf="existPerfil(pont)"> -->
         <div>
           <button class="btn btn-success" (click)="responseYes(esc,esc.grupo)" [hidden]="esc.type">Sim</button>
-          <button class="btn btn-danger" (click)="responseNot(esc,esc.grupo)"  [hidden]="esc.type">Não</button>
+          <button class="btn btn-danger" (click)="responseNot(esc,esc.grupo)" [hidden]="esc.type">Não</button>
         </div>
         <br>
         <br>

@@ -3,6 +3,6 @@
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */ 
+ */
 var styles = [".backdrop[_ngcontent-%COMP%] {\r\n    background-color: rgba(0,0,0,0.6);\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100vh;\r\n\r\n}"];
-export { styles as styles };
+export {styles as styles};

@@ -1,1 +1,78 @@
-{"moduleName":null,"summaries":[{"symbol":{"__symbol":0,"members":[]},"metadata":{"__symbolic":"class"},"type":{"summaryKind":1,"type":{"reference":{"__symbol":0,"members":[]},"diDeps":[],"lifecycleHooks":[]},"isComponent":true,"selector":"app-msgresetmail","exportAs":null,"inputs":{},"outputs":{},"hostListeners":{},"hostProperties":{},"hostAttributes":{},"providers":[],"viewProviders":[],"queries":[],"guards":{},"viewQueries":[],"entryComponents":[],"changeDetection":1,"template":{"ngContentSelectors":[],"encapsulation":2},"componentViewType":{"__symbol":1,"members":[]},"rendererType":{"__symbol":2,"members":[]},"componentFactory":{"__symbol":3,"members":[]}}}],"symbols":[{"__symbol":0,"name":"MsgresetmailComponent","filePath":"./msgresetmail.component"},{"__symbol":1,"name":"View_MsgresetmailComponent_0","filePath":"./msgresetmail.component.ngfactory"},{"__symbol":2,"name":"RenderType_MsgresetmailComponent","filePath":"./msgresetmail.component.ngfactory"},{"__symbol":3,"name":"MsgresetmailComponentNgFactory","filePath":"./msgresetmail.component.ngfactory"}]}
+{
+  "moduleName": null,
+  "summaries": [
+    {
+      "symbol": {
+        "__symbol": 0,
+        "members": []
+      },
+      "metadata": {
+        "__symbolic": "class"
+      },
+      "type": {
+        "summaryKind": 1,
+        "type": {
+          "reference": {
+            "__symbol": 0,
+            "members": []
+          },
+          "diDeps": [],
+          "lifecycleHooks": []
+        },
+        "isComponent": true,
+        "selector": "app-msgresetmail",
+        "exportAs": null,
+        "inputs": {},
+        "outputs": {},
+        "hostListeners": {},
+        "hostProperties": {},
+        "hostAttributes": {},
+        "providers": [],
+        "viewProviders": [],
+        "queries": [],
+        "guards": {},
+        "viewQueries": [],
+        "entryComponents": [],
+        "changeDetection": 1,
+        "template": {
+          "ngContentSelectors": [],
+          "encapsulation": 2
+        },
+        "componentViewType": {
+          "__symbol": 1,
+          "members": []
+        },
+        "rendererType": {
+          "__symbol": 2,
+          "members": []
+        },
+        "componentFactory": {
+          "__symbol": 3,
+          "members": []
+        }
+      }
+    }
+  ],
+  "symbols": [
+    {
+      "__symbol": 0,
+      "name": "MsgresetmailComponent",
+      "filePath": "./msgresetmail.component"
+    },
+    {
+      "__symbol": 1,
+      "name": "View_MsgresetmailComponent_0",
+      "filePath": "./msgresetmail.component.ngfactory"
+    },
+    {
+      "__symbol": 2,
+      "name": "RenderType_MsgresetmailComponent",
+      "filePath": "./msgresetmail.component.ngfactory"
+    },
+    {
+      "__symbol": 3,
+      "name": "MsgresetmailComponentNgFactory",
+      "filePath": "./msgresetmail.component.ngfactory"
+    }
+  ]
+}

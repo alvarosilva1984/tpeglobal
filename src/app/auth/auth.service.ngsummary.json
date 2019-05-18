@@ -1,1 +1,507 @@
-{"moduleName":null,"summaries":[{"symbol":{"__symbol":0,"members":[]},"metadata":{"__symbolic":"class","members":{"__ctor__":[{"__symbolic":"constructor","parameters":[{"__symbolic":"resolved","symbol":{"__symbol":1,"members":[]},"line":34,"character":28,"fileName":"assets\\app\\auth\\auth.service.ts"},{"__symbolic":"resolved","symbol":{"__symbol":2,"members":[]},"line":34,"character":56,"fileName":"assets\\app\\auth\\auth.service.ts"}]}],"signup":[{"__symbolic":"method"}],"signin":[{"__symbolic":"method"}],"logout":[{"__symbolic":"method"}],"isLoggedIn":[{"__symbolic":"method"}],"goOut":[{"__symbolic":"method"}],"getlistusers":[{"__symbolic":"method"}],"getlistAllUsers":[{"__symbolic":"method"}],"getlistusers_esc":[{"__symbolic":"method"}],"updateReleased":[{"__symbolic":"method"}],"getPerfil":[{"__symbolic":"method"}],"getPerfilComp":[{"__symbolic":"method"}],"updatePerfil":[{"__symbolic":"method"}],"sendpass":[{"__symbolic":"method"}],"deleteuser":[{"__symbolic":"method"}],"deleteponto":[{"__symbolic":"method"}],"newpass":[{"__symbolic":"method"}],"isAuthenticated":[{"__symbolic":"method"}],"isPleno":[{"__symbolic":"method"}],"isGold":[{"__symbolic":"method"}],"isCtc":[{"__symbolic":"method"}],"isBronze":[{"__symbolic":"method"}],"pontocreate":[{"__symbolic":"method"}],"pontoImage":[{"__symbolic":"method"}],"pontoUpdate":[{"__symbolic":"method"}],"pontoEdit":[{"__symbolic":"method"}],"getpontos":[{"__symbolic":"method"}],"enviasms":[{"__symbolic":"method"}],"getsmscreditos":[{"__symbolic":"method"}],"getsmsresposta":[{"__symbolic":"method"}],"agendamento":[{"__symbolic":"method"}],"getagendas":[{"__symbolic":"method"}],"deleteagenda":[{"__symbolic":"method"}],"horaCreate":[{"__symbolic":"method"}],"getHoras":[{"__symbolic":"method"}],"deletehora":[{"__symbolic":"method"}],"horaEdit":[{"__symbolic":"method"}],"feriadoCreate":[{"__symbolic":"method"}],"getFeriado":[{"__symbolic":"method"}],"deleteFeriado":[{"__symbolic":"method"}],"feriadoEdit":[{"__symbolic":"method"}],"enviatelegram":[{"__symbolic":"method"}],"gettelegramresposta":[{"__symbolic":"method"}],"circuitoCreate":[{"__symbolic":"method"}],"getCircuito":[{"__symbolic":"method"}],"getAllCircuito":[{"__symbolic":"method"}],"deletecircuito":[{"__symbolic":"method"}],"circuitoEdit":[{"__symbolic":"method"}],"congregationEdit":[{"__symbolic":"method"}],"congregationCreate":[{"__symbolic":"method"}],"getCongregation":[{"__symbolic":"method"}],"getAllCongregation":[{"__symbolic":"method"}],"deleteespecial":[{"__symbolic":"method"}],"especialCreate":[{"__symbolic":"method"}],"getespecial":[{"__symbolic":"method"}],"especialEdit":[{"__symbolic":"method"}],"deletevalidity":[{"__symbolic":"method"}],"validityCreate":[{"__symbolic":"method"}],"getValidity":[{"__symbolic":"method"}],"getLastValidity":[{"__symbolic":"method"}],"validityEdit":[{"__symbolic":"method"}],"deletecongregation":[{"__symbolic":"method"}],"saveEscala":[{"__symbolic":"method"}],"deleteEscala":[{"__symbolic":"method"}],"getEscala":[{"__symbolic":"method"}],"getPerfilEscala":[{"__symbolic":"method"}],"ledUpdate":[{"__symbolic":"method"}],"getLedsDesignations":[{"__symbolic":"method"}],"getAllLeds":[{"__symbolic":"method"}],"getAllLedsReport":[{"__symbolic":"method"}],"sendTelegram":[{"__symbolic":"method"}],"sendEmails":[{"__symbolic":"method"}],"cadastroTelegram":[{"__symbolic":"method"}],"anuncioCreate":[{"__symbolic":"method"}],"getAnuncio":[{"__symbolic":"method"}],"deleteAnuncio":[{"__symbolic":"method"}],"anuncioEdit":[{"__symbolic":"method"}],"avisaAnuncio":[{"__symbolic":"method"}],"perfilroleCreate":[{"__symbolic":"method"}],"getPerfilrole":[{"__symbolic":"method"}],"deletePerfilrole":[{"__symbolic":"method"}],"perfilroleEdit":[{"__symbolic":"method"}]}},"type":{"summaryKind":3,"type":{"reference":{"__symbol":0,"members":[]},"diDeps":[{"isAttribute":false,"isHost":false,"isSelf":false,"isSkipSelf":false,"isOptional":false,"token":{"identifier":{"reference":{"__symbol":1,"members":[]}}}},{"isAttribute":false,"isHost":false,"isSelf":false,"isSkipSelf":false,"isOptional":false,"token":{"identifier":{"reference":{"__symbol":2,"members":[]}}}}],"lifecycleHooks":[]}}}],"symbols":[{"__symbol":0,"name":"AuthService","filePath":"./auth.service"},{"__symbol":1,"name":"Http","filePath":"@angular/http/http"},{"__symbol":2,"name":"ErrorService","filePath":"../errors/error.service"}]}
+{
+  "moduleName": null,
+  "summaries": [
+    {
+      "symbol": {
+        "__symbol": 0,
+        "members": []
+      },
+      "metadata": {
+        "__symbolic": "class",
+        "members": {
+          "__ctor__": [
+            {
+              "__symbolic": "constructor",
+              "parameters": [
+                {
+                  "__symbolic": "resolved",
+                  "symbol": {
+                    "__symbol": 1,
+                    "members": []
+                  },
+                  "line": 34,
+                  "character": 28,
+                  "fileName": "assets\\app\\auth\\auth.service.ts"
+                },
+                {
+                  "__symbolic": "resolved",
+                  "symbol": {
+                    "__symbol": 2,
+                    "members": []
+                  },
+                  "line": 34,
+                  "character": 56,
+                  "fileName": "assets\\app\\auth\\auth.service.ts"
+                }
+              ]
+            }
+          ],
+          "signup": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "signin": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "logout": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "isLoggedIn": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "goOut": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getlistusers": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getlistAllUsers": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getlistusers_esc": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "updateReleased": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getPerfil": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getPerfilComp": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "updatePerfil": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "sendpass": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "deleteuser": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "deleteponto": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "newpass": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "isAuthenticated": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "isPleno": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "isGold": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "isCtc": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "isBronze": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "pontocreate": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "pontoImage": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "pontoUpdate": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "pontoEdit": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getpontos": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "enviasms": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getsmscreditos": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getsmsresposta": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "agendamento": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getagendas": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "deleteagenda": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "horaCreate": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getHoras": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "deletehora": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "horaEdit": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "feriadoCreate": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getFeriado": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "deleteFeriado": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "feriadoEdit": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "enviatelegram": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "gettelegramresposta": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "circuitoCreate": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getCircuito": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getAllCircuito": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "deletecircuito": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "circuitoEdit": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "congregationEdit": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "congregationCreate": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getCongregation": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getAllCongregation": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "deleteespecial": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "especialCreate": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getespecial": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "especialEdit": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "deletevalidity": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "validityCreate": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getValidity": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getLastValidity": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "validityEdit": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "deletecongregation": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "saveEscala": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "deleteEscala": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getEscala": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getPerfilEscala": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "ledUpdate": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getLedsDesignations": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getAllLeds": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getAllLedsReport": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "sendTelegram": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "sendEmails": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "cadastroTelegram": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "anuncioCreate": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getAnuncio": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "deleteAnuncio": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "anuncioEdit": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "avisaAnuncio": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "perfilroleCreate": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getPerfilrole": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "deletePerfilrole": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "perfilroleEdit": [
+            {
+              "__symbolic": "method"
+            }
+          ]
+        }
+      },
+      "type": {
+        "summaryKind": 3,
+        "type": {
+          "reference": {
+            "__symbol": 0,
+            "members": []
+          },
+          "diDeps": [
+            {
+              "isAttribute": false,
+              "isHost": false,
+              "isSelf": false,
+              "isSkipSelf": false,
+              "isOptional": false,
+              "token": {
+                "identifier": {
+                  "reference": {
+                    "__symbol": 1,
+                    "members": []
+                  }
+                }
+              }
+            },
+            {
+              "isAttribute": false,
+              "isHost": false,
+              "isSelf": false,
+              "isSkipSelf": false,
+              "isOptional": false,
+              "token": {
+                "identifier": {
+                  "reference": {
+                    "__symbol": 2,
+                    "members": []
+                  }
+                }
+              }
+            }
+          ],
+          "lifecycleHooks": []
+        }
+      }
+    }
+  ],
+  "symbols": [
+    {
+      "__symbol": 0,
+      "name": "AuthService",
+      "filePath": "./auth.service"
+    },
+    {
+      "__symbol": 1,
+      "name": "Http",
+      "filePath": "@angular/http/http"
+    },
+    {
+      "__symbol": 2,
+      "name": "ErrorService",
+      "filePath": "../errors/error.service"
+    }
+  ]
+}

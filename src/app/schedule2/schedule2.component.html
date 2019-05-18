@@ -1,63 +1,66 @@
 <div *ngIf="showNow" class="container">
-<div *ngIf="validities.length > 0">
-  <p><b>Período aberto de {{ dateString(validities[0].begin) }} até {{ dateString(validities[0].end) }}</b></p>
-</div>
-<div *ngIf="validities.length == 0">
-  <h4>Período fechado</h4>
-</div>
-    <div class="row">
-      <div class="col-md-6">
-        <button type="button" id="anterior" (click)="anteriorDia($event)" class="btn btn-default">
-          <i class="fas fa-angle-left"></i>
-        </button>
-        <input name="dia" id="dia" type="date" [(ngModel)]="dia" (change)="onChange()">
-        <button type="button" id="proximo" (click)="proximoDia($event)" class="btn btn-default">
-          <i class="fas fa-angle-right"></i>
-        </button>
-        <br>
-        <b> {{ diasemana }}</b>
-        <div class="panel-body">
+  <div *ngIf="validities.length > 0">
+    <p><b>Período aberto de {{ dateString(validities[0].begin) }} até {{ dateString(validities[0].end) }}</b></p>
+  </div>
+  <div *ngIf="validities.length == 0">
+    <h4>Período fechado</h4>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <button type="button" id="anterior" (click)="anteriorDia($event)" class="btn btn-default">
+        <i class="fas fa-angle-left"></i>
+      </button>
+      <input name="dia" id="dia" type="date" [(ngModel)]="dia" (change)="onChange()">
+      <button type="button" id="proximo" (click)="proximoDia($event)" class="btn btn-default">
+        <i class="fas fa-angle-right"></i>
+      </button>
+      <br>
+      <b> {{ diasemana }}</b>
+      <div class="panel-body">
 
-          <div *ngIf="buscaFeriado()" class="alert alert-warning">
-            <strong>Feriado</strong>
-          </div>
-          <div class="table-responsive">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">Horários</th>
-                  <th scope="col">Vagas</th>
-                  <th scope="col" class="center">Seleção</th>
-                </tr>
-              </thead>
-              <tbody>
-
-                <tr *ngFor="let hora of horas; let h = index">
-                  <th *ngIf="hora.vagas > 0" scope="row">{{ hora.hora }}</th>
-                  <td *ngIf="hora.vagas > 0">
-                    <span class="badge badge-success">{{ hora.vagas - hora.dispo}}/{{hora.vagas}}</span>
-                  </td>
-                  <td *ngIf="hora.vagas > 0" class="center">
-                    <input  type="radio" name="jradio" (change)="onChangeSel($event, hora)" [checked]="valCheck()" [disabled]="disabledAgenda()">
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <div *ngIf="buscaFeriado()" class="alert alert-warning">
+          <strong>Feriado</strong>
         </div>
-        <button id="btnAgendar" class="btn btn-primary" type="submit" (click)="execAgendar()" [disabled]="disabledAgenda()">Agendar</button>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">Horários</th>
+              <th scope="col">Vagas</th>
+              <th scope="col" class="center">Seleção</th>
+            </tr>
+            </thead>
+            <tbody>
 
+            <tr *ngFor="let hora of horas; let h = index">
+              <th *ngIf="hora.vagas > 0" scope="row">{{ hora.hora }}</th>
+              <td *ngIf="hora.vagas > 0">
+                <span class="badge badge-success">{{ hora.vagas - hora.dispo}}/{{hora.vagas}}</span>
+              </td>
+              <td *ngIf="hora.vagas > 0" class="center">
+                <input type="radio" name="jradio" (change)="onChangeSel($event, hora)" [checked]="valCheck()"
+                       [disabled]="disabledAgenda()">
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
+      <button id="btnAgendar" class="btn btn-primary" type="submit" (click)="execAgendar()"
+              [disabled]="disabledAgenda()">Agendar
+      </button>
 
-      <div class="col-md-5">
+    </div>
 
-        <h4>Histórico</h4>
-        <div *ngFor="let agenda of user_agenda; let i = index" class="alert alert-success" role="alert">
-          <a>
-            <i class="fa fa-trash-o" aria-hidden="true" style="color:blue" (click)="Delete(i)"></i>
-          </a>Agendado {{ agenda.diasemana }} {{ agenda.datashow }} ás {{ agenda.hora }}
-        </div>
+    <div class="col-md-5">
+
+      <h4>Histórico</h4>
+      <div *ngFor="let agenda of user_agenda; let i = index" class="alert alert-success" role="alert">
+        <a>
+          <i class="fa fa-trash-o" aria-hidden="true" style="color:blue" (click)="Delete(i)"></i>
+        </a>Agendado {{ agenda.diasemana }} {{ agenda.datashow }} ás {{ agenda.hora }}
       </div>
     </div>
+  </div>
 
 </div>

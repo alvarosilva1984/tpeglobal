@@ -1,8 +1,10 @@
-import{ User } from '../auth/user.model';
-export class Escala {
-    
+import {User} from '../auth/user.model';
 
-    constructor(
+export class Escala {
+
+
+  constructor(
     public user: User[]
-    ){}
-      }
+  ) {
+  }
+}

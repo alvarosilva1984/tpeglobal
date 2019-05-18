@@ -1,59 +1,57 @@
 
-button{
+button {
 
   display: block;
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  margin-left:9%;
+  margin-left: 9%;
   width: 82%;
-  color:black;
+  color: black;
   background-color: white;
   border: 2px solid black;
   font-weight: 700;
 }
-button:active{
-  background:olive;
+
+button:active {
+  background: olive;
 }
 
 
-.container{
+.container {
   background: white;
   position: absolute;
   top: 5%;
 }
 
 
-
-
-input{
+input {
   background-color: #3b4148;
   color: #a9a9a9;
-  margin-top:12px;
+  margin-top: 12px;
   display: inline-block;
   width: 70%;
-  
 
 
 }
 
-.panel-body{
-  
-  background-color:lightgrey;
+.panel-body {
 
-} 
-
-.panel-heading{
   background-color: lightgrey;
 
-} 
+}
+
+.panel-heading {
+  background-color: lightgrey;
+
+}
 
 span {
   background-color: #363b41;
   color: #606468;
-  margin-top:12px;
+  margin-top: 12px;
   margin-left: 9%;
-  
+
   display: block;
   float: left;
   line-height: 38px;
@@ -63,117 +61,118 @@ span {
 }
 
 
-
-p { 
+p {
   text-align: center;
-  color: black; font-family: Impact, Charcoal, sans-serif; font-size: 10px; 
+  color: black;
+  font-family: Impact, Charcoal, sans-serif;
+  font-size: 10px;
 }
 
 h3 {
   color: black;
   margin-top: 5%;
   text-align: center;
-font-family: 'Impact', 'fantasy';
-font-size: 25px;
+  font-family: 'Impact', 'fantasy';
+  font-size: 25px;
 
 }
 
 
-.login-panel{
-  background-color:lightgrey;
+.login-panel {
+  background-color: lightgrey;
   border: 2px solid;
   border-radius: 25px;
   overflow: hidden;
   perspective: 1px;
-  
+
+}
+
+#mala {
+  text-align: center;
+  margin-left: 25%;
+  background-color: lightgrey;
+  font-size: 70px;
+}
+
+@media screen and (min-width: 320px) {
+  button {
+    width: 83%;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  button {
+    width: 81%;
+  }
+}
+
+@media screen and (min-width: 414px) {
+  button {
+    width: 80%;
   }
 
-  #mala{
-      text-align: center; 
-      margin-left:25%; 
-      background-color:lightgrey; 
-      font-size: 70px;
+  #mala {
+    margin-left: 27%;
   }
 
-  @media screen and (min-width: 320px) {
-      button {
-          width: 83%;
-      }
+}
+
+
+@media screen and (min-width: 480px) {
+  button {
+    width: 79%;
   }
 
-  @media screen and (min-width: 375px) {
-      button {
-          width: 81%;
-      }
+  #mala {
+    margin-left: 28%;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  button {
+    width: 78%;
+  }
+}
+
+
+@media screen and (min-width: 700px) {
+  button {
+    width: 81%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  button {
+    width: 87%;
   }
 
-  @media screen and (min-width: 414px) {
-      button {
-          width: 80%;
-      }
+  #mala {
+    margin-left: 21%;
+  }
+}
 
-      #mala{
-          margin-left:27%; 
-      }
+@media screen and (min-width: 800px) {
+  button {
+    width: 81%;
+  }
+}
 
+@media screen and (min-width: 1280px) {
+  button {
+    width: 81%;
   }
 
+  #mala {
+    margin-left: 25%;
+  }
+}
 
-  @media screen and (min-width: 480px) {
-      button {
-          width: 79%;
-      }
-
-      #mala{
-          margin-left:28%; 
-      }
+@media screen and (min-width: 1024px) {
+  button {
+    width: 81%;
   }
 
-  @media screen and (min-width: 600px) {
-      button {
-          width: 78%;
-      }
+  #mala {
+    margin-left: 25%;
   }
-
-
-  @media screen and (min-width: 700px) {
-      button {
-          width: 81%;
-      }
-  }
-
-  @media screen and (min-width: 768px) {
-      button {
-          width: 87%;
-      }
-
-      #mala{
-          margin-left: 21%; 
-      }
-  }
-
-  @media screen and (min-width: 800px) {
-      button {
-          width: 81%;
-      }
-  }
-
-  @media screen and (min-width: 1280px) {
-      button {
-          width: 81%;
-      }
-
-      #mala{
-          margin-left: 25%; 
-      }
-  }
-
-  @media screen and (min-width: 1024px) {
-      button {
-          width: 81%;
-      }
-
-      #mala{
-          margin-left: 25%; 
-      }
-  }
+}

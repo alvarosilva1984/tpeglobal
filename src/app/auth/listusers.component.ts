@@ -1,13 +1,13 @@
-import { Component, OnInit } from "@angular/core";
+import {Component, OnInit} from '@angular/core';
 
-import { User } from "./user.model";
-import { AuthService } from "./auth.service";
-import { Router } from "@angular/router";
-import { Congregation } from "../setup/congregation.model";
+import {User} from './user.model';
+import {AuthService} from './auth.service';
+import {Router} from '@angular/router';
+import {Congregation} from '../setup/congregation.model';
 
 @Component({
-    selector: 'app-listusers',
-    template: `
+  selector: 'app-listusers',
+  template: `
         <div *ngIf="!showNow">
         <h4>Carregando informações...</h4>
         </div>
@@ -54,9 +54,9 @@ import { Congregation } from "../setup/congregation.model";
             </div>
 
         `
-    ,
+  ,
 
-    styles: [`
+  styles: [`
 
     .btn-aprov{
         color: white;
@@ -120,166 +120,155 @@ button.btn-aprov:disabled {background-color: gray}
 `],
 })
 export class ListusersComponent implements OnInit {
-    users: User[];
-    myuser: User;
-    selectedRow: Number;
-    approve: boolean = false;
-    congregations: Congregation[] = [];
-    congregation = new Congregation();
-    showNow =  false;
+  users: User[];
+  myuser: User;
+  selectedRow: Number;
+  approve: boolean = false;
+  congregations: Congregation[] = [];
+  congregation = new Congregation();
+  showNow = false;
 
-    constructor(private userService: AuthService, private router: Router) { }
+  constructor(private userService: AuthService, private router: Router) {
+  }
 
-    ngOnInit() {
+  ngOnInit() {
 
 
+    this.showNow = false;
+    if (this.userService.isLoggedIn()) {
+      this.userService.getlistusers_esc()
+        .subscribe(
+          (
+            users: User[]) => {
 
-        this.showNow =  false;
-        if (this.userService.isLoggedIn()) {
-            this.userService.getlistusers_esc()
-                .subscribe(
+            this.users = users;
+            let usersort = this.users;
+            usersort.sort((a, b) => {
+              if (a.firstName < b.firstName) return -1;
+              if (a.firstName > b.firstName) return 1;
+              return 0;
+
+            });
+            this.users = usersort;
+            console.log(users);
+
+            this.userService.getCongregation()
+              .subscribe(
                 (
+                  congregations: Congregation[]) => {
+                  this.congregations = congregations;
+                  let congsort = this.congregations;
+                  congsort.sort((a, b) => {
+                    if (a.circuit < b.circuit) return -1;
+                    if (a.circuit > b.circuit) return 1;
 
-                     users: User[]) => {
-                
-                    this.users = users;
-                    let usersort = this.users;
-                    usersort.sort((a ,b)=>{
-                        if(a.firstName < b.firstName) return -1;
-                        if(a.firstName > b.firstName) return 1;
-                        return 0;
+                    return 0;
+                  });
+                  congsort.sort((a, b) => {
+                    if (a.circuit == b.circuit) {
+                      if (a.nome < b.nome) return -1;
+                      if (a.nome > b.nome) return 1;
+                    }
+                    return 0;
+                  });
+                  this.congregations = congsort;
 
-                    })
-                    this.users = usersort;
-                    console.log(users);
+                  this.showNow = true;
 
-                    this.userService.getCongregation()
-                            .subscribe(
-                            (
-
-                                congregations: Congregation[]) => {
-                                this.congregations = congregations;
-                                let congsort = this.congregations;
-                                congsort.sort((a ,b)=>{
-                                    if(a.circuit < b.circuit) return -1;
-                                    if(a.circuit > b.circuit) return 1;
-
-                                    return 0;});
-                                congsort.sort((a ,b)=>{
-                                    if(a.circuit == b.circuit){
-                                    if(a.nome < b.nome) return -1;
-                                    if(a.nome > b.nome) return 1;
-                                    }
-                                    return 0;});
-                                    this.congregations = congsort;
-
-                                    this.showNow = true;
-
-                                              }
-                            );
+                }
+              );
 
 
-
-                              }
-                );
-
-
-
-
-
-
-        }
-    }
-
-    setClickedRow = function fg(index) {
-      /*   this.selectedRow = index;
-         this.router.navigate(['/auth/perfil']); */
-
-    }
-
-    Approve(i) {
-
-        console.log(event);
-        if (!this.users[i].released){
-        this.users[i].released = true;
-
-        this.myuser = new User(
-            this.users[i].email,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            this.users[i].released,
-            this.users[i].userId,
-            null,
-            null,
-
+          }
         );
 
 
-        this.userService.updateReleased(this.myuser)
-            .subscribe(
-            result => console.log(result)
-            );
-
-        }
-
-
-
-
-
-
     }
+  }
+
+  setClickedRow = function fg(index) {
+    /*   this.selectedRow = index;
+       this.router.navigate(['/auth/perfil']); */
+
+  };
+
+  Approve(i) {
+
+    console.log(event);
+    if (!this.users[i].released) {
+      this.users[i].released = true;
+
+      this.myuser = new User(
+        this.users[i].email,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        this.users[i].released,
+        this.users[i].userId,
+        null,
+        null,
+      );
 
 
-    getAge(dateString) {
-        let today = new Date();
-        console.log(today);
-        let birthDate = new Date(dateString);
-        console.log(dateString);
-        let age = today.getFullYear() - birthDate.getFullYear();
-        let m = today.getMonth() - birthDate.getMonth();
-        if (m < 0 || (m == 0 && today.getDate() < birthDate.getDate())) {
-            age--;
-        }
-
-        console.log(age);
-        return age;
-    }
-
-
-    Delete(i){
-
-
-        let question = "Tem certeza que quer deletar o usuário " + this.users[i].firstName + " ?";
-        let r = confirm(question);
-
-        let myuser = { };
-        if (r) {
-            myuser = { userId: this.users[i].userId }
-
-        this.userService.deleteuser(myuser)
+      this.userService.updateReleased(this.myuser)
         .subscribe(
-            result => {
-                console.log(result);
-            this.users.splice(i, 1);
-            }
+          result => console.log(result)
+        );
 
-    );
+    }
+
+
+  }
+
+
+  getAge(dateString) {
+    let today = new Date();
+    console.log(today);
+    let birthDate = new Date(dateString);
+    console.log(dateString);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    let m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m == 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+
+    console.log(age);
+    return age;
+  }
+
+
+  Delete(i) {
+
+
+    let question = 'Tem certeza que quer deletar o usuário ' + this.users[i].firstName + ' ?';
+    let r = confirm(question);
+
+    let myuser = {};
+    if (r) {
+      myuser = {userId: this.users[i].userId};
+
+      this.userService.deleteuser(myuser)
+        .subscribe(
+          result => {
+            console.log(result);
+            this.users.splice(i, 1);
+          }
+        );
 
 
     }
-}
+  }
 
 
 }

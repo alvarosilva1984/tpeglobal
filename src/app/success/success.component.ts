@@ -1,9 +1,9 @@
-import { Component } from "@angular/core";
+import {Component} from '@angular/core';
 
 
 @Component({
-    selector: 'app-success',
-    template: `
+  selector: 'app-success',
+  template: `
     
             <div class="col-md-5 col-md-offset-2">
              <h2 class="text-success bg-dark">Você foi cadastrado com sucesso!</h2>
@@ -14,5 +14,5 @@ import { Component } from "@angular/core";
     `
 })
 export class SuccessComponent {
- 
+
 }

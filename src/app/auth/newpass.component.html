@@ -1,50 +1,53 @@
 <div class="container">
 
-<div class="col-md-12">
+  <div class="col-md-12">
     <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-        <div class="row">
+      <div class="row">
         <div class="form-group col-md-4">
-            <br>
-            <label for="oldpassword"><b>Senha atual</b></label>
-            <input type="password" id="oldpassword" pattern=".{6,}" class="form-control" formControlName="oldpassword">
+          <br>
+          <label for="oldpassword"><b>Senha atual</b></label>
+          <input type="password" id="oldpassword" pattern=".{6,}" class="form-control" formControlName="oldpassword">
         </div>
-    </div>
-    <div class="row">
+      </div>
+      <div class="row">
         <div class="form-group col-md-4">
-            <label for="newpassword"><b>Senha nova</b></label><span> (mínimo de 6 caracteres)</span>
-            <input type="password" id="newpassword" pattern=".{6,}" class="form-control" formControlName="newpassword">
+          <label for="newpassword"><b>Senha nova</b></label><span> (mínimo de 6 caracteres)</span>
+          <input type="password" id="newpassword" pattern=".{6,}" class="form-control" formControlName="newpassword">
         </div>
-    </div>
-        <div class="row">
+      </div>
+      <div class="row">
         <div class="form-group col-md-4">
-        <button name="save" 
-        id="btnsalvarperfil" 
-        class="btn btn-primary" 
-        type="submit" 
-        [disabled]="!myForm.valid" 
-        [hidden]="changemode">
-        <i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</button>
-        
-        <button name="change" 
-        id="btnchange" 
-        class="btn btn-warning" 
-        (click)="doEnabled(true)" 
-        type="button"
-        [hidden]="!changemode">
-        <i class="fa fa-pencil-square-o" 
-        aria-hidden="true"></i> Editar</button> 
-        
-        <button name="cancel" 
-        id="btncancel" 
-        class="btn btn-danger" 
-        (click)="doEnabled(true)" 
-        type="button"
-        [hidden]="changemode">
-        <i class="fas fa-times" aria-hidden="true"
-        aria-hidden="true"></i> Cancelar</button> 
-    </div>
-    </div>
+          <button name="save"
+                  id="btnsalvarperfil"
+                  class="btn btn-primary"
+                  type="submit"
+                  [disabled]="!myForm.valid"
+                  [hidden]="changemode">
+            <i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar
+          </button>
+
+          <button name="change"
+                  id="btnchange"
+                  class="btn btn-warning"
+                  (click)="doEnabled(true)"
+                  type="button"
+                  [hidden]="!changemode">
+            <i class="fa fa-pencil-square-o"
+               aria-hidden="true"></i> Editar
+          </button>
+
+          <button name="cancel"
+                  id="btncancel"
+                  class="btn btn-danger"
+                  (click)="doEnabled(true)"
+                  type="button"
+                  [hidden]="changemode">
+            <i class="fas fa-times" aria-hidden="true"
+               aria-hidden="true"></i> Cancelar
+          </button>
+        </div>
+      </div>
     </form>
-   
-</div>
+
+  </div>
 </div>

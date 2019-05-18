@@ -1,109 +1,116 @@
-import { Component } from "@angular/core";
-import { User } from "./user.model";
-import { AuthService } from "./auth.service";
-import { Router } from "@angular/router";
-import { Congregation } from "../setup/congregation.model";
+import {Component} from "@angular/core";
+import {User} from "./user.model";
+import {AuthService} from "./auth.service";
+import {Router} from "@angular/router";
+import {Congregation} from "../setup/congregation.model";
+
 export class ListusersComponent {
-    constructor(userService, router) {
-        this.userService = userService;
-        this.router = router;
-        this.approve = false;
-        this.congregations = [];
-        this.congregation = new Congregation();
-        this.showNow = false;
-        this.setClickedRow = function fg(index) {
-            /*   this.selectedRow = index;
-                     this.router.navigate(['/auth/perfil']); */
-        };
-    }
-    ngOnInit() {
-        this.showNow = false;
-        if (this.userService.isLoggedIn()) {
-            this.userService.getlistusers_esc()
-                .subscribe((users) => {
-                //this.users = users.filter(a => a.email != "super@super.com");
-                this.users = users;
-                let usersort = this.users;
-                usersort.sort((a, b) => {
-                    if (a.firstName < b.firstName)
-                        return -1;
-                    if (a.firstName > b.firstName)
-                        return 1;
-                    return 0;
-                });
-                this.users = usersort;
-                console.log(users);
-                this.userService.getCongregation()
-                    .subscribe((congregations) => {
-                    this.congregations = congregations;
-                    let congsort = this.congregations;
-                    congsort.sort((a, b) => {
-                        if (a.circuit < b.circuit)
-                            return -1;
-                        if (a.circuit > b.circuit)
-                            return 1;
-                        return 0;
-                    });
-                    congsort.sort((a, b) => {
-                        if (a.circuit == b.circuit) {
-                            if (a.nome < b.nome)
-                                return -1;
-                            if (a.nome > b.nome)
-                                return 1;
-                        }
-                        return 0;
-                    });
-                    this.congregations = congsort;
-                    this.showNow = true;
-                });
+  constructor(userService, router) {
+    this.userService = userService;
+    this.router = router;
+    this.approve = false;
+    this.congregations = [];
+    this.congregation = new Congregation();
+    this.showNow = false;
+    this.setClickedRow = function fg(index) {
+      /*   this.selectedRow = index;
+               this.router.navigate(['/auth/perfil']); */
+    };
+  }
+
+  ngOnInit() {
+    this.showNow = false;
+    if (this.userService.isLoggedIn()) {
+      this.userService.getlistusers_esc()
+        .subscribe((users) => {
+          //this.users = users.filter(a => a.email != "super@super.com");
+          this.users = users;
+          let usersort = this.users;
+          usersort.sort((a, b) => {
+            if (a.firstName < b.firstName)
+              return -1;
+            if (a.firstName > b.firstName)
+              return 1;
+            return 0;
+          });
+          this.users = usersort;
+          console.log(users);
+          this.userService.getCongregation()
+            .subscribe((congregations) => {
+              this.congregations = congregations;
+              let congsort = this.congregations;
+              congsort.sort((a, b) => {
+                if (a.circuit < b.circuit)
+                  return -1;
+                if (a.circuit > b.circuit)
+                  return 1;
+                return 0;
+              });
+              congsort.sort((a, b) => {
+                if (a.circuit == b.circuit) {
+                  if (a.nome < b.nome)
+                    return -1;
+                  if (a.nome > b.nome)
+                    return 1;
+                }
+                return 0;
+              });
+              this.congregations = congsort;
+              this.showNow = true;
             });
-            /*     this.users.map((user) => {
-                            
-                                user.age = this.getAge(user.datebirth);
-            
-                            }); */
-        }
+        });
+      /*     this.users.map((user) => {
+
+                          user.age = this.getAge(user.datebirth);
+
+                      }); */
     }
-    Approve(i) {
-        console.log(event);
-        if (!this.users[i].released) {
-            this.users[i].released = true;
-            this.myuser = new User(this.users[i].email, null, null, null, null, null, null, null, null, null, null, null, null, null, null, this.users[i].released, this.users[i].userId, null, null);
-            this.userService.updateReleased(this.myuser)
-                .subscribe(result => console.log(result));
-        }
+  }
+
+  Approve(i) {
+    console.log(event);
+    if (!this.users[i].released) {
+      this.users[i].released = true;
+      this.myuser = new User(this.users[i].email, null, null, null, null, null, null, null, null, null, null, null, null, null, null, this.users[i].released, this.users[i].userId, null, null);
+      this.userService.updateReleased(this.myuser)
+        .subscribe(result => console.log(result));
     }
-    getAge(dateString) {
-        let today = new Date();
-        console.log(today);
-        let birthDate = new Date(dateString);
-        console.log(dateString);
-        let age = today.getFullYear() - birthDate.getFullYear();
-        let m = today.getMonth() - birthDate.getMonth();
-        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-            age--;
-        }
-        console.log(age);
-        return age;
+  }
+
+  getAge(dateString) {
+    let today = new Date();
+    console.log(today);
+    let birthDate = new Date(dateString);
+    console.log(dateString);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    let m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
     }
-    Delete(i) {
-        let question = "Tem certeza que quer deletar o usuário " + this.users[i].firstName + " ?";
-        let r = confirm(question);
-        let myuser = {};
-        if (r) {
-            myuser = { userId: this.users[i].userId };
-            this.userService.deleteuser(myuser)
-                .subscribe(result => {
-                console.log(result);
-                this.users.splice(i, 1);
-            });
-        }
+    console.log(age);
+    return age;
+  }
+
+  Delete(i) {
+    let question = "Tem certeza que quer deletar o usuário " + this.users[i].firstName + " ?";
+    let r = confirm(question);
+    let myuser = {};
+    if (r) {
+      myuser = {userId: this.users[i].userId};
+      this.userService.deleteuser(myuser)
+        .subscribe(result => {
+          console.log(result);
+          this.users.splice(i, 1);
+        });
     }
+  }
 }
+
 ListusersComponent.decorators = [
-    { type: Component, args: [{
-                selector: 'app-listusers',
-                template: `
+  {
+    type: Component, args: [{
+      selector: 'app-listusers',
+      template: `
         <div *ngIf="!showNow">
         <h4>Carregando informações...</h4>
         </div>
@@ -150,7 +157,7 @@ ListusersComponent.decorators = [
             </div> 
         
         `,
-                styles: [`
+      styles: [`
 
     .btn-aprov{
         color: white;
@@ -212,10 +219,11 @@ button.btn-aprov:disabled {background-color: gray}
   }
  
 `],
-            },] },
+    },]
+  },
 ];
 /* identifyCongregation(id){
-    
+
     let congregation = this.congregations.filter(a=>a.id == id);
     return congregation[0].nome;
 
@@ -223,6 +231,6 @@ button.btn-aprov:disabled {background-color: gray}
 } */
 /** @nocollapse */
 ListusersComponent.ctorParameters = () => [
-    { type: AuthService, },
-    { type: Router, },
+  {type: AuthService,},
+  {type: Router,},
 ];

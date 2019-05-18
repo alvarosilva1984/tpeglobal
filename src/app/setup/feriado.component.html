@@ -5,7 +5,8 @@
       <form [formGroup]="feriadoForm" (ngSubmit)="onSubmit()" autocomplete="off">
         <div class="modal-header">
           <h5 class="modal-title" id="modal_titulo">Novo feriado</h5>
-          <button type="button" id="modal_fechar" class="close" data-dismiss="modal" aria-label="Close" (click)="onClose()">
+          <button type="button" id="modal_fechar" class="close" data-dismiss="modal" aria-label="Close"
+                  (click)="onClose()">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -48,24 +49,26 @@
     </form>
     <table class="table table-striped">
       <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nome</th>
-          <th scope="col">Data</th>
-        </tr>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Data</th>
+      </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let feriado of feriados; let j = index">
-          <th scope="row">{{j + 1}}</th>
-          <td>{{feriado.feriado}}</td>
-          <td>{{feriado.datashow}}</td>
-          <td>
-            <button type="button" class="btn btn-warning btn-sm" (click)="onEdit(j)" [disabled]="auth">
-              <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button>
-            <button type="button" class="btn btn-danger btn-sm" (click)="onDelete(j)" [disabled]="auth">
-              <i class="fa fa-trash-o" aria-hidden="true"></i> Excluir</button>
-          </td>
-        </tr>
+      <tr *ngFor="let feriado of feriados; let j = index">
+        <th scope="row">{{j + 1}}</th>
+        <td>{{feriado.feriado}}</td>
+        <td>{{feriado.datashow}}</td>
+        <td>
+          <button type="button" class="btn btn-warning btn-sm" (click)="onEdit(j)" [disabled]="auth">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar
+          </button>
+          <button type="button" class="btn btn-danger btn-sm" (click)="onDelete(j)" [disabled]="auth">
+            <i class="fa fa-trash-o" aria-hidden="true"></i> Excluir
+          </button>
+        </td>
+      </tr>
       </tbody>
     </table>
   </div>

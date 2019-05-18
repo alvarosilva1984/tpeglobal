@@ -3,79 +3,415 @@
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */ 
+ */
 import * as i0 from "./newschedule.component.css.shim.ngstyle";
 import * as i1 from "@angular/core";
 import * as i2 from "@angular/common";
 import * as i3 from "./newschedule.component";
 import * as i4 from "../auth/auth.service";
+
 var styles_NewscheduleComponent = [i0.styles];
-var RenderType_NewscheduleComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_NewscheduleComponent, data: {} });
-export { RenderType_NewscheduleComponent as RenderType_NewscheduleComponent };
-function View_NewscheduleComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(1, null, ["", " ", " dia ", " hor\u00E1rio: ", ""]))], null, function (_ck, _v) { var currVal_0 = _v.context.$implicit.user.firstName; var currVal_1 = _v.context.$implicit.user.lastName; var currVal_2 = _v.context.$implicit.dia; var currVal_3 = _v.context.$implicit.hora; _ck(_v, 1, 0, currVal_0, currVal_1, currVal_2, currVal_3); }); }
-function View_NewscheduleComponent_2(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(1, null, ["", " ", " dia ", " hor\u00E1rio: ", ""]))], null, function (_ck, _v) { var currVal_0 = _v.context.$implicit.user.firstName; var currVal_1 = _v.context.$implicit.user.lastName; var currVal_2 = _v.context.$implicit.dia; var currVal_3 = _v.context.$implicit.hora; _ck(_v, 1, 0, currVal_0, currVal_1, currVal_2, currVal_3); }); }
-function View_NewscheduleComponent_3(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 13, "div", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(2, 0, null, null, 1, "button", [["class", "btn btn-primary"], ["style", "float: right;"], ["type", "button"]], [[8, "disabled", 0], [8, "hidden", 0]], [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
-        var pd_0 = (_co.sendEmail() !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["Email"])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(5, 0, null, null, 1, "button", [["class", "btn btn-success"], ["style", "float: right;"], ["type", "button"]], [[8, "disabled", 0], [8, "hidden", 0]], [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
-        var pd_0 = (_co.sendTelegram() !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["Telegram"])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(8, 0, null, null, 1, "button", [["class", "btn btn-primary"], ["style", "float: right;"], ["type", "button"]], [[8, "disabled", 0]], [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
-        var pd_0 = (_co.salvaEscala() !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["Salvar Escala"])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(11, 0, null, null, 1, "button", [["class", "btn btn-danger"], ["style", "float: right;"], ["type", "button"]], [[8, "disabled", 0]], [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
-        var pd_0 = (_co.deletaEscala() !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["Del"])), (_l()(), i1.ɵted(-1, null, ["\n        "]))], null, function (_ck, _v) { var _co = _v.component; var currVal_0 = !_co.allowdelete; var currVal_1 = !_co.allowdelete; _ck(_v, 2, 0, currVal_0, currVal_1); var currVal_2 = !_co.allowdelete; var currVal_3 = !_co.allowdelete; _ck(_v, 5, 0, currVal_2, currVal_3); var currVal_4 = _co.verifyallowsave(); _ck(_v, 8, 0, currVal_4); var currVal_5 = !_co.allowdelete; _ck(_v, 11, 0, currVal_5); }); }
-function View_NewscheduleComponent_5(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 4, "li", [["style", "color:Black"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n      Pontos Vazios\n      "])), (_l()(), i1.ɵeld(2, 0, null, null, 1, "span", [["class", "label label-primary"], ["style", "font-size:16px;"]], null, null, null, null, null)), (_l()(), i1.ɵted(3, null, ["\n        ", ""])), (_l()(), i1.ɵted(-1, null, ["\n    "]))], null, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.reportvoid; _ck(_v, 3, 0, currVal_0); }); }
-function View_NewscheduleComponent_4(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 18, "div", [["class", "row"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n  "])), (_l()(), i1.ɵeld(2, 0, null, null, 15, "div", [["class", "col-md-4 col-md-offset-1"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(4, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(6, 0, null, null, 1, "button", [["class", "btn btn-primary"], ["type", "button"]], [[8, "disabled", 0]], [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
-        var pd_0 = (_co.geraEscala() !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["Gerar Escala"])), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(9, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_5)), i1.ɵdid(12, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(14, 0, null, null, 0, "hr", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(16, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n  "])), (_l()(), i1.ɵted(-1, null, ["\n"]))], function (_ck, _v) { var _co = _v.component; var currVal_1 = _co.showNow; _ck(_v, 12, 0, currVal_1); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = !_co.allowsave; _ck(_v, 6, 0, currVal_0); }); }
-function View_NewscheduleComponent_11(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [["width", "5%"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 0, "div", [["class", "led-yellow"]], null, null, null, null, null))], null, null); }
-function View_NewscheduleComponent_12(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [["width", "5%"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 0, "div", [["class", "led-yellow-static"]], null, null, null, null, null))], null, null); }
-function View_NewscheduleComponent_13(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [["width", "5%"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 0, "div", [["class", "led-green"]], null, null, null, null, null))], null, null); }
-function View_NewscheduleComponent_14(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [["width", "5%"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 0, "div", [["class", "led-red"]], null, null, null, null, null))], null, null); }
-function View_NewscheduleComponent_15(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [["width", "5%"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 0, "div", [["class", "led-green"]], null, null, null, null, null))], null, null); }
-function View_NewscheduleComponent_16(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [["width", "30%"]], [[4, "color", null]], null, null, null, null)), (_l()(), i1.ɵted(1, null, ["", " ", ""]))], null, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.getStyle(((_v.parent.context.$implicit == null) ? null : _v.parent.context.$implicit.sex)); _ck(_v, 0, 0, currVal_0); var currVal_1 = ((_v.parent.context.$implicit == null) ? null : _v.parent.context.$implicit.firstName); var currVal_2 = ((_v.parent.context.$implicit == null) ? null : _v.parent.context.$implicit.lastName); _ck(_v, 1, 0, currVal_1, currVal_2); }); }
-function View_NewscheduleComponent_17(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [["width", "4%"]], null, null, null, null, null)), (_l()(), i1.ɵted(1, null, ["", ""]))], null, function (_ck, _v) { var _co = _v.component; var currVal_0 = (_co.getAge(((_v.parent.context.$implicit == null) ? null : _v.parent.context.$implicit.datebirth)) || " "); _ck(_v, 1, 0, currVal_0); }); }
-function View_NewscheduleComponent_18(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [["width", "9%"]], null, null, null, null, null)), (_l()(), i1.ɵted(1, null, ["", ""]))], null, function (_ck, _v) { var currVal_0 = (((_v.parent.context.$implicit == null) ? null : _v.parent.context.$implicit.congregation.circuit) || " "); _ck(_v, 1, 0, currVal_0); }); }
-function View_NewscheduleComponent_19(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [["width", "20%"]], null, null, null, null, null)), (_l()(), i1.ɵted(1, null, ["", ""]))], null, function (_ck, _v) { var currVal_0 = ((_v.parent.context.$implicit == null) ? null : _v.parent.context.$implicit.congregation.nome); _ck(_v, 1, 0, currVal_0); }); }
-function View_NewscheduleComponent_20(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [["width", "12%"]], null, null, null, null, null)), (_l()(), i1.ɵted(1, null, ["", ""]))], null, function (_ck, _v) { var currVal_0 = (((_v.parent.context.$implicit == null) ? null : _v.parent.context.$implicit.mobilephone) || ((_v.parent.context.$implicit == null) ? null : _v.parent.context.$implicit.phone)); _ck(_v, 1, 0, currVal_0); }); }
-function View_NewscheduleComponent_21(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [], null, null, null, null, null)), (_l()(), i1.ɵted(1, null, ["", ""]))], null, function (_ck, _v) { var currVal_0 = ((_v.parent.context.$implicit == null) ? null : _v.parent.context.$implicit.email); _ck(_v, 1, 0, currVal_0); }); }
-function View_NewscheduleComponent_23(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "p", [["class", "bg-success text-white"], ["style", "font-size:12px; text-align: center;"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "b", [], null, null, null, null, null)), (_l()(), i1.ɵted(2, null, ["", ""]))], null, function (_ck, _v) { var currVal_0 = ((_v.parent.parent.context.$implicit == null) ? null : _v.parent.parent.context.$implicit.tipoesc); _ck(_v, 2, 0, currVal_0); }); }
-function View_NewscheduleComponent_24(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "p", [["class", "bg-light text-dark"], ["style", "font-size:12px; text-align: center;"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "b", [], null, null, null, null, null)), (_l()(), i1.ɵted(2, null, ["", ""]))], null, function (_ck, _v) { var currVal_0 = ((_v.parent.parent.context.$implicit == null) ? null : _v.parent.parent.context.$implicit.tipoesc); _ck(_v, 2, 0, currVal_0); }); }
-function View_NewscheduleComponent_25(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "p", [["class", "bg-primary text-white"], ["style", "font-size:12px; text-align: center;"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "b", [], null, null, null, null, null)), (_l()(), i1.ɵted(2, null, ["", ""]))], null, function (_ck, _v) { var currVal_0 = ((_v.parent.parent.context.$implicit == null) ? null : _v.parent.parent.context.$implicit.tipoesc); _ck(_v, 2, 0, currVal_0); }); }
-function View_NewscheduleComponent_22(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 10, "td", [["width", "5%"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                  "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_23)), i1.ɵdid(3, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n                  "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_24)), i1.ɵdid(6, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n                  "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_25)), i1.ɵdid(9, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n                "]))], function (_ck, _v) { var currVal_0 = (_v.parent.context.$implicit.tipoesc == "A"); _ck(_v, 3, 0, currVal_0); var currVal_1 = (_v.parent.context.$implicit.tipoesc == "E"); _ck(_v, 6, 0, currVal_1); var currVal_2 = (_v.parent.context.$implicit.tipoesc == "S"); _ck(_v, 9, 0, currVal_2); }, null); }
-function View_NewscheduleComponent_26(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [["width", "5%"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" "]))], null, null); }
-function View_NewscheduleComponent_10(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 40, "tr", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_11)), i1.ɵdid(3, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_12)), i1.ɵdid(6, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_13)), i1.ɵdid(9, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_14)), i1.ɵdid(12, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_15)), i1.ɵdid(15, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_16)), i1.ɵdid(18, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n                \n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_17)), i1.ɵdid(21, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_18)), i1.ɵdid(24, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, [" \n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_19)), i1.ɵdid(27, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_20)), i1.ɵdid(30, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_21)), i1.ɵdid(33, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_22)), i1.ɵdid(36, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_26)), i1.ɵdid(39, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, [" \n              "]))], function (_ck, _v) { var _co = _v.component; var currVal_0 = ((!_co.allowsave && (((_v.context.$implicit == null) ? null : _v.context.$implicit.sim) == false)) && (((_v.context.$implicit == null) ? null : _v.context.$implicit.nao) == false)); _ck(_v, 3, 0, currVal_0); var currVal_1 = ((_co.allowsave && (((_v.context.$implicit == null) ? null : _v.context.$implicit.sim) == false)) && (((_v.context.$implicit == null) ? null : _v.context.$implicit.nao) == false)); _ck(_v, 6, 0, currVal_1); var currVal_2 = ((((_v.context.$implicit == null) ? null : _v.context.$implicit.sim) == true) && (((_v.context.$implicit == null) ? null : _v.context.$implicit.nao) == false)); _ck(_v, 9, 0, currVal_2); var currVal_3 = ((((_v.context.$implicit == null) ? null : _v.context.$implicit.sim) == false) && (((_v.context.$implicit == null) ? null : _v.context.$implicit.nao) == true)); _ck(_v, 12, 0, currVal_3); var currVal_4 = ((((_v.context.$implicit == null) ? null : _v.context.$implicit.sim) == true) && (((_v.context.$implicit == null) ? null : _v.context.$implicit.nao) == true)); _ck(_v, 15, 0, currVal_4); var currVal_5 = (_v.context.$implicit.firstName != undefined); _ck(_v, 18, 0, currVal_5); var currVal_6 = (_v.context.$implicit.firstName != undefined); _ck(_v, 21, 0, currVal_6); var currVal_7 = (_v.context.$implicit.firstName != undefined); _ck(_v, 24, 0, currVal_7); var currVal_8 = (_v.context.$implicit.firstName != undefined); _ck(_v, 27, 0, currVal_8); var currVal_9 = (_v.context.$implicit.firstName != undefined); _ck(_v, 30, 0, currVal_9); var currVal_10 = (_v.context.$implicit.firstName != undefined); _ck(_v, 33, 0, currVal_10); var currVal_11 = (_v.context.$implicit.firstName != undefined); _ck(_v, 36, 0, currVal_11); var currVal_12 = (_v.context.$implicit.firstName != undefined); _ck(_v, 39, 0, currVal_12); }, null); }
-function View_NewscheduleComponent_9(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 17, "ul", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n          "])), (_l()(), i1.ɵeld(2, 0, null, null, 4, "li", [["style", "color:Black"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵeld(4, 0, null, null, 1, "b", [], null, null, null, null, null)), (_l()(), i1.ɵted(5, null, ["", ""])), (_l()(), i1.ɵted(-1, null, ["\n          "])), (_l()(), i1.ɵted(-1, null, ["\n          "])), (_l()(), i1.ɵeld(8, 0, null, null, 8, "ul", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵeld(10, 0, null, null, 5, "table", [["style", "width:100%"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n              "])), (_l()(), i1.ɵeld(12, 0, null, null, 3, "tbody", [], null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_10)), i1.ɵdid(14, 802816, null, 0, i2.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵted(-1, null, ["\n          "])), (_l()(), i1.ɵted(-1, null, ["\n        "]))], function (_ck, _v) { var currVal_1 = _v.context.$implicit.pubs; _ck(_v, 14, 0, currVal_1); }, function (_ck, _v) { var currVal_0 = _v.context.$implicit.name; _ck(_v, 5, 0, currVal_0); }); }
-function View_NewscheduleComponent_8(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 15, "ul", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(2, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(4, 0, null, null, 7, "li", [["style", "background-color:Azure; color:Black"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n          "])), (_l()(), i1.ɵeld(6, 0, null, null, 1, "b", [], null, null, null, null, null)), (_l()(), i1.ɵted(7, null, ["", ""])), (_l()(), i1.ɵted(-1, null, ["\n          "])), (_l()(), i1.ɵeld(9, 0, null, null, 1, "span", [["style", "float:right;font-size:11px;"]], null, null, null, null, null)), (_l()(), i1.ɵted(10, null, ["", "/", ""])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_9)), i1.ɵdid(14, 802816, null, 0, i2.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n      "]))], function (_ck, _v) { var currVal_3 = _v.parent.context.$implicit.pontos[_v.context.index]; _ck(_v, 14, 0, currVal_3); }, function (_ck, _v) { var currVal_0 = _v.context.$implicit.hora; _ck(_v, 7, 0, currVal_0); var currVal_1 = _v.parent.context.$implicit.dia; var currVal_2 = _v.parent.context.$implicit.diasemana; _ck(_v, 10, 0, currVal_1, currVal_2); }); }
-function View_NewscheduleComponent_7(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 17, "div", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n      "])), (_l()(), i1.ɵeld(2, 0, null, null, 9, "div", [["class", "alert alert-secondary"], ["role", "alert"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n      "])), (_l()(), i1.ɵeld(4, 0, null, null, 2, "span", [["class", "label label-info"], ["style", "font-size:17px;"]], null, null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 1, "b", [], null, null, null, null, null)), (_l()(), i1.ɵted(6, null, ["", ""])), (_l()(), i1.ɵted(-1, null, ["\n      "])), (_l()(), i1.ɵeld(8, 0, null, null, 2, "span", [["class", "label label-warning"], ["style", "font-size:14px;"]], null, null, null, null, null)), (_l()(), i1.ɵeld(9, 0, null, null, 1, "b", [], null, null, null, null, null)), (_l()(), i1.ɵted(10, null, ["", ""])), (_l()(), i1.ɵted(-1, null, ["\n      "])), (_l()(), i1.ɵted(-1, null, ["\n      "])), (_l()(), i1.ɵeld(13, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n      "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_8)), i1.ɵdid(16, 802816, null, 0, i2.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n    "]))], function (_ck, _v) { var currVal_2 = _v.context.$implicit.hora; _ck(_v, 16, 0, currVal_2); }, function (_ck, _v) { var currVal_0 = _v.context.$implicit.dia; _ck(_v, 6, 0, currVal_0); var currVal_1 = _v.context.$implicit.diasemana; _ck(_v, 10, 0, currVal_1); }); }
-function View_NewscheduleComponent_6(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 7, "div", [["class", "row"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n  "])), (_l()(), i1.ɵeld(2, 0, null, null, 4, "div", [["class", "col-md-12 col-md-offset-1"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_7)), i1.ɵdid(5, 802816, null, 0, i2.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n  "])), (_l()(), i1.ɵted(-1, null, ["\n"]))], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.escala; _ck(_v, 5, 0, currVal_0); }, null); }
-function View_NewscheduleComponent_29(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "span", [["class", "label label-primary"], ["style", "font-size:12px;"]], null, null, null, null, null)), (_l()(), i1.ɵted(1, null, ["\n          ", ""]))], null, function (_ck, _v) { var currVal_0 = _v.parent.context.$implicit.count; _ck(_v, 1, 0, currVal_0); }); }
-function View_NewscheduleComponent_30(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "span", [["class", "label label-danger"], ["style", "font-size:12px;"]], null, null, null, null, null)), (_l()(), i1.ɵted(1, null, ["\n          ", ""]))], null, function (_ck, _v) { var currVal_0 = _v.parent.context.$implicit.count; _ck(_v, 1, 0, currVal_0); }); }
-function View_NewscheduleComponent_28(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 13, "div", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n      "])), (_l()(), i1.ɵeld(2, 0, null, null, 10, "li", [["style", "color:Black"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_29)), i1.ɵdid(5, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_30)), i1.ɵdid(8, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(10, 0, null, null, 1, "b", [], null, null, null, null, null)), (_l()(), i1.ɵted(11, null, ["", " ", ""])), (_l()(), i1.ɵted(-1, null, ["\n      "])), (_l()(), i1.ɵted(-1, null, ["\n    "]))], function (_ck, _v) { var currVal_0 = (_v.context.$implicit.count > 0); _ck(_v, 5, 0, currVal_0); var currVal_1 = (_v.context.$implicit.count == 0); _ck(_v, 8, 0, currVal_1); }, function (_ck, _v) { var currVal_2 = _v.context.$implicit.nome; var currVal_3 = _v.context.$implicit.sobrenome; _ck(_v, 11, 0, currVal_2, currVal_3); }); }
-function View_NewscheduleComponent_27(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 16, "div", [["class", "row"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n  "])), (_l()(), i1.ɵeld(2, 0, null, null, 13, "div", [["class", "col-md-10 col-md-offset-1"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(4, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(6, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(8, 0, null, null, 1, "h3", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Designa\u00E7\u00F5es por per\u00EDodo:"])), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(11, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_28)), i1.ɵdid(14, 802816, null, 0, i2.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n  "])), (_l()(), i1.ɵted(-1, null, ["\n"]))], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.finalreport; _ck(_v, 14, 0, currVal_0); }, null); }
-export function View_NewscheduleComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "div", [["class", "backdrop"]], null, null, null, null, null)), i1.ɵdid(1, 278528, null, 0, i2.NgStyle, [i1.KeyValueDiffers, i1.ElementRef, i1.Renderer2], { ngStyle: [0, "ngStyle"] }, null), i1.ɵpod(2, { "display": 0 }), (_l()(), i1.ɵted(-1, null, ["\n"])), (_l()(), i1.ɵeld(4, 0, null, null, 31, "div", [["class", "modal"], ["role", "dialog"], ["tabindex", "-1"]], null, null, null, null, null)), i1.ɵdid(5, 278528, null, 0, i2.NgStyle, [i1.KeyValueDiffers, i1.ElementRef, i1.Renderer2], { ngStyle: [0, "ngStyle"] }, null), i1.ɵpod(6, { "display": 0 }), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(8, 0, null, null, 26, "div", [["class", "modal-dialog"], ["role", "document"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(10, 0, null, null, 23, "div", [["class", "modal-content"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵeld(12, 0, null, null, 8, "div", [["class", "modal-header"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵeld(14, 0, null, null, 2, "button", [["aria-label", "Close"], ["class", "close"], ["type", "button"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
-        var pd_0 = (_co.onClose() !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵeld(15, 0, null, null, 1, "span", [["aria-hidden", "true"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\u00D7"])), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵeld(18, 0, null, null, 1, "h4", [["class", "modal-title"]], null, null, null, null, null)), (_l()(), i1.ɵted(19, null, ["Telegrams Enviados ", ""])), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵeld(22, 0, null, null, 4, "div", [["class", "modal-body"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_1)), i1.ɵdid(25, 802816, null, 0, i2.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵeld(28, 0, null, null, 4, "div", [["class", "modal-footer"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵeld(30, 0, null, null, 1, "button", [["class", "btn btn-default"], ["type", "button"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
-        var pd_0 = (_co.onClose() !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["Fechar"])), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵted(-1, null, ["\n"])), (_l()(), i1.ɵted(-1, null, ["\n\n"])), (_l()(), i1.ɵeld(37, 0, null, null, 2, "div", [["class", "backdrop"]], null, null, null, null, null)), i1.ɵdid(38, 278528, null, 0, i2.NgStyle, [i1.KeyValueDiffers, i1.ElementRef, i1.Renderer2], { ngStyle: [0, "ngStyle"] }, null), i1.ɵpod(39, { "display": 0 }), (_l()(), i1.ɵted(-1, null, ["\n"])), (_l()(), i1.ɵeld(41, 0, null, null, 31, "div", [["class", "modal"], ["role", "dialog"], ["tabindex", "-1"]], null, null, null, null, null)), i1.ɵdid(42, 278528, null, 0, i2.NgStyle, [i1.KeyValueDiffers, i1.ElementRef, i1.Renderer2], { ngStyle: [0, "ngStyle"] }, null), i1.ɵpod(43, { "display": 0 }), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(45, 0, null, null, 26, "div", [["class", "modal-dialog"], ["role", "document"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(47, 0, null, null, 23, "div", [["class", "modal-content"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵeld(49, 0, null, null, 8, "div", [["class", "modal-header"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵeld(51, 0, null, null, 2, "button", [["aria-label", "Close"], ["class", "close"], ["type", "button"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
-        var pd_0 = (_co.onClosemail() !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵeld(52, 0, null, null, 1, "span", [["aria-hidden", "true"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\u00D7"])), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵeld(55, 0, null, null, 1, "h4", [["class", "modal-title"]], null, null, null, null, null)), (_l()(), i1.ɵted(56, null, ["Emails Enviados ", ""])), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵeld(59, 0, null, null, 4, "div", [["class", "modal-body"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_2)), i1.ɵdid(62, 802816, null, 0, i2.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵeld(65, 0, null, null, 4, "div", [["class", "modal-footer"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵeld(67, 0, null, null, 1, "button", [["class", "btn btn-default"], ["type", "button"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
-        var pd_0 = (_co.onClosemail() !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["Fechar"])), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵted(-1, null, ["\n"])), (_l()(), i1.ɵted(-1, null, ["\n\n"])), (_l()(), i1.ɵeld(74, 0, null, null, 32, "div", [["class", "row"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n  "])), (_l()(), i1.ɵeld(76, 0, null, null, 29, "div", [["class", "col-md-10 col-md-offset-1"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(78, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(80, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(82, 0, null, null, 1, "h3", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Per\u00EDodo Vigente"])), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(85, 0, null, null, 1, "button", [["class", "btn btn-default"], ["id", "anterior"], ["type", "button"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
-        var pd_0 = (_co.nextValidity($event) !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["\n      < "])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(88, 0, null, null, 1, "button", [["class", "btn btn-default"], ["id", "proximo"], ["type", "button"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
-        var pd_0 = (_co.beforeValidity($event) !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, [" > "])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(91, 0, null, null, 1, "span", [["class", "badge badge-success"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["De"])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(94, 0, null, null, 1, "span", [["class", "badge badge-success"]], null, null, null, null, null)), (_l()(), i1.ɵted(95, null, [" ", ""])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(97, 0, null, null, 1, "span", [["class", "badge badge-success"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["at\u00E9"])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(100, 0, null, null, 1, "span", [["class", "badge badge-success"]], null, null, null, null, null)), (_l()(), i1.ɵted(101, null, [" ", ""])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_3)), i1.ɵdid(104, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n  "])), (_l()(), i1.ɵted(-1, null, ["\n"])), (_l()(), i1.ɵted(-1, null, ["\n\n"])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_4)), i1.ɵdid(109, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n\n\n"])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_6)), i1.ɵdid(112, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n\n"])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_27)), i1.ɵdid(115, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n\n"]))], function (_ck, _v) { var _co = _v.component; var currVal_0 = _ck(_v, 2, 0, _co.display); _ck(_v, 1, 0, currVal_0); var currVal_1 = _ck(_v, 6, 0, _co.display); _ck(_v, 5, 0, currVal_1); var currVal_3 = _co.telegramreport; _ck(_v, 25, 0, currVal_3); var currVal_4 = _ck(_v, 39, 0, _co.displaymail); _ck(_v, 38, 0, currVal_4); var currVal_5 = _ck(_v, 43, 0, _co.displaymail); _ck(_v, 42, 0, currVal_5); var currVal_7 = _co.emailreport; _ck(_v, 62, 0, currVal_7); var currVal_10 = _co.isAuthenticated(); _ck(_v, 104, 0, currVal_10); var currVal_11 = _co.isAuthenticated(); _ck(_v, 109, 0, currVal_11); var currVal_12 = _co.showNow; _ck(_v, 112, 0, currVal_12); var currVal_13 = _co.showNow; _ck(_v, 115, 0, currVal_13); }, function (_ck, _v) { var _co = _v.component; var currVal_2 = _co.telegramreport.length; _ck(_v, 19, 0, currVal_2); var currVal_6 = _co.emailreport.length; _ck(_v, 56, 0, currVal_6); var currVal_8 = _co.datainicio; _ck(_v, 95, 0, currVal_8); var currVal_9 = _co.datafim; _ck(_v, 101, 0, currVal_9); }); }
-export function View_NewscheduleComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-schedule", [], null, null, null, View_NewscheduleComponent_0, RenderType_NewscheduleComponent)), i1.ɵdid(1, 114688, null, 0, i3.NewscheduleComponent, [i4.AuthService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+var RenderType_NewscheduleComponent = i1.ɵcrt({encapsulation: 0, styles: styles_NewscheduleComponent, data: {}});
+export {RenderType_NewscheduleComponent as RenderType_NewscheduleComponent};
+
+function View_NewscheduleComponent_1(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(1, null, ["", " ", " dia ", " hor\u00E1rio: ", ""]))], null, function (_ck, _v) {
+    var currVal_0 = _v.context.$implicit.user.firstName;
+    var currVal_1 = _v.context.$implicit.user.lastName;
+    var currVal_2 = _v.context.$implicit.dia;
+    var currVal_3 = _v.context.$implicit.hora;
+    _ck(_v, 1, 0, currVal_0, currVal_1, currVal_2, currVal_3);
+  });
+}
+
+function View_NewscheduleComponent_2(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(1, null, ["", " ", " dia ", " hor\u00E1rio: ", ""]))], null, function (_ck, _v) {
+    var currVal_0 = _v.context.$implicit.user.firstName;
+    var currVal_1 = _v.context.$implicit.user.lastName;
+    var currVal_2 = _v.context.$implicit.dia;
+    var currVal_3 = _v.context.$implicit.hora;
+    _ck(_v, 1, 0, currVal_0, currVal_1, currVal_2, currVal_3);
+  });
+}
+
+function View_NewscheduleComponent_3(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 13, "div", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(2, 0, null, null, 1, "button", [["class", "btn btn-primary"], ["style", "float: right;"], ["type", "button"]], [[8, "disabled", 0], [8, "hidden", 0]], [[null, "click"]], function (_v, en, $event) {
+    var ad = true;
+    var _co = _v.component;
+    if (("click" === en)) {
+      var pd_0 = (_co.sendEmail() !== false);
+      ad = (pd_0 && ad);
+    }
+    return ad;
+  }, null, null)), (_l()(), i1.ɵted(-1, null, ["Email"])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(5, 0, null, null, 1, "button", [["class", "btn btn-success"], ["style", "float: right;"], ["type", "button"]], [[8, "disabled", 0], [8, "hidden", 0]], [[null, "click"]], function (_v, en, $event) {
+    var ad = true;
+    var _co = _v.component;
+    if (("click" === en)) {
+      var pd_0 = (_co.sendTelegram() !== false);
+      ad = (pd_0 && ad);
+    }
+    return ad;
+  }, null, null)), (_l()(), i1.ɵted(-1, null, ["Telegram"])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(8, 0, null, null, 1, "button", [["class", "btn btn-primary"], ["style", "float: right;"], ["type", "button"]], [[8, "disabled", 0]], [[null, "click"]], function (_v, en, $event) {
+    var ad = true;
+    var _co = _v.component;
+    if (("click" === en)) {
+      var pd_0 = (_co.salvaEscala() !== false);
+      ad = (pd_0 && ad);
+    }
+    return ad;
+  }, null, null)), (_l()(), i1.ɵted(-1, null, ["Salvar Escala"])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(11, 0, null, null, 1, "button", [["class", "btn btn-danger"], ["style", "float: right;"], ["type", "button"]], [[8, "disabled", 0]], [[null, "click"]], function (_v, en, $event) {
+    var ad = true;
+    var _co = _v.component;
+    if (("click" === en)) {
+      var pd_0 = (_co.deletaEscala() !== false);
+      ad = (pd_0 && ad);
+    }
+    return ad;
+  }, null, null)), (_l()(), i1.ɵted(-1, null, ["Del"])), (_l()(), i1.ɵted(-1, null, ["\n        "]))], null, function (_ck, _v) {
+    var _co = _v.component;
+    var currVal_0 = !_co.allowdelete;
+    var currVal_1 = !_co.allowdelete;
+    _ck(_v, 2, 0, currVal_0, currVal_1);
+    var currVal_2 = !_co.allowdelete;
+    var currVal_3 = !_co.allowdelete;
+    _ck(_v, 5, 0, currVal_2, currVal_3);
+    var currVal_4 = _co.verifyallowsave();
+    _ck(_v, 8, 0, currVal_4);
+    var currVal_5 = !_co.allowdelete;
+    _ck(_v, 11, 0, currVal_5);
+  });
+}
+
+function View_NewscheduleComponent_5(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 4, "li", [["style", "color:Black"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n      Pontos Vazios\n      "])), (_l()(), i1.ɵeld(2, 0, null, null, 1, "span", [["class", "label label-primary"], ["style", "font-size:16px;"]], null, null, null, null, null)), (_l()(), i1.ɵted(3, null, ["\n        ", ""])), (_l()(), i1.ɵted(-1, null, ["\n    "]))], null, function (_ck, _v) {
+    var _co = _v.component;
+    var currVal_0 = _co.reportvoid;
+    _ck(_v, 3, 0, currVal_0);
+  });
+}
+
+function View_NewscheduleComponent_4(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 18, "div", [["class", "row"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n  "])), (_l()(), i1.ɵeld(2, 0, null, null, 15, "div", [["class", "col-md-4 col-md-offset-1"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(4, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(6, 0, null, null, 1, "button", [["class", "btn btn-primary"], ["type", "button"]], [[8, "disabled", 0]], [[null, "click"]], function (_v, en, $event) {
+    var ad = true;
+    var _co = _v.component;
+    if (("click" === en)) {
+      var pd_0 = (_co.geraEscala() !== false);
+      ad = (pd_0 && ad);
+    }
+    return ad;
+  }, null, null)), (_l()(), i1.ɵted(-1, null, ["Gerar Escala"])), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(9, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_5)), i1.ɵdid(12, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(14, 0, null, null, 0, "hr", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(16, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n  "])), (_l()(), i1.ɵted(-1, null, ["\n"]))], function (_ck, _v) {
+    var _co = _v.component;
+    var currVal_1 = _co.showNow;
+    _ck(_v, 12, 0, currVal_1);
+  }, function (_ck, _v) {
+    var _co = _v.component;
+    var currVal_0 = !_co.allowsave;
+    _ck(_v, 6, 0, currVal_0);
+  });
+}
+
+function View_NewscheduleComponent_11(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [["width", "5%"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 0, "div", [["class", "led-yellow"]], null, null, null, null, null))], null, null);
+}
+
+function View_NewscheduleComponent_12(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [["width", "5%"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 0, "div", [["class", "led-yellow-static"]], null, null, null, null, null))], null, null);
+}
+
+function View_NewscheduleComponent_13(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [["width", "5%"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 0, "div", [["class", "led-green"]], null, null, null, null, null))], null, null);
+}
+
+function View_NewscheduleComponent_14(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [["width", "5%"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 0, "div", [["class", "led-red"]], null, null, null, null, null))], null, null);
+}
+
+function View_NewscheduleComponent_15(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [["width", "5%"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 0, "div", [["class", "led-green"]], null, null, null, null, null))], null, null);
+}
+
+function View_NewscheduleComponent_16(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [["width", "30%"]], [[4, "color", null]], null, null, null, null)), (_l()(), i1.ɵted(1, null, ["", " ", ""]))], null, function (_ck, _v) {
+    var _co = _v.component;
+    var currVal_0 = _co.getStyle(((_v.parent.context.$implicit == null) ? null : _v.parent.context.$implicit.sex));
+    _ck(_v, 0, 0, currVal_0);
+    var currVal_1 = ((_v.parent.context.$implicit == null) ? null : _v.parent.context.$implicit.firstName);
+    var currVal_2 = ((_v.parent.context.$implicit == null) ? null : _v.parent.context.$implicit.lastName);
+    _ck(_v, 1, 0, currVal_1, currVal_2);
+  });
+}
+
+function View_NewscheduleComponent_17(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [["width", "4%"]], null, null, null, null, null)), (_l()(), i1.ɵted(1, null, ["", ""]))], null, function (_ck, _v) {
+    var _co = _v.component;
+    var currVal_0 = (_co.getAge(((_v.parent.context.$implicit == null) ? null : _v.parent.context.$implicit.datebirth)) || " ");
+    _ck(_v, 1, 0, currVal_0);
+  });
+}
+
+function View_NewscheduleComponent_18(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [["width", "9%"]], null, null, null, null, null)), (_l()(), i1.ɵted(1, null, ["", ""]))], null, function (_ck, _v) {
+    var currVal_0 = (((_v.parent.context.$implicit == null) ? null : _v.parent.context.$implicit.congregation.circuit) || " ");
+    _ck(_v, 1, 0, currVal_0);
+  });
+}
+
+function View_NewscheduleComponent_19(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [["width", "20%"]], null, null, null, null, null)), (_l()(), i1.ɵted(1, null, ["", ""]))], null, function (_ck, _v) {
+    var currVal_0 = ((_v.parent.context.$implicit == null) ? null : _v.parent.context.$implicit.congregation.nome);
+    _ck(_v, 1, 0, currVal_0);
+  });
+}
+
+function View_NewscheduleComponent_20(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [["width", "12%"]], null, null, null, null, null)), (_l()(), i1.ɵted(1, null, ["", ""]))], null, function (_ck, _v) {
+    var currVal_0 = (((_v.parent.context.$implicit == null) ? null : _v.parent.context.$implicit.mobilephone) || ((_v.parent.context.$implicit == null) ? null : _v.parent.context.$implicit.phone));
+    _ck(_v, 1, 0, currVal_0);
+  });
+}
+
+function View_NewscheduleComponent_21(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [], null, null, null, null, null)), (_l()(), i1.ɵted(1, null, ["", ""]))], null, function (_ck, _v) {
+    var currVal_0 = ((_v.parent.context.$implicit == null) ? null : _v.parent.context.$implicit.email);
+    _ck(_v, 1, 0, currVal_0);
+  });
+}
+
+function View_NewscheduleComponent_23(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "p", [["class", "bg-success text-white"], ["style", "font-size:12px; text-align: center;"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "b", [], null, null, null, null, null)), (_l()(), i1.ɵted(2, null, ["", ""]))], null, function (_ck, _v) {
+    var currVal_0 = ((_v.parent.parent.context.$implicit == null) ? null : _v.parent.parent.context.$implicit.tipoesc);
+    _ck(_v, 2, 0, currVal_0);
+  });
+}
+
+function View_NewscheduleComponent_24(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "p", [["class", "bg-light text-dark"], ["style", "font-size:12px; text-align: center;"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "b", [], null, null, null, null, null)), (_l()(), i1.ɵted(2, null, ["", ""]))], null, function (_ck, _v) {
+    var currVal_0 = ((_v.parent.parent.context.$implicit == null) ? null : _v.parent.parent.context.$implicit.tipoesc);
+    _ck(_v, 2, 0, currVal_0);
+  });
+}
+
+function View_NewscheduleComponent_25(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "p", [["class", "bg-primary text-white"], ["style", "font-size:12px; text-align: center;"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "b", [], null, null, null, null, null)), (_l()(), i1.ɵted(2, null, ["", ""]))], null, function (_ck, _v) {
+    var currVal_0 = ((_v.parent.parent.context.$implicit == null) ? null : _v.parent.parent.context.$implicit.tipoesc);
+    _ck(_v, 2, 0, currVal_0);
+  });
+}
+
+function View_NewscheduleComponent_22(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 10, "td", [["width", "5%"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                  "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_23)), i1.ɵdid(3, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n                  "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_24)), i1.ɵdid(6, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n                  "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_25)), i1.ɵdid(9, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n                "]))], function (_ck, _v) {
+    var currVal_0 = (_v.parent.context.$implicit.tipoesc == "A");
+    _ck(_v, 3, 0, currVal_0);
+    var currVal_1 = (_v.parent.context.$implicit.tipoesc == "E");
+    _ck(_v, 6, 0, currVal_1);
+    var currVal_2 = (_v.parent.context.$implicit.tipoesc == "S");
+    _ck(_v, 9, 0, currVal_2);
+  }, null);
+}
+
+function View_NewscheduleComponent_26(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "td", [["width", "5%"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" "]))], null, null);
+}
+
+function View_NewscheduleComponent_10(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 40, "tr", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_11)), i1.ɵdid(3, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_12)), i1.ɵdid(6, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_13)), i1.ɵdid(9, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_14)), i1.ɵdid(12, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_15)), i1.ɵdid(15, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_16)), i1.ɵdid(18, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n                \n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_17)), i1.ɵdid(21, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_18)), i1.ɵdid(24, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, [" \n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_19)), i1.ɵdid(27, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_20)), i1.ɵdid(30, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_21)), i1.ɵdid(33, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_22)), i1.ɵdid(36, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_26)), i1.ɵdid(39, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, [" \n              "]))], function (_ck, _v) {
+    var _co = _v.component;
+    var currVal_0 = ((!_co.allowsave && (((_v.context.$implicit == null) ? null : _v.context.$implicit.sim) == false)) && (((_v.context.$implicit == null) ? null : _v.context.$implicit.nao) == false));
+    _ck(_v, 3, 0, currVal_0);
+    var currVal_1 = ((_co.allowsave && (((_v.context.$implicit == null) ? null : _v.context.$implicit.sim) == false)) && (((_v.context.$implicit == null) ? null : _v.context.$implicit.nao) == false));
+    _ck(_v, 6, 0, currVal_1);
+    var currVal_2 = ((((_v.context.$implicit == null) ? null : _v.context.$implicit.sim) == true) && (((_v.context.$implicit == null) ? null : _v.context.$implicit.nao) == false));
+    _ck(_v, 9, 0, currVal_2);
+    var currVal_3 = ((((_v.context.$implicit == null) ? null : _v.context.$implicit.sim) == false) && (((_v.context.$implicit == null) ? null : _v.context.$implicit.nao) == true));
+    _ck(_v, 12, 0, currVal_3);
+    var currVal_4 = ((((_v.context.$implicit == null) ? null : _v.context.$implicit.sim) == true) && (((_v.context.$implicit == null) ? null : _v.context.$implicit.nao) == true));
+    _ck(_v, 15, 0, currVal_4);
+    var currVal_5 = (_v.context.$implicit.firstName != undefined);
+    _ck(_v, 18, 0, currVal_5);
+    var currVal_6 = (_v.context.$implicit.firstName != undefined);
+    _ck(_v, 21, 0, currVal_6);
+    var currVal_7 = (_v.context.$implicit.firstName != undefined);
+    _ck(_v, 24, 0, currVal_7);
+    var currVal_8 = (_v.context.$implicit.firstName != undefined);
+    _ck(_v, 27, 0, currVal_8);
+    var currVal_9 = (_v.context.$implicit.firstName != undefined);
+    _ck(_v, 30, 0, currVal_9);
+    var currVal_10 = (_v.context.$implicit.firstName != undefined);
+    _ck(_v, 33, 0, currVal_10);
+    var currVal_11 = (_v.context.$implicit.firstName != undefined);
+    _ck(_v, 36, 0, currVal_11);
+    var currVal_12 = (_v.context.$implicit.firstName != undefined);
+    _ck(_v, 39, 0, currVal_12);
+  }, null);
+}
+
+function View_NewscheduleComponent_9(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 17, "ul", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n          "])), (_l()(), i1.ɵeld(2, 0, null, null, 4, "li", [["style", "color:Black"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵeld(4, 0, null, null, 1, "b", [], null, null, null, null, null)), (_l()(), i1.ɵted(5, null, ["", ""])), (_l()(), i1.ɵted(-1, null, ["\n          "])), (_l()(), i1.ɵted(-1, null, ["\n          "])), (_l()(), i1.ɵeld(8, 0, null, null, 8, "ul", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵeld(10, 0, null, null, 5, "table", [["style", "width:100%"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n              "])), (_l()(), i1.ɵeld(12, 0, null, null, 3, "tbody", [], null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_10)), i1.ɵdid(14, 802816, null, 0, i2.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], {ngForOf: [0, "ngForOf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵted(-1, null, ["\n          "])), (_l()(), i1.ɵted(-1, null, ["\n        "]))], function (_ck, _v) {
+    var currVal_1 = _v.context.$implicit.pubs;
+    _ck(_v, 14, 0, currVal_1);
+  }, function (_ck, _v) {
+    var currVal_0 = _v.context.$implicit.name;
+    _ck(_v, 5, 0, currVal_0);
+  });
+}
+
+function View_NewscheduleComponent_8(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 15, "ul", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(2, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(4, 0, null, null, 7, "li", [["style", "background-color:Azure; color:Black"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n          "])), (_l()(), i1.ɵeld(6, 0, null, null, 1, "b", [], null, null, null, null, null)), (_l()(), i1.ɵted(7, null, ["", ""])), (_l()(), i1.ɵted(-1, null, ["\n          "])), (_l()(), i1.ɵeld(9, 0, null, null, 1, "span", [["style", "float:right;font-size:11px;"]], null, null, null, null, null)), (_l()(), i1.ɵted(10, null, ["", "/", ""])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_9)), i1.ɵdid(14, 802816, null, 0, i2.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], {ngForOf: [0, "ngForOf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n      "]))], function (_ck, _v) {
+    var currVal_3 = _v.parent.context.$implicit.pontos[_v.context.index];
+    _ck(_v, 14, 0, currVal_3);
+  }, function (_ck, _v) {
+    var currVal_0 = _v.context.$implicit.hora;
+    _ck(_v, 7, 0, currVal_0);
+    var currVal_1 = _v.parent.context.$implicit.dia;
+    var currVal_2 = _v.parent.context.$implicit.diasemana;
+    _ck(_v, 10, 0, currVal_1, currVal_2);
+  });
+}
+
+function View_NewscheduleComponent_7(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 17, "div", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n      "])), (_l()(), i1.ɵeld(2, 0, null, null, 9, "div", [["class", "alert alert-secondary"], ["role", "alert"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n      "])), (_l()(), i1.ɵeld(4, 0, null, null, 2, "span", [["class", "label label-info"], ["style", "font-size:17px;"]], null, null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 1, "b", [], null, null, null, null, null)), (_l()(), i1.ɵted(6, null, ["", ""])), (_l()(), i1.ɵted(-1, null, ["\n      "])), (_l()(), i1.ɵeld(8, 0, null, null, 2, "span", [["class", "label label-warning"], ["style", "font-size:14px;"]], null, null, null, null, null)), (_l()(), i1.ɵeld(9, 0, null, null, 1, "b", [], null, null, null, null, null)), (_l()(), i1.ɵted(10, null, ["", ""])), (_l()(), i1.ɵted(-1, null, ["\n      "])), (_l()(), i1.ɵted(-1, null, ["\n      "])), (_l()(), i1.ɵeld(13, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n      "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_8)), i1.ɵdid(16, 802816, null, 0, i2.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], {ngForOf: [0, "ngForOf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n    "]))], function (_ck, _v) {
+    var currVal_2 = _v.context.$implicit.hora;
+    _ck(_v, 16, 0, currVal_2);
+  }, function (_ck, _v) {
+    var currVal_0 = _v.context.$implicit.dia;
+    _ck(_v, 6, 0, currVal_0);
+    var currVal_1 = _v.context.$implicit.diasemana;
+    _ck(_v, 10, 0, currVal_1);
+  });
+}
+
+function View_NewscheduleComponent_6(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 7, "div", [["class", "row"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n  "])), (_l()(), i1.ɵeld(2, 0, null, null, 4, "div", [["class", "col-md-12 col-md-offset-1"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_7)), i1.ɵdid(5, 802816, null, 0, i2.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], {ngForOf: [0, "ngForOf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n  "])), (_l()(), i1.ɵted(-1, null, ["\n"]))], function (_ck, _v) {
+    var _co = _v.component;
+    var currVal_0 = _co.escala;
+    _ck(_v, 5, 0, currVal_0);
+  }, null);
+}
+
+function View_NewscheduleComponent_29(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "span", [["class", "label label-primary"], ["style", "font-size:12px;"]], null, null, null, null, null)), (_l()(), i1.ɵted(1, null, ["\n          ", ""]))], null, function (_ck, _v) {
+    var currVal_0 = _v.parent.context.$implicit.count;
+    _ck(_v, 1, 0, currVal_0);
+  });
+}
+
+function View_NewscheduleComponent_30(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "span", [["class", "label label-danger"], ["style", "font-size:12px;"]], null, null, null, null, null)), (_l()(), i1.ɵted(1, null, ["\n          ", ""]))], null, function (_ck, _v) {
+    var currVal_0 = _v.parent.context.$implicit.count;
+    _ck(_v, 1, 0, currVal_0);
+  });
+}
+
+function View_NewscheduleComponent_28(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 13, "div", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n      "])), (_l()(), i1.ɵeld(2, 0, null, null, 10, "li", [["style", "color:Black"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_29)), i1.ɵdid(5, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_30)), i1.ɵdid(8, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(10, 0, null, null, 1, "b", [], null, null, null, null, null)), (_l()(), i1.ɵted(11, null, ["", " ", ""])), (_l()(), i1.ɵted(-1, null, ["\n      "])), (_l()(), i1.ɵted(-1, null, ["\n    "]))], function (_ck, _v) {
+    var currVal_0 = (_v.context.$implicit.count > 0);
+    _ck(_v, 5, 0, currVal_0);
+    var currVal_1 = (_v.context.$implicit.count == 0);
+    _ck(_v, 8, 0, currVal_1);
+  }, function (_ck, _v) {
+    var currVal_2 = _v.context.$implicit.nome;
+    var currVal_3 = _v.context.$implicit.sobrenome;
+    _ck(_v, 11, 0, currVal_2, currVal_3);
+  });
+}
+
+function View_NewscheduleComponent_27(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 16, "div", [["class", "row"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n  "])), (_l()(), i1.ɵeld(2, 0, null, null, 13, "div", [["class", "col-md-10 col-md-offset-1"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(4, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(6, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(8, 0, null, null, 1, "h3", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Designa\u00E7\u00F5es por per\u00EDodo:"])), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(11, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_28)), i1.ɵdid(14, 802816, null, 0, i2.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], {ngForOf: [0, "ngForOf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n  "])), (_l()(), i1.ɵted(-1, null, ["\n"]))], function (_ck, _v) {
+    var _co = _v.component;
+    var currVal_0 = _co.finalreport;
+    _ck(_v, 14, 0, currVal_0);
+  }, null);
+}
+
+export function View_NewscheduleComponent_0(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "div", [["class", "backdrop"]], null, null, null, null, null)), i1.ɵdid(1, 278528, null, 0, i2.NgStyle, [i1.KeyValueDiffers, i1.ElementRef, i1.Renderer2], {ngStyle: [0, "ngStyle"]}, null), i1.ɵpod(2, {"display": 0}), (_l()(), i1.ɵted(-1, null, ["\n"])), (_l()(), i1.ɵeld(4, 0, null, null, 31, "div", [["class", "modal"], ["role", "dialog"], ["tabindex", "-1"]], null, null, null, null, null)), i1.ɵdid(5, 278528, null, 0, i2.NgStyle, [i1.KeyValueDiffers, i1.ElementRef, i1.Renderer2], {ngStyle: [0, "ngStyle"]}, null), i1.ɵpod(6, {"display": 0}), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(8, 0, null, null, 26, "div", [["class", "modal-dialog"], ["role", "document"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(10, 0, null, null, 23, "div", [["class", "modal-content"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵeld(12, 0, null, null, 8, "div", [["class", "modal-header"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵeld(14, 0, null, null, 2, "button", [["aria-label", "Close"], ["class", "close"], ["type", "button"]], null, [[null, "click"]], function (_v, en, $event) {
+    var ad = true;
+    var _co = _v.component;
+    if (("click" === en)) {
+      var pd_0 = (_co.onClose() !== false);
+      ad = (pd_0 && ad);
+    }
+    return ad;
+  }, null, null)), (_l()(), i1.ɵeld(15, 0, null, null, 1, "span", [["aria-hidden", "true"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\u00D7"])), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵeld(18, 0, null, null, 1, "h4", [["class", "modal-title"]], null, null, null, null, null)), (_l()(), i1.ɵted(19, null, ["Telegrams Enviados ", ""])), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵeld(22, 0, null, null, 4, "div", [["class", "modal-body"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_1)), i1.ɵdid(25, 802816, null, 0, i2.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], {ngForOf: [0, "ngForOf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵeld(28, 0, null, null, 4, "div", [["class", "modal-footer"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵeld(30, 0, null, null, 1, "button", [["class", "btn btn-default"], ["type", "button"]], null, [[null, "click"]], function (_v, en, $event) {
+    var ad = true;
+    var _co = _v.component;
+    if (("click" === en)) {
+      var pd_0 = (_co.onClose() !== false);
+      ad = (pd_0 && ad);
+    }
+    return ad;
+  }, null, null)), (_l()(), i1.ɵted(-1, null, ["Fechar"])), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵted(-1, null, ["\n"])), (_l()(), i1.ɵted(-1, null, ["\n\n"])), (_l()(), i1.ɵeld(37, 0, null, null, 2, "div", [["class", "backdrop"]], null, null, null, null, null)), i1.ɵdid(38, 278528, null, 0, i2.NgStyle, [i1.KeyValueDiffers, i1.ElementRef, i1.Renderer2], {ngStyle: [0, "ngStyle"]}, null), i1.ɵpod(39, {"display": 0}), (_l()(), i1.ɵted(-1, null, ["\n"])), (_l()(), i1.ɵeld(41, 0, null, null, 31, "div", [["class", "modal"], ["role", "dialog"], ["tabindex", "-1"]], null, null, null, null, null)), i1.ɵdid(42, 278528, null, 0, i2.NgStyle, [i1.KeyValueDiffers, i1.ElementRef, i1.Renderer2], {ngStyle: [0, "ngStyle"]}, null), i1.ɵpod(43, {"display": 0}), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(45, 0, null, null, 26, "div", [["class", "modal-dialog"], ["role", "document"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(47, 0, null, null, 23, "div", [["class", "modal-content"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵeld(49, 0, null, null, 8, "div", [["class", "modal-header"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵeld(51, 0, null, null, 2, "button", [["aria-label", "Close"], ["class", "close"], ["type", "button"]], null, [[null, "click"]], function (_v, en, $event) {
+    var ad = true;
+    var _co = _v.component;
+    if (("click" === en)) {
+      var pd_0 = (_co.onClosemail() !== false);
+      ad = (pd_0 && ad);
+    }
+    return ad;
+  }, null, null)), (_l()(), i1.ɵeld(52, 0, null, null, 1, "span", [["aria-hidden", "true"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\u00D7"])), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵeld(55, 0, null, null, 1, "h4", [["class", "modal-title"]], null, null, null, null, null)), (_l()(), i1.ɵted(56, null, ["Emails Enviados ", ""])), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵeld(59, 0, null, null, 4, "div", [["class", "modal-body"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_2)), i1.ɵdid(62, 802816, null, 0, i2.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], {ngForOf: [0, "ngForOf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵeld(65, 0, null, null, 4, "div", [["class", "modal-footer"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n                "])), (_l()(), i1.ɵeld(67, 0, null, null, 1, "button", [["class", "btn btn-default"], ["type", "button"]], null, [[null, "click"]], function (_v, en, $event) {
+    var ad = true;
+    var _co = _v.component;
+    if (("click" === en)) {
+      var pd_0 = (_co.onClosemail() !== false);
+      ad = (pd_0 && ad);
+    }
+    return ad;
+  }, null, null)), (_l()(), i1.ɵted(-1, null, ["Fechar"])), (_l()(), i1.ɵted(-1, null, ["\n            "])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵted(-1, null, ["\n"])), (_l()(), i1.ɵted(-1, null, ["\n\n"])), (_l()(), i1.ɵeld(74, 0, null, null, 32, "div", [["class", "row"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n  "])), (_l()(), i1.ɵeld(76, 0, null, null, 29, "div", [["class", "col-md-10 col-md-offset-1"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(78, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(80, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(82, 0, null, null, 1, "h3", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Per\u00EDodo Vigente"])), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(85, 0, null, null, 1, "button", [["class", "btn btn-default"], ["id", "anterior"], ["type", "button"]], null, [[null, "click"]], function (_v, en, $event) {
+    var ad = true;
+    var _co = _v.component;
+    if (("click" === en)) {
+      var pd_0 = (_co.nextValidity($event) !== false);
+      ad = (pd_0 && ad);
+    }
+    return ad;
+  }, null, null)), (_l()(), i1.ɵted(-1, null, ["\n      < "])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(88, 0, null, null, 1, "button", [["class", "btn btn-default"], ["id", "proximo"], ["type", "button"]], null, [[null, "click"]], function (_v, en, $event) {
+    var ad = true;
+    var _co = _v.component;
+    if (("click" === en)) {
+      var pd_0 = (_co.beforeValidity($event) !== false);
+      ad = (pd_0 && ad);
+    }
+    return ad;
+  }, null, null)), (_l()(), i1.ɵted(-1, null, [" > "])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(91, 0, null, null, 1, "span", [["class", "badge badge-success"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["De"])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(94, 0, null, null, 1, "span", [["class", "badge badge-success"]], null, null, null, null, null)), (_l()(), i1.ɵted(95, null, [" ", ""])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(97, 0, null, null, 1, "span", [["class", "badge badge-success"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["at\u00E9"])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵeld(100, 0, null, null, 1, "span", [["class", "badge badge-success"]], null, null, null, null, null)), (_l()(), i1.ɵted(101, null, [" ", ""])), (_l()(), i1.ɵted(-1, null, ["\n        "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_3)), i1.ɵdid(104, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n  "])), (_l()(), i1.ɵted(-1, null, ["\n"])), (_l()(), i1.ɵted(-1, null, ["\n\n"])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_4)), i1.ɵdid(109, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n\n\n"])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_6)), i1.ɵdid(112, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n\n"])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_NewscheduleComponent_27)), i1.ɵdid(115, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], {ngIf: [0, "ngIf"]}, null), (_l()(), i1.ɵted(-1, null, ["\n\n"]))], function (_ck, _v) {
+    var _co = _v.component;
+    var currVal_0 = _ck(_v, 2, 0, _co.display);
+    _ck(_v, 1, 0, currVal_0);
+    var currVal_1 = _ck(_v, 6, 0, _co.display);
+    _ck(_v, 5, 0, currVal_1);
+    var currVal_3 = _co.telegramreport;
+    _ck(_v, 25, 0, currVal_3);
+    var currVal_4 = _ck(_v, 39, 0, _co.displaymail);
+    _ck(_v, 38, 0, currVal_4);
+    var currVal_5 = _ck(_v, 43, 0, _co.displaymail);
+    _ck(_v, 42, 0, currVal_5);
+    var currVal_7 = _co.emailreport;
+    _ck(_v, 62, 0, currVal_7);
+    var currVal_10 = _co.isAuthenticated();
+    _ck(_v, 104, 0, currVal_10);
+    var currVal_11 = _co.isAuthenticated();
+    _ck(_v, 109, 0, currVal_11);
+    var currVal_12 = _co.showNow;
+    _ck(_v, 112, 0, currVal_12);
+    var currVal_13 = _co.showNow;
+    _ck(_v, 115, 0, currVal_13);
+  }, function (_ck, _v) {
+    var _co = _v.component;
+    var currVal_2 = _co.telegramreport.length;
+    _ck(_v, 19, 0, currVal_2);
+    var currVal_6 = _co.emailreport.length;
+    _ck(_v, 56, 0, currVal_6);
+    var currVal_8 = _co.datainicio;
+    _ck(_v, 95, 0, currVal_8);
+    var currVal_9 = _co.datafim;
+    _ck(_v, 101, 0, currVal_9);
+  });
+}
+
+export function View_NewscheduleComponent_Host_0(_l) {
+  return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-schedule", [], null, null, null, View_NewscheduleComponent_0, RenderType_NewscheduleComponent)), i1.ɵdid(1, 114688, null, 0, i3.NewscheduleComponent, [i4.AuthService], null, null)], function (_ck, _v) {
+    _ck(_v, 1, 0);
+  }, null);
+}
+
 var NewscheduleComponentNgFactory = i1.ɵccf("app-schedule", i3.NewscheduleComponent, View_NewscheduleComponent_Host_0, {}, {}, []);
-export { NewscheduleComponentNgFactory as NewscheduleComponentNgFactory };
+export {NewscheduleComponentNgFactory as NewscheduleComponentNgFactory};

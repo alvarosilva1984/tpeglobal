@@ -1,29 +1,29 @@
-import { Injectable, OnInit} from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import {Injectable, OnInit} from '@angular/core';
+import {Http, Headers, Response} from '@angular/http';
 
 import 'rxjs/Rx';
-import { Observable } from 'rxjs';
+import {Observable} from 'rxjs';
 import 'rxjs/add/operator/map';
-import { Ponto } from '../setup/ponto.model';
-import { Feriado } from '../setup/feriado.model';
-import { Hora } from '../setup/hora.model';
-import { Circuito } from '../setup/circuito.model';
-import { Congregation } from '../setup/congregation.model';
-import { Validity } from '../setup/validity.model';
-import { Especial } from '../setup/especial.model';
-import { Sms } from '../testsms/sms.model';
-import { Telegram } from '../testtelegram/telegram.model';
-import { User } from './user.model';
-import { Agenda } from '../schedule2/agenda.model';
-import { ErrorService } from '../errors/error.service';
-import { Body } from '@angular/http/src/body';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Newpass } from './newpass.model';
-import { JwtHelper } from 'angular2-jwt';
-import { Router } from '@angular/router';
-import { Anuncio } from '../anuncio/anuncio.model';
-import { Perfilrole } from '../perfilrole/perfilrole.model';
-import { environment } from "../../environments/environment";
+import {Ponto} from '../setup/ponto.model';
+import {Feriado} from '../setup/feriado.model';
+import {Hora} from '../setup/hora.model';
+import {Circuito} from '../setup/circuito.model';
+import {Congregation} from '../setup/congregation.model';
+import {Validity} from '../setup/validity.model';
+import {Especial} from '../setup/especial.model';
+import {Sms} from '../testsms/sms.model';
+import {Telegram} from '../testtelegram/telegram.model';
+import {User} from './user.model';
+import {Agenda} from '../schedule2/agenda.model';
+import {ErrorService} from '../errors/error.service';
+import {Body} from '@angular/http/src/body';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {Newpass} from './newpass.model';
+import {JwtHelper} from 'angular2-jwt';
+import {Router} from '@angular/router';
+import {Anuncio} from '../anuncio/anuncio.model';
+import {Perfilrole} from '../perfilrole/perfilrole.model';
+import {environment} from '../../environments/environment';
 
 
 @Injectable()
@@ -54,8 +54,8 @@ export class AuthService {
 
   signup(user: User) {
     const body = JSON.stringify(user);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    return this.http.post(this.path + 'user', body, { headers: headers })
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this.http.post(this.path + 'user', body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
@@ -66,10 +66,11 @@ export class AuthService {
   signin(user: User) {
 
     const body = JSON.stringify(user);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    return this.http.post(this.path + 'user/signin', body, { headers: headers })
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this.http.post(this.path + 'user/signin', body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
+        console.log(error);
         this.errorService.handleError(error.json());
         return Observable.throw(error.json());
       });
@@ -126,7 +127,7 @@ export class AuthService {
             user.agenda,
             user.escala,
             user.telegram
-          )
+            )
           );
         }
         this.users = transformedMessages;
@@ -175,7 +176,7 @@ export class AuthService {
             user.agenda,
             user.escala,
             user.telegram
-          )
+            )
           );
         }
         this.users = transformedMessages;
@@ -224,7 +225,7 @@ export class AuthService {
             user.agenda,
             user.escala,
             user.telegram
-          )
+            )
           );
         }
         this.users = transformedMessages;
@@ -240,16 +241,15 @@ export class AuthService {
   }
 
 
-
   updateReleased(user: User) {
 
 
     const body = JSON.stringify(user);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const headers = new Headers({'Content-Type': 'application/json'});
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-    return this.http.patch(this.path + 'user/' + user.userId + token, body, { headers: headers })
+    return this.http.patch(this.path + 'user/' + user.userId + token, body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
@@ -300,9 +300,6 @@ export class AuthService {
       });
 
 
-
-
-
   }
 
   getPerfilComp() {
@@ -313,8 +310,8 @@ export class AuthService {
     return this.http.get(this.path + 'user/perfilcomp/' + userId + token)
       .map((response: Response) => {
         const perfil = response.json().obj;
-     /*    let conjuge = perfil.conjuge.firstname + ' ' + perfil.conjuge.lastNmae;
-        let responsable = perfil.responsable.firstname + ' ' + perfil.lastNmae; */
+        /*    let conjuge = perfil.conjuge.firstname + ' ' + perfil.conjuge.lastNmae;
+           let responsable = perfil.responsable.firstname + ' ' + perfil.lastNmae; */
         this.perfil = new User(
           perfil.email,
           perfil.password,
@@ -349,20 +346,17 @@ export class AuthService {
       });
 
 
-
-
-
   }
 
   updatePerfil(user: User) {
 
     const userId = localStorage.getItem('userId');
     const body = JSON.stringify(user);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const headers = new Headers({'Content-Type': 'application/json'});
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-    return this.http.put(this.path + 'user/' + userId + token, body, { headers: headers })
+    return this.http.put(this.path + 'user/' + userId + token, body, {headers: headers})
       .map((response: Response) => {
         const perfil = response.json().obj;
         this.perfil = new User(
@@ -404,8 +398,8 @@ export class AuthService {
   sendpass(user: User) {
 
     const body = JSON.stringify(user);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    return this.http.patch(this.path + 'user/sendpass', body, { headers: headers })
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this.http.patch(this.path + 'user/sendpass', body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
@@ -453,11 +447,11 @@ export class AuthService {
 
     const userId = localStorage.getItem('userId');
     const body = JSON.stringify(newpass);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const headers = new Headers({'Content-Type': 'application/json'});
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-    return this.http.patch(this.path + 'user/newpass/' + userId + token, body, { headers: headers })
+    return this.http.patch(this.path + 'user/newpass/' + userId + token, body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
@@ -476,10 +470,9 @@ export class AuthService {
 
     const decoded = this.JwtHelper.decodeToken(localStorage.getItem('token'));
 
-    if (decoded.role == 'super')return true;
+    if (decoded.role == 'super') return true;
 
-     return false;
-
+    return false;
 
 
   }
@@ -490,11 +483,10 @@ export class AuthService {
     const decoded = this.JwtHelper.decodeToken(localStorage.getItem('token'));
 
     if (decoded.role == 'pleno' ||
-        decoded.role == 'super' )return true;
+      decoded.role == 'super') return true;
 
 
-      return false;
-
+    return false;
 
 
   }
@@ -505,11 +497,10 @@ export class AuthService {
     const decoded = this.JwtHelper.decodeToken(localStorage.getItem('token'));
 
     if (decoded.role == 'gold' ||
-        decoded.role == 'super' )return true;
+      decoded.role == 'super') return true;
 
 
-      return false;
-
+    return false;
 
 
   }
@@ -519,11 +510,10 @@ export class AuthService {
 
     const decoded = this.JwtHelper.decodeToken(localStorage.getItem('token'));
 
-    if (decoded.role == 'ctc')return true;
+    if (decoded.role == 'ctc') return true;
 
 
-      return false;
-
+    return false;
 
 
   }
@@ -534,12 +524,11 @@ export class AuthService {
     const decoded = this.JwtHelper.decodeToken(localStorage.getItem('token'));
 
     if (decoded.role == 'gold' ||
-        decoded.role == 'super' ||
-        decoded.role == 'pleno' )return true;
+      decoded.role == 'super' ||
+      decoded.role == 'pleno') return true;
 
 
-      return false;
-
+    return false;
 
 
   }
@@ -547,12 +536,12 @@ export class AuthService {
 
   pontocreate(pontos: Ponto) {
     const body = JSON.stringify(pontos);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const headers = new Headers({'Content-Type': 'application/json'});
     const userId = localStorage.getItem('userId');
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-    return this.http.post(this.path + 'pontos', body, { headers: headers })
+    return this.http.post(this.path + 'pontos', body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         return Observable.throw(error.json());
@@ -567,22 +556,21 @@ export class AuthService {
     const headers = new Headers();
 
 
-     return this.http.post(this.path + 'pontos/images', formData,
-     {headers: headers})
-     .map((response: Response) => response.json())
-     .catch((error: Response) => {
-       this.errorService.handleError(error.json());
-       return Observable.throw(error.json());
-     });
+    return this.http.post(this.path + 'pontos/images', formData,
+      {headers: headers})
+      .map((response: Response) => response.json())
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
   }
-
 
 
   pontoUpdate(pontos: Ponto[]) {
 
     const body = JSON.stringify(pontos);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    return this.http.put(this.path + 'pontos', body, { headers: headers })
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this.http.put(this.path + 'pontos', body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
@@ -595,8 +583,8 @@ export class AuthService {
   pontoEdit(ponto: Ponto) {
 
     const body = JSON.stringify(ponto);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    return this.http.put(this.path + 'pontos/edit', body, { headers: headers })
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this.http.put(this.path + 'pontos/edit', body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
@@ -604,9 +592,6 @@ export class AuthService {
       });
 
   }
-
-
-
 
 
   getpontos() {
@@ -628,7 +613,7 @@ export class AuthService {
             ponto.address,
             ponto.obs,
             ponto.fileimg
-          )
+            )
           );
         }
         this.pontos = transformedMessages;
@@ -644,12 +629,12 @@ export class AuthService {
 
   enviasms(sms: Sms) {
     const body = JSON.stringify(sms);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const headers = new Headers({'Content-Type': 'application/json'});
     const userId = localStorage.getItem('userId');
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-    return this.http.post(this.path + 'pontos/sms', body, { headers: headers })
+    return this.http.post(this.path + 'pontos/sms', body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         return Observable.throw(error.json());
@@ -684,18 +669,17 @@ export class AuthService {
     const userId = localStorage.getItem('userId');
     agenda.userId = userId;
     const body = JSON.stringify(agenda);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const headers = new Headers({'Content-Type': 'application/json'});
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
 
-    return this.http.post(this.path + 'agendas', body, { headers: headers })
+    return this.http.post(this.path + 'agendas', body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
         return Observable.throw(error.json());
       });
-
 
 
   }
@@ -718,8 +702,7 @@ export class AuthService {
             agenda.user,
             agenda._id,
             agenda.sex
-
-          )
+            )
           );
         }
         this.agendas = transformedMessages;
@@ -755,16 +738,14 @@ export class AuthService {
   }
 
 
-
-
   horaCreate(hora: Hora) {
     const body = JSON.stringify(hora);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const headers = new Headers({'Content-Type': 'application/json'});
     const userId = localStorage.getItem('userId');
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-    return this.http.post(this.path + 'pontos/hora', body, { headers: headers })
+    return this.http.post(this.path + 'pontos/hora', body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         return Observable.throw(error.json());
@@ -785,7 +766,7 @@ export class AuthService {
             hora.code,
             hora.hora,
             hora._id,
-          )
+            )
           );
         }
         this.horas = transformedMessages;
@@ -819,8 +800,8 @@ export class AuthService {
   horaEdit(hora: Hora) {
 
     const body = JSON.stringify(hora);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    return this.http.put(this.path + 'pontos/hora/edit', body, { headers: headers })
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this.http.put(this.path + 'pontos/hora/edit', body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
@@ -832,12 +813,12 @@ export class AuthService {
 
   feriadoCreate(feriado: Feriado) {
     const body = JSON.stringify(feriado);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const headers = new Headers({'Content-Type': 'application/json'});
     const userId = localStorage.getItem('userId');
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-    return this.http.post(this.path + 'pontos/feriado', body, { headers: headers })
+    return this.http.post(this.path + 'pontos/feriado', body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         return Observable.throw(error.json());
@@ -858,7 +839,7 @@ export class AuthService {
             feriado.data,
             feriado.datashow,
             feriado._id,
-          )
+            )
           );
         }
         this.feriados = transformedMessages;
@@ -871,7 +852,6 @@ export class AuthService {
 
 
   }
-
 
 
   deleteFeriado(feriado: Feriado) {
@@ -894,8 +874,8 @@ export class AuthService {
   feriadoEdit(feriado: Feriado) {
 
     const body = JSON.stringify(feriado);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    return this.http.put(this.path + 'pontos/feriado/edit', body, { headers: headers })
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this.http.put(this.path + 'pontos/feriado/edit', body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
@@ -906,12 +886,12 @@ export class AuthService {
 
   enviatelegram(telegram: Telegram) {
     const body = JSON.stringify(telegram);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const headers = new Headers({'Content-Type': 'application/json'});
     const userId = localStorage.getItem('userId');
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-    return this.http.post(this.path + 'pontos/telegram', body, { headers: headers })
+    return this.http.post(this.path + 'pontos/telegram', body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         return Observable.throw(error.json());
@@ -933,12 +913,12 @@ export class AuthService {
 
   circuitoCreate(circuito: Circuito) {
     const body = JSON.stringify(circuito);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const headers = new Headers({'Content-Type': 'application/json'});
     const userId = localStorage.getItem('userId');
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-    return this.http.post(this.path + 'pontos/circuito', body, { headers: headers })
+    return this.http.post(this.path + 'pontos/circuito', body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         return Observable.throw(error.json());
@@ -961,7 +941,7 @@ export class AuthService {
           transformedMessages.push(new Circuito(
             circuito.nome,
             circuito._id,
-          )
+            )
           );
         }
         this.circuitos = transformedMessages;
@@ -989,7 +969,7 @@ export class AuthService {
           transformedMessages.push(new Circuito(
             circuito.nome,
             circuito._id,
-          )
+            )
           );
         }
         this.circuitos = transformedMessages;
@@ -1023,8 +1003,8 @@ export class AuthService {
   circuitoEdit(circuito: Circuito) {
 
     const body = JSON.stringify(circuito);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    return this.http.put(this.path + 'pontos/circuito/edit', body, { headers: headers })
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this.http.put(this.path + 'pontos/circuito/edit', body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
@@ -1036,8 +1016,8 @@ export class AuthService {
   congregationEdit(congregation: Congregation) {
 
     const body = JSON.stringify(congregation);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    return this.http.put(this.path + 'pontos/congregation/edit', body, { headers: headers })
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this.http.put(this.path + 'pontos/congregation/edit', body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
@@ -1049,12 +1029,12 @@ export class AuthService {
 
   congregationCreate(congregation: Congregation) {
     const body = JSON.stringify(congregation);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const headers = new Headers({'Content-Type': 'application/json'});
     const userId = localStorage.getItem('userId');
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-    return this.http.post(this.path + 'pontos/congregation', body, { headers: headers })
+    return this.http.post(this.path + 'pontos/congregation', body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         return Observable.throw(error.json());
@@ -1078,7 +1058,7 @@ export class AuthService {
             congregation.nome,
             congregation.circuit,
             congregation._id,
-          )
+            )
           );
         }
         this.congregations = transformedMessages;
@@ -1108,7 +1088,7 @@ export class AuthService {
             congregation.nome,
             congregation.circuit,
             congregation._id,
-          )
+            )
           );
         }
         this.congregations = transformedMessages;
@@ -1123,81 +1103,80 @@ export class AuthService {
   }
 
 /////////////////////////////
-deleteespecial(especial: Especial) {
+  deleteespecial(especial: Especial) {
 
-  const body = JSON.stringify(especial);
-  const token = localStorage.getItem('token')
-    ? '?token=' + localStorage.getItem('token')
-    : '';
+    const body = JSON.stringify(especial);
+    const token = localStorage.getItem('token')
+      ? '?token=' + localStorage.getItem('token')
+      : '';
 
 
-  return this.http.delete(this.path + 'pontos/especial/' + especial.id, body)
-    .map((response: Response) => response.json())
-    .catch(function (error) {
-      this.errorService.handleError(error.json());
-      return Observable.throw(error.json());
-    });
-}
+    return this.http.delete(this.path + 'pontos/especial/' + especial.id, body)
+      .map((response: Response) => response.json())
+      .catch(function (error) {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+  }
 
 
 ///////////////
-especialCreate(especial: Especial) {
-  const body = JSON.stringify(especial);
-  const headers = new Headers({ 'Content-Type': 'application/json' });
-  const userId = localStorage.getItem('userId');
-  const token = localStorage.getItem('token')
-    ? '?token=' + localStorage.getItem('token')
-    : '';
-  return this.http.post(this.path + 'pontos/especial', body, { headers: headers })
-    .map((response: Response) => response.json())
-    .catch((error: Response) => {
-      return Observable.throw(error.json());
-    });
+  especialCreate(especial: Especial) {
+    const body = JSON.stringify(especial);
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const userId = localStorage.getItem('userId');
+    const token = localStorage.getItem('token')
+      ? '?token=' + localStorage.getItem('token')
+      : '';
+    return this.http.post(this.path + 'pontos/especial', body, {headers: headers})
+      .map((response: Response) => response.json())
+      .catch((error: Response) => {
+        return Observable.throw(error.json());
+      });
 
-}
-
-
-getespecial() {
+  }
 
 
-  return this.http.get(this.path + 'pontos/especial')
-    .map((response: Response) => {
-      const especiais = response.json().obj;
-      const transformedMessages: Especial[] = [];
-      for (const especial of especiais) {
-        transformedMessages.push(new Especial(
-          especial.begin,
-          especial.end,
-          especial.circuito,
-          especial.nome,
-          especial._id
-        )
-        );
-      }
-
-      return transformedMessages;
-    })
-    .catch((error: Response) => {
-      this.errorService.handleError(error.json());
-      return Observable.throw(error.json());
-    });
+  getespecial() {
 
 
-}
+    return this.http.get(this.path + 'pontos/especial')
+      .map((response: Response) => {
+        const especiais = response.json().obj;
+        const transformedMessages: Especial[] = [];
+        for (const especial of especiais) {
+          transformedMessages.push(new Especial(
+            especial.begin,
+            especial.end,
+            especial.circuito,
+            especial.nome,
+            especial._id
+            )
+          );
+        }
 
-especialEdit(especial: Especial) {
+        return transformedMessages;
+      })
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
 
-  const body = JSON.stringify(especial);
-  const headers = new Headers({ 'Content-Type': 'application/json' });
-  return this.http.put(this.path + 'pontos/especial/edit', body, { headers: headers })
-    .map((response: Response) => response.json())
-    .catch((error: Response) => {
-      this.errorService.handleError(error.json());
-      return Observable.throw(error.json());
-    });
 
-}
+  }
 
+  especialEdit(especial: Especial) {
+
+    const body = JSON.stringify(especial);
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this.http.put(this.path + 'pontos/especial/edit', body, {headers: headers})
+      .map((response: Response) => response.json())
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+
+  }
 
 
   //////////////////////////////
@@ -1208,8 +1187,8 @@ especialEdit(especial: Especial) {
       ? '?token=' + localStorage.getItem('token')
       : '';
 
-console.log('deletando', body);
-    return this.http.delete(this.path + 'pontos/validity/' + validity.id, body )
+    console.log('deletando', body);
+    return this.http.delete(this.path + 'pontos/validity/' + validity.id, body)
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
@@ -1221,12 +1200,12 @@ console.log('deletando', body);
   ///////////////
   validityCreate(validity: Validity) {
     const body = JSON.stringify(validity);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const headers = new Headers({'Content-Type': 'application/json'});
     const userId = localStorage.getItem('userId');
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-    return this.http.post(this.path + 'pontos/validity', body, { headers: headers })
+    return this.http.post(this.path + 'pontos/validity', body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         return Observable.throw(error.json());
@@ -1248,7 +1227,7 @@ console.log('deletando', body);
             validity.end,
             validity.status,
             validity._id
-          )
+            )
           );
         }
 
@@ -1275,7 +1254,7 @@ console.log('deletando', body);
             validity.end,
             validity.status,
             validity._id
-          )
+            )
           );
         }
 
@@ -1292,8 +1271,8 @@ console.log('deletando', body);
   validityEdit(validity: Validity) {
 
     const body = JSON.stringify(validity);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    return this.http.put(this.path + 'pontos/validity/edit', body, { headers: headers })
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this.http.put(this.path + 'pontos/validity/edit', body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
@@ -1322,12 +1301,12 @@ console.log('deletando', body);
 
   saveEscala(escala) {
     const body = JSON.stringify(escala);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const headers = new Headers({'Content-Type': 'application/json'});
     const userId = localStorage.getItem('userId');
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-    return this.http.post(this.path + 'escalas', body, { headers: headers })
+    return this.http.post(this.path + 'escalas', body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         return Observable.throw(error.json());
@@ -1385,9 +1364,9 @@ console.log('deletando', body);
       .map((response: Response) => {
         console.log('response', response);
 
-         const escalas = response.json().obj;
-         console.log('OOLHA ES', escalas);
-         return escalas;
+        const escalas = response.json().obj;
+        console.log('OOLHA ES', escalas);
+        return escalas;
       })
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
@@ -1400,8 +1379,8 @@ console.log('deletando', body);
   ledUpdate(escalaperfil) {
     const userId = localStorage.getItem('userId');
     const body = JSON.stringify(escalaperfil);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    return this.http.put(this.path + 'escalas/led/' + userId, body, { headers: headers })
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this.http.put(this.path + 'escalas/led/' + userId, body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
@@ -1417,8 +1396,8 @@ console.log('deletando', body);
       : '';
     return this.http.get(this.path + 'escalas/led/designations/' + userId + token)
       .map((response: Response) => {
-         const leds = response.json().obj;
-         return leds;
+        const leds = response.json().obj;
+        return leds;
       })
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
@@ -1445,7 +1424,7 @@ console.log('deletando', body);
 
   getAllLedsReport(data) {
     const body = JSON.stringify(data);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const headers = new Headers({'Content-Type': 'application/json'});
     return this.http.post(this.path + 'escalas/led/allreport', body, {headers: headers})
       .map((response: Response) => {
         const leds = response.json().obj;
@@ -1460,11 +1439,9 @@ console.log('deletando', body);
   }
 
 
-
-
   sendTelegram(datainicio) {
     const body = JSON.stringify(datainicio);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const headers = new Headers({'Content-Type': 'application/json'});
     const userId = localStorage.getItem('userId');
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
@@ -1472,24 +1449,24 @@ console.log('deletando', body);
     return this.http.post(this.path + 'telegram/' + datainicio, body)
       .map((response: Response) => {
 
-      const telegrams = response.json().obj;
-      const transformedMessages = [];
-      for (const telegram of telegrams) {
-        transformedMessages.push(telegram);
-      }
+        const telegrams = response.json().obj;
+        const transformedMessages = [];
+        for (const telegram of telegrams) {
+          transformedMessages.push(telegram);
+        }
 
-      return transformedMessages;
-    })
+        return transformedMessages;
+      })
       .catch((error: Response) => {
         return Observable.throw(error.json());
       });
 
-    }
+  }
 
 
   sendEmails(datainicio) {
     const body = JSON.stringify(datainicio);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const headers = new Headers({'Content-Type': 'application/json'});
     const userId = localStorage.getItem('userId');
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
@@ -1497,235 +1474,232 @@ console.log('deletando', body);
     return this.http.post(this.path + 'email/' + datainicio, body)
       .map((response: Response) => {
 
-      const emails = response.json().obj;
-      const transformedMessages = [];
-      for (const email of emails) {
-        transformedMessages.push(email);
-      }
+        const emails = response.json().obj;
+        const transformedMessages = [];
+        for (const email of emails) {
+          transformedMessages.push(email);
+        }
 
-      return transformedMessages;
-    })
+        return transformedMessages;
+      })
       .catch((error: Response) => {
         return Observable.throw(error.json());
       });
 
-    }
+  }
 
 
-cadastroTelegram( ) {
-        const body = JSON.stringify('body');
-        const headers = new Headers({ 'Content-Type': 'application/json' });
-        const userId = localStorage.getItem('userId');
-        const token = localStorage.getItem('token')
-          ? '?token=' + localStorage.getItem('token')
-          : '';
-        return this.http.post(this.path + 'telegram/cadastro/' + userId, body)
-          .map((response: Response) => {
-          const code = response.json().obj;
-          return code;
+  cadastroTelegram() {
+    const body = JSON.stringify('body');
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const userId = localStorage.getItem('userId');
+    const token = localStorage.getItem('token')
+      ? '?token=' + localStorage.getItem('token')
+      : '';
+    return this.http.post(this.path + 'telegram/cadastro/' + userId, body)
+      .map((response: Response) => {
+        const code = response.json().obj;
+        return code;
 
 
-        })
-          .catch((error: Response) => {
-            return Observable.throw(error.json());
-          });
+      })
+      .catch((error: Response) => {
+        return Observable.throw(error.json());
+      });
 
+  }
+
+  telegramInfo() {
+    const body = JSON.stringify('body');
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const userId = localStorage.getItem('userId');
+    return this.http.post(this.path + 'telegram/cadastro/grupo/' + userId, body)
+      .map((response: Response) => {
+        console.log(response, 'aquii');
+        return response;
+
+
+      })
+      .catch((error: Response) => {
+        return Observable.throw(error.json());
+      });
+
+  }
+
+  anuncioCreate(anuncio: Anuncio) {
+    const body = JSON.stringify(anuncio);
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const userId = localStorage.getItem('userId');
+    const token = localStorage.getItem('token')
+      ? '?token=' + localStorage.getItem('token')
+      : '';
+    return this.http.post(this.path + 'pontos/anuncio', body, {headers: headers})
+      .map((response: Response) => response.json())
+      .catch((error: Response) => {
+        return Observable.throw(error.json());
+      });
+
+  }
+
+
+  getAnuncio() {
+    const userId = localStorage.getItem('userId');
+    const token = localStorage.getItem('token')
+      ? '?token=' + localStorage.getItem('token')
+      : '';
+
+    return this.http.get(this.path + 'pontos/anuncio/' + userId + token)
+      .map((response: Response) => {
+        const anuncios = response.json().obj;
+        const transformedMessages: Anuncio[] = [];
+        for (const anuncio of anuncios) {
+          transformedMessages.push(new Anuncio(
+            anuncio.titulo,
+            anuncio.mensagem,
+            anuncio.avisado,
+            anuncio._id,
+            )
+          );
         }
-
-        telegramInfo( ) {
-          const body = JSON.stringify('body');
-          const headers = new Headers({ 'Content-Type': 'application/json' });
-          const userId = localStorage.getItem('userId');
-      return this.http.post(this.path + 'telegram/cadastro/grupo/' + userId, body)
-            .map((response: Response) => {
-              console.log(response,"aquii")
-            return response;
-  
-  
-          })
-            .catch((error: Response) => {
-              return Observable.throw(error.json());
-            });
-  
-          }
-
-        anuncioCreate(anuncio: Anuncio) {
-          const body = JSON.stringify(anuncio);
-          const headers = new Headers({ 'Content-Type': 'application/json' });
-          const userId = localStorage.getItem('userId');
-          const token = localStorage.getItem('token')
-            ? '?token=' + localStorage.getItem('token')
-            : '';
-          return this.http.post(this.path + 'pontos/anuncio', body, { headers: headers })
-            .map((response: Response) => response.json())
-            .catch((error: Response) => {
-              return Observable.throw(error.json());
-            });
-
-        }
-
-
-        getAnuncio() {
-          const userId = localStorage.getItem('userId');
-          const token = localStorage.getItem('token')
-            ? '?token=' + localStorage.getItem('token')
-            : '';
-
-          return this.http.get(this.path + 'pontos/anuncio/' + userId + token)
-            .map((response: Response) => {
-              const anuncios = response.json().obj;
-              const transformedMessages: Anuncio[] = [];
-              for (const anuncio of anuncios) {
-                transformedMessages.push(new Anuncio(
-                  anuncio.titulo,
-                  anuncio.mensagem,
-                  anuncio.avisado,
-                  anuncio._id,
-                )
-                );
-              }
-              this.anuncios = transformedMessages;
-              return transformedMessages;
-            })
-            .catch((error: Response) => {
-              this.errorService.handleError(error.json());
-              return Observable.throw(error.json());
-            });
-
-
-        }
-
-
-
-        deleteAnuncio(anuncio: Anuncio) {
-
-          const body = JSON.stringify(anuncio);
-          const token = localStorage.getItem('token')
-            ? '?token=' + localStorage.getItem('token')
-            : '';
-
-
-          return this.http.delete(this.path + 'pontos/anuncio/' + anuncio.id, body)
-            .map((response: Response) => response.json())
-            .catch(function (error) {
-              this.errorService.handleError(error.json());
-              return Observable.throw(error.json());
-            });
-        }
-
-        anuncioEdit(anuncio: Anuncio) {
-
-          const body = JSON.stringify(anuncio);
-          const headers = new Headers({ 'Content-Type': 'application/json' });
-          return this.http.put(this.path + 'pontos/anuncio/edit', body, { headers: headers })
-            .map((response: Response) => response.json())
-            .catch((error: Response) => {
-              this.errorService.handleError(error.json());
-              return Observable.throw(error.json());
-            });
-
-        }
-
-
-        avisaAnuncio(anuncio: Anuncio) {
-
-          const body = JSON.stringify(anuncio);
-          const headers = new Headers({ 'Content-Type': 'application/json' });
-          return this.http.put(this.path + 'pontos/anuncio/avisa', body, { headers: headers })
-            .map((response: Response) => response.json())
-            .catch((error: Response) => {
-              this.errorService.handleError(error.json());
-              return Observable.throw(error.json());
-            });
-
-        }
-
-
-
-        perfilroleCreate(user: Perfilrole) {
-          const body = JSON.stringify(user);
-          const headers = new Headers({ 'Content-Type': 'application/json' });
-          const userId = localStorage.getItem('userId');
-          const token = localStorage.getItem('token')
-            ? '?token=' + localStorage.getItem('token')
-            : '';
-          return this.http.post(this.path + 'pontos/perfilrole', body, { headers: headers })
-            .map((response: Response) => response.json())
-            .catch((error: Response) => {
-              return Observable.throw(error.json());
-            });
-
-        }
-
-
-        getPerfilrole() {
-          const userId = localStorage.getItem('userId');
-          const token = localStorage.getItem('token')
-            ? '?token=' + localStorage.getItem('token')
-            : '';
-
-          return this.http.get(this.path + 'pontos/perfilrole/' + userId + token)
-            .map((response: Response) => {
-              const perfilroles = response.json().obj;
-              const transformedMessages: Perfilrole[] = [];
-
-              for (const perfilrole of perfilroles) {
-                const user: Perfilrole = {
-                email: perfilrole.email,
-                senha: '******',
-                role: perfilrole.role,
-                id: perfilrole.id
-                };
-
-                transformedMessages.push(user);
-              }
-
-
-              // this.perfilroles = transformedMessages;
-              return transformedMessages;
-
-            })
-            .catch((error: Response) => {
-              this.errorService.handleError(error.json());
-              return Observable.throw(error.json());
-            });
-
-
-        }
-
-
-
-        deletePerfilrole(user: Perfilrole) {
-
-          const body = JSON.stringify(user);
-          const token = localStorage.getItem('token')
-            ? '?token=' + localStorage.getItem('token')
-            : '';
-
-
-          return this.http.delete(this.path + 'pontos/perfilrole/' + user.id, body)
-            .map((response: Response) => response.json())
-            .catch(function (error) {
-              this.errorService.handleError(error.json());
-              return Observable.throw(error.json());
-            });
-        }
-
-        perfilroleEdit(user: Perfilrole) {
-
-          const body = JSON.stringify(user);
-          const headers = new Headers({ 'Content-Type': 'application/json' });
-          return this.http.put(this.path + 'pontos/perfilrole', body, { headers: headers })
-            .map((response: Response) => response.json())
-            .catch((error: Response) => {
-              this.errorService.handleError(error.json());
-              return Observable.throw(error.json());
-            });
-
-        }
+        this.anuncios = transformedMessages;
+        return transformedMessages;
+      })
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
 
 
   }
+
+
+  deleteAnuncio(anuncio: Anuncio) {
+
+    const body = JSON.stringify(anuncio);
+    const token = localStorage.getItem('token')
+      ? '?token=' + localStorage.getItem('token')
+      : '';
+
+
+    return this.http.delete(this.path + 'pontos/anuncio/' + anuncio.id, body)
+      .map((response: Response) => response.json())
+      .catch(function (error) {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+  }
+
+  anuncioEdit(anuncio: Anuncio) {
+
+    const body = JSON.stringify(anuncio);
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this.http.put(this.path + 'pontos/anuncio/edit', body, {headers: headers})
+      .map((response: Response) => response.json())
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+
+  }
+
+
+  avisaAnuncio(anuncio: Anuncio) {
+
+    const body = JSON.stringify(anuncio);
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this.http.put(this.path + 'pontos/anuncio/avisa', body, {headers: headers})
+      .map((response: Response) => response.json())
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+
+  }
+
+
+  perfilroleCreate(user: Perfilrole) {
+    const body = JSON.stringify(user);
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const userId = localStorage.getItem('userId');
+    const token = localStorage.getItem('token')
+      ? '?token=' + localStorage.getItem('token')
+      : '';
+    return this.http.post(this.path + 'pontos/perfilrole', body, {headers: headers})
+      .map((response: Response) => response.json())
+      .catch((error: Response) => {
+        return Observable.throw(error.json());
+      });
+
+  }
+
+
+  getPerfilrole() {
+    const userId = localStorage.getItem('userId');
+    const token = localStorage.getItem('token')
+      ? '?token=' + localStorage.getItem('token')
+      : '';
+
+    return this.http.get(this.path + 'pontos/perfilrole/' + userId + token)
+      .map((response: Response) => {
+        const perfilroles = response.json().obj;
+        const transformedMessages: Perfilrole[] = [];
+
+        for (const perfilrole of perfilroles) {
+          const user: Perfilrole = {
+            email: perfilrole.email,
+            senha: '******',
+            role: perfilrole.role,
+            id: perfilrole.id
+          };
+
+          transformedMessages.push(user);
+        }
+
+
+        // this.perfilroles = transformedMessages;
+        return transformedMessages;
+
+      })
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+
+
+  }
+
+
+  deletePerfilrole(user: Perfilrole) {
+
+    const body = JSON.stringify(user);
+    const token = localStorage.getItem('token')
+      ? '?token=' + localStorage.getItem('token')
+      : '';
+
+
+    return this.http.delete(this.path + 'pontos/perfilrole/' + user.id, body)
+      .map((response: Response) => response.json())
+      .catch(function (error) {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+  }
+
+  perfilroleEdit(user: Perfilrole) {
+
+    const body = JSON.stringify(user);
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this.http.put(this.path + 'pontos/perfilrole', body, {headers: headers})
+      .map((response: Response) => response.json())
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+
+  }
+
+
+}
 
 
 

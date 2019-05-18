@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth/auth.service';
-import { Circuito } from '../setup/circuito.model';
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from '../auth/auth.service';
+import {Circuito} from '../setup/circuito.model';
 
 @Component({
-    selector: 'app-help',
-    template: `
+  selector: 'app-help',
+  template: `
     <div class="container">
     <div class="col-md-6">
              <h4>Caso seus dados pessoais estejam incorretos, envie um email para:</h4>
@@ -16,51 +16,53 @@ import { Circuito } from '../setup/circuito.model';
     `
 })
 export class HelpComponent {
- circuitos: Circuito[];
- email: string;
-    constructor(private authService: AuthService) {}
+  circuitos: Circuito[];
+  email: string;
 
-    ngOnInit() {
+  constructor(private authService: AuthService) {
+  }
+
+  ngOnInit() {
     this.authService.getPerfil()
-    .subscribe(datauser => {
+      .subscribe(datauser => {
         console.log(datauser);
         this.authService.getCircuito()
-        .subscribe(data => {
+          .subscribe(data => {
             console.log(data);
             this.circuitos = data;
             this.email = this.encontraCircuito(datauser.circuito);
 
-        });
-        });
+          });
+      });
 
-        }
+  }
 
-        encontraCircuito(id) {
-            let email = ' '
-            const circuit = this.circuitos.filter(a => a.id == id);
+  encontraCircuito(id) {
+    let email = ' ';
+    const circuit = this.circuitos.filter(a => a.id == id);
 
 
-            if (circuit.length > 0) {
+    if (circuit.length > 0) {
 
-                switch (circuit[0].nome) {
-                    case 'SP-61':
-                    email =  'tpe.santoandre.sp61@gmail.com';
-                        break;
-                    case 'SP-76':
-                    email =  'tpe.santoandre.sp76@gmail.com';
-                        break;
-                    case 'SP-112':
-                    email =  'tpe.santoandre.sp112@gmail.com';
-                        break;
-                    case 'SP-139':
-                    email =  'tpe.santoandre.sp139@gmail.com';
-                        break;
-                    default:
-                    email =  'tpe.santoandre.sp61@gmail.com';
-                }
+      switch (circuit[0].nome) {
+        case 'SP-61':
+          email = 'tpe.santoandre.sp61@gmail.com';
+          break;
+        case 'SP-76':
+          email = 'tpe.santoandre.sp76@gmail.com';
+          break;
+        case 'SP-112':
+          email = 'tpe.santoandre.sp112@gmail.com';
+          break;
+        case 'SP-139':
+          email = 'tpe.santoandre.sp139@gmail.com';
+          break;
+        default:
+          email = 'tpe.santoandre.sp61@gmail.com';
+      }
 
-                return email;
-            } else return ' ';
+      return email;
+    } else return ' ';
 
-          }
+  }
 }

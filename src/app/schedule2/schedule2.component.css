@@ -1,19 +1,19 @@
-.btn.btn-default{
+.btn.btn-default {
 
-    background-color: gray;
-    color: white;
-    width: 50px;
-    height: 40px;
+  background-color: gray;
+  color: white;
+  width: 50px;
+  height: 40px;
 
-    }
+}
 
-.center{
-        text-align: center
-      }
+.center {
+  text-align: center
+}
 
-.container{
+.container {
 
-  position:absolute;
+  position: absolute;
   padding-top: 40px;
 
 }

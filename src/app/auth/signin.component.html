@@ -5,28 +5,31 @@
         <div class="login-panel panel panel-default">
           <br>
           <div class="row">
-              <img  id="mala" src="/assets/img/tpeg.png" style="width: 50%; height: 30%">
-       <!--      <span id="mala" class="fa fa-suitcase" aria-hidden="true"></span> -->
+            <img id="mala" src="/assets/img/tpeg.png" style="width: 50%; height: 30%">
+            <!--      <span id="mala" class="fa fa-suitcase" aria-hidden="true"></span> -->
           </div>
-  <!--         <h3>TPE Metropolitano</h3> -->
-        <!--   <p>Santo André</p> -->
+          <!--         <h3>TPE Metropolitano</h3> -->
+          <!--   <p>Santo André</p> -->
 
           <div class="panel-body">
             <form name='form-login' role="form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
               <fieldset>
                 <div class="form-group">
                   <span class="fa fa-user"></span>
-                  <input class="form-control" placeholder="E-mail" name="email" type="email" formControlName="email" autofocus>
+                  <input class="form-control" placeholder="E-mail" name="email" type="email" formControlName="email"
+                         autofocus>
                 </div>
                 <div class="form-group">
                   <span class="fa fa-lock"></span>
-                  <input class="form-control" placeholder="Senha" name="password" type="password" formControlName="password" value="">
+                  <input class="form-control" placeholder="Senha" name="password" type="password"
+                         formControlName="password" value="">
                 </div>
 
                 <button class="btn btn-default" id="entrar" type="submit" [disabled]="!myForm.valid">Entrar</button>
                 <br>
-                <a style="margin-right:10%;float:right; font-size: 60%; position: right; color:blue;" id="recuperarSenha" value="recSenha"
-                  routerLink="/auth/sendpass" routerLinkActive="active">Recuperar Senha</a>
+                <a style="margin-right:10%;float:right; font-size: 60%; position: right; color:blue;"
+                   id="recuperarSenha" value="recSenha"
+                   routerLink="/auth/sendpass" routerLinkActive="active">Recuperar Senha</a>
               </fieldset>
             </form>
             <br>

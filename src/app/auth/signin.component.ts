@@ -1,10 +1,11 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 
 
-import { User } from "./user.model";
-import { AuthService } from "./auth.service";
+import {User} from './user.model';
+import {AuthService} from './auth.service';
+
 //import { CoolLocalStorage } from 'angular2-cool-storage';
 
 
@@ -14,14 +15,12 @@ import { AuthService } from "./auth.service";
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
- 
-  myForm: FormGroup;
 
- 
+  myForm: FormGroup;
 
 
   constructor(private authService: AuthService, private router: Router) {
-    
+
   }
 
   onSubmit() {
@@ -39,8 +38,8 @@ export class SigninComponent implements OnInit {
 
           this.authService.getPerfil()
             .subscribe(data => {
-              console.log(data);
-            },
+                console.log(data);
+              },
               error => console.error(error)
             );
           this.router.navigateByUrl('/');
@@ -48,7 +47,6 @@ export class SigninComponent implements OnInit {
         },
         error => console.error(error)
       );
-
 
 
     this.myForm.reset();

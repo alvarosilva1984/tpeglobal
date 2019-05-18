@@ -1,1 +1,54 @@
-{"moduleName":null,"summaries":[{"symbol":{"__symbol":0,"members":[]},"metadata":{"__symbolic":"class","members":{"__ctor__":[{"__symbolic":"constructor","parameters":[null,null,null,null,null,{"__symbolic":"error","message":"Expression form not supported","line":9,"character":32,"fileName":"assets\\app\\setup\\ponto.model.ts"},null,null,{"__symbolic":"error","message":"Could not resolve type","line":12,"character":33,"context":{"typeName":"File"},"fileName":"assets\\app\\setup\\ponto.model.ts"}]}]}}}],"symbols":[{"__symbol":0,"name":"Ponto","filePath":"./ponto.model"}]}
+{
+  "moduleName": null,
+  "summaries": [
+    {
+      "symbol": {
+        "__symbol": 0,
+        "members": []
+      },
+      "metadata": {
+        "__symbolic": "class",
+        "members": {
+          "__ctor__": [
+            {
+              "__symbolic": "constructor",
+              "parameters": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                {
+                  "__symbolic": "error",
+                  "message": "Expression form not supported",
+                  "line": 9,
+                  "character": 32,
+                  "fileName": "assets\\app\\setup\\ponto.model.ts"
+                },
+                null,
+                null,
+                {
+                  "__symbolic": "error",
+                  "message": "Could not resolve type",
+                  "line": 12,
+                  "character": 33,
+                  "context": {
+                    "typeName": "File"
+                  },
+                  "fileName": "assets\\app\\setup\\ponto.model.ts"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "symbols": [
+    {
+      "__symbol": 0,
+      "name": "Ponto",
+      "filePath": "./ponto.model"
+    }
+  ]
+}

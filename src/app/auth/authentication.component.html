@@ -1,119 +1,140 @@
 <header class="row spacing">
-        <nav *ngIf="isLoggedIn()" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-                <div class="container">
-                  <b><a style="color:white" class="navbar-brand" routerLinkActive="active" >TPE Metropolitano {{ cidade }}</a></b>
-                  <button class="navbar-toggler navbar-toggler-right" type="button" aria-controls="appNavigation" [attr.aria-expanded]="!isCollapsed" aria-label="Toggle navigation" (click)="toggleMenu()">
-                    <span class="navbar-toggler-icon"></span>
+  <nav *ngIf="isLoggedIn()" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <b><a style="color:white" class="navbar-brand" routerLinkActive="active">TPE Metropolitano {{ cidade }}</a></b>
+      <button class="navbar-toggler navbar-toggler-right" type="button" aria-controls="appNavigation"
+              [attr.aria-expanded]="!isCollapsed" aria-label="Toggle navigation" (click)="toggleMenu()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="appNavigation" [ngbCollapse]="isCollapsed">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item" routerLinkActive="active" *ngIf="!isLoggedIn()">
+            <a class="nav-link" [routerLink]="['signin']"></a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn()">
+            <a class="nav-link" [routerLink]="['logout']" (click)="toggleMenu()">Sair</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn() && isPleno()">
+            <a class="nav-link" [routerLink]="['signup']" (click)="toggleMenu()">Cadastro</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn()">
+            <a class="nav-link" [routerLink]="['anunciouser']" (click)="toggleMenu()">Anúncios</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn() && !isPleno() && !isGold() && !isCtc()">
+            <a class="nav-link" [routerLink]="['help']" (click)="toggleMenu()">Ajuda</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn() && !isPleno() && !isGold() && !isCtc()">
+            <a class="nav-link" [routerLink]="['perfil']" (click)="toggleMenu()">Perfil</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn()">
+            <a class="nav-link" [routerLink]="['newpass']" (click)="toggleMenu()">Senha</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn() && !isPleno() && !isGold() && !isCtc()">
+            <a class="nav-link" [routerLink]="['designations']" (click)="toggleMenu()">Designações</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn() && !isPleno() && !isGold() && !isCtc()">
+            <a class="nav-link" [routerLink]="['schedule2']" (click)="toggleMenu()">Agendamento</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn()">
+            <a class="nav-link" [routerLink]="['showpontos']" (click)="toggleMenu()">Pontos</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn() && !isPleno() && !isGold() && !isCtc()">
+            <a class="nav-link" [routerLink]="['telegram']" (click)="toggleMenu()">Telegram</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn() && ( isPleno() || isGold() )">
+            <a class="nav-link" [routerLink]="['listusers']" (click)="toggleMenu()">Usuários</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn() && ( isPleno() || isGold() )">
+            <a class="nav-link" [routerLink]="['statistic']" (click)="toggleMenu()">Estatística</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn() && ( isPleno() || isGold() || isCtc() )">
+            <a class="nav-link" [routerLink]="['newschedule']" (click)="toggleMenu()">Escala</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn() && ( isPleno() || isGold() || isCtc() )">
+            <a class="nav-link" [routerLink]="['report']" (click)="toggleMenu()">Relatórios</a>
+          </li>
+
+          <!--       <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn() && ( isAuthenticated() || isGold() )">
+                  <a class="nav-link" [routerLink]="['setup']" (click)="toggleMenu()">Setup</a>
+                </li> -->
+
+          <li class="nav-item dropdown" routerLinkActive="active"
+              *ngIf="isLoggedIn() && ( isAuthenticated() || isGold() )">
+
+            <div class="col">
+              <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Configurações</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+
+                  <button class="dropdown-item" ngbDropdownItem [routerLink]="['newponto']" (click)="toggleMenu()">
+                    Pontos
                   </button>
-                    <div class="collapse navbar-collapse" id="appNavigation" [ngbCollapse]="isCollapsed" >
-                      <ul class="navbar-nav ml-auto">
-                      <li class="nav-item" routerLinkActive="active" *ngIf="!isLoggedIn()">
-                          <a class="nav-link" [routerLink]="['signin']"></a>
-                        </li>
-                    <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn()">
-                      <a class="nav-link"  [routerLink]="['logout']" (click)="toggleMenu()">Sair</a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn() && isPleno()">
-                      <a class="nav-link"  [routerLink]="['signup']" (click)="toggleMenu()">Cadastro</a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn()">
-                      <a class="nav-link"  [routerLink]="['anunciouser']" (click)="toggleMenu()">Anúncios</a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn() && !isPleno() && !isGold() && !isCtc()">
-                      <a class="nav-link" [routerLink]="['help']" (click)="toggleMenu()">Ajuda</a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn() && !isPleno() && !isGold() && !isCtc()">
-                      <a class="nav-link" [routerLink]="['perfil']" (click)="toggleMenu()">Perfil</a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn()">
-                      <a class="nav-link"  [routerLink]="['newpass']" (click)="toggleMenu()">Senha</a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn() && !isPleno() && !isGold() && !isCtc()">
-                      <a class="nav-link" [routerLink]="['designations']" (click)="toggleMenu()">Designações</a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn() && !isPleno() && !isGold() && !isCtc()">
-                      <a class="nav-link" [routerLink]="['schedule2']" (click)="toggleMenu()">Agendamento</a>
-                    </li>
-                     <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn()">
-                        <a class="nav-link" [routerLink]="['showpontos']" (click)="toggleMenu()">Pontos</a>
-                      </li>
-                    <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn() && !isPleno() && !isGold() && !isCtc()">
-                      <a class="nav-link" [routerLink]="['telegram']" (click)="toggleMenu()">Telegram</a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn() && ( isPleno() || isGold() )">
-                      <a class="nav-link" [routerLink]="['listusers']" (click)="toggleMenu()">Usuários</a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn() && ( isPleno() || isGold() )">
-                      <a class="nav-link" [routerLink]="['statistic']" (click)="toggleMenu()">Estatística</a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn() && ( isPleno() || isGold() || isCtc() )">
-                      <a class="nav-link" [routerLink]="['newschedule']" (click)="toggleMenu()">Escala</a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn() && ( isPleno() || isGold() || isCtc() )">
-                      <a class="nav-link" [routerLink]="['report']" (click)="toggleMenu()">Relatórios</a>
-                    </li>
+                  <button class="dropdown-item" ngbDropdownItem [routerLink]="['hora']" (click)="toggleMenu()">
+                    Horários
+                  </button>
+                  <button class="dropdown-item" ngbDropdownItem [routerLink]="['excel']" (click)="toggleMenu()">Dia x
+                    Ponto x Horário
+                  </button>
+                  <button class="dropdown-item" ngbDropdownItem [routerLink]="['feriado']" (click)="toggleMenu()">
+                    Feriados
+                  </button>
+                  <button class="dropdown-item" ngbDropdownItem [routerLink]="['circuito']" (click)="toggleMenu()">
+                    Circuitos
+                  </button>
+                  <button class="dropdown-item" ngbDropdownItem [routerLink]="['congregation']" (click)="toggleMenu()">
+                    Congregações
+                  </button>
+                  <button class="dropdown-item" ngbDropdownItem [routerLink]="['validity']" (click)="toggleMenu()">
+                    Vigências
+                  </button>
+                  <button class="dropdown-item" ngbDropdownItem [routerLink]="['especial']" (click)="toggleMenu()">Dias
+                    Especiais
+                  </button>
+                  <button class="dropdown-item" ngbDropdownItem [routerLink]="['anuncio']" (click)="toggleMenu()">
+                    Anúncios
+                  </button>
+                  <button class="dropdown-item" ngbDropdownItem [routerLink]="['perfilrole']" (click)="toggleMenu()">
+                    Perfil Adm
+                  </button>
 
-              <!--       <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn() && ( isAuthenticated() || isGold() )">
-                      <a class="nav-link" [routerLink]="['setup']" (click)="toggleMenu()">Setup</a>
-                    </li> -->
-
-                    <li class="nav-item dropdown" routerLinkActive="active" *ngIf="isLoggedIn() && ( isAuthenticated() || isGold() )">
-
-                        <div class="col">
-                          <div ngbDropdown class="d-inline-block">
-                            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Configurações</button>
-                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-
-                                <button  class="dropdown-item" ngbDropdownItem [routerLink]="['newponto']" (click)="toggleMenu()">Pontos</button>
-                                <button  class="dropdown-item" ngbDropdownItem [routerLink]="['hora']" (click)="toggleMenu()">Horários</button>
-                                <button  class="dropdown-item" ngbDropdownItem [routerLink]="['excel']" (click)="toggleMenu()">Dia x Ponto x Horário</button>
-                                <button  class="dropdown-item" ngbDropdownItem [routerLink]="['feriado']" (click)="toggleMenu()">Feriados</button>
-                                <button  class="dropdown-item" ngbDropdownItem [routerLink]="['circuito']" (click)="toggleMenu()">Circuitos</button>
-                                <button  class="dropdown-item" ngbDropdownItem [routerLink]="['congregation']" (click)="toggleMenu()">Congregações</button>
-                                <button  class="dropdown-item" ngbDropdownItem [routerLink]="['validity']" (click)="toggleMenu()">Vigências</button>
-                                <button  class="dropdown-item" ngbDropdownItem [routerLink]="['especial']" (click)="toggleMenu()">Dias Especiais</button>
-                                <button  class="dropdown-item" ngbDropdownItem [routerLink]="['anuncio']" (click)="toggleMenu()">Anúncios</button>
-                                <button  class="dropdown-item" ngbDropdownItem [routerLink]="['perfilrole']" (click)="toggleMenu()">Perfil Adm</button>
-
-                            </div>
-                          </div>
-                        </div>
-                        <!-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                          <a class="dropdown-item" [routerLink]="['newponto']" (click)="toggleMenu()">Pontos</a>
-                          <a class="dropdown-item" [routerLink]="['hora']" (click)="toggleMenu()">Horários</a>
-                          <a class="dropdown-item" [routerLink]="['excel']" (click)="toggleMenu()">Dia x Ponto x Horário</a>
-                          <a class="dropdown-item" [routerLink]="['feriado']" (click)="toggleMenu()">Feriados</a>
-                          <a class="dropdown-item" [routerLink]="['circuito']" (click)="toggleMenu()">Circuitos</a>
-                          <a class="dropdown-item" [routerLink]="['congregation']" (click)="toggleMenu()">Congregações</a>
-                          <a class="dropdown-item" [routerLink]="['validity']" (click)="toggleMenu()">Vigências</a>
-                          <a class="dropdown-item" [routerLink]="['especial']" (click)="toggleMenu()">Dias Especiais</a>
-                          <a class="dropdown-item" [routerLink]="['anuncio']" (click)="toggleMenu()">Anúncios</a>
-                          <a class="dropdown-item" [routerLink]="['perfilrole']" (click)="toggleMenu()">Perfil Adm</a>
-                        </div> -->
-                      </li>
-                  </ul>
                 </div>
-                </div>
-              </nav>
+              </div>
+            </div>
+            <!-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+              <a class="dropdown-item" [routerLink]="['newponto']" (click)="toggleMenu()">Pontos</a>
+              <a class="dropdown-item" [routerLink]="['hora']" (click)="toggleMenu()">Horários</a>
+              <a class="dropdown-item" [routerLink]="['excel']" (click)="toggleMenu()">Dia x Ponto x Horário</a>
+              <a class="dropdown-item" [routerLink]="['feriado']" (click)="toggleMenu()">Feriados</a>
+              <a class="dropdown-item" [routerLink]="['circuito']" (click)="toggleMenu()">Circuitos</a>
+              <a class="dropdown-item" [routerLink]="['congregation']" (click)="toggleMenu()">Congregações</a>
+              <a class="dropdown-item" [routerLink]="['validity']" (click)="toggleMenu()">Vigências</a>
+              <a class="dropdown-item" [routerLink]="['especial']" (click)="toggleMenu()">Dias Especiais</a>
+              <a class="dropdown-item" [routerLink]="['anuncio']" (click)="toggleMenu()">Anúncios</a>
+              <a class="dropdown-item" [routerLink]="['perfilrole']" (click)="toggleMenu()">Perfil Adm</a>
+            </div> -->
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
 </header>
 
 <body>
 
 
-  <div *ngIf="onWelcome()" class="container" >
+<div *ngIf="onWelcome()" class="container">
 
 
-
-      <br><br><br><br>
-      <h3>Olá {{name}}</h3>
-      <div id="logo-container">
-    <img  style="width: 250px;" src="/assets/img/welcome2.jpg" >
+  <br><br><br><br>
+  <h3>Olá {{name}}</h3>
+  <div id="logo-container">
+    <img style="width: 250px;" src="/assets/img/welcome2.jpg">
   </div>
 
-  </div>
+</div>
 <div>
-    <br><br><br>
-   <router-outlet></router-outlet>
+  <br><br><br>
+  <router-outlet></router-outlet>
 </div>
 </body>

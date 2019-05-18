@@ -1,1 +1,21 @@
-{"moduleName":null,"summaries":[{"symbol":{"__symbol":0,"members":[]},"metadata":{"__symbolic":"interface"}}],"symbols":[{"__symbol":0,"name":"Perfilrole","filePath":"./perfilrole.model"}]}
+{
+  "moduleName": null,
+  "summaries": [
+    {
+      "symbol": {
+        "__symbol": 0,
+        "members": []
+      },
+      "metadata": {
+        "__symbolic": "interface"
+      }
+    }
+  ],
+  "symbols": [
+    {
+      "__symbol": 0,
+      "name": "Perfilrole",
+      "filePath": "./perfilrole.model"
+    }
+  ]
+}

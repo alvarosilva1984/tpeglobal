@@ -1,16 +1,18 @@
-import { CanActivate } from "@angular/router/src/interfaces";
-import { ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
-import { AuthService } from "./auth.service";
-import { Injectable } from "@angular/core";
+import {CanActivate} from '@angular/router/src/interfaces';
+import {ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
+import {AuthService} from './auth.service';
+import {Injectable} from '@angular/core';
 
 @Injectable()
-export class Logisticguard implements CanActivate{
+export class Logisticguard implements CanActivate {
 
-    constructor(private authService: AuthService) {}
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
+  constructor(private authService: AuthService) {
+  }
 
-        return this.authService.isGold();
-    }
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 
-    
-}  
+    return this.authService.isGold();
+  }
+
+
+}

@@ -1,6 +1,6 @@
 export class Config {
-    constructor( public config?: [[string]]
-
-) {}
+  constructor(public config?: [[string]]
+  ) {
+  }
 
 }

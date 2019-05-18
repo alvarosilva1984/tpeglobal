@@ -3,6 +3,6 @@
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */ 
+ */
 var styles = [""];
-export { styles as styles };
+export {styles as styles};

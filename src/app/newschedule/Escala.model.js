@@ -1,3 +1,4 @@
 export class Escala {
-    constructor(dia, diasemana, datainicio, datafim, data, hora, pontos, escalaid) { }
+  constructor(dia, diasemana, datainicio, datafim, data, hora, pontos, escalaid) {
+  }
 }

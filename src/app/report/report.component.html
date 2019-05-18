@@ -13,14 +13,16 @@
 
         </div>
         <div class="form-group col-md-3">
-          <button type="submit" class="form-control" [disabled]="validMyForm()" style="padding: 22px 26px" class="btn btn-primary">Buscar</button>
+          <button type="submit" class="form-control" [disabled]="validMyForm()" style="padding: 22px 26px"
+                  class="btn btn-primary">Buscar
+          </button>
         </div>
       </div>
-        <div class="form-row col-md-5">
-          <h4>Total de designações: {{totaldesignacoes}}</h4>
-          <hr>
-        </div>
-      
+      <div class="form-row col-md-5">
+        <h4>Total de designações: {{totaldesignacoes}}</h4>
+        <hr>
+      </div>
+
     </form>
 
     <div class="row">
@@ -28,7 +30,7 @@
         <div class="form-group">
           <label for="circuito">Circuito</label>
           <select [(ngModel)]="circuito" id="circuito" class="form-control" (change)="onCircuito()">
-            <option> </option>
+            <option></option>
             <option *ngFor="let circuito of circuitos" [ngValue]="circuito">{{circuito?.nome}}</option>
           </select>
         </div>
@@ -38,7 +40,7 @@
         <div class="form-group">
           <label for="congregation">Congregação</label>
           <select [(ngModel)]="congregation" class="form-control" (change)="onCongregacao()">
-            <option> </option>
+            <option></option>
             <option *ngFor="let congregation of congregations" [ngValue]="congregation">{{congregation?.nome}}</option>
           </select>
         </div>
@@ -48,23 +50,29 @@
 
     <div class="row">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
-          <li class="nav-item">
-              <a class="nav-link active" id="aba0-tab" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true" (click)="onAba0()">Por Período</a>
-            </li>
         <li class="nav-item">
-          <a class="nav-link" id="aba1-tab" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true" (click)="onAba1()">Sem confirmação</a>
+          <a class="nav-link active" id="aba0-tab" data-toggle="tab" role="tab" aria-controls="home"
+             aria-selected="true" (click)="onAba0()">Por Período</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="aba2-tab" data-toggle="tab" role="tab" aria-controls="profile" aria-selected="false" (click)="onAba2()">Recusadas</a>
+          <a class="nav-link" id="aba1-tab" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true"
+             (click)="onAba1()">Sem confirmação</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="aba3-tab" data-toggle="tab" role="tab" aria-controls="profile" aria-selected="false" (click)="onAba3()">Substituições</a>
+          <a class="nav-link" id="aba2-tab" data-toggle="tab" role="tab" aria-controls="profile" aria-selected="false"
+             (click)="onAba2()">Recusadas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="aba4-tab" data-toggle="tab" role="tab" aria-controls="profile" aria-selected="false" (click)="onAba4()">Gráficos</a>
+          <a class="nav-link" id="aba3-tab" data-toggle="tab" role="tab" aria-controls="profile" aria-selected="false"
+             (click)="onAba3()">Substituições</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="aba5-tab" data-toggle="tab" role="tab" aria-controls="profile" aria-selected="false" (click)="onAba5()">Companheiro</a>
+          <a class="nav-link" id="aba4-tab" data-toggle="tab" role="tab" aria-controls="profile" aria-selected="false"
+             (click)="onAba4()">Gráficos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="aba5-tab" data-toggle="tab" role="tab" aria-controls="profile" aria-selected="false"
+             (click)="onAba5()">Companheiro</a>
         </li>
 
       </ul>
@@ -74,64 +82,69 @@
     <br>
 
     <div *ngIf="abaperiodo">
-        <h4>Designações por Período:</h4>  
+      <h4>Designações por Período:</h4>
 
-        <button (click)="sortAlpha()" type="button" class="btn btn-default btn-sm">
-            <i class="fa fa-sort-alpha-asc"></i> 
-          </button>
+      <button (click)="sortAlpha()" type="button" class="btn btn-default btn-sm">
+        <i class="fa fa-sort-alpha-asc"></i>
+      </button>
 
-          <button (click)="sortAsc()" type="button" class="btn btn-default btn-sm">
-              <i class="fa fa-sort-amount-asc"></i> 
-            </button>
+      <button (click)="sortAsc()" type="button" class="btn btn-default btn-sm">
+        <i class="fa fa-sort-amount-asc"></i>
+      </button>
 
-            <button (click)="sortDesc()" type="button" class="btn btn-default btn-sm">
-                <i class="	fa fa-sort-amount-desc"></i> 
-              </button>
+      <button (click)="sortDesc()" type="button" class="btn btn-default btn-sm">
+        <i class="	fa fa-sort-amount-desc"></i>
+      </button>
 
-        <div class="table-responsive">
-          <div class="card-body">
-            <table class="table table-bordered">
-  
-              <thead>
-                <tr>
-                  <th style="vertical-align: middle !important; text-align: left;">Total</th>
-                  <th style="vertical-align: middle !important; text-align: left;">Nome</th>
-                  <th style="vertical-align: middle !important; text-align: left;">Circuito</th>
-                  <th style="vertical-align: middle !important; text-align: left;">Congregação</th>
-                  <th style="vertical-align: middle !important; text-align: left;">Telefone</th>
-                  <th style="vertical-align: middle !important; text-align: left;">Email</th>
-                  <th style="vertical-align: middle !important; text-align: left;">Telegram</th>
-                </tr>
-  
-              </thead>
-              <tbody>
-  
-  
-  
-                <tr *ngFor="let obj of totalhistorico; let i = index">
-                  <td style="vertical-align: middle !important; text-align: center;">{{ obj.total }}</td>
-                  <td [style.color]="getStyle(obj.user?.sex)" style="vertical-align: middle !important; text-align: left;">{{ obj.user?.firstName }} {{ obj.user?.lastName}} </td>
-                  <td style="vertical-align: middle !important; text-align: left;">{{ encontraCircuito(obj.user?.circuito) }}</td>
-                  <td style="vertical-align: middle !important; text-align: left;">{{ encontraCongregacao(obj.user?.congregation) }}</td>
-                  <td style="vertical-align: middle !important; text-align: left;">{{ obj.user?.mobilephone || obj.user?.phone }}</td>
-                  <td style="vertical-align: middle !important; text-align: left;">{{ obj.user?.email }}</td>
-                  <td *ngIf="getTelegram(obj.user?.telegram) == 'SIM'" ><i class="fa fa-check-circle-o" style="font-size:40px;color:green"></i></td>
-                  <td *ngIf="getTelegram(obj.user?.telegram) == 'NÃO'" ><i class="fa fa-times-circle-o" style="font-size:40px;color:red"></i></td>
-                  <!-- <td style="vertical-align: middle !important; text-align: left;">getTelegram(obj.user?.telegram) }}</td> -->
-                </tr>
-  
-  
-              </tbody>
-  
-            </table>
-            <!-- <div *ngIf="existPerfil(pont)"> -->
-  
-            <br>
-            <br>
-          </div>
-  
+      <div class="table-responsive">
+        <div class="card-body">
+          <table class="table table-bordered">
+
+            <thead>
+            <tr>
+              <th style="vertical-align: middle !important; text-align: left;">Total</th>
+              <th style="vertical-align: middle !important; text-align: left;">Nome</th>
+              <th style="vertical-align: middle !important; text-align: left;">Circuito</th>
+              <th style="vertical-align: middle !important; text-align: left;">Congregação</th>
+              <th style="vertical-align: middle !important; text-align: left;">Telefone</th>
+              <th style="vertical-align: middle !important; text-align: left;">Email</th>
+              <th style="vertical-align: middle !important; text-align: left;">Telegram</th>
+            </tr>
+
+            </thead>
+            <tbody>
+
+
+            <tr *ngFor="let obj of totalhistorico; let i = index">
+              <td style="vertical-align: middle !important; text-align: center;">{{ obj.total }}</td>
+              <td [style.color]="getStyle(obj.user?.sex)"
+                  style="vertical-align: middle !important; text-align: left;">{{ obj.user?.firstName }} {{ obj.user?.lastName}} </td>
+              <td
+                style="vertical-align: middle !important; text-align: left;">{{ encontraCircuito(obj.user?.circuito) }}</td>
+              <td
+                style="vertical-align: middle !important; text-align: left;">{{ encontraCongregacao(obj.user?.congregation) }}</td>
+              <td
+                style="vertical-align: middle !important; text-align: left;">{{ obj.user?.mobilephone || obj.user?.phone }}</td>
+              <td style="vertical-align: middle !important; text-align: left;">{{ obj.user?.email }}</td>
+              <td *ngIf="getTelegram(obj.user?.telegram) == 'SIM'"><i class="fa fa-check-circle-o"
+                                                                      style="font-size:40px;color:green"></i></td>
+              <td *ngIf="getTelegram(obj.user?.telegram) == 'NÃO'"><i class="fa fa-times-circle-o"
+                                                                      style="font-size:40px;color:red"></i></td>
+              <!-- <td style="vertical-align: middle !important; text-align: left;">getTelegram(obj.user?.telegram) }}</td> -->
+            </tr>
+
+
+            </tbody>
+
+          </table>
+          <!-- <div *ngIf="existPerfil(pont)"> -->
+
+          <br>
+          <br>
         </div>
+
       </div>
+    </div>
 
     <div *ngIf="abasemconfirmacao">
       <h4>Designações não confirmadas: {{semresposta.length}}</h4>
@@ -141,31 +154,36 @@
           <table class="table table-bordered">
 
             <thead>
-              <tr>
-                <th style="vertical-align: middle !important; text-align: left;">Data</th>
-                <th style="vertical-align: middle !important; text-align: left;">Nome</th>
-                <th style="vertical-align: middle !important; text-align: left;">Circuito</th>
-                <th style="vertical-align: middle !important; text-align: left;">Congregação</th>
-                <th style="vertical-align: middle !important; text-align: left;">Telefone</th>
-                <th style="vertical-align: middle !important; text-align: left;">Email</th>
-                <th style="vertical-align: middle !important; text-align: left;">Telegram</th>
-              </tr>
+            <tr>
+              <th style="vertical-align: middle !important; text-align: left;">Data</th>
+              <th style="vertical-align: middle !important; text-align: left;">Nome</th>
+              <th style="vertical-align: middle !important; text-align: left;">Circuito</th>
+              <th style="vertical-align: middle !important; text-align: left;">Congregação</th>
+              <th style="vertical-align: middle !important; text-align: left;">Telefone</th>
+              <th style="vertical-align: middle !important; text-align: left;">Email</th>
+              <th style="vertical-align: middle !important; text-align: left;">Telegram</th>
+            </tr>
 
             </thead>
             <tbody>
 
 
-
-              <tr *ngFor="let obj of semresposta; let i = index">
-                <td style="vertical-align: middle !important; text-align: center;">{{ obj.data }}</td>
-                <td [style.color]="getStyle(obj.user?.sex)" style="vertical-align: middle !important; text-align: left;">{{ obj.user?.firstName }} {{ obj.user?.lastName}} </td>
-                <td style="vertical-align: middle !important; text-align: left;">{{ encontraCircuito(obj.user?.circuito) }}</td>
-                <td style="vertical-align: middle !important; text-align: left;">{{ encontraCongregacao(obj.user?.congregation) }}</td>
-                <td style="vertical-align: middle !important; text-align: left;">{{ obj.user?.mobilephone || obj.user?.phone }}</td>
-                <td style="vertical-align: middle !important; text-align: left;">{{ obj.user?.email }}</td>
-                <td *ngIf="getTelegram(obj.user?.telegram) == 'SIM'" ><i class="fa fa-check-circle-o" style="font-size:40px;color:green"></i></td>
-                <td *ngIf="getTelegram(obj.user?.telegram) == 'NÃO'" ><i class="fa fa-times-circle-o" style="font-size:40px;color:red"></i></td>
-              </tr>
+            <tr *ngFor="let obj of semresposta; let i = index">
+              <td style="vertical-align: middle !important; text-align: center;">{{ obj.data }}</td>
+              <td [style.color]="getStyle(obj.user?.sex)"
+                  style="vertical-align: middle !important; text-align: left;">{{ obj.user?.firstName }} {{ obj.user?.lastName}} </td>
+              <td
+                style="vertical-align: middle !important; text-align: left;">{{ encontraCircuito(obj.user?.circuito) }}</td>
+              <td
+                style="vertical-align: middle !important; text-align: left;">{{ encontraCongregacao(obj.user?.congregation) }}</td>
+              <td
+                style="vertical-align: middle !important; text-align: left;">{{ obj.user?.mobilephone || obj.user?.phone }}</td>
+              <td style="vertical-align: middle !important; text-align: left;">{{ obj.user?.email }}</td>
+              <td *ngIf="getTelegram(obj.user?.telegram) == 'SIM'"><i class="fa fa-check-circle-o"
+                                                                      style="font-size:40px;color:green"></i></td>
+              <td *ngIf="getTelegram(obj.user?.telegram) == 'NÃO'"><i class="fa fa-times-circle-o"
+                                                                      style="font-size:40px;color:red"></i></td>
+            </tr>
 
 
             </tbody>
@@ -187,31 +205,36 @@
           <table class="table table-bordered">
 
             <thead>
-              <tr>
-                <th style="vertical-align: middle !important; text-align: left;">Total</th>
-                <th style="vertical-align: middle !important; text-align: left;">Nome</th>
-                <th style="vertical-align: middle !important; text-align: left;">Circuito</th>
-                <th style="vertical-align: middle !important; text-align: left;">Congregação</th>
-                <th style="vertical-align: middle !important; text-align: left;">Telefone</th>
-                <th style="vertical-align: middle !important; text-align: left;">Email</th>
-                <th style="vertical-align: middle !important; text-align: left;">Telegram</th>
-              </tr>
+            <tr>
+              <th style="vertical-align: middle !important; text-align: left;">Total</th>
+              <th style="vertical-align: middle !important; text-align: left;">Nome</th>
+              <th style="vertical-align: middle !important; text-align: left;">Circuito</th>
+              <th style="vertical-align: middle !important; text-align: left;">Congregação</th>
+              <th style="vertical-align: middle !important; text-align: left;">Telefone</th>
+              <th style="vertical-align: middle !important; text-align: left;">Email</th>
+              <th style="vertical-align: middle !important; text-align: left;">Telegram</th>
+            </tr>
 
             </thead>
             <tbody>
 
 
-
-              <tr *ngFor="let obj of totalnao; let i = index">
-                <td style="vertical-align: middle !important; text-align: center;">{{ obj.nao}}/{{obj.sim }}</td>
-                <td [style.color]="getStyle(obj.user?.sex)" style="vertical-align: middle !important; text-align: left;">{{ obj.user?.firstName }} {{ obj.user?.lastName}} </td>
-                <td style="vertical-align: middle !important; text-align: left;">{{ encontraCircuito(obj.user?.circuito) }}</td>
-                <td style="vertical-align: middle !important; text-align: left;">{{ encontraCongregacao(obj.user?.congregation) }}</td>
-                <td style="vertical-align: middle !important; text-align: left;">{{ obj.user?.mobilephone || obj.user?.phone }}</td>
-                <td style="vertical-align: middle !important; text-align: left;">{{ obj.user?.email }}</td>
-                <td *ngIf="getTelegram(obj.user?.telegram) == 'SIM'" ><i class="fa fa-check-circle-o" style="font-size:40px;color:green"></i></td>
-                <td *ngIf="getTelegram(obj.user?.telegram) == 'NÃO'" ><i class="fa fa-times-circle-o" style="font-size:40px;color:red"></i></td>
-              </tr>
+            <tr *ngFor="let obj of totalnao; let i = index">
+              <td style="vertical-align: middle !important; text-align: center;">{{ obj.nao}}/{{obj.sim }}</td>
+              <td [style.color]="getStyle(obj.user?.sex)"
+                  style="vertical-align: middle !important; text-align: left;">{{ obj.user?.firstName }} {{ obj.user?.lastName}} </td>
+              <td
+                style="vertical-align: middle !important; text-align: left;">{{ encontraCircuito(obj.user?.circuito) }}</td>
+              <td
+                style="vertical-align: middle !important; text-align: left;">{{ encontraCongregacao(obj.user?.congregation) }}</td>
+              <td
+                style="vertical-align: middle !important; text-align: left;">{{ obj.user?.mobilephone || obj.user?.phone }}</td>
+              <td style="vertical-align: middle !important; text-align: left;">{{ obj.user?.email }}</td>
+              <td *ngIf="getTelegram(obj.user?.telegram) == 'SIM'"><i class="fa fa-check-circle-o"
+                                                                      style="font-size:40px;color:green"></i></td>
+              <td *ngIf="getTelegram(obj.user?.telegram) == 'NÃO'"><i class="fa fa-times-circle-o"
+                                                                      style="font-size:40px;color:red"></i></td>
+            </tr>
 
 
             </tbody>
@@ -235,31 +258,36 @@
           <table class="table table-bordered">
 
             <thead>
-              <tr>
-                <th style="vertical-align: middle !important; text-align: left;">Total</th>
-                <th style="vertical-align: middle !important; text-align: left;">Nome</th>
-                <th style="vertical-align: middle !important; text-align: left;">Circuito</th>
-                <th style="vertical-align: middle !important; text-align: left;">Congregação</th>
-                <th style="vertical-align: middle !important; text-align: left;">Telefone</th>
-                <th style="vertical-align: middle !important; text-align: left;">Email</th>
-                <th style="vertical-align: middle !important; text-align: left;">Telegram</th>
-              </tr>
+            <tr>
+              <th style="vertical-align: middle !important; text-align: left;">Total</th>
+              <th style="vertical-align: middle !important; text-align: left;">Nome</th>
+              <th style="vertical-align: middle !important; text-align: left;">Circuito</th>
+              <th style="vertical-align: middle !important; text-align: left;">Congregação</th>
+              <th style="vertical-align: middle !important; text-align: left;">Telefone</th>
+              <th style="vertical-align: middle !important; text-align: left;">Email</th>
+              <th style="vertical-align: middle !important; text-align: left;">Telegram</th>
+            </tr>
 
             </thead>
             <tbody>
 
 
-
-              <tr *ngFor="let obj of totalsub; let i = index">
-                <td style="vertical-align: middle !important; text-align: center;">{{ obj.sub }}</td>
-                <td [style.color]="getStyle(obj.user?.sex)" style="vertical-align: middle !important; text-align: left;">{{ obj.user?.firstName }} {{ obj.user?.lastName}} </td>
-                <td style="vertical-align: middle !important; text-align: left;">{{ encontraCircuito(obj.user?.circuito) }}</td>
-                <td style="vertical-align: middle !important; text-align: left;">{{ encontraCongregacao(obj.user?.congregation) }}</td>
-                <td style="vertical-align: middle !important; text-align: left;">{{ obj.user?.mobilephone || obj.user?.phone }}</td>
-                <td style="vertical-align: middle !important; text-align: left;">{{ obj.user?.email }}</td>
-                <td *ngIf="getTelegram(obj.user?.telegram) == 'SIM'" ><i class="fa fa-check-circle-o" style="font-size:40px;color:green"></i></td>
-                <td *ngIf="getTelegram(obj.user?.telegram) == 'NÃO'" ><i class="fa fa-times-circle-o" style="font-size:40px;color:red"></i></td>
-              </tr>
+            <tr *ngFor="let obj of totalsub; let i = index">
+              <td style="vertical-align: middle !important; text-align: center;">{{ obj.sub }}</td>
+              <td [style.color]="getStyle(obj.user?.sex)"
+                  style="vertical-align: middle !important; text-align: left;">{{ obj.user?.firstName }} {{ obj.user?.lastName}} </td>
+              <td
+                style="vertical-align: middle !important; text-align: left;">{{ encontraCircuito(obj.user?.circuito) }}</td>
+              <td
+                style="vertical-align: middle !important; text-align: left;">{{ encontraCongregacao(obj.user?.congregation) }}</td>
+              <td
+                style="vertical-align: middle !important; text-align: left;">{{ obj.user?.mobilephone || obj.user?.phone }}</td>
+              <td style="vertical-align: middle !important; text-align: left;">{{ obj.user?.email }}</td>
+              <td *ngIf="getTelegram(obj.user?.telegram) == 'SIM'"><i class="fa fa-check-circle-o"
+                                                                      style="font-size:40px;color:green"></i></td>
+              <td *ngIf="getTelegram(obj.user?.telegram) == 'NÃO'"><i class="fa fa-times-circle-o"
+                                                                      style="font-size:40px;color:red"></i></td>
+            </tr>
 
 
             </tbody>
@@ -275,9 +303,9 @@
     </div>
 
     <div *ngIf="abagraficos">
-      
-        </div>
- 
+
+    </div>
+
 
     <div *ngIf="abacompanheiro">
       <h4>Total de irmãos: {{userscomp.length}}</h4>
@@ -286,27 +314,31 @@
           <table class="table table-bordered">
 
             <thead>
-              <tr>
-                <th style="vertical-align: middle !important; text-align: left;">Nome</th>
-                <th style="vertical-align: middle !important; text-align: left;">Circuito</th>
-                <th style="vertical-align: middle !important; text-align: left;">Congregação</th>
-                <th style="vertical-align: middle !important; text-align: left;">Companheiro</th>
-                <th style="vertical-align: middle !important; text-align: left;">Responsavel</th>
-              </tr>
+            <tr>
+              <th style="vertical-align: middle !important; text-align: left;">Nome</th>
+              <th style="vertical-align: middle !important; text-align: left;">Circuito</th>
+              <th style="vertical-align: middle !important; text-align: left;">Congregação</th>
+              <th style="vertical-align: middle !important; text-align: left;">Companheiro</th>
+              <th style="vertical-align: middle !important; text-align: left;">Responsavel</th>
+            </tr>
 
             </thead>
             <tbody>
 
 
+            <tr *ngFor="let obj of userscomp; let i = index">
+              <td [style.color]="getStyle(obj?.sex)"
+                  style="vertical-align: middle !important; text-align: left;">{{ obj?.firstName }} {{ obj?.lastName}} </td>
+              <td
+                style="vertical-align: middle !important; text-align: left;">{{ encontraCircuito(obj?.circuito) }}</td>
+              <td
+                style="vertical-align: middle !important; text-align: left;">{{ encontraCongregacao(obj?.congregation) }}</td>
+              <td [style.color]="getStyleId(obj?.conjuge)"
+                  style="vertical-align: middle !important; text-align: left;">{{ encontraId(obj?.conjuge) }}</td>
+              <td [style.color]="getStyleId(obj?.responsable)"
+                  style="vertical-align: middle !important; text-align: left;">{{ encontraId(obj?.responsable) }}</td>
 
-              <tr *ngFor="let obj of userscomp; let i = index">
-                <td [style.color]="getStyle(obj?.sex)" style="vertical-align: middle !important; text-align: left;">{{ obj?.firstName }} {{ obj?.lastName}} </td>
-                <td style="vertical-align: middle !important; text-align: left;">{{ encontraCircuito(obj?.circuito) }}</td>
-                <td style="vertical-align: middle !important; text-align: left;">{{ encontraCongregacao(obj?.congregation) }}</td>
-                <td [style.color]="getStyleId(obj?.conjuge)" style="vertical-align: middle !important; text-align: left;">{{ encontraId(obj?.conjuge) }}</td>
-                <td [style.color]="getStyleId(obj?.responsable)" style="vertical-align: middle !important; text-align: left;">{{ encontraId(obj?.responsable) }}</td>
-
-              </tr>
+            </tr>
 
 
             </tbody>

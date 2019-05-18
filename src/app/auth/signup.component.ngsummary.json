@@ -1,1 +1,280 @@
-{"moduleName":null,"summaries":[{"symbol":{"__symbol":0,"members":[]},"metadata":{"__symbolic":"class","members":{"__ctor__":[{"__symbolic":"constructor","parameters":[{"__symbolic":"resolved","symbol":{"__symbol":1,"members":[]},"line":107,"character":37,"fileName":"assets\\app\\auth\\signup.component.ts"},{"__symbolic":"resolved","symbol":{"__symbol":2,"members":[]},"line":107,"character":66,"fileName":"assets\\app\\auth\\signup.component.ts"}]}],"onSubmit":[{"__symbolic":"method"}],"ngOnInit":[{"__symbolic":"method"}],"changeCongregation":[{"__symbolic":"method"}],"changeResponsableAndConjuge":[{"__symbolic":"method"}],"responsableNeed":[{"__symbolic":"method"}],"existConjuge":[{"__symbolic":"method"}],"getAge":[{"__symbolic":"method"}],"horasExistentes":[{"__symbolic":"method"}],"anteriorDia":[{"__symbolic":"method"}],"proximoDia":[{"__symbolic":"method"}],"changed":[{"__symbolic":"method"}],"valorCheck":[{"__symbolic":"method"}],"setValuesToForm":[{"__symbolic":"method"}],"userSelected":[{"__symbolic":"method"}],"vezesFds":[{"__symbolic":"method"}],"valueInput":[{"__symbolic":"method"}],"doEnabled":[{"__symbolic":"method"}],"criarForm":[{"__symbolic":"method"}],"goCadastro":[{"__symbolic":"method"}],"onCirc":[{"__symbolic":"method"}],"onCong":[{"__symbolic":"method"}],"proximoUser":[{"__symbolic":"method"}],"anteriorUser":[{"__symbolic":"method"}],"inputCheckCondition":[{"__symbolic":"method"}],"inputCondition":[{"__symbolic":"method"}],"validMyForm":[{"__symbolic":"method"}]}},"type":{"summaryKind":1,"type":{"reference":{"__symbol":0,"members":[]},"diDeps":[{"isAttribute":false,"isHost":false,"isSelf":false,"isSkipSelf":false,"isOptional":false,"token":{"identifier":{"reference":{"__symbol":1,"members":[]}}}},{"isAttribute":false,"isHost":false,"isSelf":false,"isSkipSelf":false,"isOptional":false,"token":{"identifier":{"reference":{"__symbol":2,"members":[]}}}}],"lifecycleHooks":[0]},"isComponent":true,"selector":"app-signup","exportAs":null,"inputs":{},"outputs":{},"hostListeners":{},"hostProperties":{},"hostAttributes":{},"providers":[],"viewProviders":[],"queries":[],"guards":{},"viewQueries":[],"entryComponents":[],"changeDetection":1,"template":{"ngContentSelectors":[],"encapsulation":0},"componentViewType":{"__symbol":3,"members":[]},"rendererType":{"__symbol":4,"members":[]},"componentFactory":{"__symbol":5,"members":[]}}}],"symbols":[{"__symbol":0,"name":"SignupComponent","filePath":"./signup.component"},{"__symbol":1,"name":"AuthService","filePath":"./auth.service"},{"__symbol":2,"name":"Router","filePath":"@angular/router/router"},{"__symbol":3,"name":"View_SignupComponent_0","filePath":"./signup.component.ngfactory"},{"__symbol":4,"name":"RenderType_SignupComponent","filePath":"./signup.component.ngfactory"},{"__symbol":5,"name":"SignupComponentNgFactory","filePath":"./signup.component.ngfactory"}]}
+{
+  "moduleName": null,
+  "summaries": [
+    {
+      "symbol": {
+        "__symbol": 0,
+        "members": []
+      },
+      "metadata": {
+        "__symbolic": "class",
+        "members": {
+          "__ctor__": [
+            {
+              "__symbolic": "constructor",
+              "parameters": [
+                {
+                  "__symbolic": "resolved",
+                  "symbol": {
+                    "__symbol": 1,
+                    "members": []
+                  },
+                  "line": 107,
+                  "character": 37,
+                  "fileName": "assets\\app\\auth\\signup.component.ts"
+                },
+                {
+                  "__symbolic": "resolved",
+                  "symbol": {
+                    "__symbol": 2,
+                    "members": []
+                  },
+                  "line": 107,
+                  "character": 66,
+                  "fileName": "assets\\app\\auth\\signup.component.ts"
+                }
+              ]
+            }
+          ],
+          "onSubmit": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "ngOnInit": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "changeCongregation": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "changeResponsableAndConjuge": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "responsableNeed": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "existConjuge": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getAge": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "horasExistentes": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "anteriorDia": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "proximoDia": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "changed": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "valorCheck": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "setValuesToForm": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "userSelected": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "vezesFds": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "valueInput": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "doEnabled": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "criarForm": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "goCadastro": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "onCirc": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "onCong": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "proximoUser": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "anteriorUser": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "inputCheckCondition": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "inputCondition": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "validMyForm": [
+            {
+              "__symbolic": "method"
+            }
+          ]
+        }
+      },
+      "type": {
+        "summaryKind": 1,
+        "type": {
+          "reference": {
+            "__symbol": 0,
+            "members": []
+          },
+          "diDeps": [
+            {
+              "isAttribute": false,
+              "isHost": false,
+              "isSelf": false,
+              "isSkipSelf": false,
+              "isOptional": false,
+              "token": {
+                "identifier": {
+                  "reference": {
+                    "__symbol": 1,
+                    "members": []
+                  }
+                }
+              }
+            },
+            {
+              "isAttribute": false,
+              "isHost": false,
+              "isSelf": false,
+              "isSkipSelf": false,
+              "isOptional": false,
+              "token": {
+                "identifier": {
+                  "reference": {
+                    "__symbol": 2,
+                    "members": []
+                  }
+                }
+              }
+            }
+          ],
+          "lifecycleHooks": [
+            0
+          ]
+        },
+        "isComponent": true,
+        "selector": "app-signup",
+        "exportAs": null,
+        "inputs": {},
+        "outputs": {},
+        "hostListeners": {},
+        "hostProperties": {},
+        "hostAttributes": {},
+        "providers": [],
+        "viewProviders": [],
+        "queries": [],
+        "guards": {},
+        "viewQueries": [],
+        "entryComponents": [],
+        "changeDetection": 1,
+        "template": {
+          "ngContentSelectors": [],
+          "encapsulation": 0
+        },
+        "componentViewType": {
+          "__symbol": 3,
+          "members": []
+        },
+        "rendererType": {
+          "__symbol": 4,
+          "members": []
+        },
+        "componentFactory": {
+          "__symbol": 5,
+          "members": []
+        }
+      }
+    }
+  ],
+  "symbols": [
+    {
+      "__symbol": 0,
+      "name": "SignupComponent",
+      "filePath": "./signup.component"
+    },
+    {
+      "__symbol": 1,
+      "name": "AuthService",
+      "filePath": "./auth.service"
+    },
+    {
+      "__symbol": 2,
+      "name": "Router",
+      "filePath": "@angular/router/router"
+    },
+    {
+      "__symbol": 3,
+      "name": "View_SignupComponent_0",
+      "filePath": "./signup.component.ngfactory"
+    },
+    {
+      "__symbol": 4,
+      "name": "RenderType_SignupComponent",
+      "filePath": "./signup.component.ngfactory"
+    },
+    {
+      "__symbol": 5,
+      "name": "SignupComponentNgFactory",
+      "filePath": "./signup.component.ngfactory"
+    }
+  ]
+}

@@ -1,59 +1,57 @@
-.container{
-    text-align: center;
-    margin:auto;
+.container {
+  text-align: center;
+  margin: auto;
+}
+
+.myleft {
+  text-align: left;
+}
+
+
+#visualizar {
+  color: white;
+  float: left;
+}
+
+@media screen and (min-width: 320px) {
+  #foto {
+    width: 60%;
+    height: 60%;
+
   }
 
-  .myleft{
-    text-align: left;
-  }
-
-
-  #visualizar{
-    color:white;
-    float: left;
-  }
-
-  @media screen and (min-width: 320px) {
-    #foto{
-      width:60%;
-      height: 60%;
 
 }
 
 
+@media screen and (min-width: 480px) {
+  #foto {
+    width: 70%;
+    height: 70%;
 
   }
 
 
-  @media screen and (min-width: 480px) {
-    #foto{
-      width:70%;
-      height: 70%;
+}
+
+@media screen and (min-width: 700px) {
+  #foto {
+    width: 80%;
+    height: 80%;
+  }
+
 
 }
 
 
-
+@media screen and (min-width: 800px) {
+  #foto {
+    width: 100%;
+    height: 100%;
   }
 
-  @media screen and (min-width: 700px) {
-    #foto{
-      width:80%;
-      height:80%;
+
 }
-
-
-  }
-
-
-  @media screen and (min-width: 800px) {
-    #foto{
-      width:100%;
-      height:100%;
-}
-
-
-  }
 
 
 

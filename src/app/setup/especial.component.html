@@ -5,7 +5,8 @@
       <form [formGroup]="especialForm" (ngSubmit)="onSubmit()" autocomplete="off">
         <div class="modal-header">
           <h5 class="modal-title" id="modal_titulo">Novo dia especial</h5>
-          <button type="button" id="modal_fechar" class="close" data-dismiss="modal" aria-label="Close" (click)="onClose()">
+          <button type="button" id="modal_fechar" class="close" data-dismiss="modal" aria-label="Close"
+                  (click)="onClose()">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -60,35 +61,38 @@
 <div class="container">
   <div class="row">
     <div class="form-group col-md-4">
-      <button type="button" class="btn btn-primary" (click)="onNewespecial()" [disabled]="auth">Novo dia especial +</button>
+      <button type="button" class="btn btn-primary" (click)="onNewespecial()" [disabled]="auth">Novo dia especial +
+      </button>
     </div>
 
     <form>
     </form>
     <table class="table table-striped">
       <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nome</th>
-          <th scope="col">Circuito</th>
-          <th scope="col">Início</th>
-          <th scope="col">Fim</th>
-        </tr>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Circuito</th>
+        <th scope="col">Início</th>
+        <th scope="col">Fim</th>
+      </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let especial of especiais; let j = index">
-          <th scope="row">{{j + 1}}</th>
-          <td>{{especial.nome}}</td>
-          <td>{{especial.circuito}}</td>
-          <td>{{dateString(especial.begin)}}</td>
-          <td>{{dateString(especial.end)}}</td>
-          <td>
-            <button type="button" class="btn btn-warning btn-sm" (click)="onEdit(j)" [disabled]="auth">
-              <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button>
-            <button type="button" class="btn btn-danger btn-sm" (click)="onDelete(j)" [disabled]="auth">
-              <i class="fa fa-trash-o" aria-hidden="true"></i> Excluir</button>
-          </td>
-        </tr>
+      <tr *ngFor="let especial of especiais; let j = index">
+        <th scope="row">{{j + 1}}</th>
+        <td>{{especial.nome}}</td>
+        <td>{{especial.circuito}}</td>
+        <td>{{dateString(especial.begin)}}</td>
+        <td>{{dateString(especial.end)}}</td>
+        <td>
+          <button type="button" class="btn btn-warning btn-sm" (click)="onEdit(j)" [disabled]="auth">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar
+          </button>
+          <button type="button" class="btn btn-danger btn-sm" (click)="onDelete(j)" [disabled]="auth">
+            <i class="fa fa-trash-o" aria-hidden="true"></i> Excluir
+          </button>
+        </td>
+      </tr>
       </tbody>
     </table>
   </div>

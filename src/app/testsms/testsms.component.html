@@ -1,25 +1,25 @@
 <div class="col-md-5 col-md-offset-1">
-    <br>
-    <h3>Saldo atual: R$ {{ saldo }}</h3>
-    <br>
-    <button type="button" class="btn btn-warning" (click)="open()">Tempo</button>
-    <input type="time" [(ngModel)]="selectedTime"> 
-    <form [formGroup]="smsForm" (ngSubmit)="onSubmit()">
+  <br>
+  <h3>Saldo atual: R$ {{ saldo }}</h3>
+  <br>
+  <button type="button" class="btn btn-warning" (click)="open()">Tempo</button>
+  <input type="time" [(ngModel)]="selectedTime">
+  <form [formGroup]="smsForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-        <label for="meutexto">Texto para SMS:</label>
-        <textarea class="form-control" rows="5" id="meutexto" formControlName="meutexto"></textarea>
-      </div>
-      <div class="form-group">
-          <label for="telefone">Celular para envio com DDD:</label>
-          <input type="number" class="form-control" id="telefone" formControlName="telefone">
-        </div>
-    
-    <br>
-      <button id="btnSMS" class="btn btn-success" type="submit" [disabled]="!smsForm.valid">Envia SMS</button>      
-    </form>
-    <br> 
-    <button id="btnSMSresposta" class="btn btn-info"  (click)="smsResposta()">Pegar Resposta</button>
-    <input type="text" id="idresposta" [(ngModel)]="idresposta" disabled> 
-    <br>
-    <h4>Resposta: <span style="color:red">{{respostadada}}</span></h4>
+      <label for="meutexto">Texto para SMS:</label>
+      <textarea class="form-control" rows="5" id="meutexto" formControlName="meutexto"></textarea>
     </div>
+    <div class="form-group">
+      <label for="telefone">Celular para envio com DDD:</label>
+      <input type="number" class="form-control" id="telefone" formControlName="telefone">
+    </div>
+
+    <br>
+    <button id="btnSMS" class="btn btn-success" type="submit" [disabled]="!smsForm.valid">Envia SMS</button>
+  </form>
+  <br>
+  <button id="btnSMSresposta" class="btn btn-info" (click)="smsResposta()">Pegar Resposta</button>
+  <input type="text" id="idresposta" [(ngModel)]="idresposta" disabled>
+  <br>
+  <h4>Resposta: <span style="color:red">{{respostadada}}</span></h4>
+</div>

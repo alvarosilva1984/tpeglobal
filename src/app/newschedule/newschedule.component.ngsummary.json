@@ -1,1 +1,225 @@
-{"moduleName":null,"summaries":[{"symbol":{"__symbol":0,"members":[]},"metadata":{"__symbolic":"class","members":{"__ctor__":[{"__symbolic":"constructor","parameters":[{"__symbolic":"resolved","symbol":{"__symbol":1,"members":[]},"line":75,"character":35,"fileName":"assets\\app\\newschedule\\newschedule.component.ts"}]}],"ngOnInit":[{"__symbolic":"method"}],"carregaAgenda":[{"__symbolic":"method"}],"getAge":[{"__symbolic":"method"}],"getStyle":[{"__symbolic":"method"}],"carregaLayout":[{"__symbolic":"method"}],"nextValidity":[{"__symbolic":"method"}],"beforeValidity":[{"__symbolic":"method"}],"dateString":[{"__symbolic":"method"}],"geraEscala":[{"__symbolic":"method"}],"makeNewUser":[{"__symbolic":"method"}],"buscaFeriado":[{"__symbolic":"method"}],"salvaEscala":[{"__symbolic":"method"}],"deletaEscala":[{"__symbolic":"method"}],"verifyallowsave":[{"__symbolic":"method"}],"getEscala":[{"__symbolic":"method"}],"sendTelegram":[{"__symbolic":"method"}],"sendEmail":[{"__symbolic":"method"}],"onClose":[{"__symbolic":"method"}],"onClosemail":[{"__symbolic":"method"}],"isAuthenticated":[{"__symbolic":"method"}],"initSocket":[{"__symbolic":"method"}]}},"type":{"summaryKind":1,"type":{"reference":{"__symbol":0,"members":[]},"diDeps":[{"isAttribute":false,"isHost":false,"isSelf":false,"isSkipSelf":false,"isOptional":false,"token":{"identifier":{"reference":{"__symbol":1,"members":[]}}}}],"lifecycleHooks":[0]},"isComponent":true,"selector":"app-schedule","exportAs":null,"inputs":{},"outputs":{},"hostListeners":{},"hostProperties":{},"hostAttributes":{},"providers":[],"viewProviders":[],"queries":[],"guards":{},"viewQueries":[],"entryComponents":[],"changeDetection":1,"template":{"ngContentSelectors":[],"encapsulation":0},"componentViewType":{"__symbol":2,"members":[]},"rendererType":{"__symbol":3,"members":[]},"componentFactory":{"__symbol":4,"members":[]}}}],"symbols":[{"__symbol":0,"name":"NewscheduleComponent","filePath":"./newschedule.component"},{"__symbol":1,"name":"AuthService","filePath":"../auth/auth.service"},{"__symbol":2,"name":"View_NewscheduleComponent_0","filePath":"./newschedule.component.ngfactory"},{"__symbol":3,"name":"RenderType_NewscheduleComponent","filePath":"./newschedule.component.ngfactory"},{"__symbol":4,"name":"NewscheduleComponentNgFactory","filePath":"./newschedule.component.ngfactory"}]}
+{
+  "moduleName": null,
+  "summaries": [
+    {
+      "symbol": {
+        "__symbol": 0,
+        "members": []
+      },
+      "metadata": {
+        "__symbolic": "class",
+        "members": {
+          "__ctor__": [
+            {
+              "__symbolic": "constructor",
+              "parameters": [
+                {
+                  "__symbolic": "resolved",
+                  "symbol": {
+                    "__symbol": 1,
+                    "members": []
+                  },
+                  "line": 75,
+                  "character": 35,
+                  "fileName": "assets\\app\\newschedule\\newschedule.component.ts"
+                }
+              ]
+            }
+          ],
+          "ngOnInit": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "carregaAgenda": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getAge": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getStyle": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "carregaLayout": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "nextValidity": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "beforeValidity": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "dateString": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "geraEscala": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "makeNewUser": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "buscaFeriado": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "salvaEscala": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "deletaEscala": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "verifyallowsave": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "getEscala": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "sendTelegram": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "sendEmail": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "onClose": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "onClosemail": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "isAuthenticated": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "initSocket": [
+            {
+              "__symbolic": "method"
+            }
+          ]
+        }
+      },
+      "type": {
+        "summaryKind": 1,
+        "type": {
+          "reference": {
+            "__symbol": 0,
+            "members": []
+          },
+          "diDeps": [
+            {
+              "isAttribute": false,
+              "isHost": false,
+              "isSelf": false,
+              "isSkipSelf": false,
+              "isOptional": false,
+              "token": {
+                "identifier": {
+                  "reference": {
+                    "__symbol": 1,
+                    "members": []
+                  }
+                }
+              }
+            }
+          ],
+          "lifecycleHooks": [
+            0
+          ]
+        },
+        "isComponent": true,
+        "selector": "app-schedule",
+        "exportAs": null,
+        "inputs": {},
+        "outputs": {},
+        "hostListeners": {},
+        "hostProperties": {},
+        "hostAttributes": {},
+        "providers": [],
+        "viewProviders": [],
+        "queries": [],
+        "guards": {},
+        "viewQueries": [],
+        "entryComponents": [],
+        "changeDetection": 1,
+        "template": {
+          "ngContentSelectors": [],
+          "encapsulation": 0
+        },
+        "componentViewType": {
+          "__symbol": 2,
+          "members": []
+        },
+        "rendererType": {
+          "__symbol": 3,
+          "members": []
+        },
+        "componentFactory": {
+          "__symbol": 4,
+          "members": []
+        }
+      }
+    }
+  ],
+  "symbols": [
+    {
+      "__symbol": 0,
+      "name": "NewscheduleComponent",
+      "filePath": "./newschedule.component"
+    },
+    {
+      "__symbol": 1,
+      "name": "AuthService",
+      "filePath": "../auth/auth.service"
+    },
+    {
+      "__symbol": 2,
+      "name": "View_NewscheduleComponent_0",
+      "filePath": "./newschedule.component.ngfactory"
+    },
+    {
+      "__symbol": 3,
+      "name": "RenderType_NewscheduleComponent",
+      "filePath": "./newschedule.component.ngfactory"
+    },
+    {
+      "__symbol": 4,
+      "name": "NewscheduleComponentNgFactory",
+      "filePath": "./newschedule.component.ngfactory"
+    }
+  ]
+}

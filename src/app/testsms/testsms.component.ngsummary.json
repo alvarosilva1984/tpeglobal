@@ -1,1 +1,180 @@
-{"moduleName":null,"summaries":[{"symbol":{"__symbol":0,"members":[]},"metadata":{"__symbolic":"class","members":{"__ctor__":[{"__symbolic":"constructor","parameters":[{"__symbolic":"resolved","symbol":{"__symbol":1,"members":[]},"line":21,"character":35,"fileName":"assets\\app\\testsms\\testsms.component.ts"},{"__symbolic":"resolved","symbol":{"__symbol":2,"members":[]},"line":21,"character":61,"fileName":"assets\\app\\testsms\\testsms.component.ts"}]}],"ngOnInit":[{"__symbolic":"method"}],"onSubmit":[{"__symbolic":"method"}],"buscasaldo":[{"__symbolic":"method"}],"smsResposta":[{"__symbolic":"method"}],"myId":[{"__symbolic":"method"}],"open":[{"__symbolic":"method"}]}},"type":{"summaryKind":1,"type":{"reference":{"__symbol":0,"members":[]},"diDeps":[{"isAttribute":false,"isHost":false,"isSelf":false,"isSkipSelf":false,"isOptional":false,"token":{"identifier":{"reference":{"__symbol":1,"members":[]}}}},{"isAttribute":false,"isHost":false,"isSelf":false,"isSkipSelf":false,"isOptional":false,"token":{"identifier":{"reference":{"__symbol":2,"members":[]}}}}],"lifecycleHooks":[0]},"isComponent":true,"selector":"app-testsms","exportAs":null,"inputs":{},"outputs":{},"hostListeners":{},"hostProperties":{},"hostAttributes":{},"providers":[],"viewProviders":[],"queries":[],"guards":{},"viewQueries":[],"entryComponents":[],"changeDetection":1,"template":{"ngContentSelectors":[],"encapsulation":0},"componentViewType":{"__symbol":3,"members":[]},"rendererType":{"__symbol":4,"members":[]},"componentFactory":{"__symbol":5,"members":[]}}}],"symbols":[{"__symbol":0,"name":"TestsmsComponent","filePath":"./testsms.component"},{"__symbol":1,"name":"AuthService","filePath":"../auth/auth.service"},{"__symbol":2,"name":"AmazingTimePickerService","filePath":"amazing-time-picker/amazing-time-picker"},{"__symbol":3,"name":"View_TestsmsComponent_0","filePath":"./testsms.component.ngfactory"},{"__symbol":4,"name":"RenderType_TestsmsComponent","filePath":"./testsms.component.ngfactory"},{"__symbol":5,"name":"TestsmsComponentNgFactory","filePath":"./testsms.component.ngfactory"}]}
+{
+  "moduleName": null,
+  "summaries": [
+    {
+      "symbol": {
+        "__symbol": 0,
+        "members": []
+      },
+      "metadata": {
+        "__symbolic": "class",
+        "members": {
+          "__ctor__": [
+            {
+              "__symbolic": "constructor",
+              "parameters": [
+                {
+                  "__symbolic": "resolved",
+                  "symbol": {
+                    "__symbol": 1,
+                    "members": []
+                  },
+                  "line": 21,
+                  "character": 35,
+                  "fileName": "assets\\app\\testsms\\testsms.component.ts"
+                },
+                {
+                  "__symbolic": "resolved",
+                  "symbol": {
+                    "__symbol": 2,
+                    "members": []
+                  },
+                  "line": 21,
+                  "character": 61,
+                  "fileName": "assets\\app\\testsms\\testsms.component.ts"
+                }
+              ]
+            }
+          ],
+          "ngOnInit": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "onSubmit": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "buscasaldo": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "smsResposta": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "myId": [
+            {
+              "__symbolic": "method"
+            }
+          ],
+          "open": [
+            {
+              "__symbolic": "method"
+            }
+          ]
+        }
+      },
+      "type": {
+        "summaryKind": 1,
+        "type": {
+          "reference": {
+            "__symbol": 0,
+            "members": []
+          },
+          "diDeps": [
+            {
+              "isAttribute": false,
+              "isHost": false,
+              "isSelf": false,
+              "isSkipSelf": false,
+              "isOptional": false,
+              "token": {
+                "identifier": {
+                  "reference": {
+                    "__symbol": 1,
+                    "members": []
+                  }
+                }
+              }
+            },
+            {
+              "isAttribute": false,
+              "isHost": false,
+              "isSelf": false,
+              "isSkipSelf": false,
+              "isOptional": false,
+              "token": {
+                "identifier": {
+                  "reference": {
+                    "__symbol": 2,
+                    "members": []
+                  }
+                }
+              }
+            }
+          ],
+          "lifecycleHooks": [
+            0
+          ]
+        },
+        "isComponent": true,
+        "selector": "app-testsms",
+        "exportAs": null,
+        "inputs": {},
+        "outputs": {},
+        "hostListeners": {},
+        "hostProperties": {},
+        "hostAttributes": {},
+        "providers": [],
+        "viewProviders": [],
+        "queries": [],
+        "guards": {},
+        "viewQueries": [],
+        "entryComponents": [],
+        "changeDetection": 1,
+        "template": {
+          "ngContentSelectors": [],
+          "encapsulation": 0
+        },
+        "componentViewType": {
+          "__symbol": 3,
+          "members": []
+        },
+        "rendererType": {
+          "__symbol": 4,
+          "members": []
+        },
+        "componentFactory": {
+          "__symbol": 5,
+          "members": []
+        }
+      }
+    }
+  ],
+  "symbols": [
+    {
+      "__symbol": 0,
+      "name": "TestsmsComponent",
+      "filePath": "./testsms.component"
+    },
+    {
+      "__symbol": 1,
+      "name": "AuthService",
+      "filePath": "../auth/auth.service"
+    },
+    {
+      "__symbol": 2,
+      "name": "AmazingTimePickerService",
+      "filePath": "amazing-time-picker/amazing-time-picker"
+    },
+    {
+      "__symbol": 3,
+      "name": "View_TestsmsComponent_0",
+      "filePath": "./testsms.component.ngfactory"
+    },
+    {
+      "__symbol": 4,
+      "name": "RenderType_TestsmsComponent",
+      "filePath": "./testsms.component.ngfactory"
+    },
+    {
+      "__symbol": 5,
+      "name": "TestsmsComponentNgFactory",
+      "filePath": "./testsms.component.ngfactory"
+    }
+  ]
+}

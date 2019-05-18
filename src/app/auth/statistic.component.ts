@@ -1,11 +1,11 @@
-import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { AuthService } from "./auth.service";
-import { User } from "./user.model";
-import { Hora } from "../setup/hora.model";
-import { Ponto } from "../setup/ponto.model";
-import { Congregation } from "../setup/congregation.model";
-import { Circuito } from "../setup/circuito.model";
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {AuthService} from './auth.service';
+import {User} from './user.model';
+import {Hora} from '../setup/hora.model';
+import {Ponto} from '../setup/ponto.model';
+import {Congregation} from '../setup/congregation.model';
+import {Circuito} from '../setup/circuito.model';
 
 @Component({
   selector: 'app-statistic',
@@ -24,7 +24,7 @@ export class StatisticComponent implements OnInit {
   totalman = 0;
   totalwoman = 0;
   totalapprove = 0;
-  porcentwoman = " ";
+  porcentwoman = ' ';
   porcentval = 0;
   users: User[];
   mediaidade: number = 0;
@@ -45,7 +45,7 @@ export class StatisticComponent implements OnInit {
   congregations: Congregation[] = [];
   circuitos: Circuito[] = [];
   dayselect: string = 'Segunda-feira';
-  diasdasemana = ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado", "Domingo"];
+  diasdasemana = ['Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado', 'Domingo'];
 
   totalsegunda = 0;
   totalterca = 0;
@@ -62,8 +62,8 @@ export class StatisticComponent implements OnInit {
   showNow = false;
 
 
-
-  constructor(private statisticService: AuthService, private router: Router) { }
+  constructor(private statisticService: AuthService, private router: Router) {
+  }
 
   ngOnInit() {
 
@@ -82,49 +82,40 @@ export class StatisticComponent implements OnInit {
     this.circcong = [];
 
 
-
     this.statisticService.getAllCircuito()
       .subscribe(
         (
-
           circuitos: Circuito[]) => {
           this.circuitos = circuitos;
 
           this.statisticService.getAllCongregation()
             .subscribe(
               (
-
                 congregations: Congregation[]) => {
                 this.congregations = congregations;
                 let congsort = this.congregations;
 
-                 congsort.sort((a, b) => {
+                congsort.sort((a, b) => {
 
-                    if (a.nome < b.nome) return -1;
-                    if (a.nome > b.nome) return 1;
+                  if (a.nome < b.nome) return -1;
+                  if (a.nome > b.nome) return 1;
 
                   return 0;
                 });
                 this.congregations = congsort;
 
 
-
-
                 this.statisticService.getpontos()
                   .subscribe(
                     (
-
                       pontos: Ponto[]) => {
                       this.pontos = pontos;
                       this.pontos_dia = this.pontos.filter(a => a.config[1].length > 0);
 
 
-
-
                       this.statisticService.getHoras()
                         .subscribe(
                           (
-
                             horas: Hora[]) => {
                             this.horas = horas;
 
@@ -137,17 +128,6 @@ export class StatisticComponent implements OnInit {
                             this.horas = horas_sort;
 
 
-
-
-
-
-
-
-
-
-
-
-
                             this.statisticService.getlistAllUsers()
                               .subscribe(
                                 (
@@ -156,8 +136,7 @@ export class StatisticComponent implements OnInit {
 
                                   this.users = users;
                                   this.totalpub = this.users.length;
-                                  console.log("totalpub", this.totalpub, this.users.length);
-
+                                  console.log('totalpub', this.totalpub, this.users.length);
 
 
                                   let totalidade: number = 0;
@@ -185,7 +164,6 @@ export class StatisticComponent implements OnInit {
                                     }
 
 
-
                                     let comcirc = false;
                                     let indexcirc = 0;
 
@@ -197,10 +175,10 @@ export class StatisticComponent implements OnInit {
                                         indexcirc = x;
                                         break;
                                       }
-                                    } 
+                                    }
 
                                     if (!comcirc) {
-                                      let newcirc = { circ: this.users[i].circuito, cong: [], countcirc: 0 };
+                                      let newcirc = {circ: this.users[i].circuito, cong: [], countcirc: 0};
                                       newcirc.countcirc++;
                                       newcirc.cong.push(this.users[i].congregation);
                                       this.circcong.push(newcirc);
@@ -230,14 +208,6 @@ export class StatisticComponent implements OnInit {
                                     }
 
 
-
-
-
-
-
-
-
-
                                     let nodispo = 0;
                                     for (let j = 0; j < this.users[i].config.length; j++) {
 
@@ -253,7 +223,6 @@ export class StatisticComponent implements OnInit {
                                         nodispo++;
 
                                       }
-
 
 
                                     }
@@ -273,8 +242,7 @@ export class StatisticComponent implements OnInit {
                                 });
 
                           }
-
-                        )
+                        );
 
                     }
                   );
@@ -283,11 +251,10 @@ export class StatisticComponent implements OnInit {
         });
 
 
-
   }
 
   percentwomanfunc(porcentwoman) {
-    return porcentwoman
+    return porcentwoman;
   }
 
   getAge(dateString) {
@@ -309,20 +276,43 @@ export class StatisticComponent implements OnInit {
 
     this.dayselect = diasemana;
 
-    if (this.dayselect == 'Segunda-feira'){ this.totalsegunda = 0; day = 1;}
-    if (this.dayselect == 'Terça-feira') {this.totalterca = 0; day = 2;}
-    if (this.dayselect == 'Quarta-feira') { this.totalquarta = 0; day = 3;}
-    if (this.dayselect == 'Quinta-feira') { this.totalquinta = 0; day = 4;}
-    if (this.dayselect == 'Sexta-feira') { this.totalsexta = 0; day = 5;}
-    if (this.dayselect == 'Sábado') {this.totalsabado = 0; day = 6;}
-    if (this.dayselect == 'Domingo') {this.totaldomingo = 0; day = 0;}
-
+    if (this.dayselect == 'Segunda-feira') {
+      this.totalsegunda = 0;
+      day = 1;
+    }
+    if (this.dayselect == 'Terça-feira') {
+      this.totalterca = 0;
+      day = 2;
+    }
+    if (this.dayselect == 'Quarta-feira') {
+      this.totalquarta = 0;
+      day = 3;
+    }
+    if (this.dayselect == 'Quinta-feira') {
+      this.totalquinta = 0;
+      day = 4;
+    }
+    if (this.dayselect == 'Sexta-feira') {
+      this.totalsexta = 0;
+      day = 5;
+    }
+    if (this.dayselect == 'Sábado') {
+      this.totalsabado = 0;
+      day = 6;
+    }
+    if (this.dayselect == 'Domingo') {
+      this.totaldomingo = 0;
+      day = 0;
+    }
 
 
     this.pontos_dia = this.pontos.filter(a => a.config[day].length > 0);
 
 
-    this.horas.map(b => { b.vagas = 0; b.dispo = 0; });
+    this.horas.map(b => {
+      b.vagas = 0;
+      b.dispo = 0;
+    });
 
 
     this.pontos_dia.map(a => {
@@ -345,7 +335,6 @@ export class StatisticComponent implements OnInit {
         });
       }
     });
-
 
 
     return true;
@@ -376,10 +365,7 @@ export class StatisticComponent implements OnInit {
       }
 
 
-
-
     });
-
 
 
     return count;
@@ -389,14 +375,14 @@ export class StatisticComponent implements OnInit {
   encontraCongregacao(id) {
     let congregation = this.congregations.filter(a => a.id == id);
     if (congregation.length > 0) return congregation[0].nome;
-    else return " ";
+    else return ' ';
   }
 
   encontraCircuito(id) {
     let circuit = this.circuitos.filter(a => a.id == id);
 
     if (circuit.length > 0) return circuit[0].nome;
-    else return " ";
+    else return ' ';
 
   }
 

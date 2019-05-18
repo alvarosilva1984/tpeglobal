@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Telegram } from './telegram.model';
-import { AuthService } from '../auth/auth.service';
+import {Component, OnInit} from '@angular/core';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {Telegram} from './telegram.model';
+import {AuthService} from '../auth/auth.service';
 import 'moment/locale/pt-br';
 
 @Component({
@@ -11,13 +11,13 @@ import 'moment/locale/pt-br';
 
 export class TesttelegramComponent implements OnInit {
 
-    telegramForm: FormGroup;
-    idresposta = ' ';
-    respostadada = ' ';
+  telegramForm: FormGroup;
+  idresposta = ' ';
+  respostadada = ' ';
 
 
-
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {
+  }
 
   ngOnInit() {
 
@@ -25,8 +25,8 @@ export class TesttelegramComponent implements OnInit {
     this.telegramResposta();
 
     this.telegramForm = new FormGroup({
-        message: new FormControl(null, Validators.required),
-        id: new FormControl(null, Validators.required)
+      message: new FormControl(null, Validators.required),
+      id: new FormControl(null, Validators.required)
     });
 
   }
@@ -34,45 +34,43 @@ export class TesttelegramComponent implements OnInit {
   onSubmit() {
 
     const telegram = new Telegram(
-        this.telegramForm.value.message,
-        this.telegramForm.value.id,
-       );
+      this.telegramForm.value.message,
+      this.telegramForm.value.id,
+    );
     this.authService.enviatelegram(telegram)
-            .subscribe(
-            data => {
-                console.log(data);
-                alert('Telegram enviado');
+      .subscribe(
+        data => {
+          console.log(data);
+          alert('Telegram enviado');
 
 
-            },
-            error => {console.error(error);
-                alert('Ocorreu um erro'); }
-            );
+        },
+        error => {
+          console.error(error);
+          alert('Ocorreu um erro');
+        }
+      );
 
 
   }
-
-
 
 
   telegramResposta() {
 
     this.authService.gettelegramresposta()
-        .subscribe(
-            data => {
-                console.log(data);
+      .subscribe(
+        data => {
+          console.log(data);
 
 
-            },
-            error => console.error(error)
-            );
+        },
+        error => console.error(error)
+      );
   }
 
   myId() {
-      return this.idresposta;
+    return this.idresposta;
   }
-
-
 
 
 }

@@ -1,18 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '../auth/auth.service';
-import { User } from '../auth/user.model';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {AuthService} from '../auth/auth.service';
+import {User} from '../auth/user.model';
 import * as moment from 'moment';
-import { Memouser } from '../schedule/memouser';
+import {Memouser} from '../schedule/memouser';
 import 'moment/locale/pt-br';
-import { Ponto } from '../setup/ponto.model';
-import { Agenda } from './agenda.model';
-import { Hora } from '../setup/hora.model';
-import { Validity } from '../setup/validity.model';
-import { Vagas } from './vagas.model';
-import { Feriado } from '../setup/feriado.model';
+import {Ponto} from '../setup/ponto.model';
+import {Agenda} from './agenda.model';
+import {Hora} from '../setup/hora.model';
+import {Validity} from '../setup/validity.model';
+import {Vagas} from './vagas.model';
+import {Feriado} from '../setup/feriado.model';
 
 declare var $: any;
+
 @Component({
   selector: 'app-schedule2',
   templateUrl: './schedule2.component.html',
@@ -54,10 +55,10 @@ export class Schedule2Component implements OnInit {
   valcheckbox = false;
   validities: Validity[] = [];
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) {
+  }
 
   ngOnInit() {
-
 
 
     this.showNow = false;
@@ -84,8 +85,12 @@ export class Schedule2Component implements OnInit {
 
           const horas_sort = this.horas;
           horas_sort.sort((a, b) => {
-            if (a.code < b.code) { return -1; }
-            if (a.code > b.code) { return 1; }
+            if (a.code < b.code) {
+              return -1;
+            }
+            if (a.code > b.code) {
+              return 1;
+            }
             return 0;
           });
           this.horas = horas_sort;
@@ -103,8 +108,8 @@ export class Schedule2Component implements OnInit {
                   this.dia = moment.utc(this.validities[0].begin).format('YYYY-MM-DD');
                   this.diaatual = moment.utc(this.validities[0].begin);
                   this.diasemana = moment.utc(this.dia)
-                                         .locale('pt-br')
-                                         .format('dddd');
+                    .locale('pt-br')
+                    .format('dddd');
 
                 }
               });
@@ -122,18 +127,18 @@ export class Schedule2Component implements OnInit {
 
   onChange() {
     if (this.validities.length > 0) {
-    if (moment.utc(this.dia) > moment.utc(this.validities[0].end) ||
-       moment.utc(this.dia) < moment.utc(this.validities[0].begin)) {
+      if (moment.utc(this.dia) > moment.utc(this.validities[0].end) ||
+        moment.utc(this.dia) < moment.utc(this.validities[0].begin)) {
         this.dia = moment.utc(this.diaatual).format('YYYY-MM-DD');
         this.diasemana = moment
-      .utc(this.dia)
-      .locale('pt-br')
-      .format('dddd');
+          .utc(this.dia)
+          .locale('pt-br')
+          .format('dddd');
 
         alert('Período selecionado não está aberto para agendamento!');
         return;
-       }
       }
+    }
 
     $('input[type=radio]').prop('checked', false);
     this.hourVal = ' ';
@@ -152,13 +157,14 @@ export class Schedule2Component implements OnInit {
 
   proximoDia(e: any) {
     if (this.validities.length > 0) {
-    if ( moment.utc(this.diaatual).add(1, 'day') > moment.utc(this.validities[0].end) ) { return; }
+      if (moment.utc(this.diaatual).add(1, 'day') > moment.utc(this.validities[0].end)) {
+        return;
+      }
     }
     $('input[type=radio]').prop('checked', false);
     this.hourVal = ' ';
     this.code = ' ';
     this.vagas = 0;
-
 
 
     this.diaatual = moment.utc(this.diaatual).add(1, 'day');
@@ -174,7 +180,9 @@ export class Schedule2Component implements OnInit {
 
   anteriorDia(e: any) {
     if (this.validities.length > 0) {
-      if ( moment.utc(this.diaatual).subtract(1, 'day') < moment.utc(this.validities[0].begin) ) { return; }
+      if (moment.utc(this.diaatual).subtract(1, 'day') < moment.utc(this.validities[0].begin)) {
+        return;
+      }
     }
 
     $('input[type=radio]').prop('checked', false);
@@ -198,7 +206,9 @@ export class Schedule2Component implements OnInit {
     let mesmodia: Agenda[] = [];
     let mesmasemana: Agenda[] = [];
 
-    if (this.vagas <= 0) { permition = false; }
+    if (this.vagas <= 0) {
+      permition = false;
+    }
 
     console.log(this.hourVal);
 
@@ -215,7 +225,9 @@ export class Schedule2Component implements OnInit {
     mesmasemana = this.user_agenda.filter(a => {
       const dia1semana = moment.utc(a.data).startOf('isoWeek');
       const dia1formatado = moment.utc(dia1semana).format('YYYY-MM-DD');
-      if (dia1formatado == primeirodia1) { return true; }
+      if (dia1formatado == primeirodia1) {
+        return true;
+      }
     });
 
     if (
@@ -235,7 +247,6 @@ export class Schedule2Component implements OnInit {
       );
 
       agenda.rest = this.vagatotaldispo;
-
 
 
       this.authService.agendamento(agenda).subscribe(
@@ -311,8 +322,11 @@ export class Schedule2Component implements OnInit {
 
   vagasDisponiveis() {
     let day = 0;
-    if (this.buscaFeriado()) { day = 7; }
-    else { day = this.diaatual.day(); }
+    if (this.buscaFeriado()) {
+      day = 7;
+    } else {
+      day = this.diaatual.day();
+    }
 
     this.pontos_dia = this.pontos.filter(a => a.config[day].length > 0);
 
@@ -328,7 +342,9 @@ export class Schedule2Component implements OnInit {
     this.pontos_dia.map(a => {
       for (let i = 0; i < a.config[day].length; i++) {
         this.horas.map(b => {
-          if (b.code == a.config[day][i]) { b.vagas += a.npubs; }
+          if (b.code == a.config[day][i]) {
+            b.vagas += a.npubs;
+          }
         });
       }
     });
@@ -337,7 +353,9 @@ export class Schedule2Component implements OnInit {
     this.horas.map(b => {
       b.dispo = 0;
       for (let i = 0; i < this.dia_agenda.length; i++) {
-        if (this.dia_agenda[i].code == b.code) { b.dispo += 1; }
+        if (this.dia_agenda[i].code == b.code) {
+          b.dispo += 1;
+        }
       }
     });
 
@@ -346,18 +364,20 @@ export class Schedule2Component implements OnInit {
 
   buscaFeriado() {
     const feriado = this.feriados.filter(a => a.data == this.dia);
-    if (feriado.length > 0) { return true; }
+    if (feriado.length > 0) {
+      return true;
+    }
 
     return false;
   }
 
   disabledAgenda() {
-    return this.diaatual.day() == 6 || this.diaatual.day() == 0 ||  this.validities.length <= 0 || this.buscaFeriado();
+    return this.diaatual.day() == 6 || this.diaatual.day() == 0 || this.validities.length <= 0 || this.buscaFeriado();
   }
 
   dateString(data: Date) {
 
     return moment.utc(data).format('DD-MM-YYYY');
 
-}
+  }
 }

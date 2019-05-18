@@ -3,14 +3,16 @@
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-      <li data-target="#myCarousel" *ngFor="let point of pontos;let i = index" [attr.data-slide-to]="i" ngClass="i == 0 ? 'active' : ''"></li>
+      <li data-target="#myCarousel" *ngFor="let point of pontos;let i = index" [attr.data-slide-to]="i"
+          ngClass="i == 0 ? 'active' : ''"></li>
     </ol>
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-      <div *ngFor="let point of pontos; let k = index" [ngClass]="k == 0 ? 'carousel-item active' : 'carousel-item'" style="background-image: url('http://placehold.it/1080x400')">
+      <div *ngFor="let point of pontos; let k = index" [ngClass]="k == 0 ? 'carousel-item active' : 'carousel-item'"
+           style="background-image: url('http://placehold.it/1080x400')">
         <img src="/assets/img/{{point.fileimg}}" alt="Event Image" id="foto">
         <div class="carousel-caption">
-          <h3 style="font-size: 5.0vh" class="mycaption" >{{point.name}}</h3>
+          <h3 style="font-size: 5.0vh" class="mycaption">{{point.name}}</h3>
         </div>
       </div>
     </div>
@@ -48,15 +50,15 @@
         </div>
 
         <div class="card-footer">
-          <button id="visualizar" class="btn btn-primary" href="#myCarousel" [attr.data-slide-to]="k" (click)="onTop()">Visualizar</button>
+          <button id="visualizar" class="btn btn-primary" href="#myCarousel" [attr.data-slide-to]="k" (click)="onTop()">
+            Visualizar
+          </button>
         </div>
       </div>
       <br>
     </div>
 
   </div>
-
-
 
 
   <hr>
@@ -70,7 +72,6 @@
       <a class="btn btn-lg btn-secondary btn-block" (click)="onTop()">Voltar ao topo</a>
     </div>
   </div>
-
 
 
 </div>

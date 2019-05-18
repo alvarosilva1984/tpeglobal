@@ -5,7 +5,8 @@
       <form [formGroup]="pontoForm" (ngSubmit)="onSubmit()" autocomplete="off">
         <div class="modal-header">
           <h5 class="modal-title" id="modal_titulo">Novo Ponto</h5>
-          <button type="button" id="modal_fechar" class="close" data-dismiss="modal" aria-label="Close" (click)="onClose()">
+          <button type="button" id="modal_fechar" class="close" data-dismiss="modal" aria-label="Close"
+                  (click)="onClose()">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -16,17 +17,20 @@
           <div class="form-row">
             <div class="form-group col-md-7">
               <label>Nome *</label>
-              <input type="text" class="form-control" id="ponto_nome" placeholder="Digite o nome do ponto" formControlName="name">
+              <input type="text" class="form-control" id="ponto_nome" placeholder="Digite o nome do ponto"
+                     formControlName="name">
 
             </div>
             <div class="form-group col-md-5">
               <label>Qtde. Publicadores *</label>
-              <input type="number" class="form-control" id="ponto_qtde_publicadores" placeholder="Digite a quantidade" formControlName="npubs">
+              <input type="number" class="form-control" id="ponto_qtde_publicadores" placeholder="Digite a quantidade"
+                     formControlName="npubs">
 
             </div>
             <div class="form-group col-md-12">
               <label>Endereço *</label>
-              <input type="text" class="form-control" id="ponto_endereco" placeholder="Digite o endereço do ponto" formControlName="address">
+              <input type="text" class="form-control" id="ponto_endereco" placeholder="Digite o endereço do ponto"
+                     formControlName="address">
 
             </div>
             <div class="form-group col-md-12">
@@ -35,26 +39,22 @@
             </div>
             <div class="form-group">
               <label for="exampleFormControlFile1">Imagem *</label>
-              <input type="file" class="form-control" id="ponto_imagem" (change)="onFileChanged($event)" formControlName="fileimg">
+              <input type="file" class="form-control" id="ponto_imagem" (change)="onFileChanged($event)"
+                     formControlName="fileimg">
 
             </div>
           </div>
         </div>
         <div class="modal-footer">
-  
+
           <button type="submit" [disabled]="validMyForm()" class="btn btn-primary">Salvar</button>
-    
+
         </div>
       </form>
-   
+
     </div>
   </div>
 </div>
-
-
-
-
-
 
 
 <div class="container">
@@ -68,36 +68,38 @@
     </form>
     <table class="table table-striped">
       <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Ponto</th>
-          <th scope="col">Qtde. Publicadores</th>
-          <th scope="col">Endereço</th>
-          <th scope="col"></th>
-        </tr>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Ponto</th>
+        <th scope="col">Qtde. Publicadores</th>
+        <th scope="col">Endereço</th>
+        <th scope="col"></th>
+      </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let point of pontos; let i = index">
-          <th scope="row">{{i + 1}}</th>
-          <td>{{point.name}}</td>
-          <td>{{point.npubs}}</td>
-          <td>{{point.address}}</td>
-          <td>
-            <button type="button" class="btn btn-warning btn-sm" (click)="onEdit(i)" [disabled]="auth">
-              <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button>
-            <button type="button" class="btn btn-danger btn-sm" (click)="onDelete(i)" [disabled]="auth">
-              <i class="fa fa-trash-o" aria-hidden="true" ></i> Excluir</button>
-          </td>
-        </tr>
+      <tr *ngFor="let point of pontos; let i = index">
+        <th scope="row">{{i + 1}}</th>
+        <td>{{point.name}}</td>
+        <td>{{point.npubs}}</td>
+        <td>{{point.address}}</td>
+        <td>
+          <button type="button" class="btn btn-warning btn-sm" (click)="onEdit(i)" [disabled]="auth">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar
+          </button>
+          <button type="button" class="btn btn-danger btn-sm" (click)="onDelete(i)" [disabled]="auth">
+            <i class="fa fa-trash-o" aria-hidden="true"></i> Excluir
+          </button>
+        </td>
+      </tr>
       </tbody>
     </table>
   </div>
 
- <!--  <div *ngFor="let point of pontos; let t = index" class='holder'>
-      <img src="/assets/img/{{point.fileimg}}" alt="{{point.name}}"> 
-  </div> -->
+  <!--  <div *ngFor="let point of pontos; let t = index" class='holder'>
+       <img src="/assets/img/{{point.fileimg}}" alt="{{point.name}}">
+   </div> -->
   <div class="row">
-  <div *ngFor="let point of pontos; let t = index" class="card" style="width: 18rem;">
+    <div *ngFor="let point of pontos; let t = index" class="card" style="width: 18rem;">
       <img class="card-img-top" src="/assets/img/{{point.fileimg}}" alt="Card image cap">
       <div class="card-body">
         <p class="card-text"><b>{{point.name}}</b></p>
@@ -107,31 +109,25 @@
 </div>
 
 
-
-
-
-
-
-
-    <!-- 
+<!--
 </div>
 
 
 <div class="col-md-4 col-md-offset-1">
-    <br>
-    <br>
-    <form [formGroup]="pontoForm" (ngSubmit)="onSubmit()">
-        <h2>Pontos</h2>
-        <div class="form-group">
-            <label for="name">Nome do ponto:</label>
-            <input type="text" id="name" class="form-control" formControlName="name">
-        </div>
-        <div class="form-group">
-            <label for="npubs">Número de Publicadores:</label>
-            <input type="number" id="npubs" class="form-control" formControlName="npubs">
-        </div>
+<br>
+<br>
+<form [formGroup]="pontoForm" (ngSubmit)="onSubmit()">
+    <h2>Pontos</h2>
+    <div class="form-group">
+        <label for="name">Nome do ponto:</label>
+        <input type="text" id="name" class="form-control" formControlName="name">
+    </div>
+    <div class="form-group">
+        <label for="npubs">Número de Publicadores:</label>
+        <input type="number" id="npubs" class="form-control" formControlName="npubs">
+    </div>
 
 
-        <button id="btnCreate" class="btn btn-primary" type="submit" [disabled]="!pontoForm.valid">Criar Ponto</button>
-    </form>
+    <button id="btnCreate" class="btn btn-primary" type="submit" [disabled]="!pontoForm.valid">Criar Ponto</button>
+</form>
 </div> -->

@@ -1,18 +1,18 @@
-import { SigninComponent } from './../auth/signin.component';
-import { Congregation } from './../setup/congregation.model';
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth/auth.service';
-import { User } from '../auth/user.model';
+import {SigninComponent} from './../auth/signin.component';
+import {Congregation} from './../setup/congregation.model';
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from '../auth/auth.service';
+import {User} from '../auth/user.model';
 import * as moment from 'moment';
 import 'moment/locale/pt-br';
-import { Ponto } from '../setup/ponto.model';
-import { Especial } from '../setup/especial.model';
-import { Agenda } from '../schedule2/agenda.model';
-import { Hora } from '../setup/hora.model';
-import { Circuito } from '../setup/circuito.model';
-import { Validity } from '../setup/validity.model';
+import {Ponto} from '../setup/ponto.model';
+import {Especial} from '../setup/especial.model';
+import {Agenda} from '../schedule2/agenda.model';
+import {Hora} from '../setup/hora.model';
+import {Circuito} from '../setup/circuito.model';
+import {Validity} from '../setup/validity.model';
 import * as io from 'socket.io-client';
-import { Feriado } from '../setup/feriado.model';
+import {Feriado} from '../setup/feriado.model';
 
 @Component({
   selector: 'app-schedule',
@@ -73,7 +73,8 @@ export class NewscheduleComponent implements OnInit {
   feriados: Feriado[] = [];
   dayoption = 0;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) {
+  }
 
   ngOnInit() {
     this.showNow = false;
@@ -89,13 +90,19 @@ export class NewscheduleComponent implements OnInit {
 
     this.authService.getValidity().subscribe((validities: Validity[]) => {
       this.validities = validities.filter(a => {
-        if (a.status == false) { return true; }
+        if (a.status == false) {
+          return true;
+        }
       });
 
       const validitiessort = this.validities;
       validitiessort.sort((a, b) => {
-        if (a.begin > b.begin) { return -1; }
-        if (a.begin < b.begin) { return 1; }
+        if (a.begin > b.begin) {
+          return -1;
+        }
+        if (a.begin < b.begin) {
+          return 1;
+        }
         return 0;
       });
       this.validities = validitiessort;
@@ -113,8 +120,12 @@ export class NewscheduleComponent implements OnInit {
 
       const horas_sort = this.horas;
       horas_sort.sort((a, b) => {
-        if (a.code > b.code) { return -1; }
-        if (a.code < b.code) { return 1; }
+        if (a.code > b.code) {
+          return -1;
+        }
+        if (a.code < b.code) {
+          return 1;
+        }
         return 0;
       });
       this.horas = horas_sort;
@@ -124,8 +135,12 @@ export class NewscheduleComponent implements OnInit {
           this.pontos = pontos;
           const pontosort = pontos;
           pontosort.sort((a, b) => {
-            if (a.name < b.name) { return -1; }
-            if (a.name > b.name) { return 1; }
+            if (a.name < b.name) {
+              return -1;
+            }
+            if (a.name > b.name) {
+              return 1;
+            }
             return 0;
           });
 
@@ -146,7 +161,7 @@ export class NewscheduleComponent implements OnInit {
               usersort[i] = temp;
             }
 
-            usersort.sort(function(a, b) {
+            usersort.sort(function (a, b) {
               return a.lastday > b.lastday ? 1 : a.lastday < b.lastday ? -1 : 0;
             });
 
@@ -165,15 +180,23 @@ export class NewscheduleComponent implements OnInit {
                     this.congregations = congregations;
                     const congsort = this.congregations;
                     congsort.sort((a, b) => {
-                      if (a.circuit < b.circuit) { return -1; }
-                      if (a.circuit > b.circuit) { return 1; }
+                      if (a.circuit < b.circuit) {
+                        return -1;
+                      }
+                      if (a.circuit > b.circuit) {
+                        return 1;
+                      }
 
                       return 0;
                     });
                     congsort.sort((a, b) => {
                       if (a.circuit == b.circuit) {
-                        if (a.nome < b.nome) { return -1; }
-                        if (a.nome > b.nome) { return 1; }
+                        if (a.nome < b.nome) {
+                          return -1;
+                        }
+                        if (a.nome > b.nome) {
+                          return 1;
+                        }
                       }
                       return 0;
                     });
@@ -220,8 +243,12 @@ export class NewscheduleComponent implements OnInit {
   }
 
   getStyle(sex: string) {
-    if (sex == 'M') { return 'blue'; }
-    if (sex == 'F') { return '#FF4081'; }
+    if (sex == 'M') {
+      return 'blue';
+    }
+    if (sex == 'F') {
+      return '#FF4081';
+    }
   }
 
   carregaLayout() {
@@ -253,7 +280,7 @@ export class NewscheduleComponent implements OnInit {
     this.mesmodia = [];
     let especial = [];
 
-   especial = this.especiais.filter(a => {
+    especial = this.especiais.filter(a => {
 
       const x = new Date(a.begin);
       const y = new Date(a.end);
@@ -264,12 +291,11 @@ export class NewscheduleComponent implements OnInit {
 
       return ((+z >= +x) && (+z <= +y));
 
-   });
+    });
 
 
     this.horas.map(h => {
       h.vagas = 0;
-
 
 
       pontos_hora = [];
@@ -330,14 +356,16 @@ export class NewscheduleComponent implements OnInit {
                     }
                     if (
                       especial[b].circuito ==
-                        this.usersesc[g].congregation['circuit'] ||
+                      this.usersesc[g].congregation['circuit'] ||
                       especial[b].circuito == 'TODOS'
                     ) {
                       match = true;
                       break;
                     }
                   }
-                  if (match) { continue; }
+                  if (match) {
+                    continue;
+                  }
                 }
                 // fim do controle de dias especiais
 
@@ -380,306 +408,87 @@ export class NewscheduleComponent implements OnInit {
       // carrega usuarios com disponibilidade
 
       pontos_hora.map(p => {
-    let contador = 0;
-    while (contador < 10) {
-      contador += 1;
-        for (let s = 0; s < p.npubs; s++) {
-          if (p.pubs[s].userId == undefined) {
-            // usuarios disponibilidade
-            for (let g = 0; g < this.usersesc.length; g++) {
+        let contador = 0;
+        while (contador < 10) {
+          contador += 1;
+          for (let s = 0; s < p.npubs; s++) {
+            if (p.pubs[s].userId == undefined) {
+              // usuarios disponibilidade
+              for (let g = 0; g < this.usersesc.length; g++) {
 
-                      // inicio do controle de dias especiais(congressos, assembleias)
-                      if (especial.length > 0) {
-                        let match = false;
-                        for (let b = 0; b < especial.length; b++) {
-                          if (
-                            especial[b].circuito ==
-                              this.usersesc[g].congregation['circuit'] ||
-                            especial[b].circuito == 'TODOS'
-                          ) {
-                            match = true;
-                            break;
-                          }
-                        }
-                        if (match) { continue; }
-                      }
-                      // fim do controle de dias especiais
-
-
-
-              // nao deixa de menor de 17 sem responsavel(companheiro pai)
-
-              const idade = this.getAge(this.usersesc[g].datebirth);
-              if (contador > 1 && idade == 17) {
-                continue;
-
-              }
-
-              if (contador > 1 && this.usersesc[g].conjuge) {
-                continue;
-
-              }
-              let idade2 = null;
-              if (s > 0) {
-
-              idade2 = this.getAge(p.pubs[s - 1].datebirth);
-              }
-
-              if (s > 0 && idade2 < 18 && idade < 18) {continue; }
-              if (this.usersesc[g].conjuge == null && idade < 17 ) {
-
-                continue;
-                }
-
-              if (s > 0 && idade == 17) {
-                if (p.pubs[s - 1].userId == undefined) {continue; }
-                try {
-                if (p.pubs[s - 1].congregation['nome'] != this.usersesc[g].congregation['nome'] ) {
-                continue;
-                }
-
-
-              } catch (e) {
-
-                console.log(e);
-
-
-                                }
-
-              }
-
-              if (s > 0 && idade2 == 17 && idade >= 18) {
-
-                if (p.pubs[s - 1].congregation['nome']  != this.usersesc[g].congregation['nome'] ) {
-                  continue;
-                }
-
-
-              }
-              // usuario agendado na semana nao eh designado
-              let semanaigualpre = false;
-              const dia1semanapre = moment.utc(this.dia).startOf('isoWeek');
-              const dia1formatadopre = moment
-                .utc(dia1semanapre)
-                .format('YYYY-MM-DD');
-              for (let m = 0; m < this.mesmasemana_agenda.length; m++) {
-                if (
-                  this.mesmasemana_agenda[m].id == this.usersesc[g].userId &&
-                  this.mesmasemana_agenda[m].dia == dia1formatadopre
-                ) {
-                  semanaigualpre = true;
-                  break;
-                }
-              }
-              if (semanaigualpre) { continue; }
-
-
-
-
-              // mantem irmãos juntos e irmãs juntas, e casais juntos
-
-              if (s > 0) {
-                if (p.pubs[s - 1].conjuge == null && this.usersesc[g].conjuge) {
-                  continue;
-                }
-                if (
-                  p.pubs[s - 1].conjuge &&
-                  p.pubs[s - 1].tipoesc != 'A' &&
-                  this.usersesc[g].conjuge == null
-                ) {
-                  continue;
-                }
-
-                let casal = false;
-                if (p.pubs[s - 1].conjuge && this.usersesc[g].conjuge) {
-                  if (
-                    p.pubs[s - 1].userId == this.usersesc[g].conjuge &&
-                    p.pubs[s - 1].conjuge == this.usersesc[g].userId
-                  ) {
-                    casal = true;
-                  } else {
+                // inicio do controle de dias especiais(congressos, assembleias)
+                if (especial.length > 0) {
+                  let match = false;
+                  for (let b = 0; b < especial.length; b++) {
+                    if (
+                      especial[b].circuito ==
+                      this.usersesc[g].congregation['circuit'] ||
+                      especial[b].circuito == 'TODOS'
+                    ) {
+                      match = true;
+                      break;
+                    }
+                  }
+                  if (match) {
                     continue;
                   }
                 }
+                // fim do controle de dias especiais
 
 
-                if (casal == false && p.pubs[s - 1].sex != this.usersesc[g].sex) {
+                // nao deixa de menor de 17 sem responsavel(companheiro pai)
+
+                const idade = this.getAge(this.usersesc[g].datebirth);
+                if (contador > 1 && idade == 17) {
+                  continue;
+
+                }
+
+                if (contador > 1 && this.usersesc[g].conjuge) {
+                  continue;
+
+                }
+                let idade2 = null;
+                if (s > 0) {
+
+                  idade2 = this.getAge(p.pubs[s - 1].datebirth);
+                }
+
+                if (s > 0 && idade2 < 18 && idade < 18) {
                   continue;
                 }
-              }
+                if (this.usersesc[g].conjuge == null && idade < 17) {
 
-
-              // controla se existem usuários designados no mesmo dia
-              let diaigual = false;
-              for (let mdia = 0; mdia < this.mesmodia.length; mdia++) {
-                if (this.usersesc[g].userId == this.mesmodia[mdia]) {
-                  diaigual = true;
-                  break;
+                  continue;
                 }
-              }
-              if (diaigual) { continue; }
 
-              // controla se existem usuários designados na mesma semana
-              let semanaigual = false;
-              // encontra primeiro dia da semana
-              const dia1semana = moment.utc(this.dia).startOf('isoWeek');
-              const dia1formatado = moment.utc(dia1semana).format('YYYY-MM-DD');
-              for (let msem = 0; msem < this.mesmasemana.length; msem++) {
-                if (
-                  this.mesmasemana[msem].id == this.usersesc[g].userId &&
-                  this.mesmasemana[msem].dia == dia1formatado
-                ) {
-                  semanaigual = true;
-                  break;
+                if (s > 0 && idade == 17) {
+                  if (p.pubs[s - 1].userId == undefined) {
+                    continue;
+                  }
+                  try {
+                    if (p.pubs[s - 1].congregation['nome'] != this.usersesc[g].congregation['nome']) {
+                      continue;
+                    }
+
+
+                  } catch (e) {
+
+                    console.log(e);
+
+
+                  }
+
                 }
-              }
-              if (semanaigual) { continue; }
 
-              let config = [];
-              config = this.usersesc[g].config;
+                if (s > 0 && idade2 == 17 && idade >= 18) {
 
-              let achei = false;
-              let dayoptionuser = this.dayoption;
+                  if (p.pubs[s - 1].congregation['nome'] != this.usersesc[g].congregation['nome']) {
+                    continue;
+                  }
 
-              if  (dayoptionuser == 7) { dayoptionuser = 0; }
-              for (let i = 0; i < config[dayoptionuser].length; i++) {
-                if (config[dayoptionuser][i].hora == h.code) {
-                  const newuser = this.makeNewUser(this.usersesc[g]);
-                  newuser.tipoesc = 'E';
-                  p.pubs[s] = newuser;
-                  const userh = this.usersesc.splice(g, 1);
-                  // userh[0].lastday = new Date(this.dia);
-                  this.usersesc.push(userh[0]);
-                  achei = true;
-                  this.mesmodia.push(userh[0].userId);
 
-                  // encontra primeiro dia da semana
-                  const dia1semana = moment.utc(this.dia).startOf('isoWeek');
-                  const dia1formatado = moment
-                    .utc(dia1semana)
-                    .format('YYYY-MM-DD');
-                  const mesmasemana = { dia: dia1formatado, id: userh[0].userId };
-                  this.mesmasemana.unshift(mesmasemana);
-                  break;
                 }
-              }
-              if (achei) { break; }
-            }
-          }
-        }
-
-        // começo regra alone
-        let sexoposto = ' ';
-        const year = 0;
-        if (p.pubs[0].userId != undefined && p.pubs[1].userId == undefined) {
-          sexoposto = p.pubs[0].sex;
-          const year = this.getAge(p.pubs[0].datebirth);
-          for (let g = 0; g < this.usersesc.length; g++) {
-            if (p.pubs[0].userId == this.usersesc[g].userId) {
-              const useralone = this.usersesc.splice(g, 1);
-              this.usersesc.unshift(useralone[0]);
-
-              const dia1semana = moment.utc(this.dia).startOf('isoWeek');
-              const dia1formatado = moment.utc(dia1semana).format('YYYY-MM-DD');
-              for (let m = 0; m < this.mesmasemana.length; m++) {
-                if (
-                  this.mesmasemana[m].id == p.pubs[0].userId &&
-                  this.mesmasemana[m].dia == dia1formatado
-                ) {
-                  this.mesmasemana.splice(m, 1);
-                  break;
-                }
-              }
-
-              for (let m = 0; m < this.mesmodia.length; m++) {
-                if (this.mesmodia[m] == p.pubs[0].userId) {
-                  this.mesmodia.splice(m, 1);
-                  break;
-                }
-              }
-
-              p.pubs[0] = new User();
-              break;
-            }
-          }
-
-
-
-
-
-          // sexo oposto
-
-          for (let s = 0; s < p.npubs; s++) {
-            if (p.pubs[s].userId == undefined) {
-              for (let g = 0; g < this.usersesc.length; g++) {
-
-
-                        // inicio do controle de dias especiais(congressos, assembleias)
-                        if (especial.length > 0) {
-                          let match = false;
-                          for (let b = 0; b < especial.length; b++) {
-                            if (
-                              especial[b].circuito ==
-                                this.usersesc[g].congregation['circuit'] ||
-                              especial[b].circuito == 'TODOS'
-                            ) {
-                              match = true;
-                              break;
-                            }
-                          }
-                          if (match) { continue; }
-                        }
-                        // fim do controle de dias especiais
-
-
-                if (this.usersesc[g].sex == sexoposto) {continue; }
-
-
-                if (this.usersesc[g].conjuge) {continue; }
-
-           // nao deixa de menor de 17 sem responsavel(companheiro pai)
-
-           const idade = this.getAge(this.usersesc[g].datebirth);
-           if (contador > 1 && idade == 17) {
-            continue;
-
-          }
-           let idade2 = null;
-           if (s > 0) {
-
-           idade2 = this.getAge(p.pubs[s - 1].datebirth);
-           }
-
-
-           if (s > 0 && idade2 < 18 && idade < 18) {continue; }
-
-           if (this.usersesc[g].conjuge == null && idade < 17 ) {
-
-           continue;
-           }
-
-           if (s > 0 && idade == 17) {
-             if (p.pubs[s - 1].userId == undefined) {continue; }
-             try {
-             if (p.pubs[s - 1].congregation['nome'] != this.usersesc[g].congregation['nome']  ) {
-               continue;
-             }
-            } catch (e) {
-
-              console.log(e);
-
-
-                              }
-
-           }
-
-           if (s > 0 && idade2 == 17 && idade >= 18) {
-
-             if (p.pubs[s - 1].congregation['nome']  != this.usersesc[g].congregation['nome']  ) {continue; }
-
-
-           }
-
                 // usuario agendado na semana nao eh designado
                 let semanaigualpre = false;
                 const dia1semanapre = moment.utc(this.dia).startOf('isoWeek');
@@ -695,16 +504,41 @@ export class NewscheduleComponent implements OnInit {
                     break;
                   }
                 }
-                if (semanaigualpre) { continue; }
+                if (semanaigualpre) {
+                  continue;
+                }
 
-
-                /*  if (this.usersesc[g].sex == sexoposto) continue; */
-
-                // mantem irmãos juntos e irmãs juntas
 
                 // mantem irmãos juntos e irmãs juntas, e casais juntos
+
                 if (s > 0) {
-                  if (p.pubs[s - 1].sex != this.usersesc[g].sex) { continue; }
+                  if (p.pubs[s - 1].conjuge == null && this.usersesc[g].conjuge) {
+                    continue;
+                  }
+                  if (
+                    p.pubs[s - 1].conjuge &&
+                    p.pubs[s - 1].tipoesc != 'A' &&
+                    this.usersesc[g].conjuge == null
+                  ) {
+                    continue;
+                  }
+
+                  let casal = false;
+                  if (p.pubs[s - 1].conjuge && this.usersesc[g].conjuge) {
+                    if (
+                      p.pubs[s - 1].userId == this.usersesc[g].conjuge &&
+                      p.pubs[s - 1].conjuge == this.usersesc[g].userId
+                    ) {
+                      casal = true;
+                    } else {
+                      continue;
+                    }
+                  }
+
+
+                  if (casal == false && p.pubs[s - 1].sex != this.usersesc[g].sex) {
+                    continue;
+                  }
                 }
 
 
@@ -716,7 +550,9 @@ export class NewscheduleComponent implements OnInit {
                     break;
                   }
                 }
-                if (diaigual) { continue; }
+                if (diaigual) {
+                  continue;
+                }
 
                 // controla se existem usuários designados na mesma semana
                 let semanaigual = false;
@@ -732,7 +568,9 @@ export class NewscheduleComponent implements OnInit {
                     break;
                   }
                 }
-                if (semanaigual) { continue; }
+                if (semanaigual) {
+                  continue;
+                }
 
                 let config = [];
                 config = this.usersesc[g].config;
@@ -740,7 +578,9 @@ export class NewscheduleComponent implements OnInit {
                 let achei = false;
                 let dayoptionuser = this.dayoption;
 
-                if  (dayoptionuser == 7) { dayoptionuser = 0; }
+                if (dayoptionuser == 7) {
+                  dayoptionuser = 0;
+                }
                 for (let i = 0; i < config[dayoptionuser].length; i++) {
                   if (config[dayoptionuser][i].hora == h.code) {
                     const newuser = this.makeNewUser(this.usersesc[g]);
@@ -757,22 +597,24 @@ export class NewscheduleComponent implements OnInit {
                     const dia1formatado = moment
                       .utc(dia1semana)
                       .format('YYYY-MM-DD');
-                    const mesmasemana = {
-                      dia: dia1formatado,
-                      id: userh[0].userId
-                    };
+                    const mesmasemana = {dia: dia1formatado, id: userh[0].userId};
                     this.mesmasemana.unshift(mesmasemana);
                     break;
                   }
                 }
-                if (achei) { break; }
+                if (achei) {
+                  break;
+                }
               }
             }
           }
 
-          // começo regra alone(sozinho no ponto)
+          // começo regra alone
+          let sexoposto = ' ';
+          const year = 0;
           if (p.pubs[0].userId != undefined && p.pubs[1].userId == undefined) {
-
+            sexoposto = p.pubs[0].sex;
+            const year = this.getAge(p.pubs[0].datebirth);
             for (let g = 0; g < this.usersesc.length; g++) {
               if (p.pubs[0].userId == this.usersesc[g].userId) {
                 const useralone = this.usersesc.splice(g, 1);
@@ -801,10 +643,230 @@ export class NewscheduleComponent implements OnInit {
                 break;
               }
             }
-          }
-        }
 
-      }
+
+            // sexo oposto
+
+            for (let s = 0; s < p.npubs; s++) {
+              if (p.pubs[s].userId == undefined) {
+                for (let g = 0; g < this.usersesc.length; g++) {
+
+
+                  // inicio do controle de dias especiais(congressos, assembleias)
+                  if (especial.length > 0) {
+                    let match = false;
+                    for (let b = 0; b < especial.length; b++) {
+                      if (
+                        especial[b].circuito ==
+                        this.usersesc[g].congregation['circuit'] ||
+                        especial[b].circuito == 'TODOS'
+                      ) {
+                        match = true;
+                        break;
+                      }
+                    }
+                    if (match) {
+                      continue;
+                    }
+                  }
+                  // fim do controle de dias especiais
+
+
+                  if (this.usersesc[g].sex == sexoposto) {
+                    continue;
+                  }
+
+
+                  if (this.usersesc[g].conjuge) {
+                    continue;
+                  }
+
+                  // nao deixa de menor de 17 sem responsavel(companheiro pai)
+
+                  const idade = this.getAge(this.usersesc[g].datebirth);
+                  if (contador > 1 && idade == 17) {
+                    continue;
+
+                  }
+                  let idade2 = null;
+                  if (s > 0) {
+
+                    idade2 = this.getAge(p.pubs[s - 1].datebirth);
+                  }
+
+
+                  if (s > 0 && idade2 < 18 && idade < 18) {
+                    continue;
+                  }
+
+                  if (this.usersesc[g].conjuge == null && idade < 17) {
+
+                    continue;
+                  }
+
+                  if (s > 0 && idade == 17) {
+                    if (p.pubs[s - 1].userId == undefined) {
+                      continue;
+                    }
+                    try {
+                      if (p.pubs[s - 1].congregation['nome'] != this.usersesc[g].congregation['nome']) {
+                        continue;
+                      }
+                    } catch (e) {
+
+                      console.log(e);
+
+
+                    }
+
+                  }
+
+                  if (s > 0 && idade2 == 17 && idade >= 18) {
+
+                    if (p.pubs[s - 1].congregation['nome'] != this.usersesc[g].congregation['nome']) {
+                      continue;
+                    }
+
+
+                  }
+
+                  // usuario agendado na semana nao eh designado
+                  let semanaigualpre = false;
+                  const dia1semanapre = moment.utc(this.dia).startOf('isoWeek');
+                  const dia1formatadopre = moment
+                    .utc(dia1semanapre)
+                    .format('YYYY-MM-DD');
+                  for (let m = 0; m < this.mesmasemana_agenda.length; m++) {
+                    if (
+                      this.mesmasemana_agenda[m].id == this.usersesc[g].userId &&
+                      this.mesmasemana_agenda[m].dia == dia1formatadopre
+                    ) {
+                      semanaigualpre = true;
+                      break;
+                    }
+                  }
+                  if (semanaigualpre) {
+                    continue;
+                  }
+
+
+                  /*  if (this.usersesc[g].sex == sexoposto) continue; */
+
+                  // mantem irmãos juntos e irmãs juntas
+
+                  // mantem irmãos juntos e irmãs juntas, e casais juntos
+                  if (s > 0) {
+                    if (p.pubs[s - 1].sex != this.usersesc[g].sex) {
+                      continue;
+                    }
+                  }
+
+
+                  // controla se existem usuários designados no mesmo dia
+                  let diaigual = false;
+                  for (let mdia = 0; mdia < this.mesmodia.length; mdia++) {
+                    if (this.usersesc[g].userId == this.mesmodia[mdia]) {
+                      diaigual = true;
+                      break;
+                    }
+                  }
+                  if (diaigual) {
+                    continue;
+                  }
+
+                  // controla se existem usuários designados na mesma semana
+                  let semanaigual = false;
+                  // encontra primeiro dia da semana
+                  const dia1semana = moment.utc(this.dia).startOf('isoWeek');
+                  const dia1formatado = moment.utc(dia1semana).format('YYYY-MM-DD');
+                  for (let msem = 0; msem < this.mesmasemana.length; msem++) {
+                    if (
+                      this.mesmasemana[msem].id == this.usersesc[g].userId &&
+                      this.mesmasemana[msem].dia == dia1formatado
+                    ) {
+                      semanaigual = true;
+                      break;
+                    }
+                  }
+                  if (semanaigual) {
+                    continue;
+                  }
+
+                  let config = [];
+                  config = this.usersesc[g].config;
+
+                  let achei = false;
+                  let dayoptionuser = this.dayoption;
+
+                  if (dayoptionuser == 7) {
+                    dayoptionuser = 0;
+                  }
+                  for (let i = 0; i < config[dayoptionuser].length; i++) {
+                    if (config[dayoptionuser][i].hora == h.code) {
+                      const newuser = this.makeNewUser(this.usersesc[g]);
+                      newuser.tipoesc = 'E';
+                      p.pubs[s] = newuser;
+                      const userh = this.usersesc.splice(g, 1);
+                      // userh[0].lastday = new Date(this.dia);
+                      this.usersesc.push(userh[0]);
+                      achei = true;
+                      this.mesmodia.push(userh[0].userId);
+
+                      // encontra primeiro dia da semana
+                      const dia1semana = moment.utc(this.dia).startOf('isoWeek');
+                      const dia1formatado = moment
+                        .utc(dia1semana)
+                        .format('YYYY-MM-DD');
+                      const mesmasemana = {
+                        dia: dia1formatado,
+                        id: userh[0].userId
+                      };
+                      this.mesmasemana.unshift(mesmasemana);
+                      break;
+                    }
+                  }
+                  if (achei) {
+                    break;
+                  }
+                }
+              }
+            }
+
+            // começo regra alone(sozinho no ponto)
+            if (p.pubs[0].userId != undefined && p.pubs[1].userId == undefined) {
+
+              for (let g = 0; g < this.usersesc.length; g++) {
+                if (p.pubs[0].userId == this.usersesc[g].userId) {
+                  const useralone = this.usersesc.splice(g, 1);
+                  this.usersesc.unshift(useralone[0]);
+
+                  const dia1semana = moment.utc(this.dia).startOf('isoWeek');
+                  const dia1formatado = moment.utc(dia1semana).format('YYYY-MM-DD');
+                  for (let m = 0; m < this.mesmasemana.length; m++) {
+                    if (
+                      this.mesmasemana[m].id == p.pubs[0].userId &&
+                      this.mesmasemana[m].dia == dia1formatado
+                    ) {
+                      this.mesmasemana.splice(m, 1);
+                      break;
+                    }
+                  }
+
+                  for (let m = 0; m < this.mesmodia.length; m++) {
+                    if (this.mesmodia[m] == p.pubs[0].userId) {
+                      this.mesmodia.splice(m, 1);
+                      break;
+                    }
+                  }
+
+                  p.pubs[0] = new User();
+                  break;
+                }
+              }
+            }
+          }
+
+        }
 
 
       });
@@ -822,7 +884,9 @@ export class NewscheduleComponent implements OnInit {
             escala.pontos[p][u].pubs[s].userId == null ||
             escala.pontos[p][u].pubs[s].userId == undefined
           ) {
-            if (s == 0) { this.reportvoid++; }
+            if (s == 0) {
+              this.reportvoid++;
+            }
           } else {
             this.reportcount.push(escala.pontos[p][u].pubs[s].userId);
 
@@ -838,7 +902,9 @@ export class NewscheduleComponent implements OnInit {
   nextValidity(e: any) {
     let index = this.validities.indexOf(this.validity);
     index++;
-    if (index > this.validities.length - 1) { index = this.validities.length - 1; }
+    if (index > this.validities.length - 1) {
+      index = this.validities.length - 1;
+    }
     this.validity = this.validities[index];
     this.datainicio = this.dateString(this.validity.begin);
     this.datafim = this.dateString(this.validity.end);
@@ -849,7 +915,9 @@ export class NewscheduleComponent implements OnInit {
   beforeValidity(e: any) {
     let index = this.validities.indexOf(this.validity);
     index--;
-    if (index < 0) { index = 0; }
+    if (index < 0) {
+      index = 0;
+    }
     this.validity = this.validities[index];
     this.datainicio = this.dateString(this.validity.begin);
     this.datafim = this.dateString(this.validity.end);
@@ -882,12 +950,15 @@ export class NewscheduleComponent implements OnInit {
       usersort[i] = temp;
     }
 
-    usersort.sort(function(a, b) {
-      if (!a.lastday) { return -1; }
-      if (!b.lastday) { return 1; }
+    usersort.sort(function (a, b) {
+      if (!a.lastday) {
+        return -1;
+      }
+      if (!b.lastday) {
+        return 1;
+      }
       return a.lastday > b.lastday ? 1 : a.lastday < b.lastday ? -1 : 0;
     });
-
 
 
     this.users = usersort;
@@ -919,13 +990,13 @@ export class NewscheduleComponent implements OnInit {
         .locale('pt-br')
         .format('dddd');
 
-    // regra feriado inicio
-    if (this.buscaFeriado()) {
-      this.dayoption = 7;
-    } else {
-      this.dayoption = this.diaatual.day();
-    }
-     // regra feriado fim
+      // regra feriado inicio
+      if (this.buscaFeriado()) {
+        this.dayoption = 7;
+      } else {
+        this.dayoption = this.diaatual.day();
+      }
+      // regra feriado fim
 
       this.pontos_dia = this.pontos.filter(
         a => a.config[this.dayoption].length > 0
@@ -945,14 +1016,17 @@ export class NewscheduleComponent implements OnInit {
     }
 
     this.finalreport.sort((a, b) => {
-      if (a.nome < b.nome) { return -1; }
-      if (a.nome > b.nome) { return 1; }
+      if (a.nome < b.nome) {
+        return -1;
+      }
+      if (a.nome > b.nome) {
+        return 1;
+      }
       return 0;
     });
 
     this.showNow = true;
   }
-
 
 
   makeNewUser(user: User) {
@@ -984,65 +1058,65 @@ export class NewscheduleComponent implements OnInit {
 
   buscaFeriado() {
     const feriado = this.feriados.filter(a => a.data == this.dia);
-    if (feriado.length > 0) { return true; }
+    if (feriado.length > 0) {
+      return true;
+    }
   }
 
   salvaEscala() {
 
-    const resposta = prompt('Confirma salvar a escala? Digite: salvar', );
+    const resposta = prompt('Confirma salvar a escala? Digite: salvar',);
     if (resposta == 'salvar') {
-    if (this.escala.length > 0) {
-      this.authService.saveEscala(this.escala).subscribe(
-        data => {
-          this.authService.getEscala(this.datainicio).subscribe(escala => {
-            this.escala = escala;
-            if (this.escala.length > 0) {
-              this.escala.sort(function(a, b) {
-                return a.data > b.data ? 1 : a.data < b.data ? -1 : 0;
-              });
-            }
-
-            alert('A escala foi salva!');
-            this.allowsave = false;
-            this.allowdelete = true;
-
-            this.authService.getlistusers_esc().subscribe((users: User[]) => {
-              // this.users = users.filter(a => a.email != 'super@super.com');
-              this.users = users;
-              const usersort = this.users;
-
-              for (let i = 0; i < usersort.length - 1; i++) {
-                const j = i + Math.floor(Math.random() * (usersort.length - i));
-
-                const temp = usersort[j];
-                usersort[j] = usersort[i];
-                usersort[i] = temp;
+      if (this.escala.length > 0) {
+        this.authService.saveEscala(this.escala).subscribe(
+          data => {
+            this.authService.getEscala(this.datainicio).subscribe(escala => {
+              this.escala = escala;
+              if (this.escala.length > 0) {
+                this.escala.sort(function (a, b) {
+                  return a.data > b.data ? 1 : a.data < b.data ? -1 : 0;
+                });
               }
 
-              usersort.sort(function(a, b) {
-                return a.lastday > b.lastday ? 1 : a.lastday < b.lastday ? -1 : 0;
+              alert('A escala foi salva!');
+              this.allowsave = false;
+              this.allowdelete = true;
+
+              this.authService.getlistusers_esc().subscribe((users: User[]) => {
+                // this.users = users.filter(a => a.email != 'super@super.com');
+                this.users = users;
+                const usersort = this.users;
+
+                for (let i = 0; i < usersort.length - 1; i++) {
+                  const j = i + Math.floor(Math.random() * (usersort.length - i));
+
+                  const temp = usersort[j];
+                  usersort[j] = usersort[i];
+                  usersort[i] = temp;
+                }
+
+                usersort.sort(function (a, b) {
+                  return a.lastday > b.lastday ? 1 : a.lastday < b.lastday ? -1 : 0;
+                });
+
+                this.users = usersort;
               });
 
-              this.users = usersort;
+
             });
 
 
-
-
-          });
-
-
-        },
-        error => console.error(error)
-      );
+          },
+          error => console.error(error)
+        );
+      }
     }
-  }
 
   }
 
   deletaEscala() {
 
-    const resposta = prompt('Tem certeza que quer deletar a Escala? Digite: deletar', );
+    const resposta = prompt('Tem certeza que quer deletar a Escala? Digite: deletar',);
     if (resposta == 'deletar') {
       if (this.escala.length > 0) {
         this.authService.deleteEscala(this.datainicio).subscribe(
@@ -1068,7 +1142,7 @@ export class NewscheduleComponent implements OnInit {
                 usersort[i] = temp;
               }
 
-              usersort.sort(function(a, b) {
+              usersort.sort(function (a, b) {
                 return a.lastday > b.lastday
                   ? 1
                   : a.lastday < b.lastday
@@ -1086,7 +1160,9 @@ export class NewscheduleComponent implements OnInit {
   }
 
   verifyallowsave() {
-    if (this.allowsave && this.escala.length > 0) { return false; }
+    if (this.allowsave && this.escala.length > 0) {
+      return false;
+    }
 
     return true;
   }
@@ -1103,7 +1179,7 @@ export class NewscheduleComponent implements OnInit {
       escala => {
         this.escala = escala;
         if (this.escala.length > 0) {
-          this.escala.sort(function(a, b) {
+          this.escala.sort(function (a, b) {
             return a.data > b.data ? 1 : a.data < b.data ? -1 : 0;
           });
 
@@ -1123,7 +1199,9 @@ export class NewscheduleComponent implements OnInit {
                         this.escala[i].pontos[p][u].pubs[s] == undefined
                       ) {
                         this.escala[i].pontos[p][u].pubs[s] = new User();
-                        if (s == 0) { this.reportvoid++; }
+                        if (s == 0) {
+                          this.reportvoid++;
+                        }
                       } else {
                         this.reportcount.push(
                           this.escala[i].pontos[p][u].pubs[s].userId
@@ -1166,8 +1244,12 @@ export class NewscheduleComponent implements OnInit {
               }
 
               this.finalreport.sort((a, b) => {
-                if (a.nome < b.nome) { return -1; }
-                if (a.nome > b.nome) { return 1; }
+                if (a.nome < b.nome) {
+                  return -1;
+                }
+                if (a.nome > b.nome) {
+                  return 1;
+                }
                 return 0;
               });
             },
@@ -1189,7 +1271,7 @@ export class NewscheduleComponent implements OnInit {
 
   sendTelegram() {
 
-    const resposta = prompt('Confirma envio de telegrams? Digite: telegram', );
+    const resposta = prompt('Confirma envio de telegrams? Digite: telegram',);
     if (resposta == 'telegram') {
 
       if (this.escala.length > 0) {
@@ -1208,7 +1290,7 @@ export class NewscheduleComponent implements OnInit {
 
   sendEmail() {
 
-    const resposta = prompt('Confirma envio de emails? Digite: email', );
+    const resposta = prompt('Confirma envio de emails? Digite: email',);
     if (resposta == 'email') {
       if (this.escala.length > 0) {
         this.authService.sendEmails(this.datainicio).subscribe(
@@ -1256,11 +1338,17 @@ export class NewscheduleComponent implements OnInit {
           console.log('led encontrado');
           let led = false;
           for (let i = 0; i < this.escala.length; i++) {
-            if (led) { break; }
+            if (led) {
+              break;
+            }
             for (let p = 0; p < this.escala[i].pontos.length; p++) {
-              if (led) { break; }
+              if (led) {
+                break;
+              }
               for (let u = 0; u < this.escala[i].pontos[p].length; u++) {
-                if (led) { break; }
+                if (led) {
+                  break;
+                }
                 for (let s = 0; s < this.escala[i].pontos[p][u].npubs; s++) {
                   if (
                     this.escala[i].pontos[p][u].pubs[s].userId == data.iduser &&
@@ -1272,7 +1360,7 @@ export class NewscheduleComponent implements OnInit {
                     console.log(
                       `led ${
                         this.escala[i].pontos[p][u].pubs[s].firstName
-                      } modificado ${data.sim} ${data.nao}`
+                        } modificado ${data.sim} ${data.nao}`
                     );
                     led = true;
                     break;
@@ -1285,11 +1373,17 @@ export class NewscheduleComponent implements OnInit {
           console.log('sub encontrado');
           let led = false;
           for (let i = 0; i < this.escala.length; i++) {
-            if (led) { break; }
+            if (led) {
+              break;
+            }
             for (let p = 0; p < this.escala[i].pontos.length; p++) {
-              if (led) { break; }
+              if (led) {
+                break;
+              }
               for (let u = 0; u < this.escala[i].pontos[p].length; u++) {
-                if (led) { break; }
+                if (led) {
+                  break;
+                }
                 for (let s = 0; s < this.escala[i].pontos[p][u].npubs; s++) {
                   if (
                     this.escala[i].pontos[p][u].pubs[s].userId == data.iduser &&
@@ -1300,7 +1394,7 @@ export class NewscheduleComponent implements OnInit {
                     console.log(
                       `sub ${
                         this.escala[i].pontos[p][u].pubs[s].firstName
-                      } modificado ${data.sim} ${data.nao}`
+                        } modificado ${data.sim} ${data.nao}`
                     );
                     led = true;
                     break;

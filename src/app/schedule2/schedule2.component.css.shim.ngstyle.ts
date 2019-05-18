@@ -3,8 +3,8 @@
  * Do not edit.
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride}
  */
- /* tslint:disable */
+/* tslint:disable */
 
 
-export const styles:any[] = [''];
+export const styles: any[] = [''];
 //# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvYWxleGEvRGVza3RvcC9ub3ZvL2NhcnJpbmhvL2Fzc2V0cy9hcHAvc2NoZWR1bGUyL3NjaGVkdWxlMi5jb21wb25lbnQuY3NzLnNoaW0ubmdzdHlsZS50cyIsInZlcnNpb24iOjMsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIm5nOi8vL0M6L1VzZXJzL2FsZXhhL0Rlc2t0b3Avbm92by9jYXJyaW5oby9hc3NldHMvYXBwL3NjaGVkdWxlMi9zY2hlZHVsZTIuY29tcG9uZW50LmNzcyJdLCJzb3VyY2VzQ29udGVudCI6WyIgIl0sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7In0=

@@ -1,6 +1,6 @@
 export class Vagas {
-    constructor(code, vagas) {
-        this.code = code;
-        this.vagas = vagas;
-    }
+  constructor(code, vagas) {
+    this.code = code;
+    this.vagas = vagas;
+  }
 }

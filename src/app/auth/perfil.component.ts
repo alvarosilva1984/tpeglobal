@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
 
-import { AuthService } from './auth.service';
-import { User } from './user.model';
-import { Config } from './config.model';
-import { Circuito } from '../setup/circuito.model';
-import { Hora } from '../setup/hora.model';
-import { Ponto } from '../setup/ponto.model';
-import { Congregation } from '../setup/congregation.model';
+import {AuthService} from './auth.service';
+import {User} from './user.model';
+import {Config} from './config.model';
+import {Circuito} from '../setup/circuito.model';
+import {Hora} from '../setup/hora.model';
+import {Ponto} from '../setup/ponto.model';
+import {Congregation} from '../setup/congregation.model';
 
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 import * as moment from 'moment';
 
 @Component({
@@ -106,14 +106,15 @@ export class PerfilComponent implements OnInit {
   showDisponibilidade = false;
   changemode = true;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {
+  }
 
   onSubmit() {
     const user = new User();
     user.userId = this.userselected.userId;
     user.config = this.config;
     if (this.userselected.conjuge) {
-    user.conjuge = this.userselected.conjuge['_id'];
+      user.conjuge = this.userselected.conjuge['_id'];
     }
 
 
@@ -190,32 +191,34 @@ export class PerfilComponent implements OnInit {
             this.pontos_dia = this.pontos.filter(a => a.config[1].length > 0);
 
             this.authService.getHoras().subscribe((horas: Hora[]) => {
-              this.horas = horas;
+                this.horas = horas;
 
-              const horas_sort = this.horas;
-              horas_sort.sort((a, b) => {
-                if (a.code < b.code) { return -1; }
-                if (a.code > b.code) { return 1; }
-                return 0;
-              });
-              this.horas = horas_sort;
+                const horas_sort = this.horas;
+                horas_sort.sort((a, b) => {
+                  if (a.code < b.code) {
+                    return -1;
+                  }
+                  if (a.code > b.code) {
+                    return 1;
+                  }
+                  return 0;
+                });
+                this.horas = horas_sort;
 
-              this.horasExistentes();
-
-
-
-                      this.setValuesToForm();
-                    },
-                    error => console.error(error));
-                  },
-                  error => console.error(error));
-
-                },
-                error => console.error(error));
+                this.horasExistentes();
 
 
+                this.setValuesToForm();
+              },
+              error => console.error(error));
+          },
+          error => console.error(error));
 
-}
+      },
+      error => console.error(error));
+
+
+  }
 
   responsableNeed() {
     const age = this.getAge(this.mybirth);
@@ -249,13 +252,27 @@ export class PerfilComponent implements OnInit {
   horasExistentes() {
     let day = 1;
 
-    if (this.dayselect == 'Segunda-feira') { day = 1; }
-    if (this.dayselect == 'Terça-feira') { day = 2; }
-    if (this.dayselect == 'Quarta-feira') { day = 3; }
-    if (this.dayselect == 'Quinta-feira') { day = 4; }
-    if (this.dayselect == 'Sexta-feira') { day = 5; }
-    if (this.dayselect == 'Sábado') { day = 6; }
-    if (this.dayselect == 'Domingo') { day = 0; }
+    if (this.dayselect == 'Segunda-feira') {
+      day = 1;
+    }
+    if (this.dayselect == 'Terça-feira') {
+      day = 2;
+    }
+    if (this.dayselect == 'Quarta-feira') {
+      day = 3;
+    }
+    if (this.dayselect == 'Quinta-feira') {
+      day = 4;
+    }
+    if (this.dayselect == 'Sexta-feira') {
+      day = 5;
+    }
+    if (this.dayselect == 'Sábado') {
+      day = 6;
+    }
+    if (this.dayselect == 'Domingo') {
+      day = 0;
+    }
 
     this.pontos_dia = this.pontos.filter(a => a.config[day].length > 0);
 
@@ -270,7 +287,9 @@ export class PerfilComponent implements OnInit {
     this.pontos_dia.map(a => {
       for (let i = 0; i < a.config[day].length; i++) {
         this.horas.map(b => {
-          if (b.code == a.config[day][i]) { b.vagas += a.npubs; }
+          if (b.code == a.config[day][i]) {
+            b.vagas += a.npubs;
+          }
         });
       }
     });
@@ -281,31 +300,49 @@ export class PerfilComponent implements OnInit {
 
   anteriorDia(e) {
     this.diadasemana -= 1;
-    if (this.diadasemana < 0) { this.diadasemana = 6; }
+    if (this.diadasemana < 0) {
+      this.diadasemana = 6;
+    }
     this.dayselect = this.diasdasemana[this.diadasemana];
     this.horasExistentes();
   }
 
   proximoDia(e) {
     this.diadasemana += 1;
-    if (this.diadasemana > 6) { this.diadasemana = 0; }
+    if (this.diadasemana > 6) {
+      this.diadasemana = 0;
+    }
     this.dayselect = this.diasdasemana[this.diadasemana];
     this.horasExistentes();
   }
 
   changed(e: any, hora: Hora) {
-    const config = { hora: ' ', vezes: 1, contador: 0 };
+    const config = {hora: ' ', vezes: 1, contador: 0};
     config.hora = hora.code;
 
     let day = 0;
 
-    if (this.dayselect == 'Segunda-feira') { day = 1; }
-    if (this.dayselect == 'Terça-feira') { day = 2; }
-    if (this.dayselect == 'Quarta-feira') { day = 3; }
-    if (this.dayselect == 'Quinta-feira') { day = 4; }
-    if (this.dayselect == 'Sexta-feira') { day = 5; }
-    if (this.dayselect == 'Sábado') { day = 6; }
-    if (this.dayselect == 'Domingo') { day = 0; }
+    if (this.dayselect == 'Segunda-feira') {
+      day = 1;
+    }
+    if (this.dayselect == 'Terça-feira') {
+      day = 2;
+    }
+    if (this.dayselect == 'Quarta-feira') {
+      day = 3;
+    }
+    if (this.dayselect == 'Quinta-feira') {
+      day = 4;
+    }
+    if (this.dayselect == 'Sexta-feira') {
+      day = 5;
+    }
+    if (this.dayselect == 'Sábado') {
+      day = 6;
+    }
+    if (this.dayselect == 'Domingo') {
+      day = 0;
+    }
 
     console.log(e);
     if (e == true) {
@@ -324,28 +361,48 @@ export class PerfilComponent implements OnInit {
     let existe = [];
     let day = 0;
 
-    if (this.dayselect == 'Segunda-feira') { day = 1; }
-    if (this.dayselect == 'Terça-feira') { day = 2; }
-    if (this.dayselect == 'Quarta-feira') { day = 3; }
-    if (this.dayselect == 'Quinta-feira') { day = 4; }
-    if (this.dayselect == 'Sexta-feira') { day = 5; }
-    if (this.dayselect == 'Sábado') { day = 6; }
-    if (this.dayselect == 'Domingo') { day = 0; }
+    if (this.dayselect == 'Segunda-feira') {
+      day = 1;
+    }
+    if (this.dayselect == 'Terça-feira') {
+      day = 2;
+    }
+    if (this.dayselect == 'Quarta-feira') {
+      day = 3;
+    }
+    if (this.dayselect == 'Quinta-feira') {
+      day = 4;
+    }
+    if (this.dayselect == 'Sexta-feira') {
+      day = 5;
+    }
+    if (this.dayselect == 'Sábado') {
+      day = 6;
+    }
+    if (this.dayselect == 'Domingo') {
+      day = 0;
+    }
 
     existe = this.config[day].filter(a => a.hora == hora.code);
 
-    if (existe.length > 0) { return true; }
+    if (existe.length > 0) {
+      return true;
+    }
 
     return false;
   }
 
   setValuesToForm() {
     if (this.userselected) {
-   
+
       let responsable = null;
-      if (this.userselected.responsable) {responsable = this.userselected['firstName'] + ' ' + this.userselected.responsable['lastName']; }
+      if (this.userselected.responsable) {
+        responsable = this.userselected['firstName'] + ' ' + this.userselected.responsable['lastName'];
+      }
       let conjuge = null;
-      if (this.userselected.conjuge) {conjuge = this.userselected.conjuge['firstName'] + ' ' + this.userselected.conjuge['lastName']; }
+      if (this.userselected.conjuge) {
+        conjuge = this.userselected.conjuge['firstName'] + ' ' + this.userselected.conjuge['lastName'];
+      }
 
       this.myForm.setValue({
         firstName: this.userselected.firstName,
@@ -395,12 +452,16 @@ export class PerfilComponent implements OnInit {
   valueInput(hora) {
     if (this.dayselect == 'Sábado') {
       for (let i = 0; i < this.config[6].length; i++) {
-        if (this.config[6][i].hora == hora) { return this.config[6][i].vezes; }
+        if (this.config[6][i].hora == hora) {
+          return this.config[6][i].vezes;
+        }
       }
     }
     if (this.dayselect == 'Domingo') {
       for (let i = 0; i < this.config[0].length; i++) {
-        if (this.config[0][i].hora == hora) { return this.config[0][i].vezes; }
+        if (this.config[0][i].hora == hora) {
+          return this.config[0][i].vezes;
+        }
       }
     }
 
@@ -479,7 +540,9 @@ export class PerfilComponent implements OnInit {
   }
 
   inputCheckCondition() {
-    if (this.open) { return true; }
+    if (this.open) {
+      return true;
+    }
 
     return false;
   }
@@ -512,33 +575,48 @@ export class PerfilComponent implements OnInit {
       existe = this.config[0].filter(a => a.hora == hora.code);
     }
 
-    if (existe.length > 0) { return false; }
+    if (existe.length > 0) {
+      return false;
+    }
 
     return true;
   }
 
   validMyForm() {
-    if (!this.myForm.valid) { return true; }
-    if (this.isdisabled) { return true; }
+    if (!this.myForm.valid) {
+      return true;
+    }
+    if (this.isdisabled) {
+      return true;
+    }
 
     return false;
   }
 
   doConfig() {
-    if (this.open) { this.open = false; }
-    else { this.open = true; }
+    if (this.open) {
+      this.open = false;
+    } else {
+      this.open = true;
+    }
 
     this.onChangeMode();
   }
 
   onChangeDisponiblidade() {
-    if (this.showDisponibilidade) { this.showDisponibilidade = false; }
-    else { this.showDisponibilidade = true; }
+    if (this.showDisponibilidade) {
+      this.showDisponibilidade = false;
+    } else {
+      this.showDisponibilidade = true;
+    }
   }
 
   onChangeMode() {
-    if (this.changemode) { this.changemode = false; }
-    else { this.changemode = true; }
+    if (this.changemode) {
+      this.changemode = false;
+    } else {
+      this.changemode = true;
+    }
 
     return this.changemode;
   }

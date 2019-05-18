@@ -1,21 +1,22 @@
 <div class="col-md-5 col-md-offset-1">
 
-    <form [formGroup]="telegramForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="telegramForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-        <label for="meutexto">Texto para Telegram:</label>
-        <textarea class="form-control" rows="5" id="meutexto" formControlName="message"></textarea>
-      </div>
-      <div class="form-group">
-          <label for="telefone">Id Chat:</label>
-          <input type="number" class="form-control" id="telefone" formControlName="id">
-        </div>
+      <label for="meutexto">Texto para Telegram:</label>
+      <textarea class="form-control" rows="5" id="meutexto" formControlName="message"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="telefone">Id Chat:</label>
+      <input type="number" class="form-control" id="telefone" formControlName="id">
+    </div>
 
     <br>
-      <button id="btnTelegram" class="btn btn-success" type="submit" [disabled]="!telegramForm.valid">Envia Telegram</button>
-    </form>
-    <br>
+    <button id="btnTelegram" class="btn btn-success" type="submit" [disabled]="!telegramForm.valid">Envia Telegram
+    </button>
+  </form>
+  <br>
 
-    </div>
-    <div class="col-md-5">
+</div>
+<div class="col-md-5">
 
-    </div>
+</div>

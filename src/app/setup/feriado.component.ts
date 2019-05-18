@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AuthService } from '../auth/auth.service';
-import { Feriado } from './feriado.model';
+import {Component, OnInit} from '@angular/core';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {AuthService} from '../auth/auth.service';
+import {Feriado} from './feriado.model';
 import 'moment/locale/pt-br';
 import * as moment from 'moment';
 
@@ -22,7 +22,8 @@ export class FeriadoComponent implements OnInit {
 
   auth = true;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) {
+  }
 
   ngOnInit() {
 
@@ -30,8 +31,8 @@ export class FeriadoComponent implements OnInit {
     this.onAuth();
 
     this.feriadoForm = new FormGroup({
-        feriado: new FormControl(null, Validators.required),
-        data: new FormControl(null, Validators.required)
+      feriado: new FormControl(null, Validators.required),
+      data: new FormControl(null, Validators.required)
     });
 
     this.authService.getFeriado().subscribe(
