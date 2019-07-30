@@ -123,6 +123,7 @@ export class HoraComponent implements OnInit {
   }
 
   validMyForm() {
+    console.log(this.horaForm)
     if (!this.horaForm.valid) return true;
 
     return false;

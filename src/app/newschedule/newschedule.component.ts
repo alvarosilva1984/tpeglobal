@@ -96,6 +96,7 @@ export class NewscheduleComponent implements OnInit {
       });
 
       const validitiessort = this.validities;
+      console.log("---->", this.validities)
       validitiessort.sort((a, b) => {
         if (a.begin > b.begin) {
           return -1;
@@ -106,7 +107,7 @@ export class NewscheduleComponent implements OnInit {
         return 0;
       });
       this.validities = validitiessort;
-      this.validity = this.validities[0];
+      this.validity = this.validities[0] || {};
       this.datainicio = this.dateString(this.validity.begin);
       this.datafim = this.dateString(this.validity.end);
     });
@@ -905,7 +906,7 @@ export class NewscheduleComponent implements OnInit {
     if (index > this.validities.length - 1) {
       index = this.validities.length - 1;
     }
-    this.validity = this.validities[index];
+    this.validity = this.validities[index] || {};
     this.datainicio = this.dateString(this.validity.begin);
     this.datafim = this.dateString(this.validity.end);
     this.escala = [];
@@ -918,7 +919,7 @@ export class NewscheduleComponent implements OnInit {
     if (index < 0) {
       index = 0;
     }
-    this.validity = this.validities[index];
+    this.validity = this.validities[index] || {};
     this.datainicio = this.dateString(this.validity.begin);
     this.datafim = this.dateString(this.validity.end);
     this.escala = [];
