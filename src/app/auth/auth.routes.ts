@@ -39,7 +39,6 @@ import {AnuncioComponent} from '../anuncio/anuncio.component';
 import {AnunciouserComponent} from '../anunciouser/anunciouser.component';
 import {PerfilroleComponent} from '../perfilrole/perfilrole.component';
 
-
 export const AUTH_ROUTES: Routes = [
   {path: '', redirectTo: 'auth', pathMatch: 'full'},
   {path: 'signin', component: SigninComponent},

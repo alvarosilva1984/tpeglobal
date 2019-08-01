@@ -1,8 +1,6 @@
 import {Component} from '@angular/core';
 import {AuthService} from './auth.service';
 import {Router} from '@angular/router';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {first} from 'rxjs/operator/first';
 
 @Component({
   selector: 'app-authentication',
@@ -12,7 +10,6 @@ import {first} from 'rxjs/operator/first';
         padding-top: 30px;
       }
     `]
-
 })
 
 export class AuthenticationComponent {
@@ -21,25 +18,15 @@ export class AuthenticationComponent {
   cidade: string;
 
   constructor(private authService: AuthService, router: Router) {
-
-
+    const clearLocalStorage = function () {
+      localStorage.clear();
+      return router.navigate(['/auth']);
+    };
     this.cidade = localStorage.getItem('cidade');
-
-
-    window.addEventListener('onbeforeunload', function () {
-      localStorage.clear();
-      return router.navigate(['/auth']);
-    });
-
-    window.addEventListener('onunload', function () {
-      localStorage.clear();
-      return router.navigate(['/auth']);
-    });
-
+    window.addEventListener('onbeforeunload', clearLocalStorage);
+    window.addEventListener('onunload', clearLocalStorage);
     localStorage.removeItem('welcome');
     if (this.isLoggedIn() == false) router.navigate(['/auth', 'signin']);
-
-
   }
 
   isLoggedIn() {
@@ -62,7 +49,6 @@ export class AuthenticationComponent {
     return this.authService.isCtc();
   }
 
-
   toggleMenu() {
     this.isCollapsed = !this.isCollapsed;
     localStorage.removeItem('welcome');
@@ -72,6 +58,4 @@ export class AuthenticationComponent {
     this.name = localStorage.getItem('welcome');
     return localStorage.getItem('welcome') !== null;
   }
-
-
 }

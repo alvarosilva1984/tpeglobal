@@ -1,5 +1,5 @@
-import {Injectable, OnInit} from '@angular/core';
-import {Http, Headers, Response} from '@angular/http';
+import {Injectable} from '@angular/core';
+import {Headers, Http, Response} from '@angular/http';
 
 import 'rxjs/Rx';
 import {Observable} from 'rxjs';
@@ -16,8 +16,7 @@ import {Telegram} from '../testtelegram/telegram.model';
 import {User} from './user.model';
 import {Agenda} from '../schedule2/agenda.model';
 import {ErrorService} from '../errors/error.service';
-import {Body} from '@angular/http/src/body';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {FormGroup} from '@angular/forms';
 import {Newpass} from './newpass.model';
 import {JwtHelper} from 'angular2-jwt';
 import {Router} from '@angular/router';
@@ -25,16 +24,10 @@ import {Anuncio} from '../anuncio/anuncio.model';
 import {Perfilrole} from '../perfilrole/perfilrole.model';
 import {environment} from '../../environments/environment';
 
-
 @Injectable()
 export class AuthService {
   router: Router;
-
-  constructor(private http: Http, private errorService: ErrorService) {
-
-
-  }
-
+  constructor(private http: Http, private errorService: ErrorService) { }
   private users: User[] = [];
   private euuser = new User('');
   perfil: User;
@@ -48,8 +41,6 @@ export class AuthService {
   feriados: Feriado[] = [];
   validities: Validity[] = [];
   anuncios: Anuncio[] = [];
-
-
   path = environment.apiUrl;
 
   signup(user: User) {
@@ -64,7 +55,6 @@ export class AuthService {
   }
 
   signin(user: User) {
-
     const body = JSON.stringify(user);
     const headers = new Headers({'Content-Type': 'application/json'});
     return this.http.post(this.path + 'user/signin', body, {headers: headers})
@@ -81,24 +71,19 @@ export class AuthService {
   }
 
   isLoggedIn() {
-
     return localStorage.getItem('token') !== null;
   }
 
   goOut() {
-
     if (localStorage.getItem('token') == null)
       this.router.navigateByUrl(this.path + 'auth/signin');
-
   }
-
 
   getlistusers() {
     const userId = localStorage.getItem('userId');
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-
     return this.http.get(this.path + 'user/' + userId + token)
       .map((response: Response) => {
         const users = response.json().obj;
@@ -137,17 +122,13 @@ export class AuthService {
         this.errorService.handleError(error.json());
         return Observable.throw(error.json());
       });
-
-
   }
-
 
   getlistAllUsers() {
     const userId = localStorage.getItem('userId');
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-
     return this.http.get(this.path + 'user/all/' + userId + token)
       .map((response: Response) => {
         const users = response.json().obj;
@@ -1187,7 +1168,6 @@ export class AuthService {
       ? '?token=' + localStorage.getItem('token')
       : '';
 
-    console.log('deletando', body);
     return this.http.delete(this.path + 'pontos/validity/' + validity.id, body)
       .map((response: Response) => response.json())
       .catch((error: Response) => {
@@ -1362,10 +1342,7 @@ export class AuthService {
       : '';
     return this.http.get(this.path + 'escalas/perfil/' + userId + token)
       .map((response: Response) => {
-        console.log('response', response);
-
         const escalas = response.json().obj;
-        console.log('OOLHA ES', escalas);
         return escalas;
       })
       .catch((error: Response) => {
@@ -1515,10 +1492,7 @@ export class AuthService {
     const userId = localStorage.getItem('userId');
     return this.http.post(this.path + 'telegram/cadastro/grupo/' + userId, body)
       .map((response: Response) => {
-        console.log(response, 'aquii');
         return response;
-
-
       })
       .catch((error: Response) => {
         return Observable.throw(error.json());

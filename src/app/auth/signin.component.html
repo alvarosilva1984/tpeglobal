@@ -10,7 +10,6 @@
           </div>
           <!--         <h3>TPE Metropolitano</h3> -->
           <!--   <p>Santo André</p> -->
-
           <div class="panel-body">
             <form name='form-login' role="form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
               <fieldset>
@@ -28,12 +27,10 @@
                 <button class="btn btn-default" id="entrar" type="submit" [disabled]="!myForm.valid">Entrar</button>
                 <br>
                 <a style="margin-right:10%;float:right; font-size: 60%; position: right; color:blue;"
-                   id="recuperarSenha" value="recSenha"
-                   routerLink="/auth/sendpass" routerLinkActive="active">Recuperar Senha</a>
+                   id="recuperarSenha" routerLink="/auth/sendpass" routerLinkActive="active">Recuperar Senha</a>
               </fieldset>
             </form>
             <br>
-
           </div>
         </div>
       </div>

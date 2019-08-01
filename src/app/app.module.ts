@@ -4,10 +4,9 @@ import {AnuncioComponent} from './anuncio/anuncio.component';
 import {HelpComponent} from './help/help.component';
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {NgProbeToken} from '@angular/core';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpModule, Http} from '@angular/http';
+import {HttpModule} from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
@@ -28,7 +27,6 @@ import {NewpassComponent} from './auth/newpass.component';
 import {SendpassComponent} from './auth/sendpass.component';
 import {MsgresetmailComponent} from './success/msgresetmail.component';
 import {DesignationsComponent} from './auth/designations.component';
-
 
 import {phoneMaskDirective} from './auth/mask.directive';
 import {StatisticComponent} from './auth/statistic.component';
@@ -100,8 +98,6 @@ import {NgxChartsModule} from '@swimlane/ngx-charts';
     AnuncioComponent,
     AnunciouserComponent,
     PerfilroleComponent
-
-
   ],
   imports: [
     NgbModule.forRoot(),
@@ -117,7 +113,6 @@ import {NgxChartsModule} from '@swimlane/ngx-charts';
   ],
   providers: [AuthService, ErrorService, Authguard, Adminguard, Logisticguard, Normalguard, Commonguard, Ctcguard],
   bootstrap: [AppComponent],
-
 })
 export class AppModule {
 
