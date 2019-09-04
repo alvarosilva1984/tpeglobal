@@ -90,13 +90,12 @@ export class NewscheduleComponent implements OnInit {
 
     this.authService.getValidity().subscribe((validities: Validity[]) => {
       this.validities = validities.filter(a => {
-        if (a.status == false) {
+        if (a.status == true) {
           return true;
         }
       });
 
       const validitiessort = this.validities;
-      console.log("---->", this.validities)
       validitiessort.sort((a, b) => {
         if (a.begin > b.begin) {
           return -1;
@@ -286,9 +285,6 @@ export class NewscheduleComponent implements OnInit {
       const x = new Date(a.begin);
       const y = new Date(a.end);
       const z = escala.data;
-      console.log(x);
-      console.log(y);
-      console.log(z);
 
       return ((+z >= +x) && (+z <= +y));
 
